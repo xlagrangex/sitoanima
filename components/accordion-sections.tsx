@@ -91,7 +91,7 @@ const UpcomingShowsCarousel = () => {
   }, [shows.length])
 
   return (
-    <div className="w-full max-w-7xl mx-auto mt-12">
+    <div className="w-full max-w-7xl mx-auto mt-12 overflow-x-hidden">
       <div className="relative py-12">
         <div
           className="flex transition-transform duration-700 ease-in-out"
@@ -516,7 +516,7 @@ export function AccordionSections() {
   const sections = [
     {
       id: "format",
-      title: "WHERE MUSIC MEETS MAGIC",
+      title: "WHERE MUSIC MEETS\u00A0MAGIC",
       content:
         "Enter a musical wonderland, unlike anything you've ever experienced before. Ushuaia Ibiza has been the destination of choice for international thrill-seekers arriving on the island since its inception.",
     },
@@ -560,7 +560,7 @@ export function AccordionSections() {
 
   return (
     <motion.div
-      className="max-w-4xl mx-auto px-4 py-20"
+      className="max-w-4xl mx-auto px-4 py-20 w-full overflow-x-hidden"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -568,7 +568,7 @@ export function AccordionSections() {
     >
       {sections.map((section, index) => (
         <motion.div key={section.id} variants={itemVariants} className="w-full mb-20 text-center">
-          <h2 className="title-primary text-5xl md:text-6xl lg:text-7xl mb-8 text-black">
+          <h2 className="title-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mb-8 text-black">
             <AnimatedText text={section.title} className="title-primary text-black" />
           </h2>
 

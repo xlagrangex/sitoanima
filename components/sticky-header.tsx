@@ -50,7 +50,7 @@ export function StickyHeader() {
             <motion.button
               key={section}
               onClick={() => scrollToSection(section)}
-              className="font-sequel text-white/90 hover:text-white transition-colors text-sm font-black tracking-[0.15em] uppercase"
+              className="font-sequel text-white/90 hover:text-white transition-colors text-sm font-black tracking-[0.08em] uppercase"
               style={{ wordSpacing: '0.4em' }}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}

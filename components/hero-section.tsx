@@ -25,7 +25,7 @@ export function HeroSection() {
   }
 
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-primary">
+    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-primary w-full">
       {/* Content */}
       <motion.div
         className="relative z-10 text-center text-white px-4 max-w-4xl"
