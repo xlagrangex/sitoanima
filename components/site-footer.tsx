@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="text-3xl font-bold mb-4 text-primary">ANIMA</h3>
+            <h3 className="title-primary text-4xl md:text-5xl mb-4 text-primary">ANIMA</h3>
             <p className="text-lg text-white/80 mb-4">Until the Sun Rises</p>
             <p className="text-white/60 max-w-md">
               Il format che ridefinisce la notte. Musica elettronica, atmosfere uniche e un'esperienza che va oltre il
@@ -19,14 +19,14 @@ export function SiteFooter() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-sequel text-sm font-black mb-4 uppercase tracking-[0.15em]" style={{ wordSpacing: '0.4em' }}>Quick Links</h4>
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => document.getElementById("format")?.scrollIntoView({ behavior: "smooth" })}
                   className="text-white/60 hover:text-white transition-colors"
                 >
-                  Il Format
+                  Format
                 </button>
               </li>
               <li>
@@ -58,7 +58,7 @@ export function SiteFooter() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contatti</h4>
+            <h4 className="font-sequel text-sm font-black mb-4 uppercase tracking-[0.15em]" style={{ wordSpacing: '0.4em' }}>Contatti</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail size={16} className="text-primary" />

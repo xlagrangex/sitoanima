@@ -1,15 +1,8 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Bebas_Neue } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { Suspense } from "react"
-
-const bebasNeue = Bebas_Neue({
-  subsets: ["latin"],
-  weight: ["400"],
-  variable: "--font-bebas-neue",
-})
 
 export const metadata: Metadata = {
   title: "ANIMA – Until the Sun Rises | Electronic Music Events",
@@ -37,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it">
-      <body className={`font-sans ${bebasNeue.variable}`}>
+      <body className="font-avenir">
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>

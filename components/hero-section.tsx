@@ -42,9 +42,9 @@ export function HeroSection() {
           <Image
             src="/anima-complete-white.png"
             alt="ANIMA - Until the Sun Rises"
-            width={600}
-            height={200}
-            className="w-full max-w-2xl h-auto drop-shadow-2xl"
+            width={800}
+            height={300}
+            className="w-full max-w-4xl h-auto drop-shadow-2xl"
             priority
           />
         </motion.div>
@@ -57,7 +57,7 @@ export function HeroSection() {
           <Button
             onClick={scrollToFormat}
             size="lg"
-            className="bg-black hover:bg-black/90 text-white px-8 py-4 text-lg shadow-lg font-black tracking-wide"
+            className="btn-primary bg-black hover:bg-black/90 text-white px-8 py-4 text-lg shadow-lg"
           >
             Scopri il format
           </Button>

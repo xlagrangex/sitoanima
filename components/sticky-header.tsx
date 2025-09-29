@@ -37,26 +37,27 @@ export function StickyHeader() {
       <nav className="flex items-center justify-between">
         <motion.button
           onClick={() => scrollToSection("hero")}
-          className="flex items-center hover:scale-105 transition-transform"
+          className="flex items-center hover:scale-105 transition-transform mr-12"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Image src="/anima-logo-white.png" alt="ANIMA" width={32} height={32} className="w-8 h-8" />
+          <Image src="/anima-logo-white.png" alt="ANIMA" width={120} height={40} className="h-10 w-auto object-contain" />
         </motion.button>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           {["format", "venue", "shows", "media", "contatti"].map((section, index) => (
             <motion.button
               key={section}
               onClick={() => scrollToSection(section)}
-              className="text-white/90 hover:text-white transition-colors text-lg font-normal tracking-wider uppercase"
+              className="font-sequel text-white/90 hover:text-white transition-colors text-sm font-black tracking-[0.15em] uppercase"
+              style={{ wordSpacing: '0.4em' }}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
               whileHover={{ scale: 1.05 }}
             >
-              {section === "format" && "Il Format"}
+              {section === "format" && "Format"}
               {section === "venue" && "Venue"}
               {section === "shows" && "Shows"}
               {section === "media" && "Media"}
@@ -67,7 +68,7 @@ export function StickyHeader() {
 
         {/* Social Icons */}
         <motion.div
-          className="hidden md:flex items-center space-x-3"
+          className="hidden md:flex items-center space-x-3 ml-12"
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 1.2 }}
@@ -111,12 +112,13 @@ export function StickyHeader() {
                 <motion.button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className="text-white/90 hover:text-white transition-colors text-left py-2 font-medium"
+                  className="font-sequel text-white/90 hover:text-white transition-colors text-left py-2 font-black uppercase text-sm tracking-[0.15em]"
+                  style={{ wordSpacing: '0.4em' }}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.2, delay: index * 0.05 }}
                 >
-                  {section === "format" && "Il Format"}
+                  {section === "format" && "Format"}
                   {section === "venue" && "Venue"}
                   {section === "shows" && "Shows"}
                   {section === "media" && "Media"}

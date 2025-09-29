@@ -117,8 +117,8 @@ const UpcomingShowsCarousel = () => {
                     </div>
 
                     <div className="text-center">
-                      <h3 className="text-3xl md:text-4xl font-black mb-2 tracking-wider">{show.artist}</h3>
-                      <p className="text-base font-bold mb-3">{show.event}</p>
+                      <h3 className="title-primary text-2xl md:text-3xl mb-2">{show.artist}</h3>
+                      <p className="font-sequel text-sm font-bold mb-3 tracking-[0.15em]" style={{ wordSpacing: '0.4em' }}>{show.event}</p>
                       <p className="text-sm font-medium opacity-90">{show.date}</p>
                     </div>
 
@@ -195,7 +195,7 @@ const InstagramReelCarousel = () => {
 
   return (
     <div className="w-full max-w-6xl mx-auto mt-16">
-      <h3 className="text-2xl md:text-3xl font-black text-center mb-8 text-black tracking-wide">
+      <h3 className="title-primary text-xl md:text-2xl text-center mb-8 text-black">
         FOLLOW US ON INSTAGRAM
       </h3>
 
@@ -317,7 +317,7 @@ const StageCarousel = () => {
                     </div>
 
                     <div className="text-left">
-                      <h3 className="text-2xl md:text-3xl font-black mb-3 tracking-wide">{feature.title}</h3>
+                      <h3 className="title-primary text-xl md:text-2xl mb-3">{feature.title}</h3>
                       <p className="text-base opacity-90 leading-relaxed">{feature.description}</p>
                     </div>
                   </div>
@@ -432,7 +432,7 @@ const MediaCarousel = () => {
                     </div>
 
                     <div className="text-left">
-                      <h3 className="text-xl md:text-2xl font-black mb-3 tracking-wide leading-tight">{item.title}</h3>
+                      <h3 className="title-primary text-lg md:text-xl mb-3 leading-tight">{item.title}</h3>
                       <p className="text-sm opacity-90 leading-relaxed">{item.description}</p>
                     </div>
                   </div>
@@ -568,8 +568,8 @@ export function AccordionSections() {
     >
       {sections.map((section, index) => (
         <motion.div key={section.id} variants={itemVariants} className="w-full mb-20 text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-8 text-black tracking-wide">
-            <AnimatedText text={section.title} className="text-black" />
+          <h2 className="title-primary text-5xl md:text-6xl lg:text-7xl mb-8 text-black">
+            <AnimatedText text={section.title} className="title-primary text-black" />
           </h2>
 
           <div className="max-w-2xl mx-auto">

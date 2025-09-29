@@ -3,6 +3,23 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Custom Fonts */
+@font-face {
+  font-family: 'Avenir';
+  src: url('/fonts/AvenirLTStd-Book.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sequel';
+  src: url('/fonts/Sequel100Black-85.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* ANIMA brand color palette - Red, Black, White, Orange */
   --background: oklch(1 0 0); /* white */
@@ -38,9 +55,10 @@
   --sidebar-accent-foreground: oklch(0.1 0 0);
   --sidebar-border: oklch(0.2 0 0);
   --sidebar-ring: oklch(0.55 0.22 25 / 0.3);
-  /* Updated font variable to Bebas Neue for ANIMA logo style */
+  /* Custom fonts for ANIMA brand */
+  --font-avenir: "Avenir", sans-serif;
+  --font-sequel: "Sequel", sans-serif;
   --font-bebas-neue: "Bebas Neue", sans-serif;
-  --font-archivo: "Archivo", sans-serif;
 }
 
 .dark {
@@ -79,8 +97,9 @@
 }
 
 @theme inline {
-  /* Updated font-sans to use Bebas Neue variable for bold, squared look */
-  --font-sans: var(--font-bebas-neue);
+  /* Custom font configuration: Avenir for body text, Sequel for titles/buttons */
+  --font-sans: var(--font-avenir);
+  --font-title: var(--font-sequel);
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -126,6 +145,44 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .font-avenir {
+    font-family: var(--font-avenir);
+  }
+  
+  .font-sequel {
+    font-family: var(--font-sequel);
+  }
+  
+  .font-sequel-spaced {
+    font-family: var(--font-sequel);
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    word-spacing: 0.4em;
+    font-size: 0.85em;
+    text-transform: uppercase;
+  }
+  
+  /* Title styles using Sequel */
+  .title-primary {
+    font-family: var(--font-sequel);
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    word-spacing: 0.25em;
+    font-size: 1.43em;
+  }
+  
+  /* Button styles using Sequel */
+  .btn-primary {
+    font-family: var(--font-sequel);
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    word-spacing: 0.4em;
+    text-transform: uppercase;
+    font-size: 0.85em;
   }
 }
 
