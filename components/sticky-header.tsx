@@ -34,10 +34,10 @@ export function StickyHeader() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
     >
-      <nav className="flex items-center justify-center relative">
+      <nav className="flex items-center justify-between h-full">
         <motion.button
           onClick={() => scrollToSection("hero")}
-          className="absolute left-0 flex items-center hover:scale-105 transition-transform"
+          className="flex items-center hover:scale-105 transition-transform"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -45,7 +45,7 @@ export function StickyHeader() {
         </motion.button>
 
         {/* Desktop Navigation - Centered */}
-        <div className="hidden md:flex items-center space-x-6">
+        <div className="hidden md:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
           {["format", "venue", "shows", "media", "contatti"].map((section, index) => (
             <motion.button
               key={section}
@@ -69,7 +69,7 @@ export function StickyHeader() {
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden absolute right-0 text-white p-2"
+          className="md:hidden text-white p-2"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
