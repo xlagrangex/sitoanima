@@ -2,6 +2,7 @@
 
 import { Instagram, Mail, MapPin, Phone } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
+import Image from "next/image"
 
 export function SiteFooter() {
   const { t } = useLanguage()
@@ -12,7 +13,15 @@ export function SiteFooter() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="title-primary text-4xl md:text-5xl mb-4 text-primary">ANIMA</h3>
+            <div className="mb-6">
+              <Image 
+                src="/anima-extended-white.png" 
+                alt="ANIMA" 
+                width={200} 
+                height={60} 
+                className="h-12 w-auto object-contain"
+              />
+            </div>
             <p className="text-lg text-white/80 mb-4">{t('footer.tagline')}</p>
             <p className="text-white/60 max-w-md">
               {t('footer.description')}

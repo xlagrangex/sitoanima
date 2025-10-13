@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     "Join us for an unforgettable night of electronic music. ANIMA presents cutting-edge DJs and immersive experiences until the sun rises.",
   generator: "v0.app",
   keywords: "electronic music, DJ, nightlife, events, ANIMA, underground",
+  icons: {
+    icon: "/anima-logo-white.png",
+    shortcut: "/anima-logo-white.png",
+    apple: "/anima-logo-white.png",
+  },
   openGraph: {
     title: "ANIMA – Until the Sun Rises",
     description: "Join us for an unforgettable night of electronic music",
