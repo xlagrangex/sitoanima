@@ -2,8 +2,11 @@
 
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function HeroSection() {
+  const { t } = useLanguage()
+  
   const scrollToFormat = () => {
     document.getElementById("format")?.scrollIntoView({ behavior: "smooth" })
   }
@@ -38,8 +41,8 @@ export function HeroSection() {
         </div>
 
         <p className="text-base md:text-lg mb-6 leading-relaxed max-w-xl mx-auto">
-          Where house and afrohouse converge into a radiant journey.<br />
-          A club experience built around joy, light and freedom — designed to last until the sunrise.
+          {t('hero.tagline')}<br />
+          {t('hero.tagline2')}
         </p>
 
         <div>
@@ -48,7 +51,7 @@ export function HeroSection() {
             size="lg"
             className="btn-primary bg-red-900 hover:bg-red-800 text-white px-8 py-4 text-lg shadow-lg"
           >
-            Discover the Format
+            {t('hero.cta')}
           </Button>
         </div>
       </div>

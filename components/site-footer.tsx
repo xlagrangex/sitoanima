@@ -1,8 +1,11 @@
 "use client"
 
 import { Instagram, Mail, MapPin, Phone } from "lucide-react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function SiteFooter() {
+  const { t } = useLanguage()
+  
   return (
     <footer className="bg-black text-white py-16">
       <div className="container mx-auto px-4">
@@ -10,15 +13,15 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="md:col-span-2">
             <h3 className="title-primary text-4xl md:text-5xl mb-4 text-primary">ANIMA</h3>
-            <p className="text-lg text-white/80 mb-4">Until the Sunrise</p>
+            <p className="text-lg text-white/80 mb-4">{t('footer.tagline')}</p>
             <p className="text-white/60 max-w-md">
-              Where house and afrohouse converge into a radiant journey. A club experience built around joy, light and freedom.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-sequel text-sm font-black mb-4 uppercase tracking-[0.15em]" style={{ wordSpacing: '0.4em' }}>Quick Links</h4>
+            <h4 className="font-sequel text-sm font-black mb-4 uppercase tracking-[0.15em]" style={{ wordSpacing: '0.4em' }}>{t('footer.quicklinks')}</h4>
             <ul className="space-y-2">
               <li>
                 <button
@@ -57,7 +60,7 @@ export function SiteFooter() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-sequel text-sm font-black mb-4 uppercase tracking-[0.15em]" style={{ wordSpacing: '0.4em' }}>Contatti</h4>
+            <h4 className="font-sequel text-sm font-black mb-4 uppercase tracking-[0.15em]" style={{ wordSpacing: '0.4em' }}>{t('footer.contact')}</h4>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail size={16} className="text-primary" />
@@ -82,7 +85,7 @@ export function SiteFooter() {
         {/* Social Media & Copyright */}
         <div className="border-t border-white/10 mt-12 pt-8">
           <div className="text-center mb-6">
-            <p className="text-white/80 mb-4">Let&apos;s get in touch! Follow us on our Social Media</p>
+            <p className="text-white/80 mb-4">{t('footer.social')}</p>
             <div className="flex items-center justify-center space-x-6">
               <a href="https://instagram.com/anima.ent" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-colors" aria-label="Instagram">
                 <Instagram size={28} />
@@ -97,7 +100,7 @@ export function SiteFooter() {
           
           <div className="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-6">
             <div className="text-center md:text-left mb-4 md:mb-0">
-              <p className="text-white/60 text-sm">© 2024 ANIMA Events. All rights reserved.</p>
+              <p className="text-white/60 text-sm">{t('footer.rights')}</p>
             </div>
             <div className="flex items-center space-x-4">
               <button
