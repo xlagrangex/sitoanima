@@ -118,7 +118,7 @@ export function AccordionSections() {
           className={`w-full py-12 md:py-16 px-4 text-center ${backgrounds[index % backgrounds.length]}`}
         >
           <div className="max-w-[90%] md:max-w-[60%] mx-auto">
-            <h2 className="title-primary mb-8 md:mb-12 text-black leading-[0.9]" style={{ fontSize: 'clamp(1rem, 3.75vw, 4.5rem)' }}>
+            <h2 className="title-primary mb-8 md:mb-12 text-black leading-[0.9]" style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)' }}>
               {t(section.titleKey)}
           </h2>
 
