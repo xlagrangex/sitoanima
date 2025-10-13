@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { motion } from "framer-motion"
+import { GlitchText, GlitchContainer, GlitchButton, staggerContainer, staggerItem } from "@/components/glitch-animations"
 
 export function AccordionSections() {
   const { t } = useLanguage()
@@ -119,9 +120,13 @@ export function AccordionSections() {
           className={`w-full py-12 md:py-16 px-4 text-center ${backgrounds[index % backgrounds.length]}`}
         >
           <div className="max-w-[90%] md:max-w-[60%] mx-auto">
-            <h2 className="title-primary mb-8 md:mb-12 text-black leading-[0.9]" style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)' }}>
+            <GlitchText 
+              className="title-primary mb-8 md:mb-12 text-black leading-[0.9] block" 
+              style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)' }}
+              delay={index * 0.1}
+            >
               {t(section.titleKey)}
-          </h2>
+            </GlitchText>
 
             {section.id === "playlist" ? (
               <div className="max-w-4xl mx-auto">
@@ -143,7 +148,7 @@ export function AccordionSections() {
             ) : (
               <>
                 <div className="max-w-4xl mx-auto">
-                <p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-700 mb-6 md:mb-8 text-left md:text-center">
+                  <p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-700 mb-6 md:mb-8 text-left md:text-center">
                     {t(section.contentKey)}
             </p>
           </div>
@@ -167,12 +172,12 @@ export function AccordionSections() {
                         {t(section.cta.textKey)}
                   </Button>
                     )}
-                  </div>
-                )}
-              </>
-            )}
-          </div>
               </div>
+                )}
+            </>
+          )}
+          </div>
+        </div>
       ))}
     </div>
   )
