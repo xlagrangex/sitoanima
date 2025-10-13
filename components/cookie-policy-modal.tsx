@@ -98,3 +98,4 @@ export function CookiePolicyModal({ isOpen, onClose }: CookiePolicyModalProps) {
     </div>
   )
 }
+

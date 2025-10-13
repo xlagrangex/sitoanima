@@ -194,7 +194,16 @@
     word-spacing: 0.4em;
     text-transform: uppercase;
     font-size: 0.85em;
-    white-space: nowrap;
+    white-space: normal;
+  }
+  
+  /* Mobile responsive button text */
+  @media (max-width: 768px) {
+    .btn-primary {
+      white-space: normal;
+      word-break: keep-all;
+      text-align: center;
+    }
   }
 }
 

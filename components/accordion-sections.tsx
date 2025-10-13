@@ -158,16 +158,16 @@ export function AccordionSections() {
                     {section.cta.href ? (
                       <Button
                         asChild
-                        className="btn-primary bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base shadow-lg"
+                        className="btn-primary bg-primary hover:bg-primary/90 text-white px-4 md:px-8 py-4 text-base shadow-lg max-w-full"
                       >
-                        <a href={section.cta.href} target="_blank" rel="noopener noreferrer">
+                        <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="block w-full text-center">
                           {t(section.cta.textKey)}
                         </a>
                       </Button>
                     ) : (
                       <Button
                         onClick={section.cta.action}
-                        className="btn-primary bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base shadow-lg"
+                        className="btn-primary bg-primary hover:bg-primary/90 text-white px-4 md:px-8 py-4 text-base shadow-lg max-w-full"
                       >
                         {t(section.cta.textKey)}
                   </Button>
