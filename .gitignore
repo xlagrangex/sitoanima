@@ -24,4 +24,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
-next-env.d.tspublic/ANIMA-TEASER-3-SEASON-4K.mp4
+next-env.d.ts
+
+# large videos
+public/ANIMA-TEASER-3-SEASON-4K.mp4
