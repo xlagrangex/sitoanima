@@ -127,6 +127,28 @@ export function AccordionSections() {
                 {t(section.contentKey)}
             </p>
             </div>
+
+            {section.cta && (
+              <div className="mt-6">
+                {section.cta.href ? (
+                  <Button
+                    asChild
+                    className="btn-primary bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base shadow-lg"
+                  >
+                    <a href={section.cta.href} target="_blank" rel="noopener noreferrer">
+                      {t(section.cta.textKey)}
+                    </a>
+                  </Button>
+                ) : (
+                  <Button
+                    onClick={section.cta.action}
+                    className="btn-primary bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base shadow-lg"
+                  >
+                    {t(section.cta.textKey)}
+                  </Button>
+                )}
+              </div>
+            )}
           </div>
               </div>
       ))}

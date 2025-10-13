@@ -34,17 +34,17 @@ export function StickyHeader() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
     >
-      <nav className="flex items-center justify-between">
+      <nav className="flex items-center justify-center relative">
         <motion.button
           onClick={() => scrollToSection("hero")}
-          className="flex items-center hover:scale-105 transition-transform mr-12"
+          className="absolute left-0 flex items-center hover:scale-105 transition-transform"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <Image src="/anima-logo-white.png" alt="ANIMA" width={120} height={40} className="h-10 w-auto object-contain" />
         </motion.button>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation - Centered */}
         <div className="hidden md:flex items-center space-x-6">
           {["format", "venue", "shows", "media", "contatti"].map((section, index) => (
             <motion.button
@@ -69,7 +69,7 @@ export function StickyHeader() {
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden text-white p-2"
+          className="md:hidden absolute right-0 text-white p-2"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
