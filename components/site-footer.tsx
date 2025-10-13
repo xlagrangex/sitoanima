@@ -3,12 +3,18 @@
 import { Instagram, Mail, MapPin, Phone } from "lucide-react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import Image from "next/image"
+import { useState } from "react"
+import { PrivacyPolicyModal } from "./privacy-policy-modal"
+import { CookiePolicyModal } from "./cookie-policy-modal"
 
 export function SiteFooter() {
   const { t } = useLanguage()
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false)
+  const [isCookieOpen, setIsCookieOpen] = useState(false)
   
   return (
-    <footer className="bg-black text-white py-16">
+    <>
+      <footer className="bg-black text-white py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -113,14 +119,14 @@ export function SiteFooter() {
             </div>
             <div className="flex items-center space-x-4">
               <button
-                onClick={() => document.getElementById("privacy")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => setIsPrivacyOpen(true)}
                 className="text-white/40 hover:text-white/60 transition-colors text-xs"
               >
                 Privacy Policy
               </button>
               <span className="text-white/20">•</span>
               <button
-                onClick={() => document.getElementById("privacy")?.scrollIntoView({ behavior: "smooth" })}
+                onClick={() => setIsCookieOpen(true)}
                 className="text-white/40 hover:text-white/60 transition-colors text-xs"
               >
                 Cookie Policy
@@ -130,5 +136,16 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
+
+    {/* Modals */}
+    <PrivacyPolicyModal 
+      isOpen={isPrivacyOpen} 
+      onClose={() => setIsPrivacyOpen(false)} 
+    />
+    <CookiePolicyModal 
+      isOpen={isCookieOpen} 
+      onClose={() => setIsCookieOpen(false)} 
+    />
+    </>
   )
 }
