@@ -122,33 +122,54 @@ export function AccordionSections() {
               {t(section.titleKey)}
           </h2>
 
-            <div className="max-w-4xl mx-auto">
-            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-700 mb-6 md:mb-8 text-left md:text-center">
-                {t(section.contentKey)}
+            {section.id === "playlist" ? (
+              <div className="max-w-4xl mx-auto">
+                <p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-700 mb-6 md:mb-8 text-left md:text-center">
+                  {t(section.contentKey)}
+                </p>
+                <iframe 
+                  data-testid="embed-iframe" 
+                  style={{borderRadius: "12px"}} 
+                  src="https://open.spotify.com/embed/playlist/5WpQ7y1j9EhRMQlMKPJqSx?utm_source=generator" 
+                  width="100%" 
+                  height="352" 
+                  frameBorder="0" 
+                  allowFullScreen={true}
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                  loading="lazy"
+                ></iframe>
+              </div>
+            ) : (
+              <>
+                <div className="max-w-4xl mx-auto">
+                <p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-700 mb-6 md:mb-8 text-left md:text-center">
+                    {t(section.contentKey)}
             </p>
           </div>
 
-            {section.cta && (
-              <div className="mt-6">
-                {section.cta.href ? (
-                  <Button
-                    asChild
-                    className="btn-primary bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base shadow-lg"
-                  >
-                    <a href={section.cta.href} target="_blank" rel="noopener noreferrer">
-                      {t(section.cta.textKey)}
-                    </a>
+                {section.cta && (
+                  <div className="mt-6">
+                    {section.cta.href ? (
+                      <Button
+                        asChild
+                        className="btn-primary bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base shadow-lg"
+                      >
+                        <a href={section.cta.href} target="_blank" rel="noopener noreferrer">
+                          {t(section.cta.textKey)}
+                        </a>
+                      </Button>
+                    ) : (
+                      <Button
+                        onClick={section.cta.action}
+                        className="btn-primary bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base shadow-lg"
+                      >
+                        {t(section.cta.textKey)}
                   </Button>
-                ) : (
-                  <Button
-                    onClick={section.cta.action}
-                    className="btn-primary bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base shadow-lg"
-                  >
-                    {t(section.cta.textKey)}
-                  </Button>
+                    )}
+                  </div>
                 )}
-              </div>
-          )}
+              </>
+            )}
           </div>
               </div>
       ))}
