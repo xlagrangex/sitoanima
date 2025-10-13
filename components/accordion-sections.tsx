@@ -115,15 +115,15 @@ export function AccordionSections() {
       {sections.map((section, index) => (
         <div 
           key={section.id} 
-          className={`w-full py-16 px-4 text-center ${backgrounds[index % backgrounds.length]}`}
+          className={`w-full py-12 md:py-16 px-4 text-center ${backgrounds[index % backgrounds.length]}`}
         >
-          <div className="max-w-[60%] mx-auto">
-            <h2 className="title-primary mb-12 text-black leading-[0.9]" style={{ fontSize: 'clamp(1rem, 3.75vw, 4.5rem)' }}>
+          <div className="max-w-[90%] md:max-w-[60%] mx-auto">
+            <h2 className="title-primary mb-8 md:mb-12 text-black leading-[0.9]" style={{ fontSize: 'clamp(1rem, 3.75vw, 4.5rem)' }}>
               {t(section.titleKey)}
           </h2>
 
             <div className="max-w-4xl mx-auto">
-            <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-8">
+            <p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-700 mb-6 md:mb-8 text-left md:text-center">
                 {t(section.contentKey)}
             </p>
             </div>

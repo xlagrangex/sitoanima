@@ -35,11 +35,11 @@ const translations = {
     'section5.content': 'A stage crafted for energy and emotion. High-end sound, immersive lights, LED architecture and the iconic rising sun create an atmosphere where every drop resonates, every transition glows, every moment becomes unforgettable.',
     
     'section6.title': 'RELIVE THE SUNRISE',
-    'section6.content': 'Every moment is captured: aftermovies, photo galleries and highlights that embody the spirit of ANIMA. Step back into the crowd, the beats, the sunrise and carry the memory forward.',
+    'section6.content': 'Every moment is captured: aftermovies, photo galleries and highlights that embody the spirit of ANIMA. Step back into the crowd and carry the memory forward.',
     'section6.cta': 'Check our Telegram group',
     
     'section7.title': 'THE SOUNDTRACK OF YOUR NIGHT',
-    'section7.content': 'Take ANIMA with you. Listen to our official playlist, curated to bring the sunrise energy to any moment.',
+    'section7.content': 'Take ANIMA with you. Listen to our official playlist, curated to bring the sunrise energy.',
     'section7.cta': 'Listen on Spotify',
     
     'section8.title': 'LET\'S CREATE TOGETHER.',
@@ -86,11 +86,11 @@ const translations = {
     'section5.content': 'Un palco creato per energia ed emozione. Suono di alta qualità, luci immersive, architettura LED e l\'iconico sole nascente creano un\'atmosfera in cui ogni drop risuona, ogni transizione brilla, ogni momento diventa indimenticabile.',
     
     'section6.title': 'RIVIVI L\'ALBA',
-    'section6.content': 'Ogni momento è catturato: aftermovie, gallerie fotografiche e highlights che incarnano lo spirito di ANIMA. Torna tra la folla, i beat, l\'alba e porta avanti il ricordo.',
+    'section6.content': 'Ogni momento è catturato: aftermovie, gallerie fotografiche e highlights che incarnano lo spirito di ANIMA. Torna tra la folla e porta avanti il ricordo.',
     'section6.cta': 'Unisciti al nostro gruppo Telegram',
     
     'section7.title': 'LA COLONNA SONORA DELLA TUA NOTTE',
-    'section7.content': 'Porta ANIMA con te. Ascolta la nostra playlist ufficiale, curata per portare l\'energia dell\'alba in ogni momento.',
+    'section7.content': 'Porta ANIMA con te. Ascolta la nostra playlist ufficiale, curata per portare l\'energia dell\'alba.',
     'section7.cta': 'Ascolta su Spotify',
     
     'section8.title': 'CREIAMO INSIEME.',
