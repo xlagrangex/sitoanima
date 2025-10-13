@@ -44,16 +44,6 @@ export function HeroSection() {
           {t('hero.tagline')}<br />
           {t('hero.tagline2')}
         </p>
-
-        <div>
-          <Button
-            onClick={scrollToFormat}
-            size="lg"
-            className="btn-primary bg-red-900 hover:bg-red-800 text-white px-8 py-4 text-lg shadow-lg"
-          >
-            {t('hero.cta')}
-          </Button>
-        </div>
       </div>
 
       <div className="absolute left-4 top-1/2 -translate-y-1/2 w-1 h-32 bg-white/30 hidden lg:block z-10" />

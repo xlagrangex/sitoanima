@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X, Instagram, Facebook, Twitter } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
 
@@ -66,26 +66,6 @@ export function StickyHeader() {
           ))}
         </div>
 
-        {/* Social Icons */}
-        <motion.div
-          className="hidden md:flex items-center space-x-3 ml-12"
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-        >
-          {[Instagram, Facebook, Twitter].map((Icon, index) => (
-            <motion.a
-              key={index}
-              href="#"
-              className="text-white/80 hover:text-white transition-colors"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Icon size={18} />
-            </motion.a>
-          ))}
-        </motion.div>
-
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -125,20 +105,6 @@ export function StickyHeader() {
                   {section === "contatti" && "Contatti"}
                 </motion.button>
               ))}
-              <div className="flex items-center space-x-4 pt-3 border-t border-white/20">
-                {[Instagram, Facebook, Twitter].map((Icon, index) => (
-                  <motion.a
-                    key={index}
-                    href="#"
-                    className="text-white/80 hover:text-white transition-colors"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.2, delay: 0.3 + index * 0.05 }}
-                  >
-                    <Icon size={18} />
-                  </motion.a>
-                ))}
-              </div>
             </div>
           </motion.div>
         )}
