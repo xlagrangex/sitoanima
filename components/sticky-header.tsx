@@ -46,7 +46,7 @@ export function StickyHeader() {
 
         {/* Desktop Navigation - Centered */}
         <div className="hidden md:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
-          {["format", "venue", "shows", "media", "contatti"].map((section, index) => (
+          {["format", "venue", "shows", "media", "map"].map((section, index) => (
             <motion.button
               key={section}
               onClick={() => scrollToSection(section)}
@@ -61,7 +61,7 @@ export function StickyHeader() {
               {section === "venue" && "Venue"}
               {section === "shows" && "Shows"}
               {section === "media" && "Media"}
-              {section === "contatti" && "Contatti"}
+              {section === "map" && "Contatti"}
             </motion.button>
           ))}
         </div>
@@ -88,7 +88,7 @@ export function StickyHeader() {
             transition={{ duration: 0.2 }}
           >
             <div className="flex flex-col space-y-3">
-              {["format", "venue", "shows", "media", "contatti"].map((section, index) => (
+              {["format", "venue", "shows", "media", "map"].map((section, index) => (
                 <motion.button
                   key={section}
                   onClick={() => scrollToSection(section)}
@@ -102,7 +102,7 @@ export function StickyHeader() {
                   {section === "venue" && "Venue"}
                   {section === "shows" && "Shows"}
                   {section === "media" && "Media"}
-                  {section === "contatti" && "Contatti"}
+                  {section === "map" && "Contatti"}
                 </motion.button>
               ))}
             </div>
