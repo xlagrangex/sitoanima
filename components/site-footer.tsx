@@ -1,6 +1,6 @@
 "use client"
 
-import { Instagram, Facebook, Twitter, Mail, MapPin, Phone } from "lucide-react"
+import { Instagram, Mail, MapPin, Phone } from "lucide-react"
 
 export function SiteFooter() {
   return (
@@ -10,10 +10,9 @@ export function SiteFooter() {
           {/* Brand */}
           <div className="md:col-span-2">
             <h3 className="title-primary text-4xl md:text-5xl mb-4 text-primary">ANIMA</h3>
-            <p className="text-lg text-white/80 mb-4">Until the Sun Rises</p>
+            <p className="text-lg text-white/80 mb-4">Until the Sunrise</p>
             <p className="text-white/60 max-w-md">
-              Il format che ridefinisce la notte. Musica elettronica, atmosfere uniche e un'esperienza che va oltre il
-              semplice evento.
+              Where house and afrohouse converge into a radiant journey. A club experience built around joy, light and freedom.
             </p>
           </div>
 
@@ -62,41 +61,45 @@ export function SiteFooter() {
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
                 <Mail size={16} className="text-primary" />
-                <a href="mailto:info@anima-events.com" className="text-white/60 hover:text-white transition-colors">
-                  info@anima-events.com
+                <a href="mailto:info.animaent@gmail.com" className="text-white/60 hover:text-white transition-colors text-sm">
+                  info.animaent@gmail.com
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={16} className="text-primary" />
-                <a href="tel:+393331234567" className="text-white/60 hover:text-white transition-colors">
-                  +39 333 123 4567
+                <a href="https://wa.me/393389040714" className="text-white/60 hover:text-white transition-colors">
+                  +39 338 904 0714
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin size={16} className="text-primary" />
-                <span className="text-white/60">Milano, Italia</span>
+                <span className="text-white/60">Napoli, Italia</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Social Media & Copyright */}
-        <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center space-x-6 mb-4 md:mb-0">
-            <a href="#" className="text-white/60 hover:text-primary transition-colors" aria-label="Instagram">
-              <Instagram size={24} />
-            </a>
-            <a href="#" className="text-white/60 hover:text-primary transition-colors" aria-label="Facebook">
-              <Facebook size={24} />
-            </a>
-            <a href="#" className="text-white/60 hover:text-primary transition-colors" aria-label="Twitter">
-              <Twitter size={24} />
-            </a>
+        <div className="border-t border-white/10 mt-12 pt-8">
+          <div className="text-center mb-6">
+            <p className="text-white/80 mb-4">Let&apos;s get in touch! Follow us on our Social Media</p>
+            <div className="flex items-center justify-center space-x-6">
+              <a href="https://instagram.com/anima.ent" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-colors" aria-label="Instagram">
+                <Instagram size={28} />
+              </a>
+              <a href="https://t.me/UNTILTHESUNRISES" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-colors" aria-label="Telegram">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635.099-.002.321.023.465.141.121.1.155.234.171.339.016.105.036.344.02.531z"/>
+                </svg>
+              </a>
+            </div>
           </div>
-
-          <div className="text-center md:text-right">
-            <p className="text-white/60 text-sm">© 2024 ANIMA Events. Tutti i diritti riservati.</p>
-            <div className="flex items-center justify-center md:justify-end space-x-4 mt-2">
+          
+          <div className="flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-6">
+            <div className="text-center md:text-left mb-4 md:mb-0">
+              <p className="text-white/60 text-sm">© 2024 ANIMA Events. All rights reserved.</p>
+            </div>
+            <div className="flex items-center space-x-4">
               <button
                 onClick={() => document.getElementById("privacy")?.scrollIntoView({ behavior: "smooth" })}
                 className="text-white/40 hover:text-white/60 transition-colors text-xs"

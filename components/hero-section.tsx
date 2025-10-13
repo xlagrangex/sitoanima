@@ -1,81 +1,60 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useState, useRef } from "react"
-import { motion } from "framer-motion"
 import Image from "next/image"
 
 export function HeroSection() {
-  const [isPlaying, setIsPlaying] = useState(true)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  const toggleVideo = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause()
-      } else {
-        videoRef.current.play()
-      }
-      setIsPlaying(!isPlaying)
-    }
-  }
-
   const scrollToFormat = () => {
     document.getElementById("format")?.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
-    <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden bg-primary w-full">
-      {/* Content */}
-      <motion.div
-        className="relative z-10 text-center text-white px-4 max-w-4xl"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
+    <section id="hero" className="relative flex items-center justify-center overflow-hidden w-screen" style={{ height: '80vh' }}>
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover"
       >
-        <motion.div
-          className="flex justify-center mb-8"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-        >
+        <source src="/ANIMA-TEASER-3-SEASON-4K.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Overlay semitrasparente */}
+      <div className="absolute inset-0 bg-black/50"></div>
+
+      {/* Content */}
+      <div className="relative z-10 text-center text-white px-4 max-w-2xl">
+        <div className="flex justify-center mb-6">
           <Image
             src="/anima-complete-white.png"
-            alt="ANIMA - Until the Sun Rises"
-            width={800}
-            height={300}
-            className="w-full max-w-4xl h-auto drop-shadow-2xl"
+            alt="ANIMA - Until the Sunrise"
+            width={400}
+            height={150}
+            className="w-full max-w-md h-auto drop-shadow-2xl"
             priority
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-        >
+        <p className="text-base md:text-lg mb-6 leading-relaxed max-w-xl mx-auto">
+          Where house and afrohouse converge into a radiant journey.<br />
+          A club experience built around joy, light and freedom — designed to last until the sunrise.
+        </p>
+
+        <div>
           <Button
             onClick={scrollToFormat}
             size="lg"
-            className="btn-primary bg-black hover:bg-black/90 text-white px-8 py-4 text-lg shadow-lg"
+            className="btn-primary bg-red-900 hover:bg-red-800 text-white px-8 py-4 text-lg shadow-lg"
           >
-            Scopri il format
+            Discover the Format
           </Button>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
-      <motion.div
-        className="absolute left-4 top-1/2 -translate-y-1/2 w-1 h-32 bg-white/30 hidden lg:block"
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
-      />
-      <motion.div
-        className="absolute right-4 top-1/2 -translate-y-1/2 w-1 h-32 bg-white/30 hidden lg:block"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
-      />
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 w-1 h-32 bg-white/30 hidden lg:block z-10" />
+      <div className="absolute right-4 top-1/2 -translate-y-1/2 w-1 h-32 bg-white/30 hidden lg:block z-10" />
     </section>
   )
 }

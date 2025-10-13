@@ -150,6 +150,13 @@
     @apply bg-background text-foreground;
     overflow-x: hidden;
   }
+  
+  /* Prevent word breaking */
+  h1, h2, h3, h4, h5, h6, p {
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
 }
 
 @layer utilities {
@@ -187,6 +194,7 @@
     word-spacing: 0.4em;
     text-transform: uppercase;
     font-size: 0.85em;
+    white-space: nowrap;
   }
 }
 
