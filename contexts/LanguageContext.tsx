@@ -19,7 +19,7 @@ const translations = {
     
     // Sections
     'section1.title': 'THE SOUL OF THE NIGHT.',
-    'section1.content': 'ANIMA is more than a party — it's a ritual of sound and light. Guided by house and afrohouse beats, the dancefloor becomes a place of pure expression, free from judgment and filled with unity. The rising sun above the DJ booth symbolizes the endless energy that carries us from midnight to dawn.',
+    'section1.content': 'ANIMA is more than a party — it\'s a ritual of sound and light. Guided by house and afrohouse beats, the dancefloor becomes a place of pure expression, free from judgment and filled with unity. The rising sun above the DJ booth symbolizes the endless energy that carries us from midnight to dawn.',
     
     'section2.title': 'THE FUTURE OF CLUBBING, TODAY.',
     'section2.content': 'Our venue hosts up to 1,200 people, transformed by immersive light and sound. At its core shines a glowing glass Sun, surrounded by spiraling LED cables — a symbol of power and beauty that defines the ANIMA experience. Red and white beams cut through the crowd, setting the rhythm for a night of elegance and intensity. Our home for the Winter is the Iconic neapolitan club HBToo, who hosts Anima since the beginning.',
@@ -29,7 +29,7 @@ const translations = {
     'section3.content': 'Every season ANIMA curates nights where international electronic music rise and spreads vibes through the night. Be part of the story — explore the upcoming shows and secure your spot beneath the Sun.',
     
     'section4.title': 'THOSE WHO SHARED THE LIGHT.',
-    'section4.content': 'From acclaimed DJs to rising voices, every guest has left their mark on our stage. Explore the legacy of artists who shaped our journey — and discover who's next.',
+    'section4.content': 'From acclaimed DJs to rising voices, every guest has left their mark on our stage. Explore the legacy of artists who shaped our journey — and discover who\'s next.',
     
     'section5.title': 'ENGINEERED FOR EUPHORIA.',
     'section5.content': 'A stage crafted for energy and emotion. High-end sound, immersive lights, LED architecture and the iconic rising sun create an atmosphere where every drop resonates, every transition glows, every moment becomes unforgettable.',
@@ -42,8 +42,8 @@ const translations = {
     'section7.content': 'Take ANIMA with you. Listen to our official playlist, curated to bring the sunrise energy to any moment.',
     'section7.cta': 'Listen on Spotify',
     
-    'section8.title': 'LET'S CREATE TOGETHER.',
-    'section8.content': 'ANIMA is open to collaborations with brands, promoters and artists. Let's build the next chapter of future clubbing, together.',
+    'section8.title': 'LET\'S CREATE TOGETHER.',
+    'section8.content': 'ANIMA is open to collaborations with brands, promoters and artists. Let\'s build the next chapter of future clubbing, together.',
     'section8.cta': 'Send Request',
     
     'section9.title': 'BE THE FIRST TO DANCE.',
@@ -138,4 +138,3 @@ export function useLanguage() {
   }
   return context
 }
-
