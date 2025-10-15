@@ -10,6 +10,7 @@ import { motion } from "framer-motion"
 import { GlitchText, GlitchContainer, GlitchButton, staggerContainer, staggerItem } from "@/components/glitch-animations"
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel"
 import { CircularGallery, type GalleryItem } from "@/components/ui/circular-gallery"
+import { Mail, MessageCircle, MapPin, Send, Music } from "lucide-react"
 
 export function AccordionSections() {
   const { t } = useLanguage()
@@ -22,6 +23,16 @@ export function AccordionSections() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log("Form submitted:", formData)
+  }
+
+  const getButtonIcon = (href?: string) => {
+    if (!href) return null
+    if (href.includes('mailto:')) return <Mail className="w-4 h-4 mr-2" />
+    if (href.includes('wa.me') || href.includes('whatsapp')) return <MessageCircle className="w-4 h-4 mr-2" />
+    if (href.includes('maps.google') || href.includes('google.com/maps')) return <MapPin className="w-4 h-4 mr-2" />
+    if (href.includes('t.me') || href.includes('telegram')) return <Send className="w-4 h-4 mr-2" />
+    if (href.includes('spotify')) return <Music className="w-4 h-4 mr-2" />
+    return null
   }
 
   const galleryItems: GalleryItem[] = [
@@ -210,7 +221,8 @@ export function AccordionSections() {
                       asChild
                       className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg max-w-full`}
                     >
-                      <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="block w-full text-center">
+                      <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full">
+                        {getButtonIcon(section.cta.href)}
                         {t(section.cta.textKey)}
                       </a>
                     </Button>
@@ -256,7 +268,8 @@ export function AccordionSections() {
                       asChild
                       className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg max-w-full`}
                     >
-                      <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="block w-full text-center">
+                      <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full">
+                        {getButtonIcon(section.cta.href)}
                         {t(section.cta.textKey)}
                       </a>
                     </Button>
@@ -287,15 +300,17 @@ export function AccordionSections() {
                         asChild
                         className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg max-w-full`}
                       >
-                        <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="block w-full text-center">
+                        <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full">
+                          {getButtonIcon(section.cta.href)}
                           {t(section.cta.textKey)}
                         </a>
                       </Button>
                     ) : (
                       <Button
                         onClick={section.cta.action}
-                        className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg max-w-full`}
+                        className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg max-w-full flex items-center justify-center`}
                       >
+                        <MapPin className="w-4 h-4 mr-2" />
                         {t(section.cta.textKey)}
                   </Button>
                     )}
