@@ -173,7 +173,7 @@ export function AccordionSections() {
       hasInstagram: true,
       cta: {
         textKey: "section11.cta",
-        href: "https://www.instagram.com/anima_events",
+        href: "https://www.instagram.com/anima.ent",
       },
     },
     {
