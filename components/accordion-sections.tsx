@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -10,6 +10,7 @@ import { motion } from "framer-motion"
 import { GlitchText, GlitchContainer, GlitchButton, staggerContainer, staggerItem } from "@/components/glitch-animations"
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel"
 import { CircularGallery, type GalleryItem } from "@/components/ui/circular-gallery"
+import { InstagramFeed } from "@/components/instagram-feed"
 import { Mail, MessageCircle, MapPin, Send, Music } from "lucide-react"
 
 export function AccordionSections() {
@@ -187,9 +188,12 @@ export function AccordionSections() {
     <div className="w-full overflow-x-hidden">
       {sections.map((section, index) => {
         const scheme = colorSchemes[index % colorSchemes.length]
+        const isLastSection = index === sections.length - 1
+        
         return (
+        <React.Fragment key={section.id}>
+        {isLastSection && <InstagramFeed />}
         <div 
-          key={section.id}
           id={section.id}
           className={`w-full min-h-screen flex items-center justify-center ${'hasCarousel' in section && section.hasCarousel ? 'py-1 md:py-2' : 'py-12 md:py-16'} px-4 text-center ${scheme.bg}`}
         >
@@ -320,6 +324,7 @@ export function AccordionSections() {
           )}
           </div>
         </div>
+        </React.Fragment>
         )
       })}
     </div>

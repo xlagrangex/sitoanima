@@ -219,3 +219,13 @@ html {
 .accordion-trigger[data-state="open"] {
   background-color: var(--muted);
 }
+
+/* Hide scrollbar for Instagram feed */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
