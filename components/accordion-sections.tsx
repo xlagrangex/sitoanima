@@ -9,6 +9,7 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { motion } from "framer-motion"
 import { GlitchText, GlitchContainer, GlitchButton, staggerContainer, staggerItem } from "@/components/glitch-animations"
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel"
+import { CircularGallery, type GalleryItem } from "@/components/ui/circular-gallery"
 
 export function AccordionSections() {
   const { t } = useLanguage()
@@ -23,15 +24,74 @@ export function AccordionSections() {
     console.log("Form submitted:", formData)
   }
 
+  const galleryItems: GalleryItem[] = [
+    {
+      common: "Energy",
+      binomial: "The Crowd",
+      photo: {
+        url: "/crowd-dancing-at-underground-techno-party.jpg",
+        text: "Crowd dancing at underground techno party",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Lights",
+      binomial: "Purple Vibes",
+      photo: {
+        url: "/electronic-music-crowd-dancing-purple-lights.jpg",
+        text: "Electronic music crowd with purple lights",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Performance",
+      binomial: "The DJ",
+      photo: {
+        url: "/dj-performing-at-electronic-music-event-with-red-l.jpg",
+        text: "DJ performing at electronic music event",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Atmosphere",
+      binomial: "Industrial Style",
+      photo: {
+        url: "/industrial-venue-interior-with-stage-and-purple-li.jpg",
+        text: "Industrial venue with purple lights",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Setup",
+      binomial: "DJ Booth",
+      photo: {
+        url: "/professional-dj-booth-with-cdj-and-mixer-purple-li.jpg",
+        text: "Professional DJ booth with CDJ and mixer",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Connection",
+      binomial: "Unity",
+      photo: {
+        url: "/techno-party-crowd-with-hands-up-dancing.jpg",
+        text: "Techno party crowd with hands up dancing",
+        by: "ANIMA Events"
+      }
+    }
+  ]
+
   const sections = [
     {
       id: "format",
+      subtitleKey: "section1.subtitle",
       titleKey: "section1.title",
       contentKey: "section1.content",
       cta: null,
     },
     {
       id: "venue",
+      subtitleKey: "section2.subtitle",
       titleKey: "section2.title",
       contentKey: "section2.content",
       cta: {
@@ -41,31 +101,21 @@ export function AccordionSections() {
     },
     {
       id: "shows",
+      subtitleKey: "section3.subtitle",
       titleKey: "section3.title",
       contentKey: "section3.content",
       cta: null,
     },
     {
       id: "guests",
+      subtitleKey: "section4.subtitle",
       titleKey: "section4.title",
       contentKey: "section4.content",
       cta: null,
     },
     {
-      id: "stage",
-      titleKey: "section5.title",
-      contentKey: "section5.content",
-      cta: null,
-    },
-    {
-      id: "gallery",
-      titleKey: "section5b.title",
-      contentKey: "section5b.content",
-      cta: null,
-      hasCarousel: true,
-    },
-    {
       id: "media",
+      subtitleKey: "section6.subtitle",
       titleKey: "section6.title",
       contentKey: "section6.content",
       cta: {
@@ -75,6 +125,7 @@ export function AccordionSections() {
     },
     {
       id: "playlist",
+      subtitleKey: "section7.subtitle",
       titleKey: "section7.title",
       contentKey: "section7.content",
       cta: {
@@ -84,6 +135,7 @@ export function AccordionSections() {
     },
     {
       id: "collaborations",
+      subtitleKey: "section8.subtitle",
       titleKey: "section8.title",
       contentKey: "section8.content",
       cta: {
@@ -93,6 +145,7 @@ export function AccordionSections() {
     },
     {
       id: "liste",
+      subtitleKey: "section9.subtitle",
       titleKey: "section9.title",
       contentKey: "section9.content",
       cta: {
@@ -102,6 +155,7 @@ export function AccordionSections() {
     },
     {
       id: "map",
+      subtitleKey: "section10.subtitle",
       titleKey: "section10.title",
       contentKey: "section10.content",
       cta: {
@@ -124,10 +178,16 @@ export function AccordionSections() {
         const scheme = colorSchemes[index % colorSchemes.length]
         return (
         <div 
-          key={section.id} 
+          key={section.id}
+          id={section.id}
           className={`w-full min-h-screen flex items-center justify-center ${'hasCarousel' in section && section.hasCarousel ? 'py-1 md:py-2' : 'py-12 md:py-16'} px-4 text-center ${scheme.bg}`}
         >
           <div className="max-w-[90%] md:max-w-[60%] mx-auto w-full">
+            {section.subtitleKey && (
+              <p className={`text-xs md:text-sm uppercase tracking-wider mb-3 md:mb-4 ${scheme.text} opacity-70 font-avenir`}>
+                {t(section.subtitleKey)}
+              </p>
+            )}
             <GlitchText 
               className={`title-primary ${'hasCarousel' in section && section.hasCarousel ? 'mb-1 md:mb-2' : 'mb-8 md:mb-12'} ${scheme.text} leading-[0.9] block`}
               style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)' }}
@@ -136,7 +196,28 @@ export function AccordionSections() {
               {t(section.titleKey)}
             </GlitchText>
 
-            {section.id === "playlist" ? (
+            {section.id === "media" ? (
+              <div className="w-full max-w-6xl mx-auto">
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-left md:text-center`}>
+                  {t(section.contentKey)}
+                </p>
+                <div className="w-full h-[500px] md:h-[600px]">
+                  <CircularGallery items={galleryItems} radius={400} autoRotateSpeed={0.015} />
+                </div>
+                {section.cta && section.cta.href && (
+                  <div className="mt-8">
+                    <Button
+                      asChild
+                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg max-w-full`}
+                    >
+                      <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="block w-full text-center">
+                        {t(section.cta.textKey)}
+                      </a>
+                    </Button>
+                  </div>
+                )}
+              </div>
+            ) : section.id === "playlist" ? (
               <div className="max-w-4xl mx-auto">
                 <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-left md:text-center`}>
                   {t(section.contentKey)}
@@ -152,6 +233,35 @@ export function AccordionSections() {
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                   loading="lazy"
                 ></iframe>
+              </div>
+            ) : section.id === "map" ? (
+              <div className="w-full max-w-5xl mx-auto">
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-left md:text-center`}>
+                  {t(section.contentKey)}
+                </p>
+                <div className="w-full aspect-[4/3] md:aspect-[16/9] rounded-lg overflow-hidden shadow-2xl">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.2225497639356!2d14.172673776545675!3d40.80110307138039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b0c1e75bca2d7%3A0xe08e8f4f3a917d24!2sHBTOO!5e0!3m2!1sit!2sit!4v1760536364942!5m2!1sit!2sit" 
+                    width="100%" 
+                    height="100%" 
+                    style={{border:0}} 
+                    allowFullScreen={true}
+                    loading="lazy" 
+                    referrerPolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </div>
+                {section.cta && section.cta.href && (
+                  <div className="mt-6">
+                    <Button
+                      asChild
+                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg max-w-full`}
+                    >
+                      <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="block w-full text-center">
+                        {t(section.cta.textKey)}
+                      </a>
+                    </Button>
+                  </div>
+                )}
               </div>
             ) : 'hasCarousel' in section && section.hasCarousel ? (
               <div className="max-w-7xl mx-auto">
