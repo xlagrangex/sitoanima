@@ -5,64 +5,57 @@ import { Button } from "@/components/ui/button"
 import { Instagram, Copy, Check, AlertCircle } from "lucide-react"
 
 export default function InstagramConnectPage() {
-  const [token, setToken] = useState<string | null>(null)
-  const [copied, setCopied] = useState(false)
+  const [step, setStep] = useState<'initial' | 'waiting' | 'success'>('initial')
+  const [tokenInput, setTokenInput] = useState('')
+  const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // Instagram OAuth config - questi valori vengono dal .env.local
-  const [appId, setAppId] = useState<string>("")
-  
-  useEffect(() => {
-    // Fetch app config from env
-    fetch('/api/instagram/config')
-      .then(res => res.json())
-      .then(data => {
-        if (data.clientId) {
-          setAppId(data.clientId)
-        }
-      })
-      .catch(err => console.error('Failed to load Instagram config:', err))
-  }, [])
-
-  const REDIRECT_URI = typeof window !== 'undefined' 
-    ? `${window.location.origin}/admin/instagram-connect/callback` 
-    : ""
-  
-  useEffect(() => {
-    // Check if there's a token in URL params (from callback)
-    const params = new URLSearchParams(window.location.search)
-    const tokenParam = params.get('token')
-    const errorParam = params.get('error')
+  const handleGetToken = () => {
+    // Apri il token generator in nuova finestra
+    window.open(
+      'https://instagram.tokenizer.app/',
+      'Instagram Token Generator',
+      'width=600,height=800,left=200,top=50'
+    )
     
-    if (tokenParam) {
-      setToken(tokenParam)
-      // Clean URL
-      window.history.replaceState({}, '', '/admin/instagram-connect')
-    }
-    
-    if (errorParam) {
-      setError(errorParam)
-    }
-  }, [])
-
-  const handleConnectInstagram = () => {
-    if (!appId) {
-      setError("App Instagram non configurata. Configura INSTAGRAM_CLIENT_ID in .env.local")
-      return
-    }
-    
-    const scope = 'user_profile,user_media'
-    const authUrl = `https://api.instagram.com/oauth/authorize?client_id=${appId}&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&scope=${scope}&response_type=code`
-    
-    // Open OAuth in same window
-    window.location.href = authUrl
+    // Mostra lo step "waiting" con il campo per incollare
+    setStep('waiting')
   }
 
-  const copyToClipboard = async () => {
-    if (token) {
-      await navigator.clipboard.writeText(token)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+  const handleSaveToken = async () => {
+    if (!tokenInput.trim()) {
+      setError('Inserisci il token')
+      return
+    }
+
+    setSaving(true)
+    setError(null)
+
+    try {
+      const response = await fetch('/api/instagram/save-token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: tokenInput.trim() }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        setError(data.error || 'Errore nel salvataggio del token')
+        setSaving(false)
+        return
+      }
+
+      setStep('success')
+      
+      // Redirect dopo 2 secondi
+      setTimeout(() => {
+        window.location.href = '/'
+      }, 2000)
+      
+    } catch (err) {
+      setError('Errore di connessione')
+      setSaving(false)
     }
   }
 
@@ -81,7 +74,7 @@ export default function InstagramConnectPage() {
           </p>
         </div>
 
-        {!token && !error && (
+        {step === 'initial' && (
           <div className="space-y-6">
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
               <h3 className="font-semibold text-blue-900 mb-2">📋 Prima di iniziare:</h3>
@@ -97,125 +90,125 @@ export default function InstagramConnectPage() {
               <ol className="space-y-3 text-gray-700">
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                  <span>Clicca il pulsante "Connetti Instagram" qui sotto</span>
+                  <span>Clicca "Ottieni Token" - si apre una nuova finestra</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
-                  <span>Accedi con le credenziali di <strong>@anima.ent</strong></span>
+                  <span>Login con <strong>@anima.ent</strong> e autorizza</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                  <span>Autorizza l'accesso quando richiesto</span>
+                  <span>Copia il token generato</span>
                 </li>
                 <li className="flex gap-3">
                   <span className="flex-shrink-0 w-6 h-6 bg-red-600 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
-                  <span>Il token verrà generato automaticamente</span>
+                  <span>Incollalo qui sotto e clicca "Salva"</span>
                 </li>
               </ol>
             </div>
 
             <Button
-              onClick={handleConnectInstagram}
+              onClick={handleGetToken}
               className="w-full bg-gradient-to-r from-purple-600 via-pink-600 to-orange-600 hover:from-purple-700 hover:via-pink-700 hover:to-orange-700 text-white py-6 text-lg font-bold"
               size="lg"
             >
               <Instagram className="w-6 h-6 mr-2" />
-              Connetti Instagram
+              Ottieni Token Instagram
             </Button>
 
             <p className="text-xs text-gray-500 text-center">
-              Verrai reindirizzato a Instagram per autorizzare l'accesso
+              Si aprirà una nuova finestra per autorizzare l'accesso
             </p>
           </div>
         )}
 
-        {error && (
-          <div className="bg-red-50 border border-red-200 rounded-lg p-6">
-            <div className="flex items-start gap-3">
-              <AlertCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <h3 className="font-semibold text-red-900 mb-1">Errore</h3>
-                <p className="text-red-700 text-sm mb-4">{error}</p>
+        {step === 'waiting' && (
+          <div className="space-y-6">
+            <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+              <h3 className="font-semibold text-green-900 mb-2">✅ Finestra aperta!</h3>
+              <ol className="text-sm text-green-800 space-y-2">
+                <li><strong>1.</strong> Nella nuova finestra, fai login con @anima.ent</li>
+                <li><strong>2.</strong> Autorizza l'accesso</li>
+                <li><strong>3.</strong> Copia il token che appare</li>
+                <li><strong>4.</strong> Incollalo nel campo qui sotto</li>
+              </ol>
+            </div>
+
+            <div className="space-y-3">
+              <label className="block text-sm font-semibold text-gray-700">
+                Incolla il Token qui:
+              </label>
+              <textarea
+                value={tokenInput}
+                onChange={(e) => setTokenInput(e.target.value)}
+                placeholder="Incolla qui il token di Instagram..."
+                className="w-full h-32 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent font-mono text-sm resize-none"
+              />
+              
+              {error && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-3 flex items-start gap-2">
+                  <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <p className="text-sm text-red-700">{error}</p>
+                </div>
+              )}
+
+              <div className="flex gap-3">
                 <Button
-                  onClick={() => {
-                    setError(null)
-                    window.location.href = '/admin/instagram-connect'
-                  }}
-                  variant="outline"
-                  className="border-red-300 text-red-700 hover:bg-red-50"
+                  onClick={handleSaveToken}
+                  disabled={saving || !tokenInput.trim()}
+                  className="flex-1 bg-red-600 hover:bg-red-700 text-white py-4 text-lg font-bold"
                 >
-                  Riprova
+                  {saving ? 'Salvataggio...' : 'Salva Token'}
+                </Button>
+                <Button
+                  onClick={() => setStep('initial')}
+                  variant="outline"
+                  className="px-6"
+                  disabled={saving}
+                >
+                  Indietro
                 </Button>
               </div>
             </div>
           </div>
         )}
 
-        {token && (
+        {step === 'success' && (
           <div className="space-y-6">
             <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-              <div className="flex items-start gap-3 mb-4">
-                <Check className="w-6 h-6 text-green-600 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold text-green-900 mb-1">✅ Token Generato!</h3>
-                  <p className="text-green-700 text-sm">
-                    Il feed Instagram di @anima.ent è ora connesso
+              <div className="flex items-center justify-center flex-col gap-4">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
+                  <Check className="w-10 h-10 text-green-600" />
+                </div>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold text-green-900 mb-2">✅ Connesso!</h3>
+                  <p className="text-green-700">
+                    Il feed Instagram di @anima.ent è ora attivo sul sito
                   </p>
                 </div>
               </div>
-
-              <div className="bg-white rounded-lg p-4 border border-green-200">
-                <label className="text-xs font-semibold text-gray-700 mb-2 block">
-                  ACCESS TOKEN:
-                </label>
-                <div className="flex gap-2">
-                  <code className="flex-1 bg-gray-50 px-3 py-2 rounded text-xs break-all border border-gray-200 font-mono">
-                    {token}
-                  </code>
-                  <Button
-                    onClick={copyToClipboard}
-                    variant="outline"
-                    size="sm"
-                    className="flex-shrink-0"
-                  >
-                    {copied ? (
-                      <Check className="w-4 h-4 text-green-600" />
-                    ) : (
-                      <Copy className="w-4 h-4" />
-                    )}
-                  </Button>
-                </div>
-              </div>
             </div>
 
-            <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-              <h3 className="font-semibold text-yellow-900 mb-2">⚠️ Importante:</h3>
-              <ul className="text-sm text-yellow-800 space-y-1">
-                <li>• Il token è già configurato nel sistema</li>
-                <li>• Dura <strong>60 giorni</strong></li>
-                <li>• Riceverai un promemoria quando scade</li>
-                <li>• Non condividerlo con nessuno</li>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <h3 className="font-semibold text-blue-900 mb-2">ℹ️ Informazioni:</h3>
+              <ul className="text-sm text-blue-800 space-y-1">
+                <li>• Il token è stato salvato in modo sicuro</li>
+                <li>• Il feed mostrerà gli ultimi 9 post di @anima.ent</li>
+                <li>• Validità: <strong>60 giorni</strong></li>
+                <li>• Cache: 1 ora (per performance)</li>
               </ul>
             </div>
 
-            <div className="flex gap-3">
-              <Button
-                onClick={() => window.location.href = '/'}
-                className="flex-1 bg-red-600 hover:bg-red-700 text-white"
-              >
-                Vai al Sito
-              </Button>
-              <Button
-                onClick={() => {
-                  setToken(null)
-                  window.location.href = '/admin/instagram-connect'
-                }}
-                variant="outline"
-                className="flex-1"
-              >
-                Genera Nuovo Token
-              </Button>
-            </div>
+            <Button
+              onClick={() => window.location.href = '/'}
+              className="w-full bg-red-600 hover:bg-red-700 text-white py-4 text-lg font-bold"
+            >
+              Vai al Sito
+            </Button>
+
+            <p className="text-xs text-gray-500 text-center">
+              Reindirizzamento automatico in 2 secondi...
+            </p>
           </div>
         )}
 

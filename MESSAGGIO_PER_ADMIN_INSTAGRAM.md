@@ -1,115 +1,69 @@
-# 📱 Messaggio per l'Admin di @anima.ent
+# 📱 Connetti Instagram al Sito ANIMA
 
 ---
 
-## 📨 COPIA E INVIA QUESTO MESSAGGIO:
-
----
+## 🎯 SUPER SEMPLICE - 1 MINUTO!
 
 Ciao! 👋
 
-Per integrare il feed Instagram di **@anima.ent** sul nostro sito web (griglia 3x3 con gli ultimi 9 post), ho bisogno del tuo aiuto per ottenere un **Access Token** da Instagram.
-
-### ⏱️ Tempo necessario: **5 MINUTI**
-
-### ✅ Cosa ti serve:
-- Accesso all'account Instagram **@anima.ent**
-- Un computer
-- Email per registrare un'app Facebook
+Per mostrare il feed Instagram di **@anima.ent** sul sito ANIMA, devi solo fare questi passaggi velocissimi:
 
 ---
 
-## 🚀 METODO VELOCE (Raccomandato - 5 minuti):
+## ✅ PASSI DA SEGUIRE:
 
-### **STEP 1: Verifica Account Business** (30 secondi)
+### **1. Vai sulla pagina admin del sito** (10 secondi)
 
-1. Apri Instagram app
-2. Vai su **Profilo** → Menu (☰) → **Impostazioni** → **Account**
-3. Se vedi "Switch to Personal Account" → **SEI GIÀ BUSINESS** ✅ vai allo Step 2
-4. Se vedi "Switch to Professional Account" → **Clicca e scegli Business** (gratis)
+Apri questo link:
 
----
+**http://localhost:3000/admin/instagram-connect**
 
-### **STEP 2: Crea App Facebook** (2 minuti)
-
-1. **Vai su**: https://developers.facebook.com/apps/
-2. **Clicca** il pulsante blu "Create App"
-3. **Scegli** "Business" come tipo
-4. **Compila**:
-   - **App Display Name**: "ANIMA Website"
-   - **App Contact Email**: [la tua email]
-5. **Clicca** "Create App"
-
-✅ **App creata!** Vedrai un **App ID** in alto (es: 123456789)
+(In produzione sarà: `https://tuosito.com/admin/instagram-connect`)
 
 ---
 
-### **STEP 3: Aggiungi Instagram e GENERA IL TOKEN** (2 minuti)
+### **2. Clicca "Ottieni Token Instagram"** (5 secondi)
 
-1. Nel **Dashboard** dell'app, scorri e trova **"Instagram Basic Display"**
-2. **Clicca** "Set Up"
-3. **SCORRI IN BASSO** fino alla sezione **"User Token Generator"**
-4. **Clicca** "Generate Token"
-5. Ti chiederà di accedere → **Accedi con @anima.ent**
-6. **Autorizza** l'accesso quando richiesto
-7. **COPIA IL TOKEN** che appare (inizia con `IGQV...` o `IG...`)
-
-📋 **Esempio token**: `IGQVJXa1FZAbc123...` (sarà lungo ~200 caratteri)
+Si aprirà una nuova finestra automaticamente
 
 ---
 
-### 📤 INVIAMELO COSÌ:
+### **3. Nella nuova finestra** (30 secondi):
 
-```
-Token Instagram ANIMA:
-[incolla qui il token copiato]
-```
-
-⚠️ **IMPORTANTE**: 
-- Mandamelo in **PRIVATO** (WhatsApp, email, DM)
-- **NON** pubblicarlo da nessuna parte
-- **NON** condividerlo con altri
+1. **Login** con le credenziali di @anima.ent
+2. **Autorizza** l'accesso quando richiesto
+3. **Copia** il token che appare (una stringa lunga)
 
 ---
 
-## ⏰ DA SAPERE:
+### **4. Torna alla pagina del sito** (15 secondi):
 
-- 🔄 Il token **scade dopo 60 giorni**
-- 📅 Ti manderò un **promemoria** quando scade
-- ⚡ Rinnovarlo è **velocissimo** (1 click, 30 secondi)
-- 🔁 Puoi sempre convertire l'account Instagram di nuovo a Personal dopo
-
----
-
-## 🆘 METODO ALTERNATIVO (ancora più veloce, 2 minuti):
-
-Se i passi sopra sono troppo complicati:
-
-1. **Vai su**: https://instagram.dmned.com/
-2. **Clicca** "Generate Token"
-3. **Accedi** con @anima.ent
-4. **Copia** il token
-5. **Inviamelo**
-
-⏱️ **Tempo**: 1 minuto!
+1. **Incolla** il token nel campo di testo
+2. **Clicca** "Salva Token"
+3. ✅ **FATTO!**
 
 ---
 
-## 💡 PROBLEMI?
+## 🎉 FINITO!
 
-Se ti blocchi da qualche parte:
-- 📸 **Fai uno screenshot**
-- 📱 **Mandamelo** 
-- ✅ Ti guido passo-passo!
+Il feed Instagram con i tuoi post reali apparirà sul sito automaticamente!
 
----
-
-Grazie mille per l'aiuto! 🙏
-
-Una volta che mi mandi il token, il feed Instagram apparirà automaticamente sul sito con le vostre foto reali! 🎉
+⏰ **Il token dura 60 giorni** - ti manderò un promemoria quando scade (rinnovarlo richiede gli stessi passaggi, 1 minuto).
 
 ---
 
-**P.S.** Se preferisci non fare tutto questo, possiamo anche usare un widget a pagamento tipo Behold ($9/mese) che fa tutto automaticamente. Fammi sapere!
+## 🆘 Hai problemi?
+
+Mandami uno screenshot e ti aiuto subito!
+
+Grazie! 🙏
 
 ---
+
+## ⚠️ NOTA:
+
+- NON devi creare nessuna app Facebook
+- NON devi configurare niente
+- Basta cliccare, autorizzare, incollare
+
+**Esattamente come i plugin WordPress!** ✨
