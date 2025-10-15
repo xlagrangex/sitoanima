@@ -190,9 +190,9 @@ export function AccordionSections() {
   ]
 
   const colorSchemes = [
-    { bg: 'bg-white', text: 'text-black', accent: 'text-red-600' },
-    { bg: 'bg-red-700', text: 'text-white', accent: 'text-black' },
     { bg: 'bg-black', text: 'text-white', accent: 'text-red-600' },
+    { bg: 'bg-red-700', text: 'text-white', accent: 'text-black' },
+    { bg: 'bg-white', text: 'text-black', accent: 'text-red-600' },
     { bg: 'bg-[#E78E00]', text: 'text-white', accent: 'text-white' },
   ]
 
