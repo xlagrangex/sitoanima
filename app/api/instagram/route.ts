@@ -1,13 +1,32 @@
 import { NextResponse } from 'next/server'
+import { readFile } from 'fs/promises'
+import { join } from 'path'
 
 export async function GET() {
-  const accessToken = process.env.INSTAGRAM_ACCESS_TOKEN
+  let accessToken = process.env.INSTAGRAM_ACCESS_TOKEN
   
+  // Try to read token from file if not in env
   if (!accessToken) {
-    return NextResponse.json(
-      { error: 'Instagram access token not configured' },
-      { status: 500 }
-    )
+    try {
+      const tokenFilePath = join(process.cwd(), '.instagram', 'token.json')
+      const tokenFileContent = await readFile(tokenFilePath, 'utf-8')
+      const tokenData = JSON.parse(tokenFileContent)
+      accessToken = tokenData.access_token
+      
+      // Check if token is expired
+      const expiresAt = new Date(tokenData.expires_at)
+      if (expiresAt < new Date()) {
+        return NextResponse.json(
+          { error: 'Token Instagram scaduto. Riconnetti l\'account.' },
+          { status: 401 }
+        )
+      }
+    } catch (err) {
+      return NextResponse.json(
+        { error: 'Instagram non configurato. Vai su /admin/instagram-connect per configurarlo.' },
+        { status: 500 }
+      )
+    }
   }
 
   try {
