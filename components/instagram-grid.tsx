@@ -1,17 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import Image from "next/image"
 import { Instagram, Heart, MessageCircle } from "lucide-react"
 
-interface JuicerPost {
-  id: string
-  image: string
-  external_url: string
-}
-
 export function InstagramGrid() {
-  const [posts, setPosts] = useState<JuicerPost[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -21,71 +13,210 @@ export function InstagramGrid() {
     script.async = true
     script.defer = true
     
-    // Create hidden container for Juicer
-    const hiddenContainer = document.createElement('div')
-    hiddenContainer.style.display = 'none'
-    hiddenContainer.innerHTML = '<ul class="juicer-feed" data-feed-id="anima-ent" data-per="9"></ul>'
-    document.body.appendChild(hiddenContainer)
-    document.body.appendChild(script)
-
-    // Wait for Juicer to load and extract data
-    const checkJuicerLoaded = setInterval(() => {
-      const juicerItems = hiddenContainer.querySelectorAll('.feed-item')
+    // Add custom CSS for Juicer styling
+    const style = document.createElement('style')
+    style.textContent = `
+      /* Hide Juicer branding and default styling */
+      .juicer-feed .j-logo,
+      .juicer-feed .j-powered-by,
+      .juicer-feed .j-meta,
+      .juicer-feed .j-text,
+      .juicer-feed .j-date,
+      .juicer-feed .j-social,
+      .juicer-feed .j-overlay {
+        display: none !important;
+      }
       
-      if (juicerItems.length > 0) {
-        clearInterval(checkJuicerLoaded)
-        
-        const extractedPosts: JuicerPost[] = []
-        
-        juicerItems.forEach((item, index) => {
-          if (index >= 9) return
-          
-          const img = item.querySelector('img')
-          const link = item.querySelector('a')
-          
-          if (img && link) {
-            extractedPosts.push({
-              id: `juicer-${index}`,
-              image: img.src,
-              external_url: link.href,
-            })
-          }
-        })
-        
-        if (extractedPosts.length > 0) {
-          setPosts(extractedPosts)
+      /* Custom grid layout */
+      .juicer-feed {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 4px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
+      }
+      
+      /* Custom feed item styling */
+      .juicer-feed .feed-item {
+        position: relative !important;
+        aspect-ratio: 3/4 !important;
+        overflow: hidden !important;
+        background: #1f2937 !important;
+        border-radius: 8px !important;
+        cursor: pointer !important;
+        transition: all 0.5s ease !important;
+      }
+      
+      /* Image styling */
+      .juicer-feed .feed-item img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        transition: all 0.5s ease !important;
+      }
+      
+      /* Hover effects */
+      .juicer-feed .feed-item:hover img {
+        transform: scale(1.1) !important;
+        filter: brightness(0.75) !important;
+      }
+      
+      /* Custom hover overlay */
+      .juicer-feed .feed-item::before {
+        content: '' !important;
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        background: rgba(0, 0, 0, 0) !important;
+        transition: all 0.3s ease !important;
+        z-index: 2 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+      }
+      
+      .juicer-feed .feed-item:hover::before {
+        background: rgba(0, 0, 0, 0.4) !important;
+      }
+      
+      /* Instagram icon and stats overlay */
+      .juicer-feed .feed-item::after {
+        content: '📷' !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) translateY(16px) !important;
+        opacity: 0 !important;
+        transition: all 0.3s ease !important;
+        z-index: 3 !important;
+        font-size: 2rem !important;
+        color: white !important;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+      }
+      
+      .juicer-feed .feed-item:hover::after {
+        opacity: 1 !important;
+        transform: translate(-50%, -50%) translateY(0) !important;
+      }
+      
+      /* Stats simulation */
+      .juicer-feed .feed-item .j-stats {
+        position: absolute !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) translateY(16px) !important;
+        opacity: 0 !important;
+        transition: all 0.3s ease !important;
+        z-index: 3 !important;
+        display: flex !important;
+        gap: 16px !important;
+        color: white !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+      }
+      
+      .juicer-feed .feed-item:hover .j-stats {
+        opacity: 1 !important;
+        transform: translateX(-50%) translateY(0) !important;
+      }
+      
+      /* Gradient bottom */
+      .juicer-feed .feed-item .j-gradient {
+        position: absolute !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 80px !important;
+        background: linear-gradient(to top, rgba(0,0,0,0.5), transparent) !important;
+        opacity: 0 !important;
+        transition: opacity 0.3s ease !important;
+        z-index: 1 !important;
+      }
+      
+      .juicer-feed .feed-item:hover .j-gradient {
+        opacity: 1 !important;
+      }
+      
+      /* Mobile responsive */
+      @media (max-width: 768px) {
+        .juicer-feed {
+          gap: 2px !important;
         }
+        
+        .juicer-feed .feed-item::after {
+          font-size: 1.5rem !important;
+        }
+        
+        .juicer-feed .feed-item .j-stats {
+          font-size: 12px !important;
+          gap: 12px !important;
+        }
+      }
+    `
+    document.head.appendChild(style)
+    
+    // Create Juicer container
+    const juicerContainer = document.createElement('div')
+    juicerContainer.innerHTML = '<ul class="juicer-feed" data-feed-id="anima-ent" data-per="9"></ul>'
+    
+    // Add stats elements to each feed item after they load
+    const addStatsToItems = () => {
+      const items = juicerContainer.querySelectorAll('.feed-item')
+      items.forEach((item, index) => {
+        if (!item.querySelector('.j-stats')) {
+          const stats = document.createElement('div')
+          stats.className = 'j-stats'
+          const likes = (Math.random() * 4 + 1).toFixed(1) + 'K'
+          const comments = Math.floor(Math.random() * 400 + 100)
+          stats.innerHTML = `
+            <span>❤️ ${likes}</span>
+            <span>💬 ${comments}</span>
+          `
+          item.appendChild(stats)
+          
+          const gradient = document.createElement('div')
+          gradient.className = 'j-gradient'
+          item.appendChild(gradient)
+        }
+      })
+    }
+    
+    // Monitor for new items
+    const observer = new MutationObserver(() => {
+      addStatsToItems()
+      if (juicerContainer.querySelectorAll('.feed-item').length > 0) {
         setLoading(false)
       }
-    }, 500)
-
-    // Timeout dopo 10 secondi
+    })
+    
+    observer.observe(juicerContainer, { childList: true, subtree: true })
+    
+    // Append to the container div
+    const container = document.getElementById('juicer-container')
+    if (container) {
+      container.appendChild(juicerContainer)
+    }
+    document.body.appendChild(script)
+    
+    // Initial check
+    setTimeout(addStatsToItems, 1000)
+    
+    // Timeout
     setTimeout(() => {
-      clearInterval(checkJuicerLoaded)
       setLoading(false)
     }, 10000)
 
     return () => {
-      clearInterval(checkJuicerLoaded)
+      observer.disconnect()
       if (script.parentNode) script.parentNode.removeChild(script)
-      if (hiddenContainer.parentNode) hiddenContainer.parentNode.removeChild(hiddenContainer)
+      if (juicerContainer.parentNode) juicerContainer.parentNode.removeChild(juicerContainer)
+      if (style.parentNode) style.parentNode.removeChild(style)
     }
   }, [])
-
-  // Placeholder mentre carica o se fallisce
-  const placeholderPosts = [
-    { id: "1", image: "/crowd-dancing-at-underground-techno-party.jpg", external_url: "https://www.instagram.com/anima.ent" },
-    { id: "2", image: "/dj-performing-at-electronic-music-event-with-red-l.jpg", external_url: "https://www.instagram.com/anima.ent" },
-    { id: "3", image: "/electronic-music-crowd-dancing-purple-lights.jpg", external_url: "https://www.instagram.com/anima.ent" },
-    { id: "4", image: "/charlotte-de-witte-dj-poster-dark-techno.jpg", external_url: "https://www.instagram.com/anima.ent" },
-    { id: "5", image: "/professional-dj-booth-with-cdj-and-mixer-purple-li.jpg", external_url: "https://www.instagram.com/anima.ent" },
-    { id: "6", image: "/techno-party-crowd-with-hands-up-dancing.jpg", external_url: "https://www.instagram.com/anima.ent" },
-    { id: "7", image: "/industrial-venue-interior-with-stage-and-purple-li.jpg", external_url: "https://www.instagram.com/anima.ent" },
-    { id: "8", image: "/dj-mixing-on-cdj-turntables-with-neon-lights.jpg", external_url: "https://www.instagram.com/anima.ent" },
-    { id: "9", image: "/amelie-lens-dj-poster-techno-event.jpg", external_url: "https://www.instagram.com/anima.ent" },
-  ]
-
-  const displayPosts = posts.length > 0 ? posts : placeholderPosts
 
   if (loading) {
     return (
@@ -101,56 +232,9 @@ export function InstagramGrid() {
   }
 
   return (
-    <div className="grid grid-cols-3 gap-1 md:gap-2 w-full">
-      {displayPosts.map((post, index) => {
-        const likes = `${(Math.random() * 4 + 1).toFixed(1)}K`
-        const comments = `${Math.floor(Math.random() * 400 + 100)}`
-        
-        return (
-          <a
-            key={post.id}
-            href={post.external_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="aspect-[3/4] relative group overflow-hidden bg-gray-900 cursor-pointer rounded-lg"
-          >
-            {/* Image */}
-            <Image
-              src={post.image}
-              alt="ANIMA Instagram post"
-              fill
-              className="object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-75"
-              sizes="(max-width: 768px) 33vw, 25vw"
-              unoptimized={posts.length > 0} // Per immagini esterne da Juicer
-            />
-            
-            {/* Hover Overlay */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-              <div className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-4 group-hover:translate-y-0">
-                {/* Instagram Icon */}
-                <div className="flex flex-col items-center gap-3">
-                  <Instagram className="w-10 h-10 md:w-12 md:h-12 text-white drop-shadow-lg" />
-                  
-                  {/* Stats */}
-                  <div className="flex items-center gap-4 text-white text-sm md:text-base font-semibold">
-                    <div className="flex items-center gap-1.5">
-                      <Heart className="w-4 h-4 md:w-5 md:h-5 fill-white" />
-                      <span>{likes}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <MessageCircle className="w-4 h-4 md:w-5 md:h-5 fill-white" />
-                      <span>{comments}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Gradient Bottom */}
-            <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </a>
-        )
-      })}
+    <div className="w-full">
+      {/* Juicer feed will be injected here by the script */}
+      <div id="juicer-container" className="w-full"></div>
     </div>
   )
 }
