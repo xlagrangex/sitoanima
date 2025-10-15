@@ -1,24 +1,11 @@
 "use client"
 
-import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Instagram, Heart, MessageCircle } from "lucide-react"
 
-interface InstagramPost {
-  id: string
-  image: string
-  likes: string
-  comments: string
-  caption?: string
-}
-
 export function InstagramGrid() {
-  const [posts, setPosts] = useState<InstagramPost[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
-
-  // Placeholder posts - fallback se lo scraping non funziona
-  const placeholderPosts = [
+  // Post curati manualmente - le migliori foto ANIMA
+  const posts = [
     {
       id: "1",
       image: "/crowd-dancing-at-underground-techno-party.jpg",
@@ -75,52 +62,9 @@ export function InstagramGrid() {
     },
   ]
 
-  useEffect(() => {
-    const fetchInstagramPosts = async () => {
-      try {
-        const response = await fetch('/api/instagram-scraper')
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch')
-        }
-        
-        const data = await response.json()
-        
-        if (data.posts && data.posts.length > 0) {
-          setPosts(data.posts.slice(0, 9))
-          setError(false)
-        } else {
-          setError(true)
-        }
-      } catch (err) {
-        console.error('Instagram scraping failed:', err)
-        setError(true)
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    fetchInstagramPosts()
-  }, [])
-
-  const displayPosts = error || posts.length === 0 ? placeholderPosts : posts
-
-  if (loading) {
-    return (
-      <div className="grid grid-cols-3 gap-1 md:gap-2 w-full">
-        {Array.from({ length: 9 }).map((_, i) => (
-          <div
-            key={i}
-            className="aspect-square bg-gray-800 animate-pulse rounded"
-          />
-        ))}
-      </div>
-    )
-  }
-
   return (
     <div className="grid grid-cols-3 gap-1 md:gap-2 w-full">
-      {displayPosts.map((post) => (
+      {posts.map((post) => (
         <a
           key={post.id}
           href="https://www.instagram.com/anima.ent"

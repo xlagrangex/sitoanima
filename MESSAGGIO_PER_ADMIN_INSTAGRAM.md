@@ -8,103 +8,108 @@
 
 Ciao! 👋
 
-Per integrare il feed Instagram di **@anima.ent** sul nostro sito web, ho bisogno del tuo aiuto per ottenere un **Access Token** da Instagram.
+Per integrare il feed Instagram di **@anima.ent** sul nostro sito web (griglia 3x3 con gli ultimi 9 post), ho bisogno del tuo aiuto per ottenere un **Access Token** da Instagram.
+
+### ⏱️ Tempo necessario: **5 MINUTI**
 
 ### ✅ Cosa ti serve:
 - Accesso all'account Instagram **@anima.ent**
-- 10-15 minuti di tempo
-- Un computer (meglio di un telefono per questa operazione)
-
-### 🔐 Passi da seguire:
-
-#### **PASSO 1: Verifica tipo di account**
-1. Apri l'app Instagram
-2. Vai su Profilo → Menu (☰) → Impostazioni
-3. Vai su Account → **Switch to Professional Account**
-4. Se già hai un account Business/Creator, perfetto! ✅
-5. Se no, convertilo in Business (è gratis e puoi sempre tornare indietro)
-
-#### **PASSO 2: Collega Instagram a Facebook (se non l'hai già fatto)**
-1. Vai su Profilo → Menu → Impostazioni
-2. Account → Aggiungi account collegato → Facebook
-3. Accedi con il tuo account Facebook
-4. Crea una Pagina Facebook se non ce l'hai già (si può fare in 2 minuti)
-
-#### **PASSO 3: Crea l'App Facebook**
-1. Vai su: https://developers.facebook.com/apps/
-2. Clicca **"Create App"** (pulsante blu in alto a destra)
-3. Scegli **"Business"** come tipo di app
-4. Compila:
-   - **App Display Name**: "ANIMA Website"
-   - **App Contact Email**: [la tua email]
-5. Clicca **"Create App"**
-
-#### **PASSO 4: Aggiungi Instagram Basic Display**
-1. Nel dashboard dell'app, cerca **"Instagram Basic Display"**
-2. Clicca **"Set Up"**
-3. Scorri in basso e clicca **"Create New App"**
-4. Compila:
-   - **Display Name**: "ANIMA Website"
-   - **Valid OAuth Redirect URIs**: `https://socialsizzle.herokuapp.com/auth/`
-   - **Deauthorize Callback URL**: `https://socialsizzle.herokuapp.com/auth/`
-   - **Data Deletion Request URL**: `https://socialsizzle.herokuapp.com/deletion/`
-5. Clicca **"Save Changes"**
-6. Scorri in basso nella sezione **"User Token Generator"**
-7. Clicca **"Add or Remove Instagram Testers"**
-8. Clicca **"Add Instagram Testers"** e aggiungi **@anima.ent**
-
-#### **PASSO 5: Accetta l'invito**
-1. Apri l'app Instagram
-2. Vai su Profilo → Menu → Impostazioni
-3. Apps and Websites → Tester Invites
-4. Accetta l'invito
-
-#### **PASSO 6: Genera il Token**
-1. Torna sul sito Facebook Developers
-2. Nella sezione **"User Token Generator"**
-3. Clicca **"Generate Token"** accanto a @anima.ent
-4. Autorizza l'accesso
-5. **COPIA IL TOKEN** (sarà una stringa lunga tipo: IGQVJXa1FZ...)
-6. **INVIAMELO IN PRIVATO** (NON pubblicarlo da nessuna parte!)
+- Un computer
+- Email per registrare un'app Facebook
 
 ---
 
-### 📤 COSA DEVI INVIARMI:
+## 🚀 METODO VELOCE (Raccomandato - 5 minuti):
 
-Mandami in privato (WhatsApp, email, o DM):
+### **STEP 1: Verifica Account Business** (30 secondi)
+
+1. Apri Instagram app
+2. Vai su **Profilo** → Menu (☰) → **Impostazioni** → **Account**
+3. Se vedi "Switch to Personal Account" → **SEI GIÀ BUSINESS** ✅ vai allo Step 2
+4. Se vedi "Switch to Professional Account" → **Clicca e scegli Business** (gratis)
+
+---
+
+### **STEP 2: Crea App Facebook** (2 minuti)
+
+1. **Vai su**: https://developers.facebook.com/apps/
+2. **Clicca** il pulsante blu "Create App"
+3. **Scegli** "Business" come tipo
+4. **Compila**:
+   - **App Display Name**: "ANIMA Website"
+   - **App Contact Email**: [la tua email]
+5. **Clicca** "Create App"
+
+✅ **App creata!** Vedrai un **App ID** in alto (es: 123456789)
+
+---
+
+### **STEP 3: Aggiungi Instagram e GENERA IL TOKEN** (2 minuti)
+
+1. Nel **Dashboard** dell'app, scorri e trova **"Instagram Basic Display"**
+2. **Clicca** "Set Up"
+3. **SCORRI IN BASSO** fino alla sezione **"User Token Generator"**
+4. **Clicca** "Generate Token"
+5. Ti chiederà di accedere → **Accedi con @anima.ent**
+6. **Autorizza** l'accesso quando richiesto
+7. **COPIA IL TOKEN** che appare (inizia con `IGQV...` o `IG...`)
+
+📋 **Esempio token**: `IGQVJXa1FZAbc123...` (sarà lungo ~200 caratteri)
+
+---
+
+### 📤 INVIAMELO COSÌ:
 
 ```
 Token Instagram ANIMA:
 [incolla qui il token copiato]
 ```
 
+⚠️ **IMPORTANTE**: 
+- Mandamelo in **PRIVATO** (WhatsApp, email, DM)
+- **NON** pubblicarlo da nessuna parte
+- **NON** condividerlo con altri
+
 ---
 
-### ⏰ NOTA IMPORTANTE:
-Il token scadrà dopo 60 giorni. Ti invierò un promemoria quando sarà il momento di rinnovarlo (è molto più veloce, basta 1 click).
+## ⏰ DA SAPERE:
+
+- 🔄 Il token **scade dopo 60 giorni**
+- 📅 Ti manderò un **promemoria** quando scade
+- ⚡ Rinnovarlo è **velocissimo** (1 click, 30 secondi)
+- 🔁 Puoi sempre convertire l'account Instagram di nuovo a Personal dopo
 
 ---
 
-### 🆘 Hai problemi?
+## 🆘 METODO ALTERNATIVO (ancora più veloce, 2 minuti):
 
-Se qualcosa non funziona, mandami uno screenshot del punto dove ti sei bloccato e ti aiuto subito!
+Se i passi sopra sono troppo complicati:
+
+1. **Vai su**: https://instagram.dmned.com/
+2. **Clicca** "Generate Token"
+3. **Accedi** con @anima.ent
+4. **Copia** il token
+5. **Inviamelo**
+
+⏱️ **Tempo**: 1 minuto!
+
+---
+
+## 💡 PROBLEMI?
+
+Se ti blocchi da qualche parte:
+- 📸 **Fai uno screenshot**
+- 📱 **Mandamelo** 
+- ✅ Ti guido passo-passo!
+
+---
 
 Grazie mille per l'aiuto! 🙏
 
----
-
-## 🎯 ALTERNATIVA VELOCE (se i passi sopra sono troppo complicati):
-
-Puoi usare questo servizio gratuito che fa tutto automaticamente:
-
-1. Vai su: **https://www.instagram-token.com/**
-2. Clicca "Generate Access Token"
-3. Accedi con l'account Instagram @anima.ent
-4. Copia il token che ti viene dato
-5. Inviamelo
-
-⚠️ Questo servizio è più semplice ma il token dura solo 60 giorni.
+Una volta che mi mandi il token, il feed Instagram apparirà automaticamente sul sito con le vostre foto reali! 🎉
 
 ---
 
+**P.S.** Se preferisci non fare tutto questo, possiamo anche usare un widget a pagamento tipo Behold ($9/mese) che fa tutto automaticamente. Fammi sapere!
 
+---
