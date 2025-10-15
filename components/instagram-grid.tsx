@@ -15,32 +15,61 @@ export function InstagramGrid() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Fetch from Juicer API directly
-    const fetchJuicerPosts = async () => {
-      try {
-        const response = await fetch('https://www.juicer.io/api/feeds/anima-ent')
-        const data = await response.json()
+    // Load Juicer script
+    const script = document.createElement('script')
+    script.src = 'https://www.juicer.io/embed/anima-ent/embed-code.js'
+    script.async = true
+    script.defer = true
+    
+    // Create hidden container for Juicer
+    const hiddenContainer = document.createElement('div')
+    hiddenContainer.style.display = 'none'
+    hiddenContainer.innerHTML = '<ul class="juicer-feed" data-feed-id="anima-ent" data-per="9"></ul>'
+    document.body.appendChild(hiddenContainer)
+    document.body.appendChild(script)
+
+    // Wait for Juicer to load and extract data
+    const checkJuicerLoaded = setInterval(() => {
+      const juicerItems = hiddenContainer.querySelectorAll('.feed-item')
+      
+      if (juicerItems.length > 0) {
+        clearInterval(checkJuicerLoaded)
         
-        if (data.posts && data.posts.posts) {
-          const instagramPosts = data.posts.posts
-            .filter((post: any) => post.source?.source === 'Instagram')
-            .slice(0, 9)
-            .map((post: any) => ({
-              id: post.id,
-              image: post.image,
-              external_url: post.full_url || 'https://www.instagram.com/anima.ent',
-            }))
+        const extractedPosts: JuicerPost[] = []
+        
+        juicerItems.forEach((item, index) => {
+          if (index >= 9) return
           
-          setPosts(instagramPosts)
+          const img = item.querySelector('img')
+          const link = item.querySelector('a')
+          
+          if (img && link) {
+            extractedPosts.push({
+              id: `juicer-${index}`,
+              image: img.src,
+              external_url: link.href,
+            })
+          }
+        })
+        
+        if (extractedPosts.length > 0) {
+          setPosts(extractedPosts)
         }
-      } catch (err) {
-        console.error('Failed to fetch Juicer posts:', err)
-      } finally {
         setLoading(false)
       }
-    }
+    }, 500)
 
-    fetchJuicerPosts()
+    // Timeout dopo 10 secondi
+    setTimeout(() => {
+      clearInterval(checkJuicerLoaded)
+      setLoading(false)
+    }, 10000)
+
+    return () => {
+      clearInterval(checkJuicerLoaded)
+      if (script.parentNode) script.parentNode.removeChild(script)
+      if (hiddenContainer.parentNode) hiddenContainer.parentNode.removeChild(hiddenContainer)
+    }
   }, [])
 
   // Placeholder mentre carica o se fallisce

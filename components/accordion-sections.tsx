@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -241,6 +242,22 @@ export function AccordionSections() {
                     </Button>
                   </div>
                 )}
+              </div>
+            ) : section.id === "shows" ? (
+              <div className="max-w-4xl mx-auto">
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-left md:text-center`}>
+                  {t(section.contentKey)}
+                </p>
+                <div className="w-full max-w-2xl mx-auto">
+                  <Image
+                    src="/anima-meets-dolcevita-flyer.png"
+                    alt="ANIMA MEETS DOLCEVITA - Event Flyer"
+                    width={800}
+                    height={1131}
+                    className="w-full h-auto rounded-lg shadow-2xl"
+                    priority
+                  />
+                </div>
               </div>
             ) : section.id === "playlist" ? (
               <div className="max-w-4xl mx-auto">
