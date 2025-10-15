@@ -56,12 +56,12 @@ export function InstagramGrid() {
       }
     ]
 
-    // Aggiungi post placeholder per arrivare a 9
+    // Aggiungi post placeholder neutri per arrivare a 9
     const placeholderPosts: InstagramPost[] = [
-      { id: "placeholder1", image: "/crowd-dancing-at-underground-techno-party.jpg", alt: "ANIMA Event", url: "https://www.instagram.com/anima.ent", type: "post" },
-      { id: "placeholder2", image: "/dj-performing-at-electronic-music-event-with-red-l.jpg", alt: "ANIMA Event", url: "https://www.instagram.com/anima.ent", type: "post" },
-      { id: "placeholder3", image: "/electronic-music-crowd-dancing-purple-lights.jpg", alt: "ANIMA Event", url: "https://www.instagram.com/anima.ent", type: "post" },
-      { id: "placeholder4", image: "/charlotte-de-witte-dj-poster-dark-techno.jpg", alt: "ANIMA Event", url: "https://www.instagram.com/anima.ent", type: "post" }
+      { id: "placeholder1", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" },
+      { id: "placeholder2", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" },
+      { id: "placeholder3", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" },
+      { id: "placeholder4", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" }
     ]
 
     const allPosts = [...extractedPosts, ...placeholderPosts].slice(0, 9)
