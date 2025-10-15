@@ -160,7 +160,7 @@ export function AccordionSections() {
       contentKey: "section10.content",
       cta: {
         textKey: "section10.cta",
-        href: "https://maps.google.com",
+        href: "https://www.google.com/maps/place/HBTOO/@40.8011031,14.1726738,17z/data=!3m1!4b1!4m6!3m5!1s0x133b0c1e75bca2d7:0xe08e8f4f3a917d24",
       },
     },
   ]
