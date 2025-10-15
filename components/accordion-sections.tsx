@@ -10,8 +10,8 @@ import { motion } from "framer-motion"
 import { GlitchText, GlitchContainer, GlitchButton, staggerContainer, staggerItem } from "@/components/glitch-animations"
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel"
 import { CircularGallery, type GalleryItem } from "@/components/ui/circular-gallery"
-import { InstagramFeed } from "@/components/instagram-feed"
-import { Mail, MessageCircle, MapPin, Send, Music } from "lucide-react"
+import { InstagramGrid } from "@/components/instagram-grid"
+import { Mail, MessageCircle, MapPin, Send, Music, Instagram } from "lucide-react"
 
 export function AccordionSections() {
   const { t } = useLanguage()
@@ -166,6 +166,17 @@ export function AccordionSections() {
       },
     },
     {
+      id: "instagram",
+      subtitleKey: "section11.subtitle",
+      titleKey: "section11.title",
+      contentKey: "section11.content",
+      hasInstagram: true,
+      cta: {
+        textKey: "section11.cta",
+        href: "https://www.instagram.com/anima_events",
+      },
+    },
+    {
       id: "map",
       subtitleKey: "section10.subtitle",
       titleKey: "section10.title",
@@ -188,12 +199,10 @@ export function AccordionSections() {
     <div className="w-full overflow-x-hidden">
       {sections.map((section, index) => {
         const scheme = colorSchemes[index % colorSchemes.length]
-        const isLastSection = index === sections.length - 1
         
         return (
-        <React.Fragment key={section.id}>
-        {isLastSection && <InstagramFeed />}
         <div 
+          key={section.id}
           id={section.id}
           className={`w-full min-h-screen flex items-center justify-center ${'hasCarousel' in section && section.hasCarousel ? 'py-1 md:py-2' : 'py-12 md:py-16'} px-4 text-center ${scheme.bg}`}
         >
@@ -249,6 +258,26 @@ export function AccordionSections() {
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                   loading="lazy"
                 ></iframe>
+              </div>
+            ) : section.id === "instagram" ? (
+              <div className="w-full max-w-6xl mx-auto">
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-left md:text-center`}>
+                  {t(section.contentKey)}
+                </p>
+                <InstagramGrid />
+                {section.cta && section.cta.href && (
+                  <div className="mt-8 flex justify-center">
+                    <Button
+                      asChild
+                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg`}
+                    >
+                      <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
+                        <Instagram className="w-4 h-4 mr-2" />
+                        {t(section.cta.textKey)}
+                      </a>
+                    </Button>
+                  </div>
+                )}
               </div>
             ) : section.id === "map" ? (
               <div className="w-full max-w-5xl mx-auto">
@@ -324,7 +353,6 @@ export function AccordionSections() {
           )}
           </div>
         </div>
-        </React.Fragment>
         )
       })}
     </div>

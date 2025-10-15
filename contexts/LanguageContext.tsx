@@ -66,6 +66,11 @@ const translations = {
     'section10.content': 'Plan your night with ease and step into the world of ANIMA. The dancefloor awaits.',
     'section10.cta': 'Open on Google Maps',
     
+    'section11.subtitle': 'Follow Us',
+    'section11.title': 'LIVE THE MOMENT WITH US.',
+    'section11.content': 'Stay connected with ANIMA through our latest posts, behind-the-scenes moments, and exclusive content. Join our community and be part of the journey.',
+    'section11.cta': 'Follow on Instagram',
+    
     // Footer
     'footer.tagline': 'Until the Sunrise',
     'footer.description': 'Where house and afrohouse converge into a radiant journey. A club experience built around joy, light and freedom.',
@@ -128,6 +133,11 @@ const translations = {
     'section10.title': 'TROVA LA VIA VERSO IL SOLE.',
     'section10.content': 'Pianifica la tua serata con facilità e entra nel mondo di ANIMA. La pista da ballo ti aspetta.',
     'section10.cta': 'Apri su Google Maps',
+    
+    'section11.subtitle': 'Seguici',
+    'section11.title': 'VIVI IL MOMENTO CON NOI.',
+    'section11.content': 'Resta connesso con ANIMA attraverso i nostri ultimi post, momenti dietro le quinte e contenuti esclusivi. Unisciti alla nostra community e fai parte del viaggio.',
+    'section11.cta': 'Seguici su Instagram',
     
     // Footer
     'footer.tagline': 'Fino all\'Alba',
