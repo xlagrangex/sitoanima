@@ -8,6 +8,7 @@ import { useState } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { motion } from "framer-motion"
 import { GlitchText, GlitchContainer, GlitchButton, staggerContainer, staggerItem } from "@/components/glitch-animations"
+import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel"
 
 export function AccordionSections() {
   const { t } = useLanguage()
@@ -57,6 +58,13 @@ export function AccordionSections() {
       cta: null,
     },
     {
+      id: "gallery",
+      titleKey: "section5b.title",
+      contentKey: "section5b.content",
+      cta: null,
+      hasCarousel: true,
+    },
+    {
       id: "media",
       titleKey: "section6.title",
       contentKey: "section6.content",
@@ -103,25 +111,25 @@ export function AccordionSections() {
     },
   ]
 
-  const backgrounds = [
-    'bg-white',
-    'bg-orange-50/30',
-    'bg-gray-50',
-    'bg-red-50/20',
-    'bg-amber-50/40',
-    'bg-stone-50',
+  const colorSchemes = [
+    { bg: 'bg-white', text: 'text-black', accent: 'text-red-600' },
+    { bg: 'bg-red-700', text: 'text-white', accent: 'text-black' },
+    { bg: 'bg-[#E78E00]', text: 'text-white', accent: 'text-white' },
+    { bg: 'bg-black', text: 'text-white', accent: 'text-red-600' },
   ]
 
   return (
     <div className="w-full overflow-x-hidden">
-      {sections.map((section, index) => (
+      {sections.map((section, index) => {
+        const scheme = colorSchemes[index % colorSchemes.length]
+        return (
         <div 
           key={section.id} 
-          className={`w-full py-12 md:py-16 px-4 text-center ${backgrounds[index % backgrounds.length]}`}
+          className={`w-full min-h-screen flex items-center justify-center ${'hasCarousel' in section && section.hasCarousel ? 'py-1 md:py-2' : 'py-12 md:py-16'} px-4 text-center ${scheme.bg}`}
         >
-          <div className="max-w-[90%] md:max-w-[60%] mx-auto">
+          <div className="max-w-[90%] md:max-w-[60%] mx-auto w-full">
             <GlitchText 
-              className="title-primary mb-8 md:mb-12 text-black leading-[0.9] block" 
+              className={`title-primary ${'hasCarousel' in section && section.hasCarousel ? 'mb-1 md:mb-2' : 'mb-8 md:mb-12'} ${scheme.text} leading-[0.9] block`}
               style={{ fontSize: 'clamp(2rem, 4.5vw, 4.5rem)' }}
               delay={index * 0.1}
             >
@@ -130,7 +138,7 @@ export function AccordionSections() {
 
             {section.id === "playlist" ? (
               <div className="max-w-4xl mx-auto">
-                <p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-700 mb-6 md:mb-8 text-left md:text-center">
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-left md:text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <iframe 
@@ -145,10 +153,19 @@ export function AccordionSections() {
                   loading="lazy"
                 ></iframe>
               </div>
+            ) : 'hasCarousel' in section && section.hasCarousel ? (
+              <div className="max-w-7xl mx-auto">
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-1 md:mb-2 text-left md:text-center`}>
+                  {t(section.contentKey)}
+                </p>
+                <div className="-my-24 md:-my-32">
+                  <ThreeDPhotoCarousel />
+                </div>
+              </div>
             ) : (
               <>
                 <div className="max-w-4xl mx-auto">
-                  <p className="text-base md:text-lg lg:text-xl leading-relaxed text-gray-700 mb-6 md:mb-8 text-left md:text-center">
+                  <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-left md:text-center`}>
                     {t(section.contentKey)}
             </p>
           </div>
@@ -158,7 +175,7 @@ export function AccordionSections() {
                     {section.cta.href ? (
                       <Button
                         asChild
-                        className="btn-primary bg-primary hover:bg-primary/90 text-white px-4 md:px-8 py-4 text-base shadow-lg max-w-full"
+                        className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg max-w-full`}
                       >
                         <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="block w-full text-center">
                           {t(section.cta.textKey)}
@@ -167,7 +184,7 @@ export function AccordionSections() {
                     ) : (
                       <Button
                         onClick={section.cta.action}
-                        className="btn-primary bg-primary hover:bg-primary/90 text-white px-4 md:px-8 py-4 text-base shadow-lg max-w-full"
+                        className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg max-w-full`}
                       >
                         {t(section.cta.textKey)}
                   </Button>
@@ -178,7 +195,8 @@ export function AccordionSections() {
           )}
           </div>
         </div>
-      ))}
+        )
+      })}
     </div>
   )
 }

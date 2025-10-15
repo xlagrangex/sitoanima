@@ -34,6 +34,9 @@ const translations = {
     'section5.title': 'ENGINEERED FOR EUPHORIA.',
     'section5.content': 'A stage crafted for energy and emotion. High-end sound, immersive lights, LED architecture and the iconic rising sun create an atmosphere where every drop resonates, every transition glows, every moment becomes unforgettable.',
     
+    'section5b.title': 'MOMENTS IN MOTION',
+    'section5b.content': 'Explore the visual journey of ANIMA. From electrifying performances to the radiant crowd, every frame tells a story of connection, energy, and euphoria.',
+    
     'section6.title': 'RELIVE THE SUNRISE',
     'section6.content': 'Every moment is captured: aftermovies, photo galleries and highlights that embody the spirit of ANIMA. Step back into the crowd and carry the memory forward.',
     'section6.cta': 'Check our Telegram group',
@@ -84,6 +87,9 @@ const translations = {
     
     'section5.title': 'PROGETTATO PER L\'EUFORIA.',
     'section5.content': 'Un palco creato per energia ed emozione. Suono di alta qualità, luci immersive, architettura LED e l\'iconico sole nascente creano un\'atmosfera in cui ogni drop risuona, ogni transizione brilla, ogni momento diventa indimenticabile.',
+    
+    'section5b.title': 'MOMENTI IN MOVIMENTO',
+    'section5b.content': 'Esplora il viaggio visivo di ANIMA. Dalle performance elettrizzanti alla folla radiosa, ogni fotogramma racconta una storia di connessione, energia ed euforia.',
     
     'section6.title': 'RIVIVI L\'ALBA',
     'section6.content': 'Ogni momento è catturato: aftermovie, gallerie fotografiche e highlights che incarnano lo spirito di ANIMA. Torna tra la folla e porta avanti il ricordo.',
