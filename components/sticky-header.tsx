@@ -4,8 +4,10 @@ import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Image from "next/image"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export function StickyHeader() {
+  const { t } = useLanguage()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -57,13 +59,13 @@ export function StickyHeader() {
               transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
               whileHover={{ scale: 1.05 }}
             >
-              {section === "format" && "Format"}
-              {section === "venue" && "Venue"}
-              {section === "shows" && "Shows"}
-              {section === "guests" && "Guests"}
-              {section === "media" && "Media"}
-              {section === "instagram" && "Instagram"}
-              {section === "map" && "Contatti"}
+              {section === "format" && t('nav.format')}
+              {section === "venue" && t('nav.venue')}
+              {section === "shows" && t('nav.shows')}
+              {section === "guests" && t('nav.guests')}
+              {section === "media" && t('nav.media')}
+              {section === "instagram" && t('nav.instagram')}
+              {section === "map" && t('nav.contact')}
             </motion.button>
           ))}
         </div>
@@ -100,13 +102,13 @@ export function StickyHeader() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.2, delay: index * 0.05 }}
                 >
-                  {section === "format" && "Format"}
-                  {section === "venue" && "Venue"}
-                  {section === "shows" && "Shows"}
-                  {section === "guests" && "Guests"}
-                  {section === "media" && "Media"}
-                  {section === "instagram" && "Instagram"}
-                  {section === "map" && "Contatti"}
+                  {section === "format" && t('nav.format')}
+                  {section === "venue" && t('nav.venue')}
+                  {section === "shows" && t('nav.shows')}
+                  {section === "guests" && t('nav.guests')}
+                  {section === "media" && t('nav.media')}
+                  {section === "instagram" && t('nav.instagram')}
+                  {section === "map" && t('nav.contact')}
                 </motion.button>
               ))}
             </div>

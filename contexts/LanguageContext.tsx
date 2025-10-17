@@ -12,6 +12,15 @@ interface LanguageContextType {
 
 const translations = {
   en: {
+    // Navigation Menu
+    'nav.format': 'Format',
+    'nav.venue': 'Venue',
+    'nav.shows': 'Shows',
+    'nav.guests': 'Guests',
+    'nav.media': 'Media',
+    'nav.instagram': 'Instagram',
+    'nav.contact': 'Contact',
+
     // Hero
     'hero.tagline': 'Where house and afrohouse converge into a radiant journey.',
     'hero.tagline2': 'A club experience built around joy, light and freedom — designed to last until the sunrise.',
@@ -80,6 +89,15 @@ const translations = {
     'footer.rights': '© 2024 ANIMA Events. All rights reserved.',
   },
   it: {
+    // Navigation Menu
+    'nav.format': 'Format',
+    'nav.venue': 'Locale',
+    'nav.shows': 'Eventi',
+    'nav.guests': 'Ospiti',
+    'nav.media': 'Media',
+    'nav.instagram': 'Instagram',
+    'nav.contact': 'Contatti',
+
     // Hero
     'hero.tagline': 'Dove house e afrohouse convergono in un viaggio radioso.',
     'hero.tagline2': 'Un\'esperienza club costruita su gioia, luce e libertà — progettata per durare fino all\'alba.',
