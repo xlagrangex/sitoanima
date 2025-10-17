@@ -24,7 +24,7 @@ export function StickyHeader() {
 
   return (
     <motion.header
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-[9999] transition-all duration-300 ${
         isScrolled
           ? "backdrop-blur-md bg-black/40 border border-white/20"
           : "backdrop-blur-sm bg-black/30 border border-white/15"
