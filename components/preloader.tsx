@@ -9,17 +9,17 @@ export function Preloader() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    // Simulate loading progress
+    // Simulate loading progress - faster update
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval)
-          setTimeout(() => setIsLoading(false), 500)
+          setTimeout(() => setIsLoading(false), 300)
           return 100
         }
-        return prev + 2
+        return prev + 3
       })
-    }, 30)
+    }, 25)
 
     // Also listen for actual page load
     const handleLoad = () => {
@@ -45,7 +45,7 @@ export function Preloader() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className="fixed inset-0 z-[99999] bg-red-900 flex flex-col items-center justify-center"
         >
           {/* Rotating favicon */}
