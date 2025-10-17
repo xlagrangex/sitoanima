@@ -117,7 +117,7 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="title-primary text-3xl md:text-4xl font-bold text-white text-left">
+            <h3 className="title-primary text-4xl md:text-5xl lg:text-6xl font-bold text-white text-left">
               {testimonials[active].name}
             </h3>
             <p className="text-base md:text-lg text-white opacity-80 text-left mt-2">
