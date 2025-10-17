@@ -20,11 +20,11 @@ const translations = {
     // Sections
     'section1.subtitle': 'The Format',
     'section1.title': 'THE SOUL OF THE NIGHT.',
-    'section1.content': 'ANIMA is more than a party — it\'s a ritual of sound and light. Guided by house and afrohouse beats, the dancefloor becomes a place of pure expression, free from judgment and filled with unity. The rising sun above the DJ booth symbolizes the endless energy that carries us from midnight to dawn.',
+    'section1.content': 'ANIMA is more than a party — it\'s a ritual of sound and light. Guided by house and afrohouse beats, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.\n\nThe rising sun above the DJ booth symbolizes the endless energy that carries us from midnight to dawn.',
     
     'section2.subtitle': 'The Venue',
     'section2.title': 'THE FUTURE OF CLUBBING, TODAY.',
-    'section2.content': 'Our venue hosts up to 1,200 people, transformed by immersive light and sound. At its core shines a glowing glass Sun, surrounded by spiraling LED cables — a symbol of power and beauty that defines the ANIMA experience. Red and white beams cut through the crowd, setting the rhythm for a night of elegance and intensity. Our home for the Winter is the Iconic neapolitan club HBToo, who hosts Anima since the beginning.',
+    'section2.content': 'Our venue hosts up to 1,200 people, transformed by immersive light and sound. At its core shines a glowing glass Sun, surrounded by spiraling LED cables — a symbol of power and beauty that defines the ANIMA experience.\n\nRed and white beams cut through the crowd, setting the rhythm for a night of elegance and intensity.\n\nOur home for the Winter is the Iconic neapolitan club HBToo, who hosts Anima since the beginning.',
     'section2.cta': 'How to get here',
     
     'section3.subtitle': 'Events',
@@ -88,11 +88,11 @@ const translations = {
     // Sections
     'section1.subtitle': 'Il Format',
     'section1.title': 'L\'ANIMA DELLA NOTTE.',
-    'section1.content': 'ANIMA è più di una festa — è un rituale di suono e luce. Guidata dai ritmi house e afrohouse, la pista da ballo diventa un luogo di pura espressione, libero da giudizi e pieno di unità. Il sole che sorge sopra la console DJ simboleggia l\'energia infinita che ci accompagna dalla mezzanotte all\'alba.',
+    'section1.content': 'ANIMA è più di una festa — è un rituale di suono e luce. Guidata dai ritmi house e afrohouse, la pista da ballo diventa un luogo di pura espressione, libero da giudizi e pieno di unità.\n\nIl sole che sorge sopra la console DJ simboleggia l\'energia infinita che ci accompagna dalla mezzanotte all\'alba.',
     
     'section2.subtitle': 'Il Locale',
     'section2.title': 'IL FUTURO DEL CLUBBING, OGGI.',
-    'section2.content': 'Il nostro locale ospita fino a 1.200 persone, trasformate da luci e suoni immersivi. Al centro brilla un Sole di vetro luminoso, circondato da cavi LED a spirale — un simbolo di potere e bellezza che definisce l\'esperienza ANIMA. Fasci rossi e bianchi attraversano la folla, dettando il ritmo di una notte di eleganza e intensità. La nostra casa per l\'inverno è l\'iconico club napoletano HBToo, che ospita Anima fin dall\'inizio.',
+    'section2.content': 'Il nostro locale ospita fino a 1.200 persone, trasformate da luci e suoni immersivi. Al centro brilla un Sole di vetro luminoso, circondato da cavi LED a spirale — un simbolo di potere e bellezza che definisce l\'esperienza ANIMA.\n\nFasci rossi e bianchi attraversano la folla, dettando il ritmo di una notte di eleganza e intensità.\n\nLa nostra casa per l\'inverno è l\'iconico club napoletano HBToo, che ospita Anima fin dall\'inizio.',
     'section2.cta': 'Come arrivare',
     
     'section3.subtitle': 'Eventi',

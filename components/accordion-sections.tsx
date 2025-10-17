@@ -467,10 +467,12 @@ export function AccordionSections() {
               </div>
             ) : (
               <>
-                <div className="max-w-4xl mx-auto">
-                  <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-left md:text-center`}>
-                    {t(section.contentKey)}
-            </p>
+                <div className="max-w-4xl mx-auto space-y-4">
+                  {t(section.contentKey).split('\n\n').map((paragraph: string, i: number) => (
+                    <p key={i} className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} text-left md:text-center`}>
+                      {paragraph}
+                    </p>
+                  ))}
           </div>
 
                 {section.cta && (
