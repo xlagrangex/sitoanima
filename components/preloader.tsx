@@ -46,7 +46,7 @@ export function Preloader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="fixed inset-0 z-[99999] bg-red-600 flex flex-col items-center justify-center"
+          className="fixed inset-0 z-[99999] bg-red-900 flex flex-col items-center justify-center"
         >
           {/* Rotating favicon */}
           <motion.div
