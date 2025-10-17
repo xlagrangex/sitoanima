@@ -107,6 +107,36 @@ export function AccordionSections() {
       name: "Twolate",
       designation: "Electronic Artist",
       src: "/IMG_5628.JPG"
+    },
+    {
+      quote: "Techno producer and DJ known for his powerful sets and underground sound.",
+      name: "Peppe Citarella",
+      designation: "Techno DJ & Producer",
+      src: "/placeholder.jpg"
+    },
+    {
+      quote: "Electronic music artist with a unique style blending techno and house elements.",
+      name: "Marco Lys",
+      designation: "Electronic Artist",
+      src: "/placeholder.jpg"
+    },
+    {
+      quote: "House music producer and DJ bringing energy and groove to every performance.",
+      name: "Piero Pirupa",
+      designation: "House DJ & Producer",
+      src: "/placeholder.jpg"
+    },
+    {
+      quote: "Electronic music artist known for innovative sounds and captivating performances.",
+      name: "Grossomoddo",
+      designation: "Electronic Artist",
+      src: "/placeholder.jpg"
+    },
+    {
+      quote: "Techno DJ and producer delivering deep, hypnotic beats to the underground scene.",
+      name: "Peaty",
+      designation: "Techno DJ & Producer",
+      src: "/placeholder.jpg"
     }
   ]
 
