@@ -92,6 +92,24 @@ export function AccordionSections() {
         text: "Techno party crowd with hands up dancing",
         by: "ANIMA Events"
       }
+    },
+    {
+      common: "Stage",
+      binomial: "LED Visuals",
+      photo: {
+        url: "/electronic-music-stage-with-led-visuals.jpg",
+        text: "Electronic music stage with LED visuals",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Festival",
+      binomial: "Laser Lights",
+      photo: {
+        url: "/electronic-music-festival-stage-with-laser-lights.jpg",
+        text: "Electronic music festival stage with laser lights",
+        by: "ANIMA Events"
+      }
     }
   ]
 
