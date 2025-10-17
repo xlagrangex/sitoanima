@@ -400,7 +400,7 @@ export function AccordionSections() {
                 <div className="w-full h-[500px] md:h-[600px]">
                   <CircularGallery 
                     items={guestGalleryItems} 
-                    radius={isMobile ? 500 : 680} 
+                    radius={isMobile ? 350 : 450} 
                     autoRotateSpeed={0.015} 
                   />
                 </div>
