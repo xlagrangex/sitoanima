@@ -342,7 +342,7 @@ export function AccordionSections() {
                   <div className="mt-8 flex justify-center">
                     <Button
                       asChild
-                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg`}
+                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-3 md:px-8 py-3 md:py-4 text-sm md:text-base shadow-lg max-w-full`}
                     >
                       <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                         {getButtonIcon(section.cta.href)}
@@ -402,7 +402,7 @@ export function AccordionSections() {
                   <div className="mt-8 flex justify-center">
                     <Button
                       asChild
-                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg`}
+                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-3 md:px-8 py-3 md:py-4 text-sm md:text-base shadow-lg max-w-full`}
                     >
                       <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                         <Instagram className="w-4 h-4 mr-2" />
@@ -432,7 +432,7 @@ export function AccordionSections() {
                   <div className="mt-6 flex justify-center">
                     <Button
                       asChild
-                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg`}
+                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-3 md:px-8 py-3 md:py-4 text-sm md:text-base shadow-lg max-w-full`}
                     >
                       <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                         {getButtonIcon(section.cta.href)}
@@ -464,7 +464,7 @@ export function AccordionSections() {
                     {section.cta.href ? (
                       <Button
                         asChild
-                        className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg`}
+                        className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-3 md:px-8 py-3 md:py-4 text-sm md:text-base shadow-lg max-w-full`}
                       >
                         <a href={section.cta.href} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center">
                           {getButtonIcon(section.cta.href)}
@@ -474,7 +474,7 @@ export function AccordionSections() {
                     ) : (
                       <Button
                         onClick={section.cta.action}
-                        className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-4 md:px-8 py-4 text-base shadow-lg flex items-center justify-center`}
+                        className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-3 md:px-8 py-3 md:py-4 text-sm md:text-base shadow-lg flex items-center justify-center max-w-full`}
                       >
                         <MapPin className="w-4 h-4 mr-2" />
                         {t(section.cta.textKey)}
