@@ -101,6 +101,12 @@ export function AccordionSections() {
       name: "???",
       designation: "Announcing soon",
       src: "/pexels-khanshaheb-17214950.jpg"
+    },
+    {
+      quote: "Electronic music artist bringing fresh sounds and innovative beats to the underground scene.",
+      name: "Twolate",
+      designation: "Electronic Artist",
+      src: "/IMG_5628.JPG"
     }
   ]
 
