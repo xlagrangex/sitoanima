@@ -31,24 +31,29 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const [rotation, setRotation] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [isDragging, setIsDragging] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
+    const [dragStart, setDragStart] = useState({ x: 0, rotation: 0 });
     const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const animationFrameRef = useRef<number | null>(null);
     const imageRotationIntervalRef = useRef<NodeJS.Timeout | null>(null);
 
     const VISIBLE_SLOTS = 8; // Fixed number of visible slots
 
-    // Effect to rotate images through the fixed slots
+    // Effect to rotate images through the fixed slots (pause when hovering or dragging)
     useEffect(() => {
-      imageRotationIntervalRef.current = setInterval(() => {
-        setCurrentImageIndex(prev => (prev + 1) % items.length);
-      }, 3000); // Change image every 3 seconds
+      if (!isHovering && !isDragging) {
+        imageRotationIntervalRef.current = setInterval(() => {
+          setCurrentImageIndex(prev => (prev + 1) % items.length);
+        }, 3000); // Change image every 3 seconds
+      }
 
       return () => {
         if (imageRotationIntervalRef.current) {
           clearInterval(imageRotationIntervalRef.current);
         }
       };
-    }, [items.length]);
+    }, [items.length, isHovering, isDragging]);
 
     // Effect to handle scroll-based rotation
     useEffect(() => {
@@ -77,10 +82,10 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       };
     }, []);
 
-    // Effect for auto-rotation when not scrolling
+    // Effect for auto-rotation when not scrolling, hovering, or dragging
     useEffect(() => {
       const autoRotate = () => {
-        if (!isScrolling) {
+        if (!isScrolling && !isHovering && !isDragging) {
           setRotation(prev => prev + autoRotateSpeed);
         }
         animationFrameRef.current = requestAnimationFrame(autoRotate);
@@ -93,7 +98,51 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           cancelAnimationFrame(animationFrameRef.current);
         }
       };
-    }, [isScrolling, autoRotateSpeed]);
+    }, [isScrolling, isHovering, isDragging, autoRotateSpeed]);
+
+    // Drag handlers
+    const handleMouseDown = (e: React.MouseEvent) => {
+      setIsDragging(true);
+      setDragStart({ x: e.clientX, rotation });
+      e.preventDefault();
+    };
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+      if (!isDragging) return;
+      const deltaX = e.clientX - dragStart.x;
+      const rotationDelta = deltaX * 0.5; // Sensitivity factor
+      setRotation(dragStart.rotation + rotationDelta);
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    const handleMouseLeave = () => {
+      setIsDragging(false);
+      setIsHovering(false);
+    };
+
+    const handleMouseEnter = () => {
+      setIsHovering(true);
+    };
+
+    // Touch handlers for mobile
+    const handleTouchStart = (e: React.TouchEvent) => {
+      setIsDragging(true);
+      setDragStart({ x: e.touches[0].clientX, rotation });
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+      if (!isDragging) return;
+      const deltaX = e.touches[0].clientX - dragStart.x;
+      const rotationDelta = deltaX * 0.5;
+      setRotation(dragStart.rotation + rotationDelta);
+    };
+
+    const handleTouchEnd = () => {
+      setIsDragging(false);
+    };
 
     const anglePerItem = 360 / VISIBLE_SLOTS;
     
@@ -114,8 +163,16 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
         ref={ref}
         role="region"
         aria-label="Circular 3D Gallery"
-        className={cn("relative w-full h-full flex items-center justify-center", className)}
-        style={{ perspective: '2000px' }}
+        className={cn("relative w-full h-full flex items-center justify-center", isDragging ? "cursor-grabbing" : "cursor-grab", className)}
+        style={{ perspective: '2000px', userSelect: 'none' }}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleMouseEnter}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         {...props}
       >
         <div
