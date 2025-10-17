@@ -120,11 +120,11 @@ export const AnimatedTestimonials = ({
             <h3 className="title-primary text-white text-left leading-none" style={{ fontSize: 'clamp(1.25rem, 3vw, 3rem)', fontWeight: 'bold' }}>
               {testimonials[active].name}
             </h3>
-            <p className="text-2xl md:text-3xl lg:text-4xl text-white opacity-80 text-left mt-6">
+            <p className="text-lg md:text-xl text-white opacity-80 text-left mt-4">
               {testimonials[active].designation}
             </p>
           </motion.div>
-          <div className="flex gap-2 pt-8 md:pt-0">
+          <div className="flex gap-1 pt-6 md:pt-0">
             <button
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
