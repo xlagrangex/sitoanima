@@ -30,30 +30,11 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
   ({ items, className, radius = 600, autoRotateSpeed = 0.02, ...props }, ref) => {
     const [rotation, setRotation] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, rotation: 0 });
     const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const animationFrameRef = useRef<number | null>(null);
-    const imageRotationIntervalRef = useRef<NodeJS.Timeout | null>(null);
-
-    const VISIBLE_SLOTS = 8; // Fixed number of visible slots
-
-    // Effect to rotate images through the fixed slots (pause when hovering or dragging)
-    useEffect(() => {
-      if (!isHovering && !isDragging) {
-        imageRotationIntervalRef.current = setInterval(() => {
-          setCurrentImageIndex(prev => (prev + 1) % items.length);
-        }, 3000); // Change image every 3 seconds
-      }
-
-      return () => {
-        if (imageRotationIntervalRef.current) {
-          clearInterval(imageRotationIntervalRef.current);
-        }
-      };
-    }, [items.length, isHovering, isDragging]);
 
     // Effect to handle scroll-based rotation
     useEffect(() => {
@@ -144,19 +125,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       setIsDragging(false);
     };
 
-    const anglePerItem = 360 / VISIBLE_SLOTS;
-    
-    // Get the current visible items based on the rotating index
-    const getVisibleItems = () => {
-      const visibleItems: GalleryItem[] = [];
-      for (let i = 0; i < VISIBLE_SLOTS; i++) {
-        const itemIndex = (currentImageIndex + i) % items.length;
-        visibleItems.push(items[itemIndex]);
-      }
-      return visibleItems;
-    };
-
-    const visibleItems = getVisibleItems();
+    const anglePerItem = 360 / items.length;
     
     return (
       <div
@@ -182,7 +151,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
             transformStyle: 'preserve-3d',
           }}
         >
-          {visibleItems.map((item, i) => {
+          {items.map((item, i) => {
             const itemAngle = i * anglePerItem;
             const totalRotation = rotation % 360;
             const relativeAngle = (itemAngle + totalRotation + 360) % 360;
@@ -191,7 +160,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
 
             return (
               <div
-                key={`${item.photo.url}-${i}-${currentImageIndex}`} 
+                key={item.photo.url} 
                 role="group"
                 aria-label={item.common}
                 className="absolute w-[300px] h-[400px]"
@@ -209,7 +178,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                   <img
                     src={item.photo.url}
                     alt={item.photo.text}
-                    className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+                    className="absolute inset-0 w-full h-full object-cover"
                     style={{ objectPosition: item.photo.pos || 'center' }}
                   />
                   {/* Replaced text-primary-foreground with text-white for consistent color */}
