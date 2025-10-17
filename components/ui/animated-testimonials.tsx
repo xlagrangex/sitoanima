@@ -117,37 +117,12 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="title-primary text-4xl md:text-5xl lg:text-6xl font-bold text-white text-left">
+            <h3 className="title-primary text-5xl md:text-6xl lg:text-7xl font-bold text-white text-left leading-tight">
               {testimonials[active].name}
             </h3>
-            <p className="text-base md:text-lg text-white opacity-80 text-left mt-2">
+            <p className="text-2xl md:text-3xl lg:text-4xl text-white opacity-80 text-left mt-4">
               {testimonials[active].designation}
             </p>
-            <motion.p className="text-lg md:text-xl text-white opacity-90 mt-6 text-left">
-              {testimonials[active].quote.split(" ").map((word, index) => (
-                <motion.span
-                  key={index}
-                  initial={{
-                    filter: "blur(10px)",
-                    opacity: 0,
-                    y: 5,
-                  }}
-                  animate={{
-                    filter: "blur(0px)",
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.2,
-                    ease: "easeInOut",
-                    delay: 0.02 * index,
-                  }}
-                  className="inline-block"
-                >
-                  {word}&nbsp;
-                </motion.span>
-              ))}
-            </motion.p>
           </motion.div>
           <div className="flex gap-2 pt-8 md:pt-0">
             <button
