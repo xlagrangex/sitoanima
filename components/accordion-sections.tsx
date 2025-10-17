@@ -213,6 +213,16 @@ export function AccordionSections() {
     }
   ]
 
+  const guestGalleryItems: GalleryItem[] = guestDJs.map((guest) => ({
+    common: guest.name,
+    binomial: guest.designation,
+    photo: {
+      url: guest.src,
+      text: guest.quote,
+      by: "ANIMA Events"
+    }
+  }))
+
   const sections = [
     {
       id: "format",
@@ -384,10 +394,16 @@ export function AccordionSections() {
               </div>
             ) : section.id === "guests" ? (
               <div className="w-full max-w-6xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-4 md:mb-6 text-center`}>
                   {t(section.contentKey)}
                 </p>
-                <AnimatedTestimonials testimonials={guestDJs} autoplay={true} />
+                <div className="w-full h-[500px] md:h-[600px]">
+                  <CircularGallery 
+                    items={guestGalleryItems} 
+                    radius={isMobile ? 500 : 680} 
+                    autoRotateSpeed={0.015} 
+                  />
+                </div>
               </div>
             ) : section.id === "playlist" ? (
               <div className="max-w-4xl mx-auto">
