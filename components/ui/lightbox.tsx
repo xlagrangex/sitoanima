@@ -118,9 +118,21 @@ export function Lightbox({ images, initialIndex, isOpen, onClose }: LightboxProp
           </AnimatePresence>
         </div>
 
-        {/* Counter */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white text-lg font-medium bg-white/10 px-6 py-2 rounded-full backdrop-blur-sm">
-          {currentIndex + 1} / {images.length}
+        {/* Image info and counter */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3">
+          {/* Artist name and role */}
+          <div className="text-center text-white">
+            <h3 className="text-2xl md:text-3xl font-sequel font-black tracking-wider uppercase mb-1">
+              {images[currentIndex].common}
+            </h3>
+            <p className="text-sm md:text-base italic opacity-80">
+              {images[currentIndex].binomial}
+            </p>
+          </div>
+          {/* Counter */}
+          <div className="text-white text-lg font-medium bg-white/10 px-6 py-2 rounded-full backdrop-blur-sm">
+            {currentIndex + 1} / {images.length}
+          </div>
         </div>
       </motion.div>
     </AnimatePresence>
