@@ -27,7 +27,7 @@ export function Preloader() {
       })
     }, 30)
 
-    // Load all carousel images
+    // Load all critical assets: video, carousel images, and guest slider images
     const carouselImages = [
       '/immagini/IMG_9662.JPG',
       '/immagini/IMG_9663.JPG',
@@ -44,9 +44,22 @@ export function Preloader() {
       '/immagini/IMG_9675.JPG',
     ]
 
-    const preloadImages = async () => {
-      const imagePromises = carouselImages.map((src) => {
-        return new Promise((resolve, reject) => {
+    const guestImages = [
+      '/IMG_5628.JPG',
+      '/c_EPbQeA.jpeg',
+      '/pexels-khanshaheb-17214950.jpg',
+      '/Marco Lys at Il Muretto 3.jpg',
+      '/Screenshot 2025-10-17 at 11.58.26.png',
+      '/4.jpeg',
+    ]
+
+    const videoSrc = '/ANIMA-TEASER-3-SEASON-4K.mp4'
+
+    const preloadAssets = async () => {
+      // Preload images (carousel + guests)
+      const allImages = [...carouselImages, ...guestImages]
+      const imagePromises = allImages.map((src) => {
+        return new Promise((resolve) => {
           const img = document.createElement('img')
           img.onload = resolve
           img.onerror = resolve // Continue even if an image fails
@@ -54,13 +67,23 @@ export function Preloader() {
         })
       })
 
-      await Promise.all(imagePromises)
+      // Preload video
+      const videoPromise = new Promise((resolve) => {
+        const video = document.createElement('video')
+        video.oncanplaythrough = resolve
+        video.onerror = resolve // Continue even if video fails
+        video.preload = 'auto'
+        video.src = videoSrc
+      })
+
+      // Wait for all assets
+      await Promise.all([...imagePromises, videoPromise])
       allImagesLoaded = true
       setProgress(100)
       setTimeout(() => setIsLoading(false), 300)
     }
 
-    preloadImages()
+    preloadAssets()
 
     return () => {
       if (progressInterval) clearInterval(progressInterval)
