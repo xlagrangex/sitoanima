@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, HTMLAttributes } from 'react';
+import { Lightbox } from './lightbox';
 
 // A simple utility for conditional class names
 const cn = (...classes: (string | undefined | null | false)[]) => {
@@ -33,6 +34,8 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const [isDragging, setIsDragging] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, rotation: 0 });
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [lightboxIndex, setLightboxIndex] = useState(0);
     const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const animationFrameRef = useRef<number | null>(null);
 
@@ -126,8 +129,16 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     };
 
     const anglePerItem = 360 / items.length;
+
+    const handleImageClick = (index: number) => {
+      if (!isDragging) {
+        setLightboxIndex(index);
+        setLightboxOpen(true);
+      }
+    };
     
     return (
+      <>
       <div
         ref={ref}
         role="region"
@@ -174,7 +185,10 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                   transition: 'opacity 0.3s linear'
                 }}
               >
-                <div className="relative w-full h-full rounded-lg shadow-2xl overflow-hidden group border border-border bg-card/70 dark:bg-card/30 backdrop-blur-lg">
+                <div 
+                  className="relative w-full h-full rounded-lg shadow-2xl overflow-hidden group border border-border bg-card/70 dark:bg-card/30 backdrop-blur-lg cursor-pointer transition-transform hover:scale-105"
+                  onClick={() => handleImageClick(i)}
+                >
                   <img
                     src={item.photo.url}
                     alt={item.photo.text}
@@ -187,6 +201,14 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           })}
         </div>
       </div>
+
+      <Lightbox
+        images={items}
+        initialIndex={lightboxIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+      />
+      </>
     );
   }
 );
