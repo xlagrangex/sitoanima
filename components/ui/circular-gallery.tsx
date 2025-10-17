@@ -188,7 +188,11 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                 }}
               >
                 <div 
-                  className="relative w-full h-full rounded-lg shadow-2xl overflow-hidden group border border-border bg-card/70 dark:bg-card/30 backdrop-blur-lg cursor-pointer transition-transform hover:scale-105"
+                  className={`relative w-full h-full rounded-lg shadow-2xl overflow-hidden group backdrop-blur-lg cursor-pointer transition-transform hover:scale-105 ${
+                    showText 
+                      ? 'border-2 border-black bg-card/70 dark:bg-card/30' 
+                      : 'border border-border bg-card/70 dark:bg-card/30'
+                  }`}
                   onClick={() => handleImageClick(i)}
                 >
                   <img

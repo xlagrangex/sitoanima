@@ -394,7 +394,7 @@ export function AccordionSections() {
               </div>
             ) : section.id === "guests" ? (
               <div className="w-full max-w-6xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-4 md:mb-6 text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-2 md:mb-4 text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full h-[500px] md:h-[600px]">
