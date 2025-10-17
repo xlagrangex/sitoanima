@@ -342,7 +342,7 @@ export function AccordionSections() {
 
             {section.id === "media" ? (
               <div className="w-full max-w-6xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-left md:text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full h-[500px] md:h-[600px]">
@@ -368,7 +368,7 @@ export function AccordionSections() {
               </div>
             ) : section.id === "shows" ? (
               <div className="max-w-4xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-left md:text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full max-w-2xl mx-auto">
@@ -384,14 +384,14 @@ export function AccordionSections() {
               </div>
             ) : section.id === "guests" ? (
               <div className="w-full max-w-6xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-left md:text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <AnimatedTestimonials testimonials={guestDJs} autoplay={true} />
               </div>
             ) : section.id === "playlist" ? (
               <div className="max-w-4xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-left md:text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <iframe 
@@ -408,7 +408,7 @@ export function AccordionSections() {
               </div>
             ) : section.id === "instagram" ? (
               <div className="w-full max-w-6xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-left md:text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <InstagramGrid />
@@ -428,7 +428,7 @@ export function AccordionSections() {
               </div>
             ) : section.id === "map" ? (
               <div className="w-full max-w-5xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-left md:text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full aspect-[4/3] md:aspect-[16/9] rounded-lg overflow-hidden shadow-2xl">
@@ -458,7 +458,7 @@ export function AccordionSections() {
               </div>
             ) : 'hasCarousel' in section && section.hasCarousel ? (
               <div className="max-w-7xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-1 md:mb-2 text-left md:text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-1 md:mb-2 text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <div className="-my-24 md:-my-32">
@@ -469,7 +469,7 @@ export function AccordionSections() {
               <>
                 <div className="max-w-4xl mx-auto space-y-4">
                   {t(section.contentKey).split('\n\n').map((paragraph: string, i: number) => (
-                    <p key={i} className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} text-left md:text-center`}>
+                    <p key={i} className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} text-center`}>
                       {paragraph}
                     </p>
                   ))}
