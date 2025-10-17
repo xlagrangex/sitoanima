@@ -48,7 +48,7 @@ export const AnimatedTestimonials = ({
   };
 
   return (
-    <div className={cn("max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
+    <div className={cn("max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 py-8", className)}>
       <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
         <div>
           <div className="relative w-full aspect-square">
@@ -120,7 +120,7 @@ export const AnimatedTestimonials = ({
             <h3 className="title-primary text-white text-left leading-none" style={{ fontSize: 'clamp(1.25rem, 3vw, 3rem)', fontWeight: 'bold' }}>
               {testimonials[active].name}
             </h3>
-            <p className="text-lg md:text-xl text-white opacity-80 text-left -mt-2">
+            <p className="text-lg md:text-xl text-white opacity-80 text-left mt-4">
               {testimonials[active].designation}
             </p>
           </motion.div>
