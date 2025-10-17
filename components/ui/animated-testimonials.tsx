@@ -49,9 +49,9 @@ export const AnimatedTestimonials = ({
 
   return (
     <div className={cn("max-w-6xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
-      <div className="flex flex-col items-center gap-12">
-        {/* Image Stack */}
-        <div className="w-full max-w-2xl">
+      <div className="relative grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-12 items-center">
+        {/* Image Stack - Larger Column */}
+        <div className="w-full">
           <div className="relative w-full aspect-square rounded-lg shadow-2xl overflow-hidden bg-black/20 backdrop-blur-sm border border-white/10">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
@@ -99,8 +99,8 @@ export const AnimatedTestimonials = ({
           </div>
         </div>
 
-        {/* Text Content */}
-        <div className="w-full max-w-2xl text-center">
+        {/* Text Content & Controls - Right Column */}
+        <div className="flex flex-col gap-8">
           <motion.div
             key={active}
             initial={{
@@ -119,6 +119,7 @@ export const AnimatedTestimonials = ({
               duration: 0.2,
               ease: "easeInOut",
             }}
+            className="text-center lg:text-left"
           >
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {testimonials[active].name}
@@ -152,22 +153,22 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-        </div>
 
-        {/* Navigation Buttons */}
-        <div className="flex gap-4 justify-center">
-          <button
-            onClick={handlePrev}
-            className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
-          >
-            <IconArrowLeft className="h-6 w-6 text-white group-hover/button:rotate-12 transition-transform duration-300" />
-          </button>
-          <button
-            onClick={handleNext}
-            className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
-          >
-            <IconArrowRight className="h-6 w-6 text-white group-hover/button:-rotate-12 transition-transform duration-300" />
-          </button>
+          {/* Navigation Buttons */}
+          <div className="flex gap-4 justify-center lg:justify-start">
+            <button
+              onClick={handlePrev}
+              className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
+            >
+              <IconArrowLeft className="h-6 w-6 text-white group-hover/button:rotate-12 transition-transform duration-300" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
+            >
+              <IconArrowRight className="h-6 w-6 text-white group-hover/button:-rotate-12 transition-transform duration-300" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
