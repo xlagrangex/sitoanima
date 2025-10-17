@@ -195,6 +195,11 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ objectPosition: item.photo.pos || 'center' }}
                   />
+                  {/* Text overlay at the top */}
+                  <div className="absolute top-0 left-0 w-full p-4 bg-gradient-to-b from-black/80 to-transparent text-white">
+                    <h2 className="text-xl font-bold">{item.common}</h2>
+                    <em className="text-sm italic opacity-80">{item.binomial}</em>
+                  </div>
                 </div>
               </div>
             );
