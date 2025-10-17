@@ -117,7 +117,7 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="title-primary text-white text-left leading-none" style={{ fontSize: 'clamp(2.5rem, 6vw, 6rem)', fontWeight: 'bold' }}>
+            <h3 className="title-primary text-white text-left leading-none" style={{ fontSize: 'clamp(1.25rem, 3vw, 3rem)', fontWeight: 'bold' }}>
               {testimonials[active].name}
             </h3>
             <p className="text-2xl md:text-3xl lg:text-4xl text-white opacity-80 text-left mt-6">
