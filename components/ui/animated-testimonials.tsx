@@ -120,7 +120,7 @@ export const AnimatedTestimonials = ({
             <h3 className="title-primary text-white text-left leading-none" style={{ fontSize: 'clamp(1.25rem, 3vw, 3rem)', fontWeight: 'bold' }}>
               {testimonials[active].name}
             </h3>
-            <p className="text-lg md:text-xl text-white opacity-80 text-left mt-4">
+            <p className="text-lg md:text-xl text-white opacity-80 text-left -mt-2">
               {testimonials[active].designation}
             </p>
           </motion.div>
