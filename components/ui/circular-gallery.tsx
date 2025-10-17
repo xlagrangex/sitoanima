@@ -94,7 +94,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const handleMouseMove = (e: React.MouseEvent) => {
       if (!isDragging) return;
       const deltaX = e.clientX - dragStart.x;
-      const rotationDelta = deltaX * 0.5; // Sensitivity factor
+      const rotationDelta = deltaX * 0.8; // Increased sensitivity for smoother dragging
       setRotation(dragStart.rotation + rotationDelta);
     };
 
@@ -120,7 +120,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const handleTouchMove = (e: React.TouchEvent) => {
       if (!isDragging) return;
       const deltaX = e.touches[0].clientX - dragStart.x;
-      const rotationDelta = deltaX * 0.5;
+      const rotationDelta = deltaX * 0.8; // Increased sensitivity for smoother dragging
       setRotation(dragStart.rotation + rotationDelta);
     };
 
