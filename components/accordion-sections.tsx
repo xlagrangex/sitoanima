@@ -97,42 +97,6 @@ export function AccordionSections() {
 
   const guestDJs = [
     {
-      quote: "Powerful techno queen with signature dark, hypnotic sounds that captivate underground crowds worldwide.",
-      name: "Charlotte de Witte",
-      designation: "Techno Artist",
-      src: "/charlotte-de-witte-dj-poster-dark-techno.jpg"
-    },
-    {
-      quote: "High-octane melodic techno duo bringing immersive soundscapes and emotional depth to every performance.",
-      name: "Adriatique",
-      designation: "Melodic Techno Duo",
-      src: "/adriatique-dubai-event-poster.jpg"
-    },
-    {
-      quote: "Driving force of raw techno energy, known for relentless beats and electrifying stage presence.",
-      name: "Amelie Lens",
-      designation: "Techno DJ & Producer",
-      src: "/amelie-lens-dj-poster-techno-event.jpg"
-    },
-    {
-      quote: "Berlin techno legend delivering deep, hypnotic sets that define the underground sound.",
-      name: "Ben Klock",
-      designation: "Techno Pioneer",
-      src: "/ben-klock-dj-poster-underground-techno.jpg"
-    },
-    {
-      quote: "Chart-topping producer blending electronic dance with mainstream appeal and explosive live shows.",
-      name: "Calvin Harris",
-      designation: "EDM Superstar",
-      src: "/calvin-harris-dubai-event-poster.jpg"
-    },
-    {
-      quote: "Visionary artist merging cutting-edge technology with cinematic soundscapes for transcendent experiences.",
-      name: "Anyma",
-      designation: "Live Performance Artist",
-      src: "/anyma-quantum-event-poster.jpg"
-    },
-    {
       quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
       name: "???",
       designation: "Announcing soon",
