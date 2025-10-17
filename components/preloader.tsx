@@ -50,6 +50,7 @@ export function Preloader() {
       '/pexels-khanshaheb-17214950.jpg',
       '/Marco Lys at Il Muretto 3.jpg',
       '/Screenshot 2025-10-17 at 11.58.26.png',
+      '/IMG_9690.JPG',
       '/4.jpeg',
     ]
 

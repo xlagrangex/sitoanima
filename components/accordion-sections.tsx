@@ -193,7 +193,7 @@ export function AccordionSections() {
       quote: "Electronic music artist known for innovative sounds and captivating performances.",
       name: "Grossomoddo",
       designation: "Electronic Artist",
-      src: "/placeholder.jpg"
+      src: "/IMG_9690.JPG"
     },
     {
       quote: "Techno DJ and producer delivering deep, hypnotic beats to the underground scene.",
