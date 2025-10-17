@@ -118,7 +118,7 @@ export function AccordionSections() {
       quote: "Electronic music artist with a unique style blending techno and house elements.",
       name: "Marco Lys",
       designation: "Electronic Artist",
-      src: "/placeholder.jpg"
+      src: "/Marco Lys at Il Muretto 3.jpg"
     },
     {
       quote: "House music producer and DJ bringing energy and groove to every performance.",
