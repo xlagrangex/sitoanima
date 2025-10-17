@@ -199,9 +199,9 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                   />
                   {/* Text overlay at the bottom - only show if showText is true */}
                   {showText && (
-                    <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                      <h2 className="text-xl font-sequel font-black tracking-wider uppercase">{item.common}</h2>
-                      <em className="text-sm italic opacity-80">{item.binomial}</em>
+                    <div className="absolute bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/80 to-transparent text-white">
+                      <h2 className="text-base md:text-lg font-sequel font-black tracking-wider uppercase">{item.common}</h2>
+                      <em className="text-xs md:text-sm italic opacity-80">{item.binomial}</em>
                     </div>
                   )}
                 </div>
