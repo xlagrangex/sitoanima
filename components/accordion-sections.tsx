@@ -97,12 +97,6 @@ export function AccordionSections() {
 
   const guestDJs = [
     {
-      quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
-      name: "???",
-      designation: "Announcing soon",
-      src: "/pexels-khanshaheb-17214950.jpg"
-    },
-    {
       quote: "Electronic music artist bringing fresh sounds and innovative beats to the underground scene.",
       name: "Twolate",
       designation: "Electronic Artist",
@@ -113,6 +107,12 @@ export function AccordionSections() {
       name: "Peppe Citarella",
       designation: "Techno DJ & Producer",
       src: "/c_EPbQeA.jpeg"
+    },
+    {
+      quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
+      name: "???",
+      designation: "Announcing soon",
+      src: "/pexels-khanshaheb-17214950.jpg"
     },
     {
       quote: "Electronic music artist with a unique style blending techno and house elements.",
@@ -136,7 +136,7 @@ export function AccordionSections() {
       quote: "Techno DJ and producer delivering deep, hypnotic beats to the underground scene.",
       name: "Peaty",
       designation: "Techno DJ & Producer",
-      src: "/placeholder.jpg"
+      src: "/4.jpeg"
     }
   ]
 
