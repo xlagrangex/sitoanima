@@ -40,74 +40,119 @@ export function AccordionSections() {
 
   const galleryItems: GalleryItem[] = [
     {
-      common: "Energy",
-      binomial: "The Crowd",
+      common: "Moment",
+      binomial: "01",
       photo: {
-        url: "/crowd-dancing-at-underground-techno-party.jpg",
-        text: "Crowd dancing at underground techno party",
+        url: "/immagini/IMG_9662.JPG",
+        text: "ANIMA Event - Moment 01",
         by: "ANIMA Events"
       }
     },
     {
-      common: "Lights",
-      binomial: "Purple Vibes",
+      common: "Moment",
+      binomial: "02",
       photo: {
-        url: "/electronic-music-crowd-dancing-purple-lights.jpg",
-        text: "Electronic music crowd with purple lights",
+        url: "/immagini/IMG_9663.JPG",
+        text: "ANIMA Event - Moment 02",
         by: "ANIMA Events"
       }
     },
     {
-      common: "Performance",
-      binomial: "The DJ",
+      common: "Moment",
+      binomial: "03",
       photo: {
-        url: "/dj-performing-at-electronic-music-event-with-red-l.jpg",
-        text: "DJ performing at electronic music event",
+        url: "/immagini/IMG_9664.JPG",
+        text: "ANIMA Event - Moment 03",
         by: "ANIMA Events"
       }
     },
     {
-      common: "Atmosphere",
-      binomial: "Industrial Style",
+      common: "Moment",
+      binomial: "04",
       photo: {
-        url: "/industrial-venue-interior-with-stage-and-purple-li.jpg",
-        text: "Industrial venue with purple lights",
+        url: "/immagini/IMG_9665.JPG",
+        text: "ANIMA Event - Moment 04",
         by: "ANIMA Events"
       }
     },
     {
-      common: "Setup",
-      binomial: "DJ Booth",
+      common: "Moment",
+      binomial: "05",
       photo: {
-        url: "/professional-dj-booth-with-cdj-and-mixer-purple-li.jpg",
-        text: "Professional DJ booth with CDJ and mixer",
+        url: "/immagini/IMG_9667.JPG",
+        text: "ANIMA Event - Moment 05",
         by: "ANIMA Events"
       }
     },
     {
-      common: "Connection",
-      binomial: "Unity",
+      common: "Moment",
+      binomial: "06",
       photo: {
-        url: "/techno-party-crowd-with-hands-up-dancing.jpg",
-        text: "Techno party crowd with hands up dancing",
+        url: "/immagini/IMG_9668.JPG",
+        text: "ANIMA Event - Moment 06",
         by: "ANIMA Events"
       }
     },
     {
-      common: "Stage",
-      binomial: "LED Visuals",
+      common: "Moment",
+      binomial: "07",
       photo: {
-        url: "/electronic-music-stage-with-led-visuals.jpg",
-        text: "Electronic music stage with LED visuals",
+        url: "/immagini/IMG_9669.JPG",
+        text: "ANIMA Event - Moment 07",
         by: "ANIMA Events"
       }
     },
     {
-      common: "Festival",
-      binomial: "Laser Lights",
+      common: "Moment",
+      binomial: "08",
       photo: {
-        url: "/electronic-music-festival-stage-with-laser-lights.jpg",
-        text: "Electronic music festival stage with laser lights",
+        url: "/immagini/IMG_9670.JPG",
+        text: "ANIMA Event - Moment 08",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Moment",
+      binomial: "09",
+      photo: {
+        url: "/immagini/IMG_9671.JPG",
+        text: "ANIMA Event - Moment 09",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Moment",
+      binomial: "10",
+      photo: {
+        url: "/immagini/IMG_9672.JPG",
+        text: "ANIMA Event - Moment 10",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Moment",
+      binomial: "11",
+      photo: {
+        url: "/immagini/IMG_9673.JPG",
+        text: "ANIMA Event - Moment 11",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Moment",
+      binomial: "12",
+      photo: {
+        url: "/immagini/IMG_9674.JPG",
+        text: "ANIMA Event - Moment 12",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "Moment",
+      binomial: "13",
+      photo: {
+        url: "/immagini/IMG_9675.JPG",
+        text: "ANIMA Event - Moment 13",
         by: "ANIMA Events"
       }
     }
