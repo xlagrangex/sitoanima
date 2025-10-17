@@ -112,7 +112,7 @@ export function AccordionSections() {
       quote: "Techno producer and DJ known for his powerful sets and underground sound.",
       name: "Peppe Citarella",
       designation: "Techno DJ & Producer",
-      src: "/placeholder.jpg"
+      src: "/c_EPbQeA.jpeg"
     },
     {
       quote: "Electronic music artist with a unique style blending techno and house elements.",
