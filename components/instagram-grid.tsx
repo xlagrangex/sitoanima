@@ -56,15 +56,12 @@ export function InstagramGrid() {
       }
     ]
 
-    // Aggiungi post placeholder neutri per arrivare a 9
+    // Aggiungi solo 1 post placeholder per arrivare a 6 (2 righe da 3)
     const placeholderPosts: InstagramPost[] = [
-      { id: "placeholder1", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" },
-      { id: "placeholder2", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" },
-      { id: "placeholder3", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" },
-      { id: "placeholder4", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" }
+      { id: "placeholder1", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" }
     ]
 
-    const allPosts = [...extractedPosts, ...placeholderPosts].slice(0, 9)
+    const allPosts = [...extractedPosts, ...placeholderPosts].slice(0, 6)
     setPosts(allPosts)
     setLoading(false)
   }, [])
@@ -72,7 +69,7 @@ export function InstagramGrid() {
   if (loading) {
     return (
       <div className="grid grid-cols-3 gap-1 md:gap-2 w-full">
-        {Array.from({ length: 9 }).map((_, i) => (
+        {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
             className="aspect-[3/4] bg-gray-800 animate-pulse rounded-lg"
