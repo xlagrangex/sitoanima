@@ -336,7 +336,7 @@ export function AccordionSections() {
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full h-[500px] md:h-[600px]">
-                  <CircularGallery items={galleryItems} radius={680} autoRotateSpeed={0.015} />
+                  <CircularGallery items={galleryItems} radius={500} autoRotateSpeed={0.015} />
                 </div>
                 {section.cta && section.cta.href && (
                   <div className="mt-8 flex justify-center">

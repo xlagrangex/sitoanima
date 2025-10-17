@@ -112,7 +112,7 @@ const translations = {
     'section6.subtitle': 'Media',
     'section6.title': 'RIVIVI L\'ALBA',
     'section6.content': 'Ogni momento è catturato: aftermovie, gallerie fotografiche e highlights che incarnano lo spirito di ANIMA. Torna tra la folla e porta avanti il ricordo.',
-    'section6.cta': 'Unisciti al nostro gruppo Telegram',
+    'section6.cta': 'Unisciti a noi su Telegram',
     
     'section7.subtitle': 'Musica',
     'section7.title': 'LA COLONNA SONORA DELLA TUA NOTTE',
