@@ -202,7 +202,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                     <div className="absolute bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/80 to-transparent text-white">
                       <h2 className={`font-sequel font-black tracking-wider uppercase ${
                         item.common === 'Grossomoddo' 
-                          ? 'text-sm md:text-base' 
+                          ? 'text-xs md:text-sm' 
                           : 'text-base md:text-lg'
                       }`}>
                         {item.common}
