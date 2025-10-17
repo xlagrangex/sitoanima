@@ -64,14 +64,14 @@ export const AnimatedTestimonials = ({
                     rotate: randomRotateY(),
                   }}
                   animate={{
-                    opacity: isActive(index) ? 1 : 0.5,
-                    scale: isActive(index) ? 1 : 0.92,
-                    z: isActive(index) ? 0 : -50,
+                    opacity: isActive(index) ? 1 : 0.85,
+                    scale: isActive(index) ? 1 : 0.9,
+                    z: isActive(index) ? 0 : -100,
                     rotate: isActive(index) ? 0 : randomRotateY(),
                     zIndex: isActive(index)
                       ? 999
                       : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : 0,
+                    y: isActive(index) ? [0, -80, 0] : (testimonials.length - index) * 20,
                   }}
                   exit={{
                     opacity: 0,
