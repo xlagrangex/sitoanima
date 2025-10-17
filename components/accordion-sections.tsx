@@ -342,7 +342,7 @@ export function AccordionSections() {
 
             {section.id === "media" ? (
               <div className="w-full max-w-6xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-8 md:mb-12 text-center`}>
+                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-4 md:mb-6 text-center`}>
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full h-[500px] md:h-[600px]">
