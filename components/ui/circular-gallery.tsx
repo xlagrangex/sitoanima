@@ -25,10 +25,12 @@ interface CircularGalleryProps extends HTMLAttributes<HTMLDivElement> {
   radius?: number;
   /** Controls the speed of auto-rotation when not scrolling. */
   autoRotateSpeed?: number;
+  /** Show text overlay on cards. */
+  showText?: boolean;
 }
 
 const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
-  ({ items, className, radius = 600, autoRotateSpeed = 0.02, ...props }, ref) => {
+  ({ items, className, radius = 600, autoRotateSpeed = 0.02, showText = false, ...props }, ref) => {
     const [rotation, setRotation] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
@@ -195,11 +197,13 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                     className="absolute inset-0 w-full h-full object-cover"
                     style={{ objectPosition: item.photo.pos || 'center' }}
                   />
-                  {/* Text overlay at the bottom */}
-                  <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
-                    <h2 className="text-xl font-sequel font-black tracking-wider uppercase">{item.common}</h2>
-                    <em className="text-sm italic opacity-80">{item.binomial}</em>
-                  </div>
+                  {/* Text overlay at the bottom - only show if showText is true */}
+                  {showText && (
+                    <div className="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent text-white">
+                      <h2 className="text-xl font-sequel font-black tracking-wider uppercase">{item.common}</h2>
+                      <em className="text-sm italic opacity-80">{item.binomial}</em>
+                    </div>
+                  )}
                 </div>
               </div>
             );

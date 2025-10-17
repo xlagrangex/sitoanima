@@ -401,7 +401,8 @@ export function AccordionSections() {
                   <CircularGallery 
                     items={guestGalleryItems} 
                     radius={isMobile ? 350 : 450} 
-                    autoRotateSpeed={0.015} 
+                    autoRotateSpeed={0.015}
+                    showText={true}
                   />
                 </div>
               </div>
