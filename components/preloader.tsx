@@ -9,33 +9,61 @@ export function Preloader() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
-    // Simulate loading progress - faster update
-    const interval = setInterval(() => {
+    let progressInterval: NodeJS.Timeout | null = null
+    let allImagesLoaded = false
+
+    // Start progress animation
+    progressInterval = setInterval(() => {
       setProgress((prev) => {
+        // Slow down at 90% to wait for images
+        if (prev >= 90 && !allImagesLoaded) {
+          return prev + 0.5
+        }
         if (prev >= 100) {
-          clearInterval(interval)
-          setTimeout(() => setIsLoading(false), 300)
+          if (progressInterval) clearInterval(progressInterval)
           return 100
         }
-        return prev + 3
+        return prev + 2
       })
-    }, 25)
+    }, 30)
 
-    // Also listen for actual page load
-    const handleLoad = () => {
+    // Load all carousel images
+    const carouselImages = [
+      '/immagini/IMG_9662.JPG',
+      '/immagini/IMG_9663.JPG',
+      '/immagini/IMG_9664.JPG',
+      '/immagini/IMG_9665.JPG',
+      '/immagini/IMG_9667.JPG',
+      '/immagini/IMG_9668.JPG',
+      '/immagini/IMG_9669.JPG',
+      '/immagini/IMG_9670.JPG',
+      '/immagini/IMG_9671.JPG',
+      '/immagini/IMG_9672.JPG',
+      '/immagini/IMG_9673.JPG',
+      '/immagini/IMG_9674.JPG',
+      '/immagini/IMG_9675.JPG',
+    ]
+
+    const preloadImages = async () => {
+      const imagePromises = carouselImages.map((src) => {
+        return new Promise((resolve, reject) => {
+          const img = document.createElement('img')
+          img.onload = resolve
+          img.onerror = resolve // Continue even if an image fails
+          img.src = src
+        })
+      })
+
+      await Promise.all(imagePromises)
+      allImagesLoaded = true
       setProgress(100)
-      setTimeout(() => setIsLoading(false), 500)
+      setTimeout(() => setIsLoading(false), 300)
     }
 
-    if (document.readyState === 'complete') {
-      handleLoad()
-    } else {
-      window.addEventListener('load', handleLoad)
-    }
+    preloadImages()
 
     return () => {
-      clearInterval(interval)
-      window.removeEventListener('load', handleLoad)
+      if (progressInterval) clearInterval(progressInterval)
     }
   }, [])
 
