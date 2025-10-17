@@ -5,7 +5,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { motion } from "framer-motion"
 import { GlitchText, GlitchContainer, GlitchButton, staggerContainer, staggerItem } from "@/components/glitch-animations"
@@ -22,6 +22,16 @@ export function AccordionSections() {
     email: "",
     message: "",
   })
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -336,7 +346,11 @@ export function AccordionSections() {
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full h-[500px] md:h-[600px]">
-                  <CircularGallery items={galleryItems} radius={500} autoRotateSpeed={0.015} />
+                  <CircularGallery 
+                    items={galleryItems} 
+                    radius={isMobile ? 500 : 680} 
+                    autoRotateSpeed={0.015} 
+                  />
                 </div>
                 {section.cta && section.cta.href && (
                   <div className="mt-8 flex justify-center">
