@@ -48,11 +48,10 @@ export const AnimatedTestimonials = ({
   };
 
   return (
-    <div className={cn("max-w-6xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
-      <div className="relative grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-12 items-center">
-        {/* Image Stack - Larger Column */}
-        <div className="w-full">
-          <div className="relative w-full aspect-square rounded-lg shadow-2xl overflow-hidden bg-black/20 backdrop-blur-sm border border-white/10">
+    <div className={cn("max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
+        <div>
+          <div className="relative h-80 w-full">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -64,14 +63,14 @@ export const AnimatedTestimonials = ({
                     rotate: randomRotateY(),
                   }}
                   animate={{
-                    opacity: isActive(index) ? 1 : 0.85,
-                    scale: isActive(index) ? 1 : 0.9,
+                    opacity: isActive(index) ? 1 : 0.7,
+                    scale: isActive(index) ? 1 : 0.95,
                     z: isActive(index) ? 0 : -100,
                     rotate: isActive(index) ? 0 : randomRotateY(),
                     zIndex: isActive(index)
                       ? 999
                       : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : (testimonials.length - index) * 20,
+                    y: isActive(index) ? [0, -80, 0] : 0,
                   }}
                   exit={{
                     opacity: 0,
@@ -88,19 +87,17 @@ export const AnimatedTestimonials = ({
                   <Image
                     src={testimonial.src}
                     alt={testimonial.name}
-                    width={800}
-                    height={800}
+                    width={500}
+                    height={500}
                     draggable={false}
-                    className="h-full w-full rounded-md object-cover object-center"
+                    className="h-full w-full rounded-3xl object-cover object-center"
                   />
                 </motion.div>
               ))}
             </AnimatePresence>
           </div>
         </div>
-
-        {/* Text Content & Controls - Right Column */}
-        <div className="flex flex-col gap-8">
+        <div className="flex justify-between flex-col py-4">
           <motion.div
             key={active}
             initial={{
@@ -119,15 +116,14 @@ export const AnimatedTestimonials = ({
               duration: 0.2,
               ease: "easeInOut",
             }}
-            className="text-center lg:text-left"
           >
-            <h3 className="title-primary text-3xl md:text-4xl font-bold text-white mb-2">
+            <h3 className="title-primary text-2xl font-bold text-white">
               {testimonials[active].name}
             </h3>
-            <p className="text-base md:text-lg text-white opacity-80 mb-6">
+            <p className="text-sm text-white opacity-80">
               {testimonials[active].designation}
             </p>
-            <motion.p className="text-base md:text-lg text-white opacity-90">
+            <motion.p className="text-lg text-white opacity-90 mt-8">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -153,20 +149,18 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-
-          {/* Navigation Buttons */}
-          <div className="flex gap-4 justify-center lg:justify-start">
+          <div className="flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
-              className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
+              className="h-7 w-7 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
             >
-              <IconArrowLeft className="h-6 w-6 text-white group-hover/button:rotate-12 transition-transform duration-300" />
+              <IconArrowLeft className="h-5 w-5 text-white group-hover/button:rotate-12 transition-transform duration-300" />
             </button>
             <button
               onClick={handleNext}
-              className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
+              className="h-7 w-7 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
             >
-              <IconArrowRight className="h-6 w-6 text-white group-hover/button:-rotate-12 transition-transform duration-300" />
+              <IconArrowRight className="h-5 w-5 text-white group-hover/button:-rotate-12 transition-transform duration-300" />
             </button>
           </div>
         </div>
