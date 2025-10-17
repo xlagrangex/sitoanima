@@ -29,7 +29,7 @@ export function StickyHeader() {
           ? "backdrop-blur-md bg-black/40 border border-white/20"
           : "backdrop-blur-sm bg-black/30 border border-white/15"
       } rounded-full shadow-2xl`}
-      style={{ width: "min(90vw, 800px)", padding: "12px 32px" }}
+      style={{ width: "min(95vw, 1100px)", padding: "12px 32px" }}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
@@ -45,7 +45,7 @@ export function StickyHeader() {
         </motion.button>
 
         {/* Desktop Navigation - Centered */}
-        <div className="hidden md:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
+        <div className="hidden md:flex items-center space-x-4 absolute left-1/2 transform -translate-x-1/2">
           {["format", "venue", "shows", "guests", "media", "instagram", "map"].map((section, index) => (
             <motion.button
               key={section}
