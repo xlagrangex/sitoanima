@@ -124,7 +124,7 @@ export function AccordionSections() {
       quote: "House music producer and DJ bringing energy and groove to every performance.",
       name: "Piero Pirupa",
       designation: "House DJ & Producer",
-      src: "/placeholder.jpg"
+      src: "/P13.jpg"
     },
     {
       quote: "Electronic music artist known for innovative sounds and captivating performances.",
