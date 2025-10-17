@@ -131,6 +131,12 @@ export function AccordionSections() {
       name: "Anyma",
       designation: "Live Performance Artist",
       src: "/anyma-quantum-event-poster.jpg"
+    },
+    {
+      quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
+      name: "???",
+      designation: "Announcing soon",
+      src: "/pexels-khanshaheb-17214950.jpg"
     }
   ]
 
