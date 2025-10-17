@@ -48,10 +48,11 @@ export const AnimatedTestimonials = ({
   };
 
   return (
-    <div className={cn("max-w-sm md:max-w-4xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
-      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20">
-        <div>
-          <div className="relative w-full aspect-square">
+    <div className={cn("max-w-6xl mx-auto px-4 md:px-8 lg:px-12 py-20", className)}>
+      <div className="flex flex-col items-center gap-12">
+        {/* Image Stack */}
+        <div className="w-full max-w-2xl">
+          <div className="relative w-full aspect-square rounded-lg shadow-2xl overflow-hidden bg-black/20 backdrop-blur-sm border border-white/10">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -87,8 +88,8 @@ export const AnimatedTestimonials = ({
                   <Image
                     src={testimonial.src}
                     alt={testimonial.name}
-                    width={500}
-                    height={500}
+                    width={800}
+                    height={800}
                     draggable={false}
                     className="h-full w-full rounded-md object-cover object-center"
                   />
@@ -97,7 +98,9 @@ export const AnimatedTestimonials = ({
             </AnimatePresence>
           </div>
         </div>
-        <div className="flex justify-between flex-col py-4">
+
+        {/* Text Content */}
+        <div className="w-full max-w-2xl text-center">
           <motion.div
             key={active}
             initial={{
@@ -117,13 +120,13 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold text-white">
+            <h3 className="text-3xl md:text-4xl font-bold text-white mb-2">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-white opacity-80">
+            <p className="text-base md:text-lg text-white opacity-80 mb-6">
               {testimonials[active].designation}
             </p>
-            <motion.p className="text-lg text-white opacity-90 mt-8">
+            <motion.p className="text-base md:text-lg text-white opacity-90">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -149,20 +152,22 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
-            <button
-              onClick={handlePrev}
-              className="h-7 w-7 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
-            >
-              <IconArrowLeft className="h-5 w-5 text-white group-hover/button:rotate-12 transition-transform duration-300" />
-            </button>
-            <button
-              onClick={handleNext}
-              className="h-7 w-7 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
-            >
-              <IconArrowRight className="h-5 w-5 text-white group-hover/button:-rotate-12 transition-transform duration-300" />
-            </button>
-          </div>
+        </div>
+
+        {/* Navigation Buttons */}
+        <div className="flex gap-4 justify-center">
+          <button
+            onClick={handlePrev}
+            className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
+          >
+            <IconArrowLeft className="h-6 w-6 text-white group-hover/button:rotate-12 transition-transform duration-300" />
+          </button>
+          <button
+            onClick={handleNext}
+            className="h-10 w-10 rounded-full bg-white/20 flex items-center justify-center group/button hover:bg-white/30 transition-colors"
+          >
+            <IconArrowRight className="h-6 w-6 text-white group-hover/button:-rotate-12 transition-transform duration-300" />
+          </button>
         </div>
       </div>
     </div>
