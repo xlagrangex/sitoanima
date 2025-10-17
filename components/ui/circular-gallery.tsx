@@ -176,17 +176,13 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                 key={item.photo.url} 
                 role="group"
                 aria-label={item.common}
-                className={`absolute ${
-                  item.common === 'Grossomoddo' 
-                    ? 'w-[144px] h-[192px] md:w-[192px] md:h-[256px]' 
-                    : 'w-[180px] h-[240px] md:w-[240px] md:h-[320px]'
-                }`}
+                className="absolute w-[180px] h-[240px] md:w-[240px] md:h-[320px]"
                 style={{
                   transform: `rotateY(${itemAngle}deg) translateZ(${radius}px)`,
                   left: '50%',
                   top: '50%',
-                  marginLeft: item.common === 'Grossomoddo' ? '-72px' : '-90px',
-                  marginTop: item.common === 'Grossomoddo' ? '-96px' : '-120px',
+                  marginLeft: '-90px',
+                  marginTop: '-120px',
                   opacity: opacity,
                   transition: 'opacity 0.3s linear'
                 }}
@@ -204,7 +200,13 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                   {/* Text overlay at the bottom - only show if showText is true */}
                   {showText && (
                     <div className="absolute bottom-0 left-0 w-full p-3 bg-gradient-to-t from-black/80 to-transparent text-white">
-                      <h2 className="text-base md:text-lg font-sequel font-black tracking-wider uppercase">{item.common}</h2>
+                      <h2 className={`font-sequel font-black tracking-wider uppercase ${
+                        item.common === 'Grossomoddo' 
+                          ? 'text-sm md:text-base' 
+                          : 'text-base md:text-lg'
+                      }`}>
+                        {item.common}
+                      </h2>
                       <em className="text-xs md:text-sm italic opacity-80">{item.binomial}</em>
                     </div>
                   )}
