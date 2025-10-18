@@ -6,6 +6,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { PrivacyPolicyModal } from "./privacy-policy-modal"
 import { CookiePolicyModal } from "./cookie-policy-modal"
+import { CreditsFooter } from "./credits-footer"
 
 export function SiteFooter() {
   const { t } = useLanguage()
@@ -136,6 +137,9 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
+
+    {/* Credits Footer */}
+    <CreditsFooter />
 
     {/* Modals */}
     <PrivacyPolicyModal 
