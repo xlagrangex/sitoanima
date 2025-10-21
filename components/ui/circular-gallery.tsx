@@ -96,7 +96,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const handleMouseMove = (e: React.MouseEvent) => {
       if (!isDragging) return;
       const deltaX = e.clientX - dragStart.x;
-      const rotationDelta = deltaX * 0.3; // Reduced sensitivity for more controlled dragging
+      const rotationDelta = deltaX * 0.2; // Reduced sensitivity for more controlled dragging
       setRotation(dragStart.rotation + rotationDelta);
     };
 
@@ -117,12 +117,14 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const handleTouchStart = (e: React.TouchEvent) => {
       setIsDragging(true);
       setDragStart({ x: e.touches[0].clientX, rotation });
+      e.preventDefault(); // Prevent scrolling while dragging
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
       if (!isDragging) return;
+      e.preventDefault(); // Prevent scrolling while dragging
       const deltaX = e.touches[0].clientX - dragStart.x;
-      const rotationDelta = deltaX * 0.3; // Reduced sensitivity for more controlled dragging
+      const rotationDelta = deltaX * 0.15; // Lower sensitivity for touch to match finger speed better
       setRotation(dragStart.rotation + rotationDelta);
     };
 
@@ -162,6 +164,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           style={{
             transform: `rotateY(${rotation}deg)`,
             transformStyle: 'preserve-3d',
+            transition: isDragging ? 'none' : 'transform 0.1s ease-out',
           }}
         >
           {items.map((item, i) => {
