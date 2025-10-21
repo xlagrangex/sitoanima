@@ -6,7 +6,6 @@ import { Suspense } from "react"
 import { LanguageProvider } from "@/contexts/LanguageContext"
 import { LanguageSwitcher } from "@/components/language-switcher"
 import { Preloader } from "@/components/preloader"
-import { BackgroundPreloader } from "@/components/background-preloader"
 
 export const metadata: Metadata = {
   title: "ANIMA – Until the Sun Rises | Electronic Music Events",
@@ -41,7 +40,6 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-avenir">
         <Preloader />
-        <BackgroundPreloader />
         <LanguageProvider>
           <Suspense fallback={null}>{children}</Suspense>
           <LanguageSwitcher />
