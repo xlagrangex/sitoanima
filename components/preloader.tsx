@@ -12,54 +12,46 @@ export function Preloader() {
     let progressInterval: NodeJS.Timeout | null = null
     let allImagesLoaded = false
 
-    // Start progress animation
+    // Start progress animation - faster and more responsive
     progressInterval = setInterval(() => {
       setProgress((prev) => {
-        // Slow down at 90% to wait for images
-        if (prev >= 90 && !allImagesLoaded) {
-          return prev + 0.5
+        // Slow down at 85% to wait for critical images only
+        if (prev >= 85 && !allImagesLoaded) {
+          return prev + 1
         }
         if (prev >= 100) {
           if (progressInterval) clearInterval(progressInterval)
           return 100
         }
-        return prev + 2
+        return prev + 4 // Faster progress
       })
-    }, 30)
+    }, 20) // Faster interval
 
-    // Load all critical assets: video, carousel images, and guest slider images
-    const carouselImages = [
-      '/immagini/IMG_9662.webp',
-      '/immagini/IMG_9663.webp',
-      '/immagini/IMG_9664.webp',
-      '/immagini/IMG_9665.webp',
-      '/immagini/IMG_9667.webp',
-      '/immagini/IMG_9668.webp',
-      '/immagini/IMG_9669.webp',
-      '/immagini/IMG_9670.webp',
-      '/immagini/IMG_9671.webp',
-      '/immagini/IMG_9672.webp',
-      '/immagini/IMG_9673.webp',
-      '/immagini/IMG_9674.webp',
-      '/immagini/IMG_9675.webp',
+    // Load only critical assets for first scroll (hero + first carousel)
+    const criticalImages = [
+      // Hero section
+      '/anima-complete-white.webp',
+      '/anima-logo-white.webp',
+      // First carousel (3D carousel)
+      '/charlotte-de-witte-dj-poster-dark-techno.webp',
+      '/amelie-lens-dj-poster-techno-event.webp',
+      '/ben-klock-dj-poster-underground-techno.webp',
+      '/dj-performing-at-electronic-music-event-with-red-l.webp',
+      '/electronic-music-event-crowd-with-purple-lights.webp',
+      '/dj-mixing-on-cdj-turntables-with-neon-lights.webp',
+      '/crowd-dancing-at-underground-techno-party.webp',
+      '/electronic-music-crowd-dancing-purple-lights.webp',
+      '/professional-dj-booth-with-cdj-and-mixer-purple-li.webp',
+      '/dj-performing-electronic-music-purple-lighting.webp',
+      '/techno-party-crowd-with-hands-up-dancing.webp',
+      '/electronic-music-stage-with-led-visuals.webp',
+      '/industrial-venue-interior-with-stage-and-purple-li.webp',
+      '/concert-stage-with-professional-lighting-and-sound.webp',
     ]
-
-    const guestImages = [
-      '/IMG_5628.webp',
-      '/c_EPbQeA.webp',
-      '/pexels-khanshaheb-17214950.webp',
-      '/Marco Lys at Il Muretto 3.webp',
-      '/Screenshot 2025-10-17 at 11.58.26.webp',
-      '/IMG_9690.webp',
-      '/4.webp',
-    ]
-
-    const videoSrc = '/ANIMA-TEASER-3-SEASON-4K.mp4'
 
     const preloadAssets = async () => {
-      // Preload images (carousel + guests)
-      const allImages = [...carouselImages, ...guestImages]
-      const imagePromises = allImages.map((src) => {
+      // Preload only critical images
+      const imagePromises = criticalImages.map((src) => {
         return new Promise((resolve) => {
           const img = document.createElement('img')
           img.onload = resolve
@@ -68,20 +60,11 @@ export function Preloader() {
         })
       })
 
-      // Preload video
-      const videoPromise = new Promise((resolve) => {
-        const video = document.createElement('video')
-        video.oncanplaythrough = resolve
-        video.onerror = resolve // Continue even if video fails
-        video.preload = 'auto'
-        video.src = videoSrc
-      })
-
-      // Wait for all assets
-      await Promise.all([...imagePromises, videoPromise])
+      // Wait for critical assets only
+      await Promise.all(imagePromises)
       allImagesLoaded = true
       setProgress(100)
-      setTimeout(() => setIsLoading(false), 300)
+      setTimeout(() => setIsLoading(false), 200) // Faster exit
     }
 
     preloadAssets()
