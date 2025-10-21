@@ -75,9 +75,9 @@ const animaImages = [
   "/concert-stage-with-professional-lighting-and-sound.webp",
 ]
 
-const duration = 0.15
-const transition = { duration, ease: [0.32, 0.72, 0, 1], filter: "blur(4px)" }
-const transitionOverlay = { duration: 0.5, ease: [0.32, 0.72, 0, 1] }
+const duration = 0.1
+const transition = { duration, ease: [0.25, 0.46, 0.45, 0.94], filter: "blur(2px)" }
+const transitionOverlay = { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }
 
 const Carousel = memo(
   ({
@@ -114,25 +114,27 @@ const Carousel = memo(
         <motion.div
           drag={isCarouselActive ? "x" : false}
           className="relative flex h-full origin-center cursor-grab justify-center active:cursor-grabbing"
-          style={{
-            transform,
-            rotateY: rotation,
-            width: cylinderWidth,
-            transformStyle: "preserve-3d",
-          }}
+        style={{
+          transform,
+          rotateY: rotation,
+          width: cylinderWidth,
+          transformStyle: "preserve-3d",
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+        }}
           onDrag={(_, info) =>
             isCarouselActive &&
-            rotation.set(rotation.get() + info.offset.x * 0.01)
+            rotation.set(rotation.get() + info.delta.x * 0.5)
           }
           onDragEnd={(_, info) =>
             isCarouselActive &&
             controls.start({
-              rotateY: rotation.get() + info.velocity.x * 0.01,
+              rotateY: rotation.get() + info.velocity.x * 0.3,
               transition: {
                 type: "spring",
-                stiffness: 50,
-                damping: 50,
-                mass: 0.5,
+                stiffness: 100,
+                damping: 30,
+                mass: 0.8,
               },
             })
           }
@@ -155,10 +157,12 @@ const Carousel = memo(
                 alt={`keyword_${i} ${imgUrl}`}
                 layoutId={`img-${imgUrl}`}
                 className="pointer-events-none  w-full rounded-xl object-cover aspect-square"
-                initial={{ filter: "blur(4px)" }}
+                initial={{ filter: "blur(2px)" }}
                 layout="position"
                 animate={{ filter: "blur(0px)" }}
                 transition={transition}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               />
             </motion.div>
           ))}
