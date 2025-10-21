@@ -85,11 +85,13 @@ const Carousel = memo(
     controls,
     cards,
     isCarouselActive,
+    rotation,
   }: {
     handleClick: (imgUrl: string, index: number) => void
     controls: any
     cards: string[]
     isCarouselActive: boolean
+    rotation: any
   }) => {
     const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
     const cylinderWidth = isScreenSizeSm ? 1600 : 3000
@@ -112,7 +114,7 @@ const Carousel = memo(
         }}
       >
         <motion.div
-          drag={isCarouselActive ? "x" : false}
+          drag={isCarouselActive && !isMobile ? "x" : false}
           className="relative flex h-full origin-center cursor-grab justify-center active:cursor-grabbing"
         style={{
           transform,
@@ -184,6 +186,9 @@ function ThreeDPhotoCarousel() {
   const [isCarouselActive, setIsCarouselActive] = useState(true)
   const [dragDistance, setDragDistance] = useState(0)
   const controls = useAnimation()
+  const rotation = useMotionValue(0)
+  const isMobile = useMediaQuery("(max-width: 768px)")
+  
   const cards = useMemo(
     () => animaImages,
     []
@@ -202,6 +207,16 @@ function ThreeDPhotoCarousel() {
   const handleClose = () => {
     setActiveImg(null)
     setIsCarouselActive(true)
+  }
+  
+  const goNext = () => {
+    const angleStep = 360 / cards.length
+    rotation.set(rotation.get() - angleStep)
+  }
+  
+  const goPrev = () => {
+    const angleStep = 360 / cards.length
+    rotation.set(rotation.get() + angleStep)
   }
 
   return (
@@ -243,7 +258,32 @@ function ThreeDPhotoCarousel() {
           controls={controls}
           cards={cards}
           isCarouselActive={isCarouselActive}
+          rotation={rotation}
         />
+        
+        {/* Navigation arrows - only on mobile */}
+        {isMobile && (
+          <>
+            <button
+              onClick={goPrev}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full p-3 shadow-lg transition-all active:scale-95"
+              aria-label="Previous"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={goNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full p-3 shadow-lg transition-all active:scale-95"
+              aria-label="Next"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
       </div>
     </motion.div>
   )

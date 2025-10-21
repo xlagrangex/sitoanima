@@ -162,6 +162,17 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
         setLightboxOpen(true);
       }
     };
+
+    // Navigation arrows for mobile
+    const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+    
+    const goNext = () => {
+      setRotation(prev => prev + anglePerItem);
+    };
+    
+    const goPrev = () => {
+      setRotation(prev => prev - anglePerItem);
+    };
     
     return (
       <>
@@ -171,14 +182,11 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
         aria-label="Circular 3D Gallery"
         className={cn("relative w-full h-full flex items-center justify-center", isDragging ? "cursor-grabbing" : "cursor-grab", className)}
         style={{ perspective: '2000px', userSelect: 'none' }}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
-        onMouseEnter={handleMouseEnter}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
+        onMouseDown={!isMobile ? handleMouseDown : undefined}
+        onMouseMove={!isMobile ? handleMouseMove : undefined}
+        onMouseUp={!isMobile ? handleMouseUp : undefined}
+        onMouseLeave={!isMobile ? handleMouseLeave : undefined}
+        onMouseEnter={!isMobile ? handleMouseEnter : undefined}
         {...props}
       >
         <div
@@ -244,6 +252,30 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
             );
           })}
         </div>
+        
+        {/* Navigation arrows - only on mobile */}
+        {isMobile && (
+          <>
+            <button
+              onClick={goPrev}
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full p-3 shadow-lg transition-all active:scale-95"
+              aria-label="Previous"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={goNext}
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full p-3 shadow-lg transition-all active:scale-95"
+              aria-label="Next"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </>
+        )}
       </div>
 
       <Lightbox
