@@ -68,7 +68,7 @@ const translations = {
     'section9.subtitle': 'Access',
     'section9.title': 'BE THE FIRST TO DANCE.',
     'section9.content': 'Get in touch with ANIMA! Reserve your access and book your private zone! Stay connected — from midnight until sunrise.',
-    'section9.cta': 'Contact Us on WhatsApp',
+    'section9.cta': 'WhatsApp Us',
     
     'section10.subtitle': 'Location',
     'section10.title': 'FIND YOUR WAY TO THE SUN.',
@@ -145,7 +145,7 @@ const translations = {
     'section9.subtitle': 'Accesso',
     'section9.title': 'SII IL PRIMO A BALLARE.',
     'section9.content': 'Mettiti in contatto con ANIMA! Prenota il tuo accesso e riserva la tua zona privata! Rimani connesso — dalla mezzanotte fino all\'alba.',
-    'section9.cta': 'Contattaci su WhatsApp',
+    'section9.cta': 'Scrivici su WhatsApp',
     
     'section10.subtitle': 'Posizione',
     'section10.title': 'TROVA LA VIA VERSO IL SOLE.',
