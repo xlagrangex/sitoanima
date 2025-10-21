@@ -122,11 +122,25 @@ const Carousel = memo(
           willChange: "transform",
           backfaceVisibility: "hidden",
         }}
+          onDragStart={() => {
+            // Disable page scroll on mobile while dragging
+            if (window.innerWidth < 768) {
+              document.body.style.overflow = 'hidden';
+              document.body.style.position = 'fixed';
+              document.body.style.width = '100%';
+            }
+          }}
           onDrag={(_, info) =>
             isCarouselActive &&
             rotation.set(rotation.get() + info.delta.x * 0.5)
           }
-          onDragEnd={(_, info) =>
+          onDragEnd={(_, info) => {
+            // Re-enable page scroll on mobile
+            if (window.innerWidth < 768) {
+              document.body.style.overflow = '';
+              document.body.style.position = '';
+              document.body.style.width = '';
+            }
             isCarouselActive &&
             controls.start({
               rotateY: rotation.get() + info.velocity.x * 0.3,
@@ -137,7 +151,7 @@ const Carousel = memo(
                 mass: 0.8,
               },
             })
-          }
+          }}
           animate={controls}
         >
           {cards.map((imgUrl, i) => (
@@ -177,6 +191,7 @@ const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba
 function ThreeDPhotoCarousel() {
   const [activeImg, setActiveImg] = useState<string | null>(null)
   const [isCarouselActive, setIsCarouselActive] = useState(true)
+  const [isDragging, setIsDragging] = useState(false)
   const controls = useAnimation()
   const cards = useMemo(
     () => animaImages,

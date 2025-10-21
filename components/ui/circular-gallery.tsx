@@ -35,15 +35,18 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const [isScrolling, setIsScrolling] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
+    const [isTouching, setIsTouching] = useState(false);
     const [dragStart, setDragStart] = useState({ x: 0, rotation: 0 });
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
     const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const animationFrameRef = useRef<number | null>(null);
 
-    // Effect to handle scroll-based rotation
+    // Effect to handle scroll-based rotation - disabled when touching
     useEffect(() => {
       const handleScroll = () => {
+        if (isTouching || isDragging) return; // Don't scroll rotate while touching
+        
         setIsScrolling(true);
         if (scrollTimeoutRef.current) {
           clearTimeout(scrollTimeoutRef.current);
@@ -66,12 +69,12 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           clearTimeout(scrollTimeoutRef.current);
         }
       };
-    }, []);
+    }, [isTouching, isDragging]);
 
-    // Effect for auto-rotation when not scrolling, hovering, or dragging
+    // Effect for auto-rotation when not scrolling, hovering, dragging or touching
     useEffect(() => {
       const autoRotate = () => {
-        if (!isScrolling && !isHovering && !isDragging) {
+        if (!isScrolling && !isHovering && !isDragging && !isTouching) {
           setRotation(prev => prev + autoRotateSpeed);
         }
         animationFrameRef.current = requestAnimationFrame(autoRotate);
@@ -84,7 +87,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           cancelAnimationFrame(animationFrameRef.current);
         }
       };
-    }, [isScrolling, isHovering, isDragging, autoRotateSpeed]);
+    }, [isScrolling, isHovering, isDragging, isTouching, autoRotateSpeed]);
 
     // Drag handlers
     const handleMouseDown = (e: React.MouseEvent) => {
@@ -115,21 +118,32 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
 
     // Touch handlers for mobile
     const handleTouchStart = (e: React.TouchEvent) => {
+      setIsTouching(true);
       setIsDragging(true);
       setDragStart({ x: e.touches[0].clientX, rotation });
-      e.preventDefault(); // Prevent scrolling while dragging
+      // Disable page scroll while touching carousel
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      e.preventDefault();
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
       if (!isDragging) return;
-      e.preventDefault(); // Prevent scrolling while dragging
+      e.preventDefault();
+      e.stopPropagation();
       const deltaX = e.touches[0].clientX - dragStart.x;
-      const rotationDelta = deltaX * 0.15; // Lower sensitivity for touch to match finger speed better
+      const rotationDelta = deltaX * 0.15;
       setRotation(dragStart.rotation + rotationDelta);
     };
 
     const handleTouchEnd = () => {
       setIsDragging(false);
+      setIsTouching(false);
+      // Re-enable page scroll
+      document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     };
 
     const anglePerItem = 360 / items.length;
