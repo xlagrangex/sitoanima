@@ -125,8 +125,11 @@ const Carousel = memo(
           onDragStart={() => {
             // Disable page scroll on mobile while dragging
             if (window.innerWidth < 768) {
+              const currentScroll = window.scrollY;
+              setScrollPosition(currentScroll);
               document.body.style.overflow = 'hidden';
               document.body.style.position = 'fixed';
+              document.body.style.top = `-${currentScroll}px`;
               document.body.style.width = '100%';
             }
           }}
@@ -135,11 +138,13 @@ const Carousel = memo(
             rotation.set(rotation.get() + info.delta.x * 0.5)
           }
           onDragEnd={(_, info) => {
-            // Re-enable page scroll on mobile
+            // Re-enable page scroll on mobile and restore position
             if (window.innerWidth < 768) {
               document.body.style.overflow = '';
               document.body.style.position = '';
+              document.body.style.top = '';
               document.body.style.width = '';
+              window.scrollTo(0, scrollPosition);
             }
             isCarouselActive &&
             controls.start({
@@ -192,6 +197,7 @@ function ThreeDPhotoCarousel() {
   const [activeImg, setActiveImg] = useState<string | null>(null)
   const [isCarouselActive, setIsCarouselActive] = useState(true)
   const [isDragging, setIsDragging] = useState(false)
+  const [scrollPosition, setScrollPosition] = useState(0)
   const controls = useAnimation()
   const cards = useMemo(
     () => animaImages,

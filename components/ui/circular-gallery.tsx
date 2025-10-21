@@ -41,6 +41,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const [lightboxIndex, setLightboxIndex] = useState(0);
     const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const animationFrameRef = useRef<number | null>(null);
+    const scrollPositionRef = useRef<number>(0);
 
     // Effect to handle scroll-based rotation - disabled when touching
     useEffect(() => {
@@ -121,9 +122,12 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       setIsTouching(true);
       setIsDragging(true);
       setDragStart({ x: e.touches[0].clientX, rotation });
+      // Save current scroll position
+      scrollPositionRef.current = window.scrollY;
       // Disable page scroll while touching carousel
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollPositionRef.current}px`;
       document.body.style.width = '100%';
       e.preventDefault();
     };
@@ -140,10 +144,12 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const handleTouchEnd = () => {
       setIsDragging(false);
       setIsTouching(false);
-      // Re-enable page scroll
+      // Re-enable page scroll and restore position
       document.body.style.overflow = '';
       document.body.style.position = '';
+      document.body.style.top = '';
       document.body.style.width = '';
+      window.scrollTo(0, scrollPositionRef.current);
     };
 
     const anglePerItem = 360 / items.length;
