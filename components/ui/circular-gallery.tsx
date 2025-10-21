@@ -36,12 +36,12 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const [isDragging, setIsDragging] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const [isTouching, setIsTouching] = useState(false);
-    const [dragStart, setDragStart] = useState({ x: 0, rotation: 0 });
+    const [dragStart, setDragStart] = useState({ x: 0, y: 0, rotation: 0 });
+    const [hasMoved, setHasMoved] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
     const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const animationFrameRef = useRef<number | null>(null);
-    const scrollPositionRef = useRef<number>(0);
 
     // Effect to handle scroll-based rotation - disabled when touching
     useEffect(() => {
@@ -120,36 +120,38 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     // Touch handlers for mobile
     const handleTouchStart = (e: React.TouchEvent) => {
       setIsTouching(true);
-      setIsDragging(true);
-      setDragStart({ x: e.touches[0].clientX, rotation });
-      // Save current scroll position
-      scrollPositionRef.current = window.scrollY;
-      // Disable page scroll while touching carousel
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollPositionRef.current}px`;
-      document.body.style.width = '100%';
-      e.preventDefault();
+      setHasMoved(false);
+      setDragStart({ 
+        x: e.touches[0].clientX, 
+        y: e.touches[0].clientY, 
+        rotation 
+      });
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
-      if (!isDragging) return;
-      e.preventDefault();
-      e.stopPropagation();
+      if (!isTouching) return;
+      
       const deltaX = e.touches[0].clientX - dragStart.x;
-      const rotationDelta = deltaX * 0.15;
-      setRotation(dragStart.rotation + rotationDelta);
+      const deltaY = Math.abs(e.touches[0].clientY - dragStart.y);
+      
+      // Check if user is dragging horizontally (carousel) or vertically (scroll)
+      if (Math.abs(deltaX) > 5 && Math.abs(deltaX) > deltaY) {
+        // It's a horizontal drag - prevent default to stop scroll
+        if (!hasMoved) {
+          setHasMoved(true);
+          setIsDragging(true);
+        }
+        e.preventDefault();
+        const rotationDelta = deltaX * 0.15;
+        setRotation(dragStart.rotation + rotationDelta);
+      }
+      // If it's vertical movement, let the scroll happen naturally (don't preventDefault)
     };
 
     const handleTouchEnd = () => {
-      setIsDragging(false);
       setIsTouching(false);
-      // Re-enable page scroll and restore position
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      window.scrollTo(0, scrollPositionRef.current);
+      setIsDragging(false);
+      setHasMoved(false);
     };
 
     const anglePerItem = 360 / items.length;
