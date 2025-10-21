@@ -31,7 +31,7 @@ export function HeroSection() {
       <div className="relative z-10 text-center text-white px-4 max-w-2xl">
         <div className="flex justify-center mb-6">
           <Image
-            src="/anima-complete-white.png"
+            src="/anima-complete-white.webp"
             alt="ANIMA - Until the Sunrise"
             width={400}
             height={150}

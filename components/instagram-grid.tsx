@@ -58,7 +58,7 @@ export function InstagramGrid() {
 
     // Aggiungi solo 1 post placeholder per arrivare a 6 (2 righe da 3)
     const placeholderPosts: InstagramPost[] = [
-      { id: "placeholder1", image: "/placeholder.jpg", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" }
+      { id: "placeholder1", image: "/placeholder.webp", alt: "ANIMA Instagram", url: "https://www.instagram.com/anima.ent", type: "post" }
     ]
 
     const allPosts = [...extractedPosts, ...placeholderPosts].slice(0, 6)

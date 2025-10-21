@@ -14,15 +14,15 @@ export const metadata: Metadata = {
   generator: "v0.app",
   keywords: "electronic music, DJ, nightlife, events, ANIMA, underground",
   icons: {
-    icon: "/anima-logo-white.png",
-    shortcut: "/anima-logo-white.png",
-    apple: "/anima-logo-white.png",
+    icon: "/anima-logo-white.webp",
+    shortcut: "/anima-logo-white.webp",
+    apple: "/anima-logo-white.webp",
   },
   openGraph: {
     title: "ANIMA – Until the Sun Rises",
     description: "Join us for an unforgettable night of electronic music",
     type: "website",
-    images: ["/electronic-music-event-poster.png"],
+    images: ["/electronic-music-event-poster.webp"],
   },
   twitter: {
     card: "summary_large_image",

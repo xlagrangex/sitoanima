@@ -43,7 +43,7 @@ export function StickyHeader() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Image src="/anima-logo-white.png" alt="ANIMA" width={120} height={40} className="h-10 w-auto object-contain" />
+          <Image src="/anima-logo-white.webp" alt="ANIMA" width={120} height={40} className="h-10 w-auto object-contain" />
         </motion.button>
 
         {/* Desktop Navigation - Centered */}

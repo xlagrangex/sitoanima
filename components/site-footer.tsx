@@ -22,7 +22,7 @@ export function SiteFooter() {
           <div className="md:col-span-2">
             <div className="mb-6">
               <Image 
-                src="/anima-extended-white.png" 
+                src="/anima-extended-white.webp" 
                 alt="ANIMA" 
                 width={200} 
                 height={60} 

@@ -179,25 +179,25 @@ export function AccordionSections() {
       quote: "Techno producer and DJ known for his powerful sets and underground sound.",
       name: "Peppe Citarella",
       designation: "Techno DJ & Producer",
-      src: "/c_EPbQeA.jpeg"
+      src: "/c_EPbQeA.webp"
     },
     {
       quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
       name: "???",
       designation: "Announcing soon",
-      src: "/pexels-khanshaheb-17214950.jpg"
+      src: "/pexels-khanshaheb-17214950.webp"
     },
     {
       quote: "Electronic music artist with a unique style blending techno and house elements.",
       name: "Marco Lys",
       designation: "Electronic Artist",
-      src: "/Marco Lys at Il Muretto 3.jpg"
+      src: "/Marco Lys at Il Muretto 3.webp"
     },
     {
       quote: "House music producer and DJ bringing energy and groove to every performance.",
       name: "Piero Pirupa",
       designation: "House DJ & Producer",
-      src: "/Screenshot 2025-10-17 at 11.58.26.png"
+      src: "/Screenshot 2025-10-17 at 11.58.26.webp"
     },
     {
       quote: "Electronic music artist known for innovative sounds and captivating performances.",
@@ -209,7 +209,7 @@ export function AccordionSections() {
       quote: "Techno DJ and producer delivering deep, hypnotic beats to the underground scene.",
       name: "Peaty",
       designation: "Techno DJ & Producer",
-      src: "/4.jpeg"
+      src: "/4.webp"
     }
   ]
 
@@ -383,7 +383,7 @@ export function AccordionSections() {
                 </p>
                 <div className="w-full max-w-2xl mx-auto">
                   <Image
-                    src="/anima-meets-dolcevita-flyer.png"
+                    src="/anima-meets-dolcevita-flyer.webp"
                     alt="ANIMA MEETS DOLCEVITA - Event Flyer"
                     width={800}
                     height={1131}

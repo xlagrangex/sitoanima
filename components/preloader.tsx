@@ -29,29 +29,29 @@ export function Preloader() {
 
     // Load all critical assets: video, carousel images, and guest slider images
     const carouselImages = [
-      '/immagini/IMG_9662.JPG',
-      '/immagini/IMG_9663.JPG',
-      '/immagini/IMG_9664.JPG',
-      '/immagini/IMG_9665.JPG',
-      '/immagini/IMG_9667.JPG',
-      '/immagini/IMG_9668.JPG',
-      '/immagini/IMG_9669.JPG',
-      '/immagini/IMG_9670.JPG',
-      '/immagini/IMG_9671.JPG',
-      '/immagini/IMG_9672.JPG',
-      '/immagini/IMG_9673.JPG',
-      '/immagini/IMG_9674.JPG',
-      '/immagini/IMG_9675.JPG',
+      '/immagini/IMG_9662.webp',
+      '/immagini/IMG_9663.webp',
+      '/immagini/IMG_9664.webp',
+      '/immagini/IMG_9665.webp',
+      '/immagini/IMG_9667.webp',
+      '/immagini/IMG_9668.webp',
+      '/immagini/IMG_9669.webp',
+      '/immagini/IMG_9670.webp',
+      '/immagini/IMG_9671.webp',
+      '/immagini/IMG_9672.webp',
+      '/immagini/IMG_9673.webp',
+      '/immagini/IMG_9674.webp',
+      '/immagini/IMG_9675.webp',
     ]
 
     const guestImages = [
-      '/IMG_5628.JPG',
-      '/c_EPbQeA.jpeg',
-      '/pexels-khanshaheb-17214950.jpg',
-      '/Marco Lys at Il Muretto 3.jpg',
-      '/Screenshot 2025-10-17 at 11.58.26.png',
-      '/IMG_9690.JPG',
-      '/4.jpeg',
+      '/IMG_5628.webp',
+      '/c_EPbQeA.webp',
+      '/pexels-khanshaheb-17214950.webp',
+      '/Marco Lys at Il Muretto 3.webp',
+      '/Screenshot 2025-10-17 at 11.58.26.webp',
+      '/IMG_9690.webp',
+      '/4.webp',
     ]
 
     const videoSrc = '/ANIMA-TEASER-3-SEASON-4K.mp4'
@@ -111,7 +111,7 @@ export function Preloader() {
             className="mb-12"
           >
             <Image
-              src="/anima-logo-white.png"
+              src="/anima-logo-white.webp"
               alt="ANIMA Logo"
               width={80}
               height={80}
