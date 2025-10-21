@@ -53,7 +53,7 @@ const translations = {
     'section6.subtitle': 'Media',
     'section6.title': 'RELIVE THE SUNRISE',
     'section6.content': 'Every moment is captured: aftermovies, photo galleries and highlights that embody the spirit of ANIMA. Step back into the crowd and carry the memory forward.',
-    'section6.cta': 'Check our Telegram group',
+    'section6.cta': 'Join Telegram',
     
     'section7.subtitle': 'Music',
     'section7.title': 'THE SOUNDTRACK OF YOUR NIGHT',
@@ -130,7 +130,7 @@ const translations = {
     'section6.subtitle': 'Media',
     'section6.title': 'RIVIVI L\'ALBA',
     'section6.content': 'Ogni momento è catturato: aftermovie, gallerie fotografiche e highlights che incarnano lo spirito di ANIMA. Torna tra la folla e porta avanti il ricordo.',
-    'section6.cta': 'Unisciti a noi su Telegram',
+    'section6.cta': 'Unisciti su Telegram',
     
     'section7.subtitle': 'Musica',
     'section7.title': 'LA COLONNA SONORA DELLA TUA NOTTE',
