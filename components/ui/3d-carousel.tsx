@@ -98,9 +98,9 @@ const Carousel = memo(
     const faceCount = cards.length
     const faceWidth = cylinderWidth / faceCount
     const radius = cylinderWidth / (2 * Math.PI)
-    const rotation = useMotionValue(0)
+    const rotationValue = useMotionValue(0)
     const transform = useTransform(
-      rotation,
+      rotationValue,
       (value) => `rotate3d(0, 1, 0, ${value}deg)`
     )
 
@@ -118,7 +118,7 @@ const Carousel = memo(
           className="relative flex h-full origin-center cursor-grab justify-center active:cursor-grabbing"
         style={{
           transform,
-          rotateY: rotation,
+          rotateY: rotationValue,
           width: cylinderWidth,
           transformStyle: "preserve-3d",
           willChange: "transform",
@@ -130,13 +130,13 @@ const Carousel = memo(
           onDrag={(_, info) => {
             if (!isCarouselActive) return;
             setDragDistance(prev => prev + Math.abs(info.delta.x));
-            rotation.set(rotation.get() + info.delta.x * 0.5);
+            rotationValue.set(rotationValue.get() + info.delta.x * 0.5);
           }}
           onDragEnd={(_, info) => {
             setDragDistance(0);
             isCarouselActive &&
             controls.start({
-              rotateY: rotation.get() + info.velocity.x * 0.3,
+              rotateY: rotationValue.get() + info.velocity.x * 0.3,
               transition: {
                 type: "spring",
                 stiffness: 100,
