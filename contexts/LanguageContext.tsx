@@ -29,7 +29,7 @@ const translations = {
     // Sections
     'section1.subtitle': 'The Format',
     'section1.title': 'THE SOUL OF THE NIGHT.',
-    'section1.content': 'ANIMA is more than a party — it\'s a ritual of sound and light. Guided by house and afrohouse beats, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.\n\nThe rising sun above the DJ booth symbolizes the endless energy that carries us from midnight to dawn.',
+    'section1.content': 'ANIMA is more than a party — it\'s a ritual of sound and light. Guided by every shade of house music, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.\n\nThe rising sun above the DJ booth symbolizes the endless energy that carries us from midnight to dawn.',
     
     'section2.subtitle': 'The Venue',
     'section2.title': 'THE FUTURE\u00A0OF CLUBBING, TODAY.',
