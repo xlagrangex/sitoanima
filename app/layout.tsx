@@ -10,9 +10,12 @@ import { Preloader } from "@/components/preloader"
 export const metadata: Metadata = {
   title: "ANIMA – Until the Sun Rises | Electronic Music Events",
   description:
-    "Join us for an unforgettable night of electronic music. ANIMA presents cutting-edge DJs and immersive experiences until the sun rises.",
-  generator: "v0.app",
-  keywords: "electronic music, DJ, nightlife, events, ANIMA, underground",
+    "ANIMA is more than a party — it's a ritual of sound and light. Guided by every shade of house music, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.",
+  generator: "Next.js",
+  keywords: "ANIMA, electronic music, house music, afrohouse, DJ, nightlife, events, underground, club, HBToo, Naples",
+  authors: [{ name: "ANIMA Events" }],
+  creator: "ANIMA Events",
+  publisher: "ANIMA Events",
   icons: {
     icon: "/anima-logo-white.webp",
     shortcut: "/anima-logo-white.webp",
@@ -20,14 +23,38 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "ANIMA – Until the Sun Rises",
-    description: "Join us for an unforgettable night of electronic music",
+    description: "ANIMA is more than a party — it's a ritual of sound and light. Guided by every shade of house music, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.",
     type: "website",
-    images: ["/electronic-music-event-poster.webp"],
+    url: "https://anima.ent",
+    siteName: "ANIMA",
+    images: [
+      {
+        url: "/anima-complete-white.webp",
+        width: 1200,
+        height: 630,
+        alt: "ANIMA - Until the Sun Rises",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "ANIMA – Until the Sun Rises",
-    description: "Join us for an unforgettable night of electronic music",
+    description: "ANIMA is more than a party — it's a ritual of sound and light. Guided by every shade of house music, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.",
+    images: ["/anima-complete-white.webp"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "your-google-verification-code",
   },
 }
 
