@@ -13,16 +13,27 @@ export function HeroSection() {
 
   return (
     <section id="hero" className="relative flex items-center justify-center overflow-hidden w-screen" style={{ height: '80vh' }}>
-      {/* Video Background */}
+      {/* Video Background - Hidden on mobile due to size */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover hidden md:block"
       >
         <source src="/video2.mp4" type="video/mp4" />
       </video>
+      
+      {/* Mobile fallback image */}
+      <div className="absolute top-0 left-0 w-full h-full object-cover md:hidden">
+        <Image
+          src="/electronic-music-event-poster.webp"
+          alt="ANIMA Background"
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
       
       {/* Overlay semitrasparente */}
       <div className="absolute inset-0 bg-black/50"></div>
