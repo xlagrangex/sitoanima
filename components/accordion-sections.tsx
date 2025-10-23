@@ -50,8 +50,8 @@ export function AccordionSections() {
 
   const galleryItems: GalleryItem[] = [
     {
-      common: "Moment",
-      binomial: "01",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9662.webp",
         text: "ANIMA Event - Moment 01",
@@ -59,8 +59,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "02",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9663.webp",
         text: "ANIMA Event - Moment 02",
@@ -68,8 +68,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "03",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9664.webp",
         text: "ANIMA Event - Moment 03",
@@ -77,8 +77,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "04",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9665.webp",
         text: "ANIMA Event - Moment 04",
@@ -86,8 +86,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "05",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9667.webp",
         text: "ANIMA Event - Moment 05",
@@ -95,8 +95,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "06",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9668.webp",
         text: "ANIMA Event - Moment 06",
@@ -104,8 +104,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "07",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9669.webp",
         text: "ANIMA Event - Moment 07",
@@ -113,8 +113,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "08",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9670.webp",
         text: "ANIMA Event - Moment 08",
@@ -122,8 +122,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "09",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9671.webp",
         text: "ANIMA Event - Moment 09",
@@ -131,8 +131,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "10",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9672.webp",
         text: "ANIMA Event - Moment 10",
@@ -140,8 +140,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "11",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9673.webp",
         text: "ANIMA Event - Moment 11",
@@ -149,8 +149,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "12",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9674.webp",
         text: "ANIMA Event - Moment 12",
@@ -158,8 +158,8 @@ export function AccordionSections() {
       }
     },
     {
-      common: "Moment",
-      binomial: "13",
+      common: "",
+      binomial: "",
       photo: {
         url: "/immagini/IMG_9675.webp",
         text: "ANIMA Event - Moment 13",
