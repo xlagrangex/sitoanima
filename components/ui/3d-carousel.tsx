@@ -196,6 +196,28 @@ function ThreeDPhotoCarousel() {
     controls.stop()
   }
 
+  // Touch handlers for mobile - disable drag, open lightbox on tap
+  const handleTouchStart = (e: React.TouchEvent) => {
+    // Track touch start for potential lightbox opening
+    e.stopPropagation()
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    // Allow natural scrolling - no drag functionality
+    e.stopPropagation()
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    // On mobile tap, open lightbox for the front item
+    e.stopPropagation()
+    if (isCarouselActive) {
+      // Find the front item (closest to 0 degrees)
+      const frontItemIndex = Math.round((360 - (rotation.get() % 360)) / (360 / cards.length)) % cards.length
+      const frontImgUrl = cards[frontItemIndex]
+      handleClick(frontImgUrl)
+    }
+  }
+
   const handleClose = () => {
     setActiveImg(null)
     setIsCarouselActive(true)
@@ -235,7 +257,12 @@ function ThreeDPhotoCarousel() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[700px] md:h-[900px] w-full overflow-hidden">
+      <div 
+        className="relative h-[700px] md:h-[900px] w-full overflow-hidden"
+        onTouchStart={isMobile ? handleTouchStart : undefined}
+        onTouchMove={isMobile ? handleTouchMove : undefined}
+        onTouchEnd={isMobile ? handleTouchEnd : undefined}
+      >
         <Carousel
           handleClick={handleClick}
           controls={controls}

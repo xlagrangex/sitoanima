@@ -129,6 +129,32 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       setIsHovering(true);
     };
 
+    // Touch handlers for mobile - disabled drag, only lightbox
+    const handleTouchStart = (e: React.TouchEvent) => {
+      // On mobile, just track touch start for potential lightbox opening
+      setIsTouching(true);
+      setHasMoved(false);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+      // On mobile, allow natural scrolling - no drag functionality
+      // Mark as moved to prevent lightbox opening on drag
+      if (isTouching) {
+        setHasMoved(true);
+      }
+    };
+
+    const handleTouchEnd = (e: React.TouchEvent) => {
+      setIsTouching(false);
+      // On mobile, if it's a tap (not a drag), open lightbox for the front item
+      if (!hasMoved) {
+        // Find the front item (closest to 0 degrees)
+        const frontItemIndex = Math.round((360 - (rotation % 360)) / anglePerItem) % items.length;
+        handleImageClick(frontItemIndex);
+      }
+      setHasMoved(false);
+    };
+
     const handleImageClick = (index: number) => {
       if (!isDragging) {
         setLightboxIndex(index);
@@ -145,8 +171,16 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
         ref={ref}
         role="region"
         aria-label="Circular 3D Gallery"
-        className={cn("relative w-full h-full flex items-center justify-center", className)}
+        className={cn("relative w-full h-full flex items-center justify-center", isDragging ? "cursor-grabbing" : "cursor-grab", className)}
         style={{ perspective: '2000px', userSelect: 'none' }}
+        onMouseDown={!isMobile ? handleMouseDown : undefined}
+        onMouseMove={!isMobile ? handleMouseMove : undefined}
+        onMouseUp={!isMobile ? handleMouseUp : undefined}
+        onMouseLeave={!isMobile ? handleMouseLeave : undefined}
+        onMouseEnter={!isMobile ? handleMouseEnter : undefined}
+        onTouchStart={isMobile ? handleTouchStart : undefined}
+        onTouchMove={isMobile ? handleTouchMove : undefined}
+        onTouchEnd={isMobile ? handleTouchEnd : undefined}
         {...props}
       >
         <div
