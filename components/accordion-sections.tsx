@@ -220,7 +220,8 @@ export function AccordionSections() {
       url: guest.src,
       text: guest.quote,
       by: "ANIMA Events",
-      pos: guest.name === "Grossomoddo" ? "center top" : "center"
+      pos: guest.name === "Grossomoddo" ? "center top" : 
+           guest.name === "Peppe Citarella" ? "center center" : "center"
     }
   }))
 
