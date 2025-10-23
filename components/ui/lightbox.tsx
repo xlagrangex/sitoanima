@@ -11,9 +11,10 @@ interface LightboxProps {
   isOpen: boolean
   onClose: () => void
   hideText?: boolean
+  aspectRatio?: string
 }
 
-export function Lightbox({ images, initialIndex, isOpen, onClose, hideText = false }: LightboxProps) {
+export function Lightbox({ images, initialIndex, isOpen, onClose, hideText = false, aspectRatio }: LightboxProps) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex)
 
   useEffect(() => {
@@ -112,7 +113,9 @@ export function Lightbox({ images, initialIndex, isOpen, onClose, hideText = fal
               <img
                 src={images[currentIndex].photo.url}
                 alt={images[currentIndex].photo.text}
-                className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl"
+                className={`max-w-full max-h-full w-auto h-auto rounded-lg shadow-2xl ${
+                  aspectRatio === "2:3" ? "object-cover aspect-[2/3]" : "object-contain"
+                }`}
                 style={{ objectPosition: images[currentIndex].photo.pos || 'center' }}
               />
             </motion.div>

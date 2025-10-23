@@ -30,10 +30,12 @@ interface CircularGalleryProps extends HTMLAttributes<HTMLDivElement> {
   showText?: boolean;
   /** Hide text in lightbox (for MOMENT gallery) */
   hideLightboxText?: boolean;
+  /** Fixed aspect ratio for lightbox images */
+  lightboxAspectRatio?: string;
 }
 
 const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
-  ({ items, className, radius = 600, autoRotateSpeed = 0.02, showText = false, hideLightboxText = false, ...props }, ref) => {
+  ({ items, className, radius = 600, autoRotateSpeed = 0.02, showText = false, hideLightboxText = false, lightboxAspectRatio, ...props }, ref) => {
     const [rotation, setRotation] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
@@ -267,6 +269,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
         isOpen={lightboxOpen}
         onClose={() => setLightboxOpen(false)}
         hideText={hideLightboxText}
+        aspectRatio={lightboxAspectRatio}
       />
       </>
     );

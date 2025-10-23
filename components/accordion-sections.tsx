@@ -404,6 +404,7 @@ export function AccordionSections() {
                     autoRotateSpeed={0.015}
                     showText={true}
                     hideLightboxText={true}
+                    lightboxAspectRatio="2:3"
                   />
                 </div>
               </div>
