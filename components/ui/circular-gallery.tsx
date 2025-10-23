@@ -99,7 +99,10 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       };
     }, [isScrolling, isHovering, isDragging, isTouching, autoRotateSpeed]);
 
-    // Drag handlers
+
+    const anglePerItem = 360 / items.length;
+
+    // Drag handlers for desktop
     const handleMouseDown = (e: React.MouseEvent) => {
       setIsDragging(true);
       setDragStart({ x: e.clientX, rotation });
@@ -126,45 +129,6 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       setIsHovering(true);
     };
 
-    // Touch handlers for mobile
-    const handleTouchStart = (e: React.TouchEvent) => {
-      setIsTouching(true);
-      setHasMoved(false);
-      setDragStart({ 
-        x: e.touches[0].clientX, 
-        y: e.touches[0].clientY, 
-        rotation 
-      });
-    };
-
-    const handleTouchMove = (e: React.TouchEvent) => {
-      if (!isTouching) return;
-      
-      const deltaX = e.touches[0].clientX - dragStart.x;
-      const deltaY = Math.abs(e.touches[0].clientY - dragStart.y);
-      
-      // Check if user is dragging horizontally (carousel) or vertically (scroll)
-      if (Math.abs(deltaX) > 5 && Math.abs(deltaX) > deltaY) {
-        // It's a horizontal drag - prevent default to stop scroll
-        if (!hasMoved) {
-          setHasMoved(true);
-          setIsDragging(true);
-        }
-        e.preventDefault();
-        const rotationDelta = deltaX * 0.15;
-        setRotation(dragStart.rotation + rotationDelta);
-      }
-      // If it's vertical movement, let the scroll happen naturally (don't preventDefault)
-    };
-
-    const handleTouchEnd = () => {
-      setIsTouching(false);
-      setIsDragging(false);
-      setHasMoved(false);
-    };
-
-    const anglePerItem = 360 / items.length;
-
     const handleImageClick = (index: number) => {
       if (!isDragging) {
         setLightboxIndex(index);
@@ -181,13 +145,8 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
         ref={ref}
         role="region"
         aria-label="Circular 3D Gallery"
-        className={cn("relative w-full h-full flex items-center justify-center", isDragging ? "cursor-grabbing" : "cursor-grab", className)}
+        className={cn("relative w-full h-full flex items-center justify-center", className)}
         style={{ perspective: '2000px', userSelect: 'none' }}
-        onMouseDown={!isMobile ? handleMouseDown : undefined}
-        onMouseMove={!isMobile ? handleMouseMove : undefined}
-        onMouseUp={!isMobile ? handleMouseUp : undefined}
-        onMouseLeave={!isMobile ? handleMouseLeave : undefined}
-        onMouseEnter={!isMobile ? handleMouseEnter : undefined}
         {...props}
       >
         <div
@@ -254,7 +213,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           })}
         </div>
         
-        {/* Progress bar for mobile */}
+        {/* Progress bar for mobile - display only, no drag */}
         {isMobile && (
           <div className="absolute bottom-4 left-4 right-4 z-20">
             <div className="bg-white/20 backdrop-blur-md rounded-full h-2 overflow-hidden">
@@ -271,27 +230,6 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
                 }}
               />
             </div>
-            <motion.div
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0}
-              className="absolute top-0 left-0 right-0 h-2 cursor-grab active:cursor-grabbing"
-              onDrag={(_, info) => {
-                // Use offset.x for relative position within the container
-                const containerWidth = 300 // Approximate width of the progress bar container
-                const progress = Math.max(0, Math.min(1, info.offset.x / containerWidth))
-                const newRotation = progress * 360
-                setRotation(newRotation)
-                rotationMotionValue.set(newRotation)
-              }}
-              onDragEnd={(_, info) => {
-                const containerWidth = 300 // Approximate width of the progress bar container
-                const progress = Math.max(0, Math.min(1, info.offset.x / containerWidth))
-                const newRotation = progress * 360
-                setRotation(newRotation)
-                rotationMotionValue.set(newRotation)
-              }}
-            />
           </div>
         )}
       </div>

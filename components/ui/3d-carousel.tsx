@@ -167,6 +167,20 @@ function ThreeDPhotoCarousel() {
   const rotation = useMotionValue(0)
   const isMobile = useMediaQuery("(max-width: 768px)")
   
+  // Auto-rotation for mobile
+  useEffect(() => {
+    if (!isMobile || !isCarouselActive) return
+    
+    const autoRotate = () => {
+      if (isCarouselActive) {
+        rotation.set(rotation.get() + 0.5) // Adjust speed as needed
+      }
+    }
+    
+    const interval = setInterval(autoRotate, 50) // Adjust frequency as needed
+    return () => clearInterval(interval)
+  }, [isMobile, isCarouselActive, rotation])
+  
   const cards = useMemo(
     () => animaImages,
     []
@@ -230,7 +244,7 @@ function ThreeDPhotoCarousel() {
           rotation={rotation}
         />
         
-        {/* Progress bar for mobile */}
+        {/* Progress bar for mobile - display only, no drag */}
         {isMobile && (
           <div className="absolute bottom-4 left-4 right-4 z-20">
             <div className="bg-white/20 backdrop-blur-md rounded-full h-2 overflow-hidden">
@@ -247,25 +261,6 @@ function ThreeDPhotoCarousel() {
                 }}
               />
             </div>
-            <motion.div
-              drag="x"
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0}
-              className="absolute top-0 left-0 right-0 h-2 cursor-grab active:cursor-grabbing"
-              onDrag={(_, info) => {
-                // Use offset.x for relative position within the container
-                const containerWidth = 300 // Approximate width of the progress bar container
-                const progress = Math.max(0, Math.min(1, info.offset.x / containerWidth))
-                const newRotation = progress * 360
-                rotation.set(newRotation)
-              }}
-              onDragEnd={(_, info) => {
-                const containerWidth = 300 // Approximate width of the progress bar container
-                const progress = Math.max(0, Math.min(1, info.offset.x / containerWidth))
-                const newRotation = progress * 360
-                rotation.set(newRotation)
-              }}
-            />
           </div>
         )}
       </div>
