@@ -179,7 +179,7 @@ export function AccordionSections() {
       quote: "Techno producer and DJ known for his powerful sets and underground sound.",
       name: "Peppe Citarella",
       designation: "Techno DJ & Producer",
-      src: "/c_EPbQeA.webp"
+      src: "/rtADFWTQ.jpeg"
     },
     {
       quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
@@ -203,7 +203,7 @@ export function AccordionSections() {
       quote: "Electronic music artist known for innovative sounds and captivating performances.",
       name: "Grossomoddo",
       designation: "Electronic Artist",
-      src: "/IMG_9690.webp"
+      src: "/Progetto senza titolo - 2025-10-23T143748.668.png"
     },
     {
       quote: "Techno DJ and producer delivering deep, hypnotic beats to the underground scene.",
@@ -219,7 +219,8 @@ export function AccordionSections() {
     photo: {
       url: guest.src,
       text: guest.quote,
-      by: "ANIMA Events"
+      by: "ANIMA Events",
+      pos: guest.name === "Grossomoddo" ? "center top" : "center"
     }
   }))
 
@@ -400,10 +401,10 @@ export function AccordionSections() {
                 <div className="w-full h-[500px] md:h-[600px] -mt-5 md:-mt-25">
                   <CircularGallery 
                     items={guestGalleryItems} 
-                    radius={isMobile ? 280 : 350} 
+                    radius={isMobile ? 250 : 320} 
                     autoRotateSpeed={0.015}
                     showText={true}
-                    hideLightboxText={true}
+                    hideLightboxText={false}
                     lightboxAspectRatio="2:3"
                   />
                 </div>
