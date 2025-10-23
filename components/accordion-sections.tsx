@@ -355,7 +355,7 @@ export function AccordionSections() {
                 <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-4 md:mb-6 text-center`}>
                   {t(section.contentKey)}
                 </p>
-                <div className="w-full h-[500px] md:h-[600px] -mt-5">
+                <div className="w-full h-[500px] md:h-[600px] -mt-30 mb-10">
                   <CircularGallery 
                     items={galleryItems} 
                     radius={isMobile ? 500 : 680} 
@@ -397,7 +397,7 @@ export function AccordionSections() {
                 <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-2 md:mb-4 text-center`}>
                   {t(section.contentKey)}
                 </p>
-                <div className="w-full h-[500px] md:h-[600px] -mt-5">
+                <div className="w-full h-[500px] md:h-[600px] -mt-25">
                   <CircularGallery 
                     items={guestGalleryItems} 
                     radius={isMobile ? 280 : 350} 
