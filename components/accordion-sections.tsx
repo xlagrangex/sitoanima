@@ -179,7 +179,7 @@ export function AccordionSections() {
       quote: "Techno producer and DJ known for his powerful sets and underground sound.",
       name: "Peppe Citarella",
       designation: "Techno DJ & Producer",
-      src: "/rtADFWTQ.jpeg"
+      src: "/peppe-citarella.webp"
     },
     {
       quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
