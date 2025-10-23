@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, HTMLAttributes } from 'react';
+import { motion, useTransform, useMotionValue } from 'framer-motion';
 import { Lightbox } from './lightbox';
 
 // A simple utility for conditional class names
@@ -42,6 +43,14 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     const [lightboxIndex, setLightboxIndex] = useState(0);
     const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const animationFrameRef = useRef<number | null>(null);
+    
+    // Motion value for progress bar
+    const rotationMotionValue = useMotionValue(0);
+    
+    // Sync motion value with rotation state
+    useEffect(() => {
+      rotationMotionValue.set(rotation);
+    }, [rotation, rotationMotionValue]);
 
     // Effect to handle scroll-based rotation - disabled when touching
     useEffect(() => {
@@ -163,16 +172,8 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       }
     };
 
-    // Navigation arrows for mobile
+    // Mobile detection
     const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-    
-    const goNext = () => {
-      setRotation(prev => prev + anglePerItem);
-    };
-    
-    const goPrev = () => {
-      setRotation(prev => prev - anglePerItem);
-    };
     
     return (
       <>
@@ -253,28 +254,45 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           })}
         </div>
         
-        {/* Navigation arrows - only on mobile */}
+        {/* Progress bar for mobile */}
         {isMobile && (
-          <>
-            <button
-              onClick={goPrev}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full p-3 shadow-lg transition-all active:scale-95"
-              aria-label="Previous"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={goNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full p-3 shadow-lg transition-all active:scale-95"
-              aria-label="Next"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </>
+          <div className="absolute bottom-4 left-4 right-4 z-20">
+            <div className="bg-white/20 backdrop-blur-md rounded-full h-2 overflow-hidden">
+              <motion.div
+                className="bg-white h-full rounded-full"
+                style={{
+                  width: "100%",
+                  x: useTransform(rotationMotionValue, (value) => {
+                    // Convert rotation to progress (0-100%)
+                    const normalizedRotation = ((value % 360) + 360) % 360
+                    const progress = (normalizedRotation / 360) * 100
+                    return `-${100 - progress}%`
+                  })
+                }}
+              />
+            </div>
+            <motion.div
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0}
+              className="absolute top-0 left-0 right-0 h-2 cursor-grab active:cursor-grabbing"
+              onDrag={(_, info) => {
+                // Use offset.x for relative position within the container
+                const containerWidth = 300 // Approximate width of the progress bar container
+                const progress = Math.max(0, Math.min(1, info.offset.x / containerWidth))
+                const newRotation = progress * 360
+                setRotation(newRotation)
+                rotationMotionValue.set(newRotation)
+              }}
+              onDragEnd={(_, info) => {
+                const containerWidth = 300 // Approximate width of the progress bar container
+                const progress = Math.max(0, Math.min(1, info.offset.x / containerWidth))
+                const newRotation = progress * 360
+                setRotation(newRotation)
+                rotationMotionValue.set(newRotation)
+              }}
+            />
+          </div>
         )}
       </div>
 
