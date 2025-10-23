@@ -87,3 +87,4 @@ instagramPosts.forEach((post, index) => {
   console.log(`   URL: ${post.url}`);
   console.log('');
 });
+

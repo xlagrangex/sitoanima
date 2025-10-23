@@ -114,8 +114,8 @@ const Carousel = memo(
         }}
       >
         <motion.div
-          drag={isCarouselActive && !isMobile ? "x" : false}
-          className="relative flex h-full origin-center cursor-grab justify-center active:cursor-grabbing"
+          drag={false}
+          className="relative flex h-full origin-center justify-center"
         style={{
           transform,
           rotateY: rotationValue,
@@ -124,27 +124,6 @@ const Carousel = memo(
           willChange: "transform",
           backfaceVisibility: "hidden",
         }}
-          onDragStart={() => {
-            setDragDistance(0);
-          }}
-          onDrag={(_, info) => {
-            if (!isCarouselActive) return;
-            setDragDistance(prev => prev + Math.abs(info.delta.x));
-            rotationValue.set(rotationValue.get() + info.delta.x * 0.5);
-          }}
-          onDragEnd={(_, info) => {
-            setDragDistance(0);
-            isCarouselActive &&
-            controls.start({
-              rotateY: rotationValue.get() + info.velocity.x * 0.3,
-              transition: {
-                type: "spring",
-                stiffness: 100,
-                damping: 30,
-                mass: 0.8,
-              },
-            })
-          }}
           animate={controls}
         >
           {cards.map((imgUrl, i) => (
@@ -184,7 +163,6 @@ const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba
 function ThreeDPhotoCarousel() {
   const [activeImg, setActiveImg] = useState<string | null>(null)
   const [isCarouselActive, setIsCarouselActive] = useState(true)
-  const [dragDistance, setDragDistance] = useState(0)
   const controls = useAnimation()
   const rotation = useMotionValue(0)
   const isMobile = useMediaQuery("(max-width: 768px)")
@@ -209,15 +187,6 @@ function ThreeDPhotoCarousel() {
     setIsCarouselActive(true)
   }
   
-  const goNext = () => {
-    const angleStep = 360 / cards.length
-    rotation.set(rotation.get() - angleStep)
-  }
-  
-  const goPrev = () => {
-    const angleStep = 360 / cards.length
-    rotation.set(rotation.get() + angleStep)
-  }
 
   return (
     <motion.div layout className="relative">
@@ -261,28 +230,43 @@ function ThreeDPhotoCarousel() {
           rotation={rotation}
         />
         
-        {/* Navigation arrows - only on mobile */}
+        {/* Progress bar for mobile */}
         {isMobile && (
-          <>
-            <button
-              onClick={goPrev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full p-3 shadow-lg transition-all active:scale-95"
-              aria-label="Previous"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={goNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white rounded-full p-3 shadow-lg transition-all active:scale-95"
-              aria-label="Next"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </>
+          <div className="absolute bottom-4 left-4 right-4 z-20">
+            <div className="bg-white/20 backdrop-blur-md rounded-full h-2 overflow-hidden">
+              <motion.div
+                className="bg-white h-full rounded-full"
+                style={{
+                  width: "100%",
+                  x: useTransform(rotation, (value) => {
+                    // Convert rotation to progress (0-100%)
+                    const normalizedRotation = ((value % 360) + 360) % 360
+                    const progress = (normalizedRotation / 360) * 100
+                    return `-${100 - progress}%`
+                  })
+                }}
+              />
+            </div>
+            <motion.div
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0}
+              className="absolute top-0 left-0 right-0 h-2 cursor-grab active:cursor-grabbing"
+              onDrag={(_, info) => {
+                // Use offset.x for relative position within the container
+                const containerWidth = 300 // Approximate width of the progress bar container
+                const progress = Math.max(0, Math.min(1, info.offset.x / containerWidth))
+                const newRotation = progress * 360
+                rotation.set(newRotation)
+              }}
+              onDragEnd={(_, info) => {
+                const containerWidth = 300 // Approximate width of the progress bar container
+                const progress = Math.max(0, Math.min(1, info.offset.x / containerWidth))
+                const newRotation = progress * 360
+                rotation.set(newRotation)
+              }}
+            />
+          </div>
         )}
       </div>
     </motion.div>
