@@ -173,11 +173,11 @@ function ThreeDPhotoCarousel() {
     
     const autoRotate = () => {
       if (isCarouselActive) {
-        rotation.set(rotation.get() + 0.5) // Adjust speed as needed
+        rotation.set(rotation.get() + 2) // Increased speed from 0.5 to 2
       }
     }
     
-    const interval = setInterval(autoRotate, 50) // Adjust frequency as needed
+    const interval = setInterval(autoRotate, 30) // Increased frequency from 50ms to 30ms
     return () => clearInterval(interval)
   }, [isMobile, isCarouselActive, rotation])
   
@@ -244,25 +244,6 @@ function ThreeDPhotoCarousel() {
           rotation={rotation}
         />
         
-        {/* Progress bar for mobile - display only, no drag */}
-        {isMobile && (
-          <div className="absolute bottom-4 left-4 right-4 z-20">
-            <div className="bg-white/20 backdrop-blur-md rounded-full h-2 overflow-hidden">
-              <motion.div
-                className="bg-white h-full rounded-full"
-                style={{
-                  width: "100%",
-                  x: useTransform(rotation, (value) => {
-                    // Convert rotation to progress (0-100%)
-                    const normalizedRotation = ((value % 360) + 360) % 360
-                    const progress = (normalizedRotation / 360) * 100
-                    return `-${100 - progress}%`
-                  })
-                }}
-              />
-            </div>
-          </div>
-        )}
       </div>
     </motion.div>
   )

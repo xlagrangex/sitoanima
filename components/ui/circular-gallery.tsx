@@ -85,7 +85,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     useEffect(() => {
       const autoRotate = () => {
         if (!isScrolling && !isHovering && !isDragging && !isTouching) {
-          setRotation(prev => prev + autoRotateSpeed);
+          setRotation(prev => prev + autoRotateSpeed * 3); // Increased speed by 3x
         }
         animationFrameRef.current = requestAnimationFrame(autoRotate);
       };
@@ -213,25 +213,6 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           })}
         </div>
         
-        {/* Progress bar for mobile - display only, no drag */}
-        {isMobile && (
-          <div className="absolute bottom-4 left-4 right-4 z-20">
-            <div className="bg-white/20 backdrop-blur-md rounded-full h-2 overflow-hidden">
-              <motion.div
-                className="bg-white h-full rounded-full"
-                style={{
-                  width: "100%",
-                  x: useTransform(rotationMotionValue, (value) => {
-                    // Convert rotation to progress (0-100%)
-                    const normalizedRotation = ((value % 360) + 360) % 360
-                    const progress = (normalizedRotation / 360) * 100
-                    return `-${100 - progress}%`
-                  })
-                }}
-              />
-            </div>
-          </div>
-        )}
       </div>
 
       <Lightbox
