@@ -214,8 +214,8 @@ export function AccordionSections() {
   ]
 
   const guestGalleryItems: GalleryItem[] = guestDJs.map((guest) => ({
-    common: guest.name,
-    binomial: guest.designation,
+    common: "",
+    binomial: "",
     photo: {
       url: guest.src,
       text: guest.quote,
