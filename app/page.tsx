@@ -7,7 +7,6 @@ import { CookieBanner } from "@/components/cookie-banner"
 export default function HomePage() {
   return (
     <>
-      {/* Test deploy automatico - Morris collaboratore */}
       <StickyHeader />
       <main className="min-h-screen">
         <HeroSection />

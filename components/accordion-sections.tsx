@@ -385,8 +385,8 @@ export function AccordionSections() {
                 </p>
                 <div className="w-full max-w-2xl mx-auto">
                   <Image
-                    src="/anima-meets-dolcevita-flyer.webp"
-                    alt="ANIMA MEETS DOLCEVITA - Event Flyer"
+                    src="/sunrise-society-flyer.webp"
+                    alt="SUNRISE SOCIETY - Event Flyer"
                     width={800}
                     height={1131}
                     className="w-full h-auto rounded-lg shadow-2xl"
