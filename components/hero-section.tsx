@@ -20,24 +20,9 @@ export function HeroSection() {
         muted
         playsInline
         className="absolute top-0 left-0 w-full h-full object-cover"
-        onError={(e) => {
-          console.log('Video failed to load, using fallback');
-          e.currentTarget.style.display = 'none';
-        }}
       >
-        <source src="/video2.mp4" type="video/mp4" />
+        <source src="/video2-optimized.mp4" type="video/mp4" />
       </video>
-      
-      {/* Fallback background image */}
-      <div className="absolute top-0 left-0 w-full h-full object-cover bg-gradient-to-br from-purple-900 via-black to-red-900">
-        <Image
-          src="/electronic-music-event-poster.webp"
-          alt="ANIMA Background"
-          fill
-          className="object-cover opacity-50"
-          priority
-        />
-      </div>
       
       {/* Overlay semitrasparente */}
       <div className="absolute inset-0 bg-black/50"></div>
