@@ -129,29 +129,39 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
       setIsHovering(true);
     };
 
-    // Touch handlers for mobile - disabled drag, only lightbox
+    // Touch handlers for mobile - open lightbox on tap or horizontal drag
     const handleTouchStart = (e: React.TouchEvent) => {
-      // On mobile, just track touch start for potential lightbox opening
       setIsTouching(true);
       setHasMoved(false);
+      setDragStart({ 
+        x: e.touches[0].clientX, 
+        y: e.touches[0].clientY, 
+        rotation 
+      });
     };
 
     const handleTouchMove = (e: React.TouchEvent) => {
-      // On mobile, allow natural scrolling - no drag functionality
-      // Mark as moved to prevent lightbox opening on drag
-      if (isTouching) {
-        setHasMoved(true);
+      if (!isTouching) return;
+      
+      const deltaX = e.touches[0].clientX - dragStart.x;
+      const deltaY = Math.abs(e.touches[0].clientY - dragStart.y);
+      
+      // Check if user is dragging horizontally (carousel) or vertically (scroll)
+      if (Math.abs(deltaX) > 5 && Math.abs(deltaX) > deltaY) {
+        // It's a horizontal drag - mark as moved but don't prevent default
+        if (!hasMoved) {
+          setHasMoved(true);
+        }
+        // Don't prevent default to allow natural scrolling
       }
     };
 
     const handleTouchEnd = (e: React.TouchEvent) => {
       setIsTouching(false);
-      // On mobile, if it's a tap (not a drag), open lightbox for the front item
-      if (!hasMoved) {
-        // Find the front item (closest to 0 degrees)
-        const frontItemIndex = Math.round((360 - (rotation % 360)) / anglePerItem) % items.length;
-        handleImageClick(frontItemIndex);
-      }
+      // On mobile, open lightbox for the front item on both tap and horizontal drag
+      // Find the front item (closest to 0 degrees)
+      const frontItemIndex = Math.round((360 - (rotation % 360)) / anglePerItem) % items.length;
+      handleImageClick(frontItemIndex);
       setHasMoved(false);
     };
 

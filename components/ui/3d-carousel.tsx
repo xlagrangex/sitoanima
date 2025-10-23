@@ -196,19 +196,32 @@ function ThreeDPhotoCarousel() {
     controls.stop()
   }
 
-  // Touch handlers for mobile - disable drag, open lightbox on tap
+  // Touch handlers for mobile - open lightbox on tap or horizontal drag
+  const [touchStart, setTouchStart] = useState({ x: 0, y: 0 })
+  const [hasMoved, setHasMoved] = useState(false)
+
   const handleTouchStart = (e: React.TouchEvent) => {
-    // Track touch start for potential lightbox opening
+    setTouchStart({ x: e.touches[0].clientX, y: e.touches[0].clientY })
+    setHasMoved(false)
     e.stopPropagation()
   }
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    // Allow natural scrolling - no drag functionality
+    const deltaX = e.touches[0].clientX - touchStart.x
+    const deltaY = Math.abs(e.touches[0].clientY - touchStart.y)
+    
+    // Check if user is dragging horizontally (carousel) or vertically (scroll)
+    if (Math.abs(deltaX) > 5 && Math.abs(deltaX) > deltaY) {
+      // It's a horizontal drag - mark as moved
+      if (!hasMoved) {
+        setHasMoved(true)
+      }
+    }
     e.stopPropagation()
   }
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    // On mobile tap, open lightbox for the front item
+    // On mobile, open lightbox for the front item on both tap and horizontal drag
     e.stopPropagation()
     if (isCarouselActive) {
       // Find the front item (closest to 0 degrees)
@@ -216,6 +229,7 @@ function ThreeDPhotoCarousel() {
       const frontImgUrl = cards[frontItemIndex]
       handleClick(frontImgUrl)
     }
+    setHasMoved(false)
   }
 
   const handleClose = () => {
