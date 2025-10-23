@@ -403,6 +403,7 @@ export function AccordionSections() {
                     radius={isMobile ? 280 : 350} 
                     autoRotateSpeed={0.015}
                     showText={true}
+                    hideLightboxText={true}
                   />
                 </div>
               </div>

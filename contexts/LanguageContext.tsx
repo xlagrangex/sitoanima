@@ -80,6 +80,12 @@ const translations = {
     'section11.content': 'Stay connected with ANIMA through our latest posts, behind-the-scenes moments, and exclusive content. Join our community and be part of the journey.',
     'section11.cta': 'Follow on Instagram',
     
+    // Cookie Banner
+    'cookie.title': 'Cookie Policy',
+    'cookie.message': 'We use cookies to improve your experience and for analytical purposes. By continuing to browse, you accept their use.',
+    'cookie.accept': 'Accept',
+    'cookie.reject': 'Reject',
+    
     // Footer
     'footer.tagline': 'Until the Sunrise',
     'footer.description': 'Where house and afrohouse converge into a radiant journey. A club experience built around joy, light and freedom.',
@@ -156,6 +162,12 @@ const translations = {
     'section11.title': 'VIVI IL MOMENTO CON NOI.',
     'section11.content': 'Resta connesso con ANIMA attraverso i nostri ultimi post, momenti dietro le quinte e contenuti esclusivi. Unisciti alla nostra community e fai parte del viaggio.',
     'section11.cta': 'Seguici su Instagram',
+    
+    // Cookie Banner
+    'cookie.title': 'Informativa sui Cookie',
+    'cookie.message': 'Utilizziamo cookies per migliorare la tua esperienza e per scopi analitici. Continuando la navigazione accetti il loro utilizzo.',
+    'cookie.accept': 'Accetta',
+    'cookie.reject': 'Rifiuta',
     
     // Footer
     'footer.tagline': 'Fino all\'Alba',

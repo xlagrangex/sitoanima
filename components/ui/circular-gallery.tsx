@@ -28,10 +28,12 @@ interface CircularGalleryProps extends HTMLAttributes<HTMLDivElement> {
   autoRotateSpeed?: number;
   /** Show text overlay on cards. */
   showText?: boolean;
+  /** Hide text in lightbox (for MOMENT gallery) */
+  hideLightboxText?: boolean;
 }
 
 const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
-  ({ items, className, radius = 600, autoRotateSpeed = 0.02, showText = false, ...props }, ref) => {
+  ({ items, className, radius = 600, autoRotateSpeed = 0.02, showText = false, hideLightboxText = false, ...props }, ref) => {
     const [rotation, setRotation] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
@@ -264,6 +266,7 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
         initialIndex={lightboxIndex}
         isOpen={lightboxOpen}
         onClose={() => setLightboxOpen(false)}
+        hideText={hideLightboxText}
       />
       </>
     );
