@@ -30,7 +30,7 @@ export function Preloader() {
     // Load only critical assets for LCP optimization
     const criticalImages = [
       // Only the hero logo - this is the LCP element
-      '/anima-complete-white.webp',
+      '/anima-complete-white-optimized.webp',
     ]
 
     const preloadAssets = async () => {
@@ -78,7 +78,7 @@ export function Preloader() {
             className="mb-12"
           >
             <Image
-              src="/anima-logo-white.webp"
+              src="/anima-logo-white-optimized.webp"
               alt="ANIMA Logo"
               width={80}
               height={80}

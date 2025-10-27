@@ -179,13 +179,13 @@ export function AccordionSections() {
       quote: "Techno producer and DJ known for his powerful sets and underground sound.",
       name: "Peppe Citarella",
       designation: "Techno DJ & Producer",
-      src: "/peppe-citarella.webp"
+      src: "/peppe-citarella-optimized.webp"
     },
     {
       quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
       name: "???",
       designation: "Announcing soon",
-      src: "/pexels-khanshaheb-17214950.webp"
+      src: "/pexels-khanshaheb-optimized.webp"
     },
     {
       quote: "Electronic music artist with a unique style blending techno and house elements.",
@@ -197,13 +197,13 @@ export function AccordionSections() {
       quote: "House music producer and DJ bringing energy and groove to every performance.",
       name: "Piero Pirupa",
       designation: "House DJ & Producer",
-      src: "/Screenshot 2025-10-17 at 11.58.26.webp"
+      src: "/Screenshot-optimized.webp"
     },
     {
       quote: "Electronic music artist known for innovative sounds and captivating performances.",
       name: "Grossomoddo",
       designation: "Electronic Artist",
-      src: "/grossomoddo-new.webp"
+      src: "/grossomoddo-optimized.webp"
     },
     {
       quote: "Techno DJ and producer delivering deep, hypnotic beats to the underground scene.",

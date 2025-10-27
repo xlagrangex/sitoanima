@@ -22,9 +22,9 @@ export function useBackgroundPreload() {
     const guestImages = [
       '/IMG_5628-optimized.webp',
       '/c_EPbQeA.webp',
-      '/pexels-khanshaheb-17214950.webp',
+      '/pexels-khanshaheb-optimized.webp',
       '/Marco-Lys-optimized.webp',
-      '/Screenshot 2025-10-17 at 11.58.26.webp',
+      '/Screenshot-optimized.webp',
       '/IMG_9690.webp',
       '/4-optimized.webp',
     ]
