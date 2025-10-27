@@ -53,7 +53,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9662.webp",
+        url: "/immagini-optimized/IMG_9662.webp",
         text: "ANIMA Event - Moment 01",
         by: "ANIMA Events"
       }
@@ -62,7 +62,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9663.webp",
+        url: "/immagini-optimized/IMG_9663.webp",
         text: "ANIMA Event - Moment 02",
         by: "ANIMA Events"
       }
@@ -71,7 +71,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9664.webp",
+        url: "/immagini-optimized/IMG_9664.webp",
         text: "ANIMA Event - Moment 03",
         by: "ANIMA Events"
       }
@@ -80,7 +80,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9665.webp",
+        url: "/immagini-optimized/IMG_9665.webp",
         text: "ANIMA Event - Moment 04",
         by: "ANIMA Events"
       }
@@ -89,7 +89,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9667.webp",
+        url: "/immagini-optimized/IMG_9667.webp",
         text: "ANIMA Event - Moment 05",
         by: "ANIMA Events"
       }
@@ -98,7 +98,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9668.webp",
+        url: "/immagini-optimized/IMG_9668.webp",
         text: "ANIMA Event - Moment 06",
         by: "ANIMA Events"
       }
@@ -107,7 +107,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9669.webp",
+        url: "/immagini-optimized/IMG_9669.webp",
         text: "ANIMA Event - Moment 07",
         by: "ANIMA Events"
       }
@@ -116,7 +116,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9670.webp",
+        url: "/immagini-optimized/IMG_9670.webp",
         text: "ANIMA Event - Moment 08",
         by: "ANIMA Events"
       }
@@ -125,7 +125,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9671.webp",
+        url: "/immagini-optimized/IMG_9671.webp",
         text: "ANIMA Event - Moment 09",
         by: "ANIMA Events"
       }
@@ -134,7 +134,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9672.webp",
+        url: "/immagini-optimized/IMG_9672.webp",
         text: "ANIMA Event - Moment 10",
         by: "ANIMA Events"
       }
@@ -143,7 +143,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9673.webp",
+        url: "/immagini-optimized/IMG_9673.webp",
         text: "ANIMA Event - Moment 11",
         by: "ANIMA Events"
       }
@@ -152,7 +152,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9674.webp",
+        url: "/immagini-optimized/IMG_9674.webp",
         text: "ANIMA Event - Moment 12",
         by: "ANIMA Events"
       }
@@ -161,7 +161,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini/IMG_9675.webp",
+        url: "/immagini-optimized/IMG_9675.webp",
         text: "ANIMA Event - Moment 13",
         by: "ANIMA Events"
       }
@@ -173,7 +173,7 @@ export function AccordionSections() {
       quote: "Electronic music artist bringing fresh sounds and innovative beats to the underground scene.",
       name: "Twolate",
       designation: "Electronic Artist",
-      src: "/IMG_5628.webp"
+      src: "/IMG_5628-optimized.webp"
     },
     {
       quote: "Techno producer and DJ known for his powerful sets and underground sound.",
@@ -191,7 +191,7 @@ export function AccordionSections() {
       quote: "Electronic music artist with a unique style blending techno and house elements.",
       name: "Marco Lys",
       designation: "Electronic Artist",
-      src: "/Marco Lys at Il Muretto 3.webp"
+      src: "/Marco-Lys-optimized.webp"
     },
     {
       quote: "House music producer and DJ bringing energy and groove to every performance.",
@@ -209,7 +209,7 @@ export function AccordionSections() {
       quote: "Techno DJ and producer delivering deep, hypnotic beats to the underground scene.",
       name: "Peaty",
       designation: "Techno DJ & Producer",
-      src: "/4.webp"
+      src: "/4-optimized.webp"
     }
   ]
 
