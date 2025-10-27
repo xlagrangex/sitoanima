@@ -27,26 +27,10 @@ export function Preloader() {
       })
     }, 20) // Faster interval
 
-    // Load only critical assets for first scroll (hero + first carousel)
+    // Load only critical assets for LCP optimization
     const criticalImages = [
-      // Hero section
+      // Only the hero logo - this is the LCP element
       '/anima-complete-white.webp',
-      '/anima-logo-white.webp',
-      // First carousel (3D carousel)
-      '/charlotte-de-witte-dj-poster-dark-techno.webp',
-      '/amelie-lens-dj-poster-techno-event.webp',
-      '/ben-klock-dj-poster-underground-techno.webp',
-      '/dj-performing-at-electronic-music-event-with-red-l.webp',
-      '/electronic-music-event-crowd-with-purple-lights.webp',
-      '/dj-mixing-on-cdj-turntables-with-neon-lights.webp',
-      '/crowd-dancing-at-underground-techno-party.webp',
-      '/electronic-music-crowd-dancing-purple-lights.webp',
-      '/professional-dj-booth-with-cdj-and-mixer-purple-li.webp',
-      '/dj-performing-electronic-music-purple-lighting.webp',
-      '/techno-party-crowd-with-hands-up-dancing.webp',
-      '/electronic-music-stage-with-led-visuals.webp',
-      '/industrial-venue-interior-with-stage-and-purple-li.webp',
-      '/concert-stage-with-professional-lighting-and-sound.webp',
     ]
 
     const preloadAssets = async () => {
@@ -64,7 +48,7 @@ export function Preloader() {
       await Promise.all(imagePromises)
       allImagesLoaded = true
       setProgress(100)
-      setTimeout(() => setIsLoading(false), 200) // Faster exit
+      setTimeout(() => setIsLoading(false), 100) // Much faster exit for LCP
     }
 
     preloadAssets()
