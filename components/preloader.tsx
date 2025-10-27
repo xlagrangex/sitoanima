@@ -12,20 +12,17 @@ export function Preloader() {
     let progressInterval: NodeJS.Timeout | null = null
     let allImagesLoaded = false
 
-    // Start progress animation - faster and more responsive
+    // Start progress animation - ultra fast for FCP
     progressInterval = setInterval(() => {
       setProgress((prev) => {
-        // Slow down at 85% to wait for critical images only
-        if (prev >= 85 && !allImagesLoaded) {
-          return prev + 1
-        }
+        // Very fast progress for instant FCP
         if (prev >= 100) {
           if (progressInterval) clearInterval(progressInterval)
           return 100
         }
-        return prev + 4 // Faster progress
+        return prev + 8 // Ultra fast progress
       })
-    }, 20) // Faster interval
+    }, 10) // Ultra fast interval
 
     // Load only critical assets for LCP optimization
     const criticalImages = [
@@ -48,7 +45,7 @@ export function Preloader() {
       await Promise.all(imagePromises)
       allImagesLoaded = true
       setProgress(100)
-      setTimeout(() => setIsLoading(false), 100) // Much faster exit for LCP
+      setTimeout(() => setIsLoading(false), 50) // Ultra fast exit for FCP
     }
 
     preloadAssets()

@@ -3,9 +3,22 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { useEffect, useRef } from "react"
 
 export function HeroSection() {
   const { t } = useLanguage()
+  const videoRef = useRef<HTMLVideoElement>(null)
+  
+  useEffect(() => {
+    // Delay video loading to improve FCP
+    const timer = setTimeout(() => {
+      if (videoRef.current) {
+        videoRef.current.load()
+      }
+    }, 1000) // Start loading video after 1 second
+    
+    return () => clearTimeout(timer)
+  }, [])
   
   const scrollToFormat = () => {
     document.getElementById("format")?.scrollIntoView({ behavior: "smooth" })
@@ -13,8 +26,9 @@ export function HeroSection() {
 
   return (
     <section id="hero" className="relative flex items-center justify-center overflow-hidden w-screen" style={{ height: '80vh' }}>
-      {/* Video Background */}
+      {/* Video Background - Loads after FCP */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
