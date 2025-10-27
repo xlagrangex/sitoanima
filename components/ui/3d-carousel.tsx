@@ -8,9 +8,7 @@ import {
   useMotionValue,
   useTransform,
 } from "framer-motion"
-
-export const useIsomorphicLayoutEffect =
-  typeof window !== "undefined" ? useLayoutEffect : useEffect
+import { useDeviceDetection } from '@/hooks/useDeviceDetection';
 
 type UseMediaQueryOptions = {
   defaultValue?: boolean
@@ -93,6 +91,7 @@ const Carousel = memo(
     isCarouselActive: boolean
     rotation: any
   }) => {
+    const { isAndroid } = useDeviceDetection();
     const isScreenSizeSm = useMediaQuery("(max-width: 640px)")
     const cylinderWidth = isScreenSizeSm ? 1600 : 3000
     const faceCount = cards.length
@@ -101,16 +100,16 @@ const Carousel = memo(
     const rotationValue = useMotionValue(0)
     const transform = useTransform(
       rotationValue,
-      (value) => `rotate3d(0, 1, 0, ${value}deg)`
+      (value) => isAndroid ? `rotateY(${value}deg)` : `rotate3d(0, 1, 0, ${value}deg)`
     )
 
     return (
       <div
         className="flex h-full items-center justify-center bg-mauve-dark-2"
         style={{
-          perspective: "1000px",
-          transformStyle: "preserve-3d",
-          willChange: "transform",
+          perspective: isAndroid ? "none" : "1000px",
+          transformStyle: isAndroid ? "flat" : "preserve-3d",
+          willChange: isAndroid ? "auto" : "transform",
         }}
       >
         <motion.div
@@ -120,9 +119,9 @@ const Carousel = memo(
           transform,
           rotateY: rotationValue,
           width: cylinderWidth,
-          transformStyle: "preserve-3d",
-          willChange: "transform",
-          backfaceVisibility: "hidden",
+          transformStyle: isAndroid ? "flat" : "preserve-3d",
+          willChange: isAndroid ? "auto" : "transform",
+          backfaceVisibility: isAndroid ? "visible" : "hidden",
         }}
           animate={controls}
         >
@@ -132,9 +131,9 @@ const Carousel = memo(
               className="absolute flex h-full origin-center items-center justify-center rounded-xl bg-mauve-dark-2 p-2"
               style={{
                 width: `${faceWidth}px`,
-                transform: `rotateY(${
-                  i * (360 / faceCount)
-                }deg) translateZ(${radius}px)`,
+                transform: isAndroid 
+                  ? `translateX(${(i - faceCount/2) * faceWidth}px)` 
+                  : `rotateY(${i * (360 / faceCount)}deg) translateZ(${radius}px)`,
               }}
               onClick={() => handleClick(imgUrl, i)}
             >
@@ -161,6 +160,7 @@ const Carousel = memo(
 const hiddenMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 30px, rgba(0,0,0,1) 30px, rgba(0,0,0,1) 30px)`
 const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`
 function ThreeDPhotoCarousel() {
+  const { isAndroid } = useDeviceDetection();
   const [activeImg, setActiveImg] = useState<string | null>(null)
   const [isCarouselActive, setIsCarouselActive] = useState(true)
   const controls = useAnimation()
@@ -173,13 +173,15 @@ function ThreeDPhotoCarousel() {
     
     const autoRotate = () => {
       if (isCarouselActive) {
-        rotation.set(rotation.get() + 2) // Increased speed from 0.5 to 2
+        // Reduce speed on Android to prevent glitches
+        const speed = isAndroid ? 0.5 : 2;
+        rotation.set(rotation.get() + speed)
       }
     }
     
-    const interval = setInterval(autoRotate, 30) // Increased frequency from 50ms to 30ms
+    const interval = setInterval(autoRotate, isAndroid ? 50 : 30)
     return () => clearInterval(interval)
-  }, [isMobile, isCarouselActive, rotation])
+  }, [isMobile, isCarouselActive, rotation, isAndroid])
   
   const cards = useMemo(
     () => animaImages,
@@ -265,7 +267,7 @@ function ThreeDPhotoCarousel() {
                 ease: [0.25, 0.1, 0.25, 1],
               }} // Clean ease-out curve
               style={{
-                willChange: "transform",
+                willChange: isAndroid ? "auto" : "transform",
               }}
             />
           </motion.div>

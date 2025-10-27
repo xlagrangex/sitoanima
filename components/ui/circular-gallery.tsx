@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, HTMLAttributes } from 'react';
 import { motion, useTransform, useMotionValue } from 'framer-motion';
 import { Lightbox } from './lightbox';
+import { useDeviceDetection } from '@/hooks/useDeviceDetection';
 
 // A simple utility for conditional class names
 const cn = (...classes: (string | undefined | null | false)[]) => {
@@ -36,6 +37,7 @@ interface CircularGalleryProps extends HTMLAttributes<HTMLDivElement> {
 
 const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
   ({ items, className, radius = 600, autoRotateSpeed = 0.02, showText = false, hideLightboxText = false, lightboxAspectRatio, ...props }, ref) => {
+    const { isAndroid, isMobile } = useDeviceDetection();
     const [rotation, setRotation] = useState(0);
     const [isScrolling, setIsScrolling] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
@@ -60,6 +62,9 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     useEffect(() => {
       const handleScroll = () => {
         if (isTouching || isDragging) return; // Don't scroll rotate while touching
+        
+        // On Android, disable scroll-based rotation to prevent glitches
+        if (isAndroid) return;
         
         setIsScrolling(true);
         if (scrollTimeoutRef.current) {
@@ -89,7 +94,9 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
     useEffect(() => {
       const autoRotate = () => {
         if (!isScrolling && !isHovering && !isDragging && !isTouching) {
-          setRotation(prev => prev + autoRotateSpeed * 3); // Increased speed by 3x
+          // Reduce speed on Android to prevent glitches
+          const speedMultiplier = isAndroid ? 0.5 : 3;
+          setRotation(prev => prev + autoRotateSpeed * speedMultiplier);
         }
         animationFrameRef.current = requestAnimationFrame(autoRotate);
       };
@@ -201,8 +208,9 @@ const CircularGallery = React.forwardRef<HTMLDivElement, CircularGalleryProps>(
           className="relative w-full h-full"
           style={{
             transform: `rotateY(${rotation}deg)`,
-            transformStyle: 'preserve-3d',
-            transition: isDragging ? 'none' : 'transform 0.1s ease-out',
+            transformStyle: isAndroid ? 'flat' : 'preserve-3d',
+            transition: isDragging ? 'none' : (isAndroid ? 'transform 0.3s ease-out' : 'transform 0.1s ease-out'),
+            willChange: isAndroid ? 'auto' : 'transform',
           }}
         >
           {items.map((item, i) => {
