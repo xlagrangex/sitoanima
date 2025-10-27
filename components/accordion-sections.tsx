@@ -13,7 +13,8 @@ import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel"
 import { CircularGallery, type GalleryItem } from "@/components/ui/circular-gallery"
 import { InstagramGrid } from "@/components/instagram-grid"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
-import { Mail, MessageCircle, MapPin, Send, Music, Instagram } from "lucide-react"
+import { LazySpotifyPlaylist } from "@/components/lazy-spotify-playlist"
+import { LazyGoogleMap } from "@/components/lazy-google-map"
 
 export function AccordionSections() {
   const { t } = useLanguage()
@@ -415,17 +416,11 @@ export function AccordionSections() {
                 <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-center`}>
                   {t(section.contentKey)}
                 </p>
-                <iframe 
-                  data-testid="embed-iframe" 
-                  style={{borderRadius: "12px"}} 
-                  src="https://open.spotify.com/embed/playlist/5WpQ7y1j9EhRMQlMKPJqSx?utm_source=generator" 
-                  width="100%" 
-                  height="352" 
-                  frameBorder="0" 
-                  allowFullScreen={true}
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                  loading="lazy"
-                ></iframe>
+                <LazySpotifyPlaylist 
+                  src="https://open.spotify.com/embed/playlist/5WpQ7y1j9EhRMQlMKPJqSx?utm_source=generator"
+                  width="100%"
+                  height="352"
+                />
               </div>
             ) : section.id === "instagram" ? (
               <div className="w-full max-w-6xl mx-auto">
@@ -453,15 +448,11 @@ export function AccordionSections() {
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full aspect-[4/3] md:aspect-[16/9] rounded-lg overflow-hidden shadow-2xl">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.2225497639356!2d14.172673776545675!3d40.80110307138039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b0c1e75bca2d7%3A0xe08e8f4f3a917d24!2sHBTOO!5e0!3m2!1sit!2sit!4v1760536364942!5m2!1sit!2sit" 
-                    width="100%" 
-                    height="100%" 
-                    style={{border:0}} 
-                    allowFullScreen={true}
-                    loading="lazy" 
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
+                  <LazyGoogleMap 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.2225497639356!2d14.172673776545675!3d40.80110307138039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b0c1e75bca2d7%3A0xe08e8f4f3a917d24!2sHBTOO!5e0!3m2!1sit!2sit!4v1760536364942!5m2!1sit!2sit"
+                    width="100%"
+                    height="100%"
+                  />
                 </div>
                 {section.cta && section.cta.href && (
                   <div className="mt-6 flex justify-center">
