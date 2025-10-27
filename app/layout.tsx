@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   creator: "ANIMA Events",
   publisher: "ANIMA Events",
   icons: {
-    icon: "/anima-logo-white.webp",
-    shortcut: "/anima-logo-white.webp",
-    apple: "/anima-logo-white.webp",
+    icon: "/anima-logo-white-optimized.webp",
+    shortcut: "/anima-logo-white-optimized.webp",
+    apple: "/anima-logo-white-optimized.webp",
   },
   openGraph: {
     title: "ANIMA – Until the Sun Rises",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     siteName: "ANIMA",
     images: [
       {
-        url: "/anima-complete-white.webp",
+        url: "/anima-complete-white-optimized.webp",
         width: 1200,
         height: 630,
         alt: "ANIMA - Until the Sun Rises",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ANIMA – Until the Sun Rises",
     description: "ANIMA is more than a party — it's a ritual of sound and light. Guided by every shade of house music, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.",
-    images: ["/anima-complete-white.webp"],
+    images: ["/anima-complete-white-optimized.webp"],
   },
   robots: {
     index: true,
