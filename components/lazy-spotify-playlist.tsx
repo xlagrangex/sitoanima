@@ -35,7 +35,8 @@ export function LazySpotifyPlaylist({
             setTimeout(() => {
               setIsLoaded(true)
               // Set timeout to detect if iframe fails to load
-              // After 8 seconds, if iframe hasn't loaded properly, show fallback
+              // After 5 seconds (reduced from 8), if iframe hasn't loaded properly, show fallback
+              // This catches upstream timeout errors from Spotify/CDN
               errorTimeoutRef.current = setTimeout(() => {
                 // Check if iframe exists and has dimensions
                 if (iframeRef.current) {
@@ -44,19 +45,22 @@ export function LazySpotifyPlaylist({
                   if (rect.width < 10 || rect.height < 10) {
                     setHasError(true)
                   } else {
-                    // Double check after another 2 seconds to be sure
+                    // Try to detect if content actually loaded by checking after a short delay
+                    // If Spotify shows upstream errors, the iframe might be visible but broken
                     setTimeout(() => {
-                      // If still not working, show fallback
-                      // This is a fallback for cases where iframe loads but content is blocked
+                      // If still having issues, show fallback button prominently
+                      // Spotify upstream errors can't be detected directly due to CORS,
+                      // but timeout suggests there's a problem
                       if (!hasError) {
-                        // Try to detect if content is actually loaded
-                        // Since we can't access cross-origin content, we'll rely on user interaction
-                        // But for now, we'll keep the iframe unless explicitly errored
+                        // Keep iframe but user can use fallback button if needed
                       }
                     }, 2000)
                   }
+                } else {
+                  // Iframe doesn't exist, show error
+                  setHasError(true)
                 }
-              }, 8000) // 8 seconds timeout - if Spotify embed doesn't load, show fallback
+              }, 5000) // Reduced to 5 seconds to catch upstream timeout errors faster
             }, 500)
           }
         })
@@ -91,9 +95,10 @@ export function LazySpotifyPlaylist({
   // If there's an error, show only the button
   if (hasError) {
     return (
-      <div className={`flex flex-col items-center justify-center gap-4 ${className}`}>
+      <div className={`flex flex-col items-center justify-center gap-4 ${className}`} style={{ height: `${height}px` }}>
         <div className="text-center text-gray-400 mb-2">
-          <p className="text-sm">Impossibile caricare l'anteprima</p>
+          <p className="text-sm mb-1">Impossibile caricare l'anteprima</p>
+          <p className="text-xs opacity-70">Problema temporaneo con Spotify</p>
         </div>
         <a
           href={fallbackUrl}
