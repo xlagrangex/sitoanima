@@ -13,8 +13,16 @@ export function HeroSection() {
     const video = videoRef.current
     if (!video) return
 
+    // Reset del video per risolvere problemi di cache su dispositivi mobili
+    // Questo è cruciale per dispositivi che hanno già visitato il sito
+    video.load()
+    video.currentTime = 0
+
     // Funzione per forzare la riproduzione
     const attemptPlay = () => {
+      // Assicurati che il video sia muto (richiesto per autoplay)
+      video.muted = true
+      
       const playPromise = video.play()
       if (playPromise !== undefined) {
         playPromise
@@ -23,31 +31,61 @@ export function HeroSection() {
           })
           .catch((error) => {
             console.log("Autoplay prevented:", error)
-            // Prova di nuovo dopo un breve delay
+            // Su mobile, prova più volte con delay crescenti
             setTimeout(() => {
               video.play().catch(() => {
-                console.log("Second autoplay attempt failed")
+                setTimeout(() => {
+                  video.play().catch(() => {
+                    console.log("Multiple autoplay attempts failed")
+                  })
+                }, 300)
               })
-            }, 100)
+            }, 200)
           })
       }
     }
 
-    // Prova a far partire il video quando è pronto
-    if (video.readyState >= 2) {
-      // Video già caricato abbastanza
-      attemptPlay()
-    } else {
-      // Aspetta che il video sia pronto
-      video.addEventListener('loadeddata', attemptPlay, { once: true })
-      video.addEventListener('canplay', attemptPlay, { once: true })
-      video.addEventListener('canplaythrough', attemptPlay, { once: true })
+    // Gestione quando il video è pronto
+    const handleVideoReady = () => {
+      if (video.paused) {
+        attemptPlay()
+      }
     }
 
+    // Prova immediatamente se il video è già caricato
+    if (video.readyState >= 2) {
+      setTimeout(handleVideoReady, 50)
+    } else {
+      // Aspetta che il video sia pronto
+      video.addEventListener('loadeddata', handleVideoReady, { once: true })
+      video.addEventListener('canplay', handleVideoReady, { once: true })
+      video.addEventListener('canplaythrough', handleVideoReady, { once: true })
+    }
+
+    // Gestione della visibilità della pagina (importante per mobile quando si torna al tab)
+    const handleVisibilityChange = () => {
+      if (!document.hidden && video.paused) {
+        attemptPlay()
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    // Gestione quando la pagina diventa visibile (per mobile)
+    const handleFocus = () => {
+      if (video.paused) {
+        attemptPlay()
+      }
+    }
+
+    window.addEventListener('focus', handleFocus)
+
     return () => {
-      video.removeEventListener('loadeddata', attemptPlay)
-      video.removeEventListener('canplay', attemptPlay)
-      video.removeEventListener('canplaythrough', attemptPlay)
+      video.removeEventListener('loadeddata', handleVideoReady)
+      video.removeEventListener('canplay', handleVideoReady)
+      video.removeEventListener('canplaythrough', handleVideoReady)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+      window.removeEventListener('focus', handleFocus)
     }
   }, [])
   
@@ -87,11 +125,29 @@ export function HeroSection() {
         style={{ zIndex: 0 }}
         onLoadedData={(e) => {
           // Forza la riproduzione quando i dati sono caricati
-          e.currentTarget.play().catch(() => {})
+          const video = e.currentTarget
+          video.muted = true
+          video.play().catch(() => {
+            // Retry dopo breve delay per dispositivi mobili
+            setTimeout(() => video.play().catch(() => {}), 100)
+          })
         }}
         onCanPlay={(e) => {
           // Forza la riproduzione quando può essere riprodotto
-          e.currentTarget.play().catch(() => {})
+          const video = e.currentTarget
+          video.muted = true
+          if (video.paused) {
+            video.play().catch(() => {
+              setTimeout(() => video.play().catch(() => {}), 100)
+            })
+          }
+        }}
+        onPlay={() => {
+          // Assicurati che rimanga muto quando parte
+          const video = videoRef.current
+          if (video && !video.muted) {
+            video.muted = true
+          }
         }}
       >
         <source src="/video2-optimized.mp4" type="video/mp4" />
