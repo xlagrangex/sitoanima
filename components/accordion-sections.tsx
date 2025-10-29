@@ -10,7 +10,8 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { motion } from "framer-motion"
 import { GlitchText, GlitchContainer, GlitchButton, staggerContainer, staggerItem } from "@/components/glitch-animations"
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel"
-import { CircularGallery, type GalleryItem } from "@/components/ui/circular-gallery"
+import { Simple2DCarousel } from "@/components/ui/simple-2d-carousel"
+import type { GalleryItem } from "@/components/ui/circular-gallery"
 import { InstagramGrid } from "@/components/instagram-grid"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 import { LazySpotifyPlaylist } from "@/components/lazy-spotify-playlist"
@@ -359,11 +360,7 @@ export function AccordionSections() {
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full h-[500px] md:h-[600px] -mt-5 md:-mt-30 mb-5 md:mb-10">
-                  <CircularGallery 
-                    items={galleryItems} 
-                    radius={isMobile ? 500 : 680} 
-                    autoRotateSpeed={0.015} 
-                  />
+                  <Simple2DCarousel items={galleryItems} />
                 </div>
                 {section.cta && section.cta.href && (
                   <div className="mt-8 flex justify-center">
@@ -401,14 +398,7 @@ export function AccordionSections() {
                   {t(section.contentKey)}
                 </p>
                 <div className="w-full h-[500px] md:h-[600px] -mt-5 md:-mt-25">
-                  <CircularGallery 
-                    items={guestGalleryItems} 
-                    radius={isMobile ? 250 : 320} 
-                    autoRotateSpeed={0.015}
-                    showText={true}
-                    hideLightboxText={false}
-                    lightboxAspectRatio="2:3"
-                  />
+                  <Simple2DCarousel items={guestGalleryItems} aspectRatio="2:3" />
                 </div>
               </div>
             ) : section.id === "playlist" ? (

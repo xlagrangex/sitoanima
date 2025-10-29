@@ -19,3 +19,4 @@ export function useDeviceDetection() {
 
   return { isAndroid, isMobile, isIOS }
 }
+
