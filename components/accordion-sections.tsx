@@ -436,6 +436,7 @@ export function AccordionSections() {
                   src="https://open.spotify.com/embed/playlist/5WpQ7y1j9EhRMQlMKPJqSx?utm_source=generator"
                   width="100%"
                   height="352"
+                  fallbackUrl="https://open.spotify.com/playlist/5WpQ7y1j9EhRMQlMKPJqSx?si=UO87sHUrQSOU5BDQYn6CQQ&pi=sQFh_xM3SnavA"
                 />
               </div>
             ) : section.id === "instagram" ? (
