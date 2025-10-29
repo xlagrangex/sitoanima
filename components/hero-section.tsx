@@ -10,11 +10,44 @@ export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null)
   
   useEffect(() => {
-    // Assicura che il video parta immediatamente senza delay
-    if (videoRef.current) {
-      videoRef.current.play().catch((error) => {
-        console.log("Autoplay prevented:", error)
-      })
+    const video = videoRef.current
+    if (!video) return
+
+    // Funzione per forzare la riproduzione
+    const attemptPlay = () => {
+      const playPromise = video.play()
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            console.log("Video playing successfully")
+          })
+          .catch((error) => {
+            console.log("Autoplay prevented:", error)
+            // Prova di nuovo dopo un breve delay
+            setTimeout(() => {
+              video.play().catch(() => {
+                console.log("Second autoplay attempt failed")
+              })
+            }, 100)
+          })
+      }
+    }
+
+    // Prova a far partire il video quando è pronto
+    if (video.readyState >= 2) {
+      // Video già caricato abbastanza
+      attemptPlay()
+    } else {
+      // Aspetta che il video sia pronto
+      video.addEventListener('loadeddata', attemptPlay, { once: true })
+      video.addEventListener('canplay', attemptPlay, { once: true })
+      video.addEventListener('canplaythrough', attemptPlay, { once: true })
+    }
+
+    return () => {
+      video.removeEventListener('loadeddata', attemptPlay)
+      video.removeEventListener('canplay', attemptPlay)
+      video.removeEventListener('canplaythrough', attemptPlay)
     }
   }, [])
   
@@ -48,9 +81,18 @@ export function HeroSection() {
         muted
         loop
         playsInline
+        controls={false}
         preload="auto"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{ zIndex: 0 }}
+        onLoadedData={(e) => {
+          // Forza la riproduzione quando i dati sono caricati
+          e.currentTarget.play().catch(() => {})
+        }}
+        onCanPlay={(e) => {
+          // Forza la riproduzione quando può essere riprodotto
+          e.currentTarget.play().catch(() => {})
+        }}
       >
         <source src="/video2-optimized.mp4" type="video/mp4" />
       </video>
