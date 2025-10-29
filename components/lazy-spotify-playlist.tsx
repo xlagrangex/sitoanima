@@ -88,9 +88,13 @@ export function LazySpotifyPlaylist({
     setHasError(false)
   }, [src])
 
+  // If there's an error, show only the button
   if (hasError) {
     return (
-      <div className={`flex items-center justify-center ${className}`} style={{ height: `${height}px` }}>
+      <div className={`flex flex-col items-center justify-center gap-4 ${className}`}>
+        <div className="text-center text-gray-400 mb-2">
+          <p className="text-sm">Impossibile caricare l'anteprima</p>
+        </div>
         <a
           href={fallbackUrl}
           target="_blank"
@@ -118,27 +122,41 @@ export function LazySpotifyPlaylist({
           </div>
         </div>
       ) : (
-        // Actual Spotify iframe
-        <iframe 
-          ref={iframeRef}
-          data-testid="embed-iframe" 
-          style={{borderRadius: "12px"}} 
-          src={src}
-          width={width}
-          height={height}
-          frameBorder="0" 
-          allowFullScreen={true}
-          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-          loading="lazy"
-          onError={handleIframeError}
-          onLoad={() => {
-            // Clear timeout if iframe loads successfully
-            if (errorTimeoutRef.current) {
-              clearTimeout(errorTimeoutRef.current)
-              errorTimeoutRef.current = null
-            }
-          }}
-        />
+        // Show iframe and always show fallback button below
+        <>
+          <iframe 
+            ref={iframeRef}
+            data-testid="embed-iframe" 
+            style={{borderRadius: "12px"}} 
+            src={src}
+            width={width}
+            height={height}
+            frameBorder="0" 
+            allowFullScreen={true}
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy"
+            onError={handleIframeError}
+            onLoad={() => {
+              // Clear timeout if iframe loads successfully
+              if (errorTimeoutRef.current) {
+                clearTimeout(errorTimeoutRef.current)
+                errorTimeoutRef.current = null
+              }
+            }}
+          />
+          {/* Always show fallback button below iframe in case Spotify shows errors */}
+          <div className="mt-4 flex justify-center">
+            <a
+              href={fallbackUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-6 py-4 bg-[#1DB954] hover:bg-[#1ed760] text-white font-semibold rounded-full shadow-lg transition-all duration-200 transform hover:scale-105"
+            >
+              <Music className="w-5 h-5" />
+              <span>Ascolta su Spotify</span>
+            </a>
+          </div>
+        </>
       )}
     </div>
   )
