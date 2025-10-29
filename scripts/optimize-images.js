@@ -73,12 +73,6 @@ async function optimizeImage(inputPath, outputPath, maxWidth = 1200, quality = 8
       newHeight = Math.round((height * maxWidth) / width);
     }
 
-    // If dimensions don't need resizing and it's already WebP, skip
-    if (width <= maxWidth && inputPath.toLowerCase().endsWith('.webp') && inputPath === outputPath) {
-      console.log(`Skipping ${inputPath} (already optimized)\n`);
-      return true;
-    }
-
     console.log(`Processing: ${inputPath}`);
     console.log(`  Original: ${width}x${height} → Optimized: ${newWidth}x${newHeight}`);
 
@@ -118,28 +112,31 @@ async function optimizeImage(inputPath, outputPath, maxWidth = 1200, quality = 8
 async function optimizeGalleryImages() {
   console.log('🖼️  Optimizing gallery images (JPG -> WebP)...\n');
   
+  // Carousel displays at ~525px, so 700px is enough for retina displays
   for (const image of galleryImages) {
     const inputPath = image;
     const outputName = image.replace(/\.JPG$/i, '.webp');
     const outputPath = `immagini-optimized/${outputName}`;
     
-    await optimizeImage(inputPath, outputPath, 1200, 85);
+    await optimizeImage(inputPath, outputPath, 700, 85);
   }
 }
 
 async function optimizeEventPoster() {
   console.log('📅 Optimizing event poster...\n');
   
+  // Poster displays at ~599px, so 800px is enough
   const outputPath = 'immagini-optimized/IMG_9929.webp';
-  await optimizeImage(eventPoster, outputPath, 1200, 85);
+  await optimizeImage(eventPoster, outputPath, 800, 85);
 }
 
 async function optimizeGuestImages() {
   console.log('👥 Optimizing guest images...\n');
   
+  // Guest carousel displays at ~525px, so 700px is enough for retina displays
   for (const image of guestImages) {
     // Keep in same directory but optimize
-    await optimizeImage(image, image, 1200, 85);
+    await optimizeImage(image, image, 700, 85);
   }
 }
 
