@@ -75,7 +75,7 @@ export function HeroSection() {
         preload="metadata"
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
-        <source src="/video2-optimized.mp4" type="video/mp4" />
+        <source src="/video2.mp4" type="video/mp4" />
       </video>
       
       {/* Overlay semitrasparente */}
