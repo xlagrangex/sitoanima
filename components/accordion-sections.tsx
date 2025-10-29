@@ -56,7 +56,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9662.webp",
+        url: "/IMG_9920.JPG",
         text: "ANIMA Event - Moment 01",
         by: "ANIMA Events"
       }
@@ -65,7 +65,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9663.webp",
+        url: "/IMG_9927.JPG",
         text: "ANIMA Event - Moment 02",
         by: "ANIMA Events"
       }
@@ -74,7 +74,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9664.webp",
+        url: "/IMG_9924.JPG",
         text: "ANIMA Event - Moment 03",
         by: "ANIMA Events"
       }
@@ -83,7 +83,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9665.webp",
+        url: "/IMG_9915.JPG",
         text: "ANIMA Event - Moment 04",
         by: "ANIMA Events"
       }
@@ -92,7 +92,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9667.webp",
+        url: "/IMG_9917.JPG",
         text: "ANIMA Event - Moment 05",
         by: "ANIMA Events"
       }
@@ -101,7 +101,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9668.webp",
+        url: "/IMG_9914.JPG",
         text: "ANIMA Event - Moment 06",
         by: "ANIMA Events"
       }
@@ -110,7 +110,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9669.webp",
+        url: "/IMG_9918.JPG",
         text: "ANIMA Event - Moment 07",
         by: "ANIMA Events"
       }
@@ -119,7 +119,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9670.webp",
+        url: "/IMG_9923.JPG",
         text: "ANIMA Event - Moment 08",
         by: "ANIMA Events"
       }
@@ -128,7 +128,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9671.webp",
+        url: "/IMG_9916.JPG",
         text: "ANIMA Event - Moment 09",
         by: "ANIMA Events"
       }
@@ -137,7 +137,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9672.webp",
+        url: "/IMG_9926.JPG",
         text: "ANIMA Event - Moment 10",
         by: "ANIMA Events"
       }
@@ -146,7 +146,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9673.webp",
+        url: "/IMG_9919.JPG",
         text: "ANIMA Event - Moment 11",
         by: "ANIMA Events"
       }
@@ -155,7 +155,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9674.webp",
+        url: "/IMG_9925.JPG",
         text: "ANIMA Event - Moment 12",
         by: "ANIMA Events"
       }
@@ -164,8 +164,17 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/immagini-optimized/IMG_9675.webp",
+        url: "/IMG_9921.JPG",
         text: "ANIMA Event - Moment 13",
+        by: "ANIMA Events"
+      }
+    },
+    {
+      common: "",
+      binomial: "",
+      photo: {
+        url: "/IMG_9922.JPG",
+        text: "ANIMA Event - Moment 14",
         by: "ANIMA Events"
       }
     }
@@ -176,43 +185,43 @@ export function AccordionSections() {
       quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
       name: "??? - Announcing soon",
       designation: "Announcing soon",
-      src: "/pexels-khanshaheb-optimized.webp"
+      src: "/immagini-guest-cropped/guestmisterioso.webp"
     },
     {
       quote: "Electronic music artist bringing fresh sounds and innovative beats to the underground scene.",
       name: "Twolate",
       designation: "Electronic Artist",
-      src: "/IMG_5628-optimized.webp"
+      src: "/immagini-guest-cropped/twolate.webp"
     },
     {
       quote: "Techno producer and DJ known for his powerful sets and underground sound.",
       name: "Peppe Citarella",
       designation: "Techno DJ & Producer",
-      src: "/peppe-citarella-optimized.webp"
+      src: "/immagini-guest-cropped/peppe-citarella.webp"
     },
     {
       quote: "Electronic music artist with a unique style blending techno and house elements.",
       name: "Marco Lys",
       designation: "Electronic Artist",
-      src: "/Marco-Lys-optimized.webp"
+      src: "/immagini-guest-cropped/Marco Lys at Il Muretto 3.webp"
     },
     {
       quote: "House music producer and DJ bringing energy and groove to every performance.",
       name: "Piero Pirupa",
       designation: "House DJ & Producer",
-      src: "/Screenshot-optimized.webp"
+      src: "/immagini-guest-cropped/Pieropirupa.webp"
     },
     {
       quote: "Electronic music artist known for innovative sounds and captivating performances.",
       name: "Grossomoddo",
       designation: "Electronic Artist",
-      src: "/grossomoddo-optimized.webp"
+      src: "/immagini-guest-cropped/grossomoddo-new.webp"
     },
     {
       quote: "Techno DJ and producer delivering deep, hypnotic beats to the underground scene.",
       name: "Peaty",
       designation: "Techno DJ & Producer",
-      src: "/4-optimized.webp"
+      src: "/immagini-guest-cropped/peaty.webp"
     }
   ]
 
@@ -374,6 +383,7 @@ export function AccordionSections() {
               <div className="w-full max-w-6xl mx-auto">
                 <Gallery4 
                   items={gallery4Items}
+                  aspectRatio="2/3"
                 />
                 {section.cta && section.cta.href && (
                   <div className="mt-8 flex justify-center">
@@ -396,8 +406,8 @@ export function AccordionSections() {
                 </p>
                 <div className="w-full max-w-2xl mx-auto">
                   <Image
-                    src="/FEED 24 OTOBRE.jpg"
-                    alt="FEED 24 OTOBRE - Event Flyer"
+                    src="/immagini/IMG_9929.JPEG"
+                    alt="ANIMA Event - Next Act"
                     width={800}
                     height={1131}
                     className="w-full h-auto rounded-lg shadow-2xl"
@@ -409,6 +419,7 @@ export function AccordionSections() {
               <div className="w-full max-w-6xl mx-auto">
                 <Gallery4 
                   items={guestGallery4Items}
+                  aspectRatio="2/3"
                 />
               </div>
             ) : section.id === "playlist" ? (

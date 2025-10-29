@@ -26,6 +26,7 @@ export interface Gallery4Props {
   description?: string;
   items: Gallery4Item[];
   className?: string;
+  aspectRatio?: string;
 }
 
 const Gallery4 = ({
@@ -33,6 +34,7 @@ const Gallery4 = ({
   description,
   items,
   className = "",
+  aspectRatio = "4/3",
 }: Gallery4Props) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
   const [canScrollPrev, setCanScrollPrev] = useState(false);
@@ -143,6 +145,7 @@ const Gallery4 = ({
         isOpen={lightboxOpen}
         onClose={() => setLightboxOpen(false)}
         hideText={false}
+        aspectRatio={aspectRatio}
       />
     </div>
   );

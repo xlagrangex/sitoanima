@@ -4,29 +4,30 @@ export function useBackgroundPreload() {
   useEffect(() => {
     // Preload second carousel images in background after initial load
     const secondCarouselImages = [
-      '/immagini-optimized/IMG_9662.webp',
-      '/immagini-optimized/IMG_9663.webp',
-      '/immagini-optimized/IMG_9664.webp',
-      '/immagini-optimized/IMG_9665.webp',
-      '/immagini-optimized/IMG_9667.webp',
-      '/immagini-optimized/IMG_9668.webp',
-      '/immagini-optimized/IMG_9669.webp',
-      '/immagini-optimized/IMG_9670.webp',
-      '/immagini-optimized/IMG_9671.webp',
-      '/immagini-optimized/IMG_9672.webp',
-      '/immagini-optimized/IMG_9673.webp',
-      '/immagini-optimized/IMG_9674.webp',
-      '/immagini-optimized/IMG_9675.webp',
+      '/IMG_9920.JPG',
+      '/IMG_9927.JPG',
+      '/IMG_9924.JPG',
+      '/IMG_9915.JPG',
+      '/IMG_9917.JPG',
+      '/IMG_9914.JPG',
+      '/IMG_9918.JPG',
+      '/IMG_9923.JPG',
+      '/IMG_9916.JPG',
+      '/IMG_9926.JPG',
+      '/IMG_9919.JPG',
+      '/IMG_9925.JPG',
+      '/IMG_9921.JPG',
+      '/IMG_9922.JPG',
     ]
 
     const guestImages = [
-      '/IMG_5628-optimized.webp',
-      '/c_EPbQeA.webp',
-      '/pexels-khanshaheb-optimized.webp',
-      '/Marco-Lys-optimized.webp',
-      '/Screenshot-optimized.webp',
-      '/IMG_9690.webp',
-      '/4-optimized.webp',
+      '/immagini-guest-cropped/guestmisterioso.webp',
+      '/immagini-guest-cropped/twolate.webp',
+      '/immagini-guest-cropped/peppe-citarella.webp',
+      '/immagini-guest-cropped/Marco Lys at Il Muretto 3.webp',
+      '/immagini-guest-cropped/Pieropirupa.webp',
+      '/immagini-guest-cropped/grossomoddo-new.webp',
+      '/immagini-guest-cropped/peaty.webp',
     ]
 
     const allBackgroundImages = [...secondCarouselImages, ...guestImages]

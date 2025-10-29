@@ -54,6 +54,10 @@ export function Lightbox({ images, initialIndex, isOpen, onClose, hideText = fal
 
   if (!isOpen) return null
 
+  const targetAspectRatio = aspectRatio || '4/3';
+  const [aspectWidth, aspectHeight] = targetAspectRatio.split('/').map(Number);
+  const aspectRatioValue = aspectWidth / aspectHeight;
+
   return (
     <AnimatePresence>
       <motion.div
@@ -110,9 +114,9 @@ export function Lightbox({ images, initialIndex, isOpen, onClose, hideText = fal
               transition={{ duration: 0.3 }}
               className="relative bg-black"
               style={{ 
-                aspectRatio: '4/3',
-                width: 'min(calc(100vh * 4 / 3), 100vw)',
-                height: 'min(100vh, calc(100vw * 3 / 4))',
+                aspectRatio: targetAspectRatio,
+                width: `min(calc(100vh * ${aspectRatioValue}), 100vw)`,
+                height: `min(100vh, calc(100vw / ${aspectRatioValue}))`,
                 margin: '0 auto'
               }}
             >
