@@ -447,11 +447,10 @@ export function AccordionSections() {
                 <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-6 md:mb-8 text-center`}>
                   {t(section.contentKey)}
                 </p>
-                <div className="w-full aspect-[4/3] md:aspect-[16/9] rounded-lg overflow-hidden shadow-2xl">
+                <div className="w-full aspect-[4/3] md:aspect-[16/9] rounded-lg overflow-hidden shadow-2xl relative">
                   <LazyGoogleMap 
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3020.2225497639356!2d14.172673776545675!3d40.80110307138039!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133b0c1e75bca2d7%3A0xe08e8f4f3a917d24!2sHBTOO!5e0!3m2!1sit!2sit!4v1760536364942!5m2!1sit!2sit"
-                    width="100%"
-                    height="100%"
+                    className="absolute inset-0 w-full h-full"
                   />
                 </div>
                 {section.cta && section.cta.href && (

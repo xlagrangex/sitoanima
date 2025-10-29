@@ -43,12 +43,11 @@ export function LazyGoogleMap({
   }, [isVisible])
 
   return (
-    <div ref={containerRef} className={`relative ${className}`}>
+    <div ref={containerRef} className={`relative w-full h-full ${className}`} style={{ height: '100%' }}>
       {!isLoaded ? (
         // Placeholder while loading
         <div 
-          className="w-full bg-gray-800 rounded-lg flex items-center justify-center"
-          style={{ height: height }}
+          className="w-full h-full bg-gray-800 rounded-lg flex items-center justify-center"
         >
           <div className="text-center text-white">
             <div className="animate-pulse rounded-full h-12 w-12 bg-gray-600 mx-auto mb-4"></div>
@@ -59,9 +58,13 @@ export function LazyGoogleMap({
         // Actual Google Maps iframe
         <iframe 
           src={src}
-          width={width}
-          height={height}
-          style={{border:0}} 
+          className="w-full h-full"
+          style={{
+            border: 0,
+            width: '100%',
+            height: '100%',
+            display: 'block'
+          }} 
           allowFullScreen={true}
           loading="lazy" 
           referrerPolicy="no-referrer-when-downgrade"

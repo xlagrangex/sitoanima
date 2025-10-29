@@ -1,65 +1,74 @@
 [
   {
     "id": "DQU2v5hjfzd",
-    "image": "/instagram-posts/DQU2v5hjfzd.jpg",
+    "image": "/instagram-posts-cropped/DQU2v5hjfzd.jpg",
     "alt": "Fantastic people, fantastic moments ☀️ See you on November 7th with a special surprise 👀 Until the Sun Rises ☀️ 🏠 @hbtoo.official - Unreleased pics on Telegram, link in bio 🔗",
     "url": "https://www.instagram.com/anima.ent/p/DQU2v5hjfzd/",
-    "type": "carousel"
+    "type": "carousel",
+    "originalImage": "/instagram-posts/DQU2v5hjfzd.jpg"
   },
   {
     "id": "DQKYuIHDcgm",
-    "image": "/instagram-posts/DQKYuIHDcgm.jpg",
+    "image": "/instagram-posts-cropped/DQKYuIHDcgm.jpg",
     "alt": "This is the Vision of Anima ☀️ See you tomorrow at home 🏠 @hbtoo.official 📹 @panu.mov",
     "url": "https://www.instagram.com/anima.ent/reel/DQKYuIHDcgm/",
-    "type": "reel"
+    "type": "reel",
+    "originalImage": "/instagram-posts/DQKYuIHDcgm.jpg"
   },
   {
     "id": "DQHFiV6DZlG",
-    "image": "/instagram-posts/DQHFiV6DZlG.jpg",
+    "image": "/instagram-posts-cropped/DQHFiV6DZlG.jpg",
     "alt": "Moments from Friday ☀️ thanks to our friends from @dolcevita__rome for joining us for a fantastic party Every Friday at @hbtoo.official Until the Sun Rises ☀️ - Unreleased pics on Telegram, link in bio 🔗",
     "url": "https://www.instagram.com/anima.ent/p/DQHFiV6DZlG/",
-    "type": "carousel"
+    "type": "carousel",
+    "originalImage": "/instagram-posts/DQHFiV6DZlG.jpg"
   },
   {
     "id": "DQCq_v6Ddxs",
-    "image": "/instagram-posts/DQCq_v6Ddxs.jpg",
+    "image": "/instagram-posts-cropped/DQCq_v6Ddxs.jpg",
     "alt": "Welcome to the Sunrise Society ☀️ Season 3 — Act III Until the Sun rises ☀️ Anima Dj Booth | A-Z order @alexsilvestrimusic @1xloco @mattia_scodellaro @monamii.music 🏠 @hbtoo.official",
     "url": "https://www.instagram.com/anima.ent/reel/DQCq_v6Ddxs/",
-    "type": "reel"
+    "type": "reel",
+    "originalImage": "/instagram-posts/DQCq_v6Ddxs.jpg"
   },
   {
     "id": "DP4YVf3jcxT",
-    "image": "/instagram-posts/DP4YVf3jcxT.jpg",
+    "image": "/instagram-posts-cropped/DP4YVf3jcxT.jpg",
     "alt": "Flashes from an outstanding first night ☀️ Third Season has officially begun See you tomorrow at home 🏠 @hbtoo.official 📹 @panu.mov",
     "url": "https://www.instagram.com/anima.ent/reel/DP4YVf3jcxT/",
-    "type": "reel"
+    "type": "reel",
+    "originalImage": "/instagram-posts/DP4YVf3jcxT.jpg"
   },
   {
     "id": "DPyfZ9nDR9r",
-    "image": "/instagram-posts/DPyfZ9nDR9r.jpg",
+    "image": "/instagram-posts-cropped/DPyfZ9nDR9r.jpg",
     "alt": "The faces of a new chapter ☀️ Every Friday at @hbtoo.official Until the Sun Rises ☀️ - Unreleased pics on Telegram, link in bio 🔗",
     "url": "https://www.instagram.com/anima.ent/p/DPyfZ9nDR9r/",
-    "type": "carousel"
+    "type": "carousel",
+    "originalImage": "/instagram-posts/DPyfZ9nDR9r.jpg"
   },
   {
     "id": "DPwsmaJjZrw",
-    "image": "/instagram-posts/DPwsmaJjZrw.jpg",
+    "image": "/instagram-posts-cropped/DPwsmaJjZrw.jpg",
     "alt": "Two worlds illuminated by the same Sun ☀️ Anima meets @dolcevita__rome for an unforgettable party 🤝🏻 Season 3 — Act II Until the Sun rises ☀️ @gianni_presutti from @dolcevita__rome @alexsilvestrimusic b2b @marenna.music @leolitterio 🏠 @hbtoo.official",
     "url": "https://www.instagram.com/anima.ent/reel/DPwsmaJjZrw/",
-    "type": "reel"
+    "type": "reel",
+    "originalImage": "/instagram-posts/DPwsmaJjZrw.jpg"
   },
   {
     "id": "DPmXRBPDZpQ",
-    "image": "/instagram-posts/DPmXRBPDZpQ.jpg",
+    "image": "/instagram-posts-cropped/DPmXRBPDZpQ.jpg",
     "alt": "Community guidelines ☀ Learn how could you be part of Anima Until the Sun rises ☀ See you tomorrow at 🏠 @hbtoo.official",
     "url": "https://www.instagram.com/anima.ent/p/DPmXRBPDZpQ/",
-    "type": "carousel"
+    "type": "carousel",
+    "originalImage": "/instagram-posts/DPmXRBPDZpQ.jpg"
   },
   {
     "id": "DPerq-sDTNO",
-    "image": "/instagram-posts/DPerq-sDTNO.jpg",
+    "image": "/instagram-posts-cropped/DPerq-sDTNO.jpg",
     "alt": "We are back. For the third year in a row, Anima is here to shine once again ☀️ Season 3 — Act I Until the Sun rises ☀️ Anima Dj Booth | A-Z order @alexsilvestrimusic @carlogiorgetto_ @hoodiamusic @manuelguida 🏠 @hbtoo.official",
     "url": "https://www.instagram.com/anima.ent/reel/DPerq-sDTNO/",
-    "type": "reel"
+    "type": "reel",
+    "originalImage": "/instagram-posts/DPerq-sDTNO.jpg"
   }
 ]

@@ -108,18 +108,19 @@ export function Lightbox({ images, initialIndex, isOpen, onClose, hideText = fal
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full h-full"
+              className="relative bg-black"
               style={{ 
                 aspectRatio: '4/3',
-                width: 'min(100vw, calc(100vh * 4 / 3))',
-                height: 'min(100vh, calc(100vw * 3 / 4))'
+                width: 'min(calc(100vh * 4 / 3), 100vw)',
+                height: 'min(100vh, calc(100vw * 3 / 4))',
+                margin: '0 auto'
               }}
             >
               <img
                 src={images[currentIndex].photo.url}
                 alt={images[currentIndex].photo.text}
                 className="absolute inset-0 w-full h-full object-cover shadow-2xl"
-                style={{ objectPosition: images[currentIndex].photo.pos || 'center' }}
+                style={{ objectPosition: 'center' }}
               />
             </motion.div>
           </AnimatePresence>
