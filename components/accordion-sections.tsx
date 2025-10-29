@@ -56,7 +56,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9920.JPG",
+        url: "/immagini-optimized/IMG_9920.webp",
         text: "ANIMA Event - Moment 01",
         by: "ANIMA Events"
       }
@@ -65,7 +65,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9927.JPG",
+        url: "/immagini-optimized/IMG_9927.webp",
         text: "ANIMA Event - Moment 02",
         by: "ANIMA Events"
       }
@@ -74,7 +74,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9924.JPG",
+        url: "/immagini-optimized/IMG_9924.webp",
         text: "ANIMA Event - Moment 03",
         by: "ANIMA Events"
       }
@@ -83,7 +83,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9915.JPG",
+        url: "/immagini-optimized/IMG_9915.webp",
         text: "ANIMA Event - Moment 04",
         by: "ANIMA Events"
       }
@@ -92,7 +92,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9917.JPG",
+        url: "/immagini-optimized/IMG_9917.webp",
         text: "ANIMA Event - Moment 05",
         by: "ANIMA Events"
       }
@@ -101,7 +101,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9914.JPG",
+        url: "/immagini-optimized/IMG_9914.webp",
         text: "ANIMA Event - Moment 06",
         by: "ANIMA Events"
       }
@@ -110,7 +110,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9918.JPG",
+        url: "/immagini-optimized/IMG_9918.webp",
         text: "ANIMA Event - Moment 07",
         by: "ANIMA Events"
       }
@@ -119,7 +119,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9923.JPG",
+        url: "/immagini-optimized/IMG_9923.webp",
         text: "ANIMA Event - Moment 08",
         by: "ANIMA Events"
       }
@@ -128,7 +128,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9916.JPG",
+        url: "/immagini-optimized/IMG_9916.webp",
         text: "ANIMA Event - Moment 09",
         by: "ANIMA Events"
       }
@@ -137,7 +137,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9926.JPG",
+        url: "/immagini-optimized/IMG_9926.webp",
         text: "ANIMA Event - Moment 10",
         by: "ANIMA Events"
       }
@@ -146,7 +146,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9919.JPG",
+        url: "/immagini-optimized/IMG_9919.webp",
         text: "ANIMA Event - Moment 11",
         by: "ANIMA Events"
       }
@@ -155,7 +155,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9925.JPG",
+        url: "/immagini-optimized/IMG_9925.webp",
         text: "ANIMA Event - Moment 12",
         by: "ANIMA Events"
       }
@@ -164,7 +164,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9921.JPG",
+        url: "/immagini-optimized/IMG_9921.webp",
         text: "ANIMA Event - Moment 13",
         by: "ANIMA Events"
       }
@@ -173,7 +173,7 @@ export function AccordionSections() {
       common: "",
       binomial: "",
       photo: {
-        url: "/IMG_9922.JPG",
+        url: "/immagini-optimized/IMG_9922.webp",
         text: "ANIMA Event - Moment 14",
         by: "ANIMA Events"
       }
@@ -406,7 +406,7 @@ export function AccordionSections() {
                 </p>
                 <div className="w-full max-w-2xl mx-auto">
                   <Image
-                    src="/immagini/IMG_9929.JPEG"
+                    src="/immagini-optimized/IMG_9929.webp"
                     alt="ANIMA Event - Next Act"
                     width={800}
                     height={1131}
