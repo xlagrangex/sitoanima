@@ -21,7 +21,12 @@ export function HeroSection() {
   }, [])
   
   const scrollToFormat = () => {
-    document.getElementById("format")?.scrollIntoView({ behavior: "smooth" })
+    const element = document.getElementById("format")
+    if (!element) return
+    
+    // Use instant scroll on mobile to prevent scroll jumping/bugging
+    const isMobile = window.innerWidth < 768
+    element.scrollIntoView({ behavior: isMobile ? "auto" : "smooth" })
   }
 
   return (

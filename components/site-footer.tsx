@@ -13,6 +13,15 @@ export function SiteFooter() {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false)
   const [isCookieOpen, setIsCookieOpen] = useState(false)
   
+  const scrollToElement = (id: string) => {
+    const element = document.getElementById(id)
+    if (!element) return
+    
+    // Use instant scroll on mobile to prevent scroll jumping/bugging
+    const isMobile = window.innerWidth < 768
+    element.scrollIntoView({ behavior: isMobile ? "auto" : "smooth" })
+  }
+  
   return (
     <>
       <footer className="bg-black text-white py-16">
@@ -41,7 +50,7 @@ export function SiteFooter() {
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() => document.getElementById("format")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => scrollToElement("format")}
                   className="text-white/60 hover:text-white transition-colors"
                 >
                   Format
@@ -49,7 +58,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <button
-                  onClick={() => document.getElementById("venue")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => scrollToElement("venue")}
                   className="text-white/60 hover:text-white transition-colors"
                 >
                   Venue
@@ -57,7 +66,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <button
-                  onClick={() => document.getElementById("shows")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => scrollToElement("shows")}
                   className="text-white/60 hover:text-white transition-colors"
                 >
                   Upcoming Shows
@@ -65,7 +74,7 @@ export function SiteFooter() {
               </li>
               <li>
                 <button
-                  onClick={() => document.getElementById("media")?.scrollIntoView({ behavior: "smooth" })}
+                  onClick={() => scrollToElement("media")}
                   className="text-white/60 hover:text-white transition-colors"
                 >
                   Media Gallery

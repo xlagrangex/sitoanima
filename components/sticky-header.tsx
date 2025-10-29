@@ -15,12 +15,18 @@ export function StickyHeader() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
-    window.addEventListener("scroll", handleScroll)
+    // Use passive listener for better mobile performance
+    window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })
+    const element = document.getElementById(id)
+    if (!element) return
+    
+    // Use instant scroll on mobile to prevent scroll jumping/bugging
+    const isMobile = window.innerWidth < 768
+    element.scrollIntoView({ behavior: isMobile ? "auto" : "smooth" })
     setIsMenuOpen(false)
   }
 

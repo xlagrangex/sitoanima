@@ -267,7 +267,12 @@ export function AccordionSections() {
       contentKey: "section2.content",
       cta: {
         textKey: "section2.cta",
-        action: () => document.getElementById("map")?.scrollIntoView({ behavior: "smooth" }),
+        action: () => {
+          const element = document.getElementById("map")
+          if (!element) return
+          const isMobile = window.innerWidth < 768
+          element.scrollIntoView({ behavior: isMobile ? "auto" : "smooth" })
+        },
       },
     },
     {

@@ -216,6 +216,24 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Disable smooth scroll on mobile to prevent scroll jumping/bugging */
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  /* Improve touch scrolling on mobile */
+  body {
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+  
+  /* Prevent scroll jumping due to viewport height changes */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
 .accordion-trigger[data-state="open"] {
   background-color: var(--muted);
 }
