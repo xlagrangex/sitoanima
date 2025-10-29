@@ -260,6 +260,62 @@ html {
     position: fixed !important;
     will-change: transform;
   }
+  
+  /* Hide video controls completely on mobile */
+  video {
+    -webkit-media-controls: none !important;
+    -webkit-media-controls-enclosure: none !important;
+    -webkit-media-controls-overlay-play-button: none !important;
+    -webkit-media-controls-play-button: none !important;
+    -webkit-media-controls-timeline: none !important;
+    -webkit-media-controls-current-time-display: none !important;
+    -webkit-media-controls-time-remaining-display: none !important;
+    -webkit-media-controls-mute-button: none !important;
+    -webkit-media-controls-toggle-closed-captions-button: none !important;
+    -webkit-media-controls-volume-slider: none !important;
+    -webkit-media-controls-fullscreen-button: none !important;
+    object-fit: cover;
+  }
+  
+  video::-webkit-media-controls {
+    display: none !important;
+  }
+  
+  video::-webkit-media-controls-enclosure {
+    display: none !important;
+  }
+  
+  video::-webkit-media-controls-panel {
+    display: none !important;
+  }
+  
+  video::-webkit-media-controls-play-button {
+    display: none !important;
+  }
+  
+  video::-webkit-media-controls-timeline {
+    display: none !important;
+  }
+  
+  video::-webkit-media-controls-current-time-display {
+    display: none !important;
+  }
+  
+  video::-webkit-media-controls-time-remaining-display {
+    display: none !important;
+  }
+  
+  video::-webkit-media-controls-mute-button {
+    display: none !important;
+  }
+  
+  video::-webkit-media-controls-volume-slider {
+    display: none !important;
+  }
+  
+  video::-webkit-media-controls-fullscreen-button {
+    display: none !important;
+  }
 }
 
 .accordion-trigger[data-state="open"] {

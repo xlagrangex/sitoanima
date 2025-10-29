@@ -9,36 +9,60 @@ export function HeroSection() {
   const { t } = useLanguage()
   const videoRef = useRef<HTMLVideoElement>(null)
   
-  // Force video to play as soon as it's ready
+  // Force video to play as soon as it's ready - aggressive for mobile
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
-    const handleCanPlay = () => {
-      video.play().catch((err) => {
-        // Ignore autoplay errors - browser will handle it
-        console.log('Video autoplay prevented:', err)
+    // Ensure video is muted and has playsInline for mobile
+    video.muted = true
+    video.setAttribute('playsinline', 'true')
+    video.setAttribute('webkit-playsinline', 'true')
+    video.setAttribute('x5-playsinline', 'true') // For Android WeChat
+    video.removeAttribute('controls') // Explicitly remove controls
+    
+    const attemptPlay = () => {
+      video.play().catch(() => {
+        // Silently fail - browser policy may prevent autoplay
       })
     }
 
-    const handleLoadedMetadata = () => {
-      video.play().catch((err) => {
-        // Ignore autoplay errors - browser will handle it
-        console.log('Video autoplay prevented:', err)
-      })
+    // Multiple event listeners to catch video ready at different stages
+    const handleCanPlay = attemptPlay
+    const handleLoadedMetadata = attemptPlay
+    const handleLoadedData = attemptPlay
+    const handleTimeUpdate = () => {
+      // If video is playing, remove this listener
+      if (!video.paused) {
+        video.removeEventListener('timeupdate', handleTimeUpdate)
+      }
     }
 
-    video.addEventListener('canplay', handleCanPlay)
-    video.addEventListener('loadedmetadata', handleLoadedMetadata)
+    video.addEventListener('canplay', handleCanPlay, { once: true })
+    video.addEventListener('canplaythrough', attemptPlay, { once: true })
+    video.addEventListener('loadedmetadata', handleLoadedMetadata, { once: true })
+    video.addEventListener('loadeddata', handleLoadedData, { once: true })
+    video.addEventListener('timeupdate', handleTimeUpdate)
 
     // Try to play immediately if video is already loaded
     if (video.readyState >= 2) {
-      video.play().catch(() => {})
+      attemptPlay()
     }
 
+    // Force play after a short delay (helps with mobile browsers)
+    const timeoutId = setTimeout(() => {
+      if (video.paused) {
+        attemptPlay()
+      }
+    }, 100)
+
     return () => {
+      clearTimeout(timeoutId)
       video.removeEventListener('canplay', handleCanPlay)
+      video.removeEventListener('canplaythrough', attemptPlay)
       video.removeEventListener('loadedmetadata', handleLoadedMetadata)
+      video.removeEventListener('loadeddata', handleLoadedData)
+      video.removeEventListener('timeupdate', handleTimeUpdate)
     }
   }, [])
   
@@ -72,8 +96,11 @@ export function HeroSection() {
         loop
         muted
         playsInline
-        preload="metadata"
+        preload="auto"
+        controls={false}
+        disablePictureInPicture
         className="absolute top-0 left-0 w-full h-full object-cover"
+        style={{ pointerEvents: 'none' }}
       >
         <source src="/video2.mp4" type="video/mp4" />
       </video>
