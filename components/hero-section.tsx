@@ -9,6 +9,38 @@ export function HeroSection() {
   const { t } = useLanguage()
   const videoRef = useRef<HTMLVideoElement>(null)
   
+  // Force video to play as soon as it's ready
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+
+    const handleCanPlay = () => {
+      video.play().catch((err) => {
+        // Ignore autoplay errors - browser will handle it
+        console.log('Video autoplay prevented:', err)
+      })
+    }
+
+    const handleLoadedMetadata = () => {
+      video.play().catch((err) => {
+        // Ignore autoplay errors - browser will handle it
+        console.log('Video autoplay prevented:', err)
+      })
+    }
+
+    video.addEventListener('canplay', handleCanPlay)
+    video.addEventListener('loadedmetadata', handleLoadedMetadata)
+
+    // Try to play immediately if video is already loaded
+    if (video.readyState >= 2) {
+      video.play().catch(() => {})
+    }
+
+    return () => {
+      video.removeEventListener('canplay', handleCanPlay)
+      video.removeEventListener('loadedmetadata', handleLoadedMetadata)
+    }
+  }, [])
   
   const scrollToFormat = () => {
     const element = document.getElementById("format")
@@ -40,7 +72,7 @@ export function HeroSection() {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
         <source src="/video2-optimized.mp4" type="video/mp4" />
