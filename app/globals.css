@@ -232,6 +232,12 @@ html {
   * {
     -webkit-tap-highlight-color: transparent;
   }
+  
+  /* Add scroll margin to sections with IDs to account for browser address bar on mobile */
+  section[id],
+  div[id] {
+    scroll-margin-top: 100px; /* Accounts for sticky header + browser bar */
+  }
 }
 
 .accordion-trigger[data-state="open"] {

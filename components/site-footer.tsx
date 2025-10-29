@@ -17,9 +17,21 @@ export function SiteFooter() {
     const element = document.getElementById(id)
     if (!element) return
     
-    // Use instant scroll on mobile to prevent scroll jumping/bugging
     const isMobile = window.innerWidth < 768
-    element.scrollIntoView({ behavior: isMobile ? "auto" : "smooth" })
+    
+    if (isMobile) {
+      // On mobile, calculate offset to account for browser address bar and sticky header
+      const headerHeight = 80 // Approximate height of sticky header + browser bar
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+      const offsetPosition = elementPosition - headerHeight
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "auto"
+      })
+    } else {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
   }
   
   return (
