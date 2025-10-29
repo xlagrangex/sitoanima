@@ -3,11 +3,12 @@
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import { useLanguage } from "@/contexts/LanguageContext"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export function HeroSection() {
   const { t } = useLanguage()
   const videoRef = useRef<HTMLVideoElement>(null)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   
   useEffect(() => {
     const video = videoRef.current
@@ -28,18 +29,23 @@ export function HeroSection() {
         playPromise
           .then(() => {
             console.log("Video playing successfully")
+            setIsVideoPlaying(true)
           })
           .catch((error) => {
             console.log("Autoplay prevented:", error)
             // Su mobile, prova più volte con delay crescenti
             setTimeout(() => {
-              video.play().catch(() => {
-                setTimeout(() => {
-                  video.play().catch(() => {
-                    console.log("Multiple autoplay attempts failed")
-                  })
-                }, 300)
-              })
+              video.play()
+                .then(() => setIsVideoPlaying(true))
+                .catch(() => {
+                  setTimeout(() => {
+                    video.play()
+                      .then(() => setIsVideoPlaying(true))
+                      .catch(() => {
+                        console.log("Multiple autoplay attempts failed")
+                      })
+                  }, 300)
+                })
             }, 200)
           })
       }
@@ -112,6 +118,19 @@ export function HeroSection() {
 
   return (
     <section id="hero" className="relative flex items-center justify-center overflow-hidden w-screen bg-black" style={{ height: '80vh' }}>
+      {/* Fallback Image - Mostrata quando il video non sta riproducendo */}
+      {!isVideoPlaying && (
+        <Image
+          src="/Screenshot 2025-10-29 at 14.32.56.png"
+          alt="ANIMA Background"
+          fill
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ zIndex: 0 }}
+          priority
+          quality={90}
+        />
+      )}
+      
       {/* Video Background */}
       <video
         ref={videoRef}
@@ -122,31 +141,55 @@ export function HeroSection() {
         controls={false}
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-        style={{ zIndex: 0 }}
+        style={{ zIndex: isVideoPlaying ? 0 : 1, opacity: isVideoPlaying ? 1 : 0 }}
         onLoadedData={(e) => {
           // Forza la riproduzione quando i dati sono caricati
           const video = e.currentTarget
           video.muted = true
-          video.play().catch(() => {
-            // Retry dopo breve delay per dispositivi mobili
-            setTimeout(() => video.play().catch(() => {}), 100)
-          })
+          video.play()
+            .then(() => setIsVideoPlaying(true))
+            .catch(() => {
+              // Retry dopo breve delay per dispositivi mobili
+              setTimeout(() => {
+                video.play()
+                  .then(() => setIsVideoPlaying(true))
+                  .catch(() => {})
+              }, 100)
+            })
         }}
         onCanPlay={(e) => {
           // Forza la riproduzione quando può essere riprodotto
           const video = e.currentTarget
           video.muted = true
           if (video.paused) {
-            video.play().catch(() => {
-              setTimeout(() => video.play().catch(() => {}), 100)
-            })
+            video.play()
+              .then(() => setIsVideoPlaying(true))
+              .catch(() => {
+                setTimeout(() => {
+                  video.play()
+                    .then(() => setIsVideoPlaying(true))
+                    .catch(() => {})
+                }, 100)
+              })
           }
         }}
         onPlay={() => {
-          // Assicurati che rimanga muto quando parte
+          // Assicurati che rimanga muto quando parte e segna come riprodotto
           const video = videoRef.current
           if (video && !video.muted) {
             video.muted = true
+          }
+          setIsVideoPlaying(true)
+        }}
+        onPlaying={() => {
+          // Conferma che il video sta riproducendo
+          setIsVideoPlaying(true)
+        }}
+        onPause={() => {
+          // Se il video viene messo in pausa, prova a farlo ripartire
+          const video = videoRef.current
+          if (video && !video.ended) {
+            video.play().catch(() => {})
           }
         }}
       >
