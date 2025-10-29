@@ -10,6 +10,7 @@ export function StickyHeader() {
   const { t } = useLanguage()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [headerTop, setHeaderTop] = useState(16) // Default top position
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +19,35 @@ export function StickyHeader() {
     // Use passive listener for better mobile performance
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Fix header position on mobile when address bar expands/contracts
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    
+    const isMobile = window.innerWidth < 768
+    if (!isMobile) return
+
+    // Set initial viewport height
+    const setViewportHeight = () => {
+      const vh = window.innerHeight * 0.01
+      document.documentElement.style.setProperty('--vh', `${vh}px`)
+      
+      // Keep header position fixed
+      const currentTop = window.pageYOffset === 0 ? 16 : Math.max(16, window.innerHeight * 0.02)
+      setHeaderTop(currentTop)
+    }
+
+    setViewportHeight()
+    window.addEventListener('resize', setViewportHeight)
+    window.addEventListener('orientationchange', setViewportHeight)
+    window.addEventListener('scroll', setViewportHeight, { passive: true })
+
+    return () => {
+      window.removeEventListener('resize', setViewportHeight)
+      window.removeEventListener('orientationchange', setViewportHeight)
+      window.removeEventListener('scroll', setViewportHeight)
+    }
   }, [])
 
   const scrollToSection = (id: string) => {
@@ -50,7 +80,11 @@ export function StickyHeader() {
           ? "backdrop-blur-md bg-black/40 border border-white/20"
           : "backdrop-blur-sm bg-black/30 border border-white/15"
       } rounded-full shadow-2xl`}
-      style={{ width: "min(95vw, 1100px)", padding: "12px 32px" }}
+      style={{ 
+        width: "min(95vw, 1100px)", 
+        padding: "12px 32px",
+        top: `${headerTop}px` // Fixed position on mobile when address bar expands/contracts
+      }}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}

@@ -9,16 +9,6 @@ export function HeroSection() {
   const { t } = useLanguage()
   const videoRef = useRef<HTMLVideoElement>(null)
   
-  useEffect(() => {
-    // Delay video loading to improve FCP
-    const timer = setTimeout(() => {
-      if (videoRef.current) {
-        videoRef.current.load()
-      }
-    }, 1000) // Start loading video after 1 second
-    
-    return () => clearTimeout(timer)
-  }, [])
   
   const scrollToFormat = () => {
     const element = document.getElementById("format")
@@ -50,7 +40,7 @@ export function HeroSection() {
         loop
         muted
         playsInline
-        preload="none"
+        preload="auto"
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
         <source src="/video2-optimized.mp4" type="video/mp4" />

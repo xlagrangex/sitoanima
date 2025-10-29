@@ -104,9 +104,9 @@ export function LazySpotifyPlaylist({
           href={fallbackUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-3 px-6 py-4 bg-[#1DB954] hover:bg-[#1ed760] text-white font-semibold rounded-full shadow-lg transition-all duration-200 transform hover:scale-105"
+          className="btn-primary bg-black hover:bg-gray-900 text-white px-3 md:px-8 py-3 md:py-4 text-sm md:text-base shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
         >
-          <Music className="w-6 h-6" />
+          <Music className="w-4 h-4 md:w-5 md:h-5" />
           <span>Ascolta su Spotify</span>
         </a>
       </div>
@@ -150,14 +150,14 @@ export function LazySpotifyPlaylist({
             }}
           />
           {/* Always show fallback button below iframe in case Spotify shows errors */}
-          <div className="mt-4 flex justify-center">
+          <div className="mt-2 flex justify-center">
             <a
               href={fallbackUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-3 px-6 py-4 bg-[#1DB954] hover:bg-[#1ed760] text-white font-semibold rounded-full shadow-lg transition-all duration-200 transform hover:scale-105"
+              className="btn-primary bg-black hover:bg-gray-900 text-white px-3 md:px-8 py-3 md:py-4 text-sm md:text-base shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
             >
-              <Music className="w-5 h-5" />
+              <Music className="w-4 h-4 md:w-5 md:h-5" />
               <span>Ascolta su Spotify</span>
             </a>
           </div>

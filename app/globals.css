@@ -220,12 +220,22 @@ html {
 @media (max-width: 768px) {
   html {
     scroll-behavior: auto;
+    /* Fix viewport height to prevent content shifting when browser address bar expands/contracts */
+    height: 100%;
+    height: -webkit-fill-available;
   }
   
-  /* Improve touch scrolling on mobile */
   body {
+    /* Fix viewport height to prevent content shifting when browser address bar expands/contracts */
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    /* Use CSS variable for dynamic viewport height */
+    min-height: calc(var(--vh, 1vh) * 100);
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
+    /* Prevent content shifting when address bar expands/contracts */
+    position: relative;
+    overflow-x: hidden;
   }
   
   /* Prevent scroll jumping due to viewport height changes */
@@ -237,6 +247,18 @@ html {
   section[id],
   div[id] {
     scroll-margin-top: 100px; /* Accounts for sticky header + browser bar */
+  }
+  
+  /* Fix height for full-height sections to prevent shifting */
+  section[id="hero"] {
+    height: 80vh;
+    height: calc(var(--vh, 1vh) * 80);
+  }
+  
+  /* Fix sticky header to stay in place when address bar expands/contracts */
+  header[class*="fixed"] {
+    position: fixed !important;
+    will-change: transform;
   }
 }
 
