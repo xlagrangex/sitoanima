@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Instagram, Heart, MessageCircle } from "lucide-react"
+import instagramPostsData from "@/data/instagram-posts.json"
 
 interface InstagramPost {
   id: string
@@ -17,77 +18,25 @@ export function InstagramGrid() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Ultimi 9 post estratti dall'HTML Instagram di anima.ent
-    const extractedPosts: InstagramPost[] = [
-      {
-        id: "DQHFiV6DZlG",
-        image: "https://scontent.cdninstagram.com/v/t51.82787-15/569956739_17939671992084668_4996891839792711689_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=Mzc0ODk4OTU0ODcyNzQ4NDY0MQ%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=Mqliv6dExVEQ7kNvwHLezl2&_nc_oc=AdkkDnrWYYpKpBwygC2UhYI43w3IECqWPkT0j8kwD4Antj2YooQWoJkx6LVj55DTWDU&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=cFoy-ZzHmrTvyonaRMzYTA&oh=00_Afcz6NN-QJV791yPAhgealqAvcoZrnfeLIIoLl7WUJuMUQ&oe=690000D1",
-        alt: "Moments from Friday ☀️ thanks to our friends from @dolcevita__rome for joining us for a fantastic party Every Friday at @hbtoo.official Until the Sun Rises ☀️ - Unreleased pics on Telegram, link in bio 🔗",
-        url: "https://www.instagram.com/anima.ent/p/DQHFiV6DZlG/",
-        type: "carousel"
-      },
-      {
-        id: "DQErm0FDFUW",
-        image: "https://scontent.cdninstagram.com/v/t51.82787-15/568781270_18075461702137838_6321427613533355128_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=104&ig_cache_key=Mzc0ODMxMjU3MzEzODQ1Nzg3ODE4MDc1NDYxNjk2MTM3ODM4.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjcyMHgxMjgwLnNkci5DMyJ9&_nc_ohc=zkgP9gnbmwoQ7kNvwF3kQMb&_nc_oc=AdkmhL4OzM4zRRmABDl96MhrgS4HZvWWTtFF1YxwpKhdrLY25beYZ6i3V7rJPc6dGmY&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=cFoy-ZzHmrTvyonaRMzYTA&oh=00_AfdCzsfXfZo88w3kaikP_5YEzawXNnhqgcw4RpzgEqQc5w&oe=68FFF775",
-        alt: "25.10 // Under the same sun, again☀️ Dolcevita meets @anima.ent at @theflatbymacan #Dolcevita #porscheitalia",
-        url: "https://www.instagram.com/dolcevita__rome/reel/DQErm0FDFUW/",
-        type: "reel"
-      },
-      {
-        id: "DQCq_v6Ddxs",
-        image: "https://scontent.cdninstagram.com/v/t51.71878-15/567353087_1219370173568255_3348238122376727574_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzc0Nzc0NjkzODY0NjAyNzM3Mg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY0MHgxMTM2LnNkci5DMyJ9&_nc_ohc=DeoQeavbxVoQ7kNvwFW5pnM&_nc_oc=AdnQZqpfJ6okST053myke14jnZRh8te0Q1_HwPK-0UkuOhB6xbWyLVf96-ie-Q4RgAo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=cFoy-ZzHmrTvyonaRMzYTA&oh=00_AfeZJRqdSPPMN1ZpBAGoTanPscRykN0AzfN09cZQPXA6cA&oe=690017E3",
-        alt: "Welcome to the Sunrise Society ☀️ Season 3 — Act III Until the Sun rises ☀️ Anima Dj Booth | A-Z order @alexsilvestrimusic @1xloco @mattia_scodellaro @monamii.music 🏠 @hbtoo.official",
-        url: "https://www.instagram.com/anima.ent/reel/DQCq_v6Ddxs/",
-        type: "reel"
-      },
-      {
-        id: "DP4YVf3jcxT",
-        image: "https://scontent.cdninstagram.com/v/t51.71878-15/566628690_1324336816037974_4379666572277382920_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=109&ig_cache_key=Mzc0NDg1MDEyMDYwMTg4MTY4Mw%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY0MHgxMTM2LnNkci5DMyJ9&_nc_ohc=sLDZvenno_AQ7kNvwFDOMKH&_nc_oc=AdnR_QK937SIXCxvOgv73nW8PiSXdqpCpkh41eGZxa2ayTrcxIAMsCyovG9XHk2PwJs&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=cFoy-ZzHmrTvyonaRMzYTA&oh=00_AfetklRU30A9sOkcLULV5wqJjTwyw_0DScbeqR-22Rd-rw&oe=69000A7A",
-        alt: "Flashes from an outstanding first night ☀️ Third Season has officially begun See you tomorrow at home 🏠 @hbtoo.official 📹 @panu.mov",
-        url: "https://www.instagram.com/anima.ent/reel/DP4YVf3jcxT/",
-        type: "reel"
-      },
-      {
-        id: "DPyfZ9nDR9r",
-        image: "https://scontent.cdninstagram.com/v/t51.82787-15/565824898_17938858926084668_7817380969821783136_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=108&ig_cache_key=Mzc0MzE5MjM0ODE5MzgyNjg1OA%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTkyMC5zZHIuQzMifQ%3D%3D&_nc_ohc=PkshpBfHkGIQ7kNvwFzX7t7&_nc_oc=AdlJrcchCz0jK_pUSQngFNdkskfhIUYSMzDf0SMck6yg-1sNAbE0xMHkKpjNIpC6BkE&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=cFoy-ZzHmrTvyonaRMzYTA&oh=00_AfeKRcLWvYfFgtQnrmVGEwsTpYCB3c0W6YFl-49sFSmlsw&oe=68FFE7C8",
-        alt: "The faces of a new chapter ☀️ Every Friday at @hbtoo.official Until the Sun Rises ☀️ - Unreleased pics on Telegram, link in bio 🔗",
-        url: "https://www.instagram.com/anima.ent/p/DPyfZ9nDR9r/",
-        type: "carousel"
-      },
-      {
-        id: "DPwsmaJjZrw",
-        image: "https://scontent.cdninstagram.com/v/t51.71878-15/563916359_1076013237753036_4760748830051411946_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=108&ig_cache_key=Mzc0MjY4NzQ0MzgwOTA0OTMyOA%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY0MHgxMTM2LnNkci5DMyJ9&_nc_ohc=HWz8P006alYQ7kNvwGeWQ6f&_nc_oc=AdkSFthOP9ctO80KcdmBTOajuJQftjg5UKQd5Xrn2bsB72B6hQT0f8wpW1anUi4Y9Mo&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=cFoy-ZzHmrTvyonaRMzYTA&oh=00_AffrsU0517ywaCjfBTmZF3sV7UYKrTs6Wpqocjn5CQdQxA&oe=69001206",
-        alt: "Two worlds illuminated by the same Sun ☀️ Anima meets @dolcevita__rome for an unforgettable party 🤝🏻 Season 3 — Act II Until the Sun rises ☀️ @gianni_presutti from @dolcevita__rome @alexsilvestrimusic b2b @marenna.music @leolitterio 🏠 @hbtoo.official",
-        url: "https://www.instagram.com/anima.ent/reel/DPwsmaJjZrw/",
-        type: "reel"
-      },
-      {
-        id: "DPmXRBPDZpQ",
-        image: "https://scontent.cdninstagram.com/v/t51.82787-15/562537022_17938377252084668_1943177837770365742_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ig_cache_key=MzczOTc3ODg1NzUxMjU5ODU0OA%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjE0NDB4MTgwMC5zZHIuQzMifQ%3D%3D&_nc_ohc=ZvH4jC2D-aIQ7kNvwHQquPo&_nc_oc=AdkqWwd0m0HBWbZnL2oXpX2MTCxTGgo9mSZtThiIBBomHyCDQ2GsJtY533Rk_jyO_8g&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=cFoy-ZzHmrTvyonaRMzYTA&oh=00_AfdU0ohKuA7_M-w8cud5rSsxtcdiGkjvc3Q-M6HsSd4j2w&oe=6900184F",
-        alt: "Community guidelines ☀ Learn how could you be part of Anima Until the Sun rises ☀ See you tomorrow at 🏠 @hbtoo.official",
-        url: "https://www.instagram.com/anima.ent/p/DPmXRBPDZpQ/",
-        type: "carousel"
-      },
-      {
-        id: "DPerq-sDTNO",
-        image: "https://scontent.cdninstagram.com/v/t51.71878-15/561648270_1969327337249313_8473843443143903905_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=111&ig_cache_key=MzczNzYxNjgxMDI5MzE0NjQ0Ng%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY0MHgxMTM2LnNkci5DMyJ9&_nc_ohc=2fPJWW5aJ6sQ7kNvwEAm-_X&_nc_oc=Adm4jnIQgIMQ291Y7IKiqQ9mmY6MNNc7F_VzDLLqhuziXMp9h2hwbrEA5X122fAv-iA&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=cFoy-ZzHmrTvyonaRMzYTA&oh=00_AfeMDrBSbIhyDp7CdNyj3NdDcSaORSPSao76yWteMU7FZw&oe=68FFF437",
-        alt: "We are back. For the third year in a row, Anima is here to shine once again ☀️ Season 3 — Act I Until the Sun rises ☀️ Anima Dj Booth | A-Z order @alexsilvestrimusic @carlogiorgetto_ @hoodiamusic @manuelguida 🏠 @hbtoo.official",
-        url: "https://www.instagram.com/anima.ent/reel/DPerq-sDTNO/",
-        type: "reel"
-      },
-      {
-        id: "DPUUmuLDe04",
-        image: "https://scontent.cdninstagram.com/v/t51.82787-15/558981942_17937663765084668_2580632001886427385_n.jpg?stp=dst-jpg_e15_tt6&_nc_cat=109&ig_cache_key=MzczNDcwMDYxMjg0NDkwNzgzMjE3OTM3NjYzNzU5MDg0NjY4.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY2MngxMTc2LnNkci5DMyJ9&_nc_ohc=7wGDOhYe8ssQ7kNvwHmcj_z&_nc_oc=AdnU9p9PGrooUE7SO6Dd9qVHERSgMTRYsLH67RADPkyL3vaMZFuI9IQco4be3i9RLP0&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=cFoy-ZzHmrTvyonaRMzYTA&oh=00_AfeSHMYhwzsHzUZ1PpCUigDrT0F6prvdx8hlxr01ZeL4zw&oe=68FFEBAB",
-        alt: "Season 3 begins. ANIMA — Act I The journey continues soon Until the Sun rises ☀️ 🏠 @hbtoo.official Directed & recorded by @panu.mov",
-        url: "https://www.instagram.com/anima.ent/reel/DPUUmuLDe04/",
-        type: "reel"
-      }
-    ]
-
-    // Mostra solo i primi 9 post (3 righe da 3)
-    const allPosts = extractedPosts.slice(0, 9)
-    setPosts(allPosts)
-    setLoading(false)
+    // Load posts from imported JSON data
+    try {
+      // Convert JSON format to component format
+      const convertedPosts: InstagramPost[] = instagramPostsData.map((post: any) => ({
+        id: post.id,
+        image: post.image,
+        alt: post.alt,
+        url: post.url,
+        type: post.type || 'post'
+      }))
+      
+      // Mostra solo i primi 9 post (3 righe da 3)
+      const allPosts = convertedPosts.slice(0, 9)
+      setPosts(allPosts)
+      setLoading(false)
+    } catch (error) {
+      console.error('Error loading Instagram posts:', error)
+      setLoading(false)
+    }
   }, [])
 
   if (loading) {

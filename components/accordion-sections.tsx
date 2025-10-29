@@ -10,12 +10,13 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { motion } from "framer-motion"
 import { GlitchText, GlitchContainer, GlitchButton, staggerContainer, staggerItem } from "@/components/glitch-animations"
 import { ThreeDPhotoCarousel } from "@/components/ui/3d-carousel"
-import { Simple2DCarousel } from "@/components/ui/simple-2d-carousel"
+import { Gallery4, type Gallery4Item } from "@/components/ui/gallery4"
 import type { GalleryItem } from "@/components/ui/circular-gallery"
 import { InstagramGrid } from "@/components/instagram-grid"
 import { AnimatedTestimonials } from "@/components/ui/animated-testimonials"
 import { LazySpotifyPlaylist } from "@/components/lazy-spotify-playlist"
 import { LazyGoogleMap } from "@/components/lazy-google-map"
+import { Mail, MessageCircle, MapPin, Send, Music, Instagram } from "lucide-react"
 
 export function AccordionSections() {
   const { t } = useLanguage()
@@ -172,6 +173,12 @@ export function AccordionSections() {
 
   const guestDJs = [
     {
+      quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
+      name: "??? - Announcing soon",
+      designation: "Announcing soon",
+      src: "/pexels-khanshaheb-optimized.webp"
+    },
+    {
       quote: "Electronic music artist bringing fresh sounds and innovative beats to the underground scene.",
       name: "Twolate",
       designation: "Electronic Artist",
@@ -182,12 +189,6 @@ export function AccordionSections() {
       name: "Peppe Citarella",
       designation: "Techno DJ & Producer",
       src: "/peppe-citarella-optimized.webp"
-    },
-    {
-      quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
-      name: "???",
-      designation: "Announcing soon",
-      src: "/pexels-khanshaheb-optimized.webp"
     },
     {
       quote: "Electronic music artist with a unique style blending techno and house elements.",
@@ -226,6 +227,21 @@ export function AccordionSections() {
            guest.name === "Peppe Citarella" ? "center center" : "center"
     }
   }))
+
+  // Helper function to convert GalleryItem[] to Gallery4Item[]
+  // Per media: nessun titolo. Per guests: solo il nome dell'artista (common)
+  const convertToGallery4Items = (items: GalleryItem[], showOnlyNames: boolean = false): Gallery4Item[] => {
+    return items.map((item, index) => ({
+      id: item.photo.url.split('/').pop()?.replace('.webp', '') || `item-${index}`,
+      title: showOnlyNames ? (item.common || "") : "", // Solo nome artista se showOnlyNames è true, altrimenti nessun titolo
+      description: item.photo.by || item.binomial || "",
+      href: item.photo.url || "#",
+      image: item.photo.url
+    }))
+  }
+
+  const gallery4Items: Gallery4Item[] = convertToGallery4Items(galleryItems, false) // Media: nessun titolo
+  const guestGallery4Items: Gallery4Item[] = convertToGallery4Items(guestGalleryItems, true) // Guests: solo nome artista
 
   const sections = [
     {
@@ -356,12 +372,9 @@ export function AccordionSections() {
 
             {section.id === "media" ? (
               <div className="w-full max-w-6xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-4 md:mb-6 text-center`}>
-                  {t(section.contentKey)}
-                </p>
-                <div className="w-full h-[500px] md:h-[600px] -mt-5 md:-mt-30 mb-5 md:mb-10">
-                  <Simple2DCarousel items={galleryItems} />
-                </div>
+                <Gallery4 
+                  items={gallery4Items}
+                />
                 {section.cta && section.cta.href && (
                   <div className="mt-8 flex justify-center">
                     <Button
@@ -383,8 +396,8 @@ export function AccordionSections() {
                 </p>
                 <div className="w-full max-w-2xl mx-auto">
                   <Image
-                    src="/sunrise-society-flyer.webp"
-                    alt="SUNRISE SOCIETY - Event Flyer"
+                    src="/FEED 24 OTOBRE.jpg"
+                    alt="FEED 24 OTOBRE - Event Flyer"
                     width={800}
                     height={1131}
                     className="w-full h-auto rounded-lg shadow-2xl"
@@ -394,12 +407,9 @@ export function AccordionSections() {
               </div>
             ) : section.id === "guests" ? (
               <div className="w-full max-w-6xl mx-auto">
-                <p className={`text-base md:text-lg lg:text-xl leading-relaxed ${scheme.text} mb-2 md:mb-4 text-center`}>
-                  {t(section.contentKey)}
-                </p>
-                <div className="w-full h-[500px] md:h-[600px] -mt-5 md:-mt-25">
-                  <Simple2DCarousel items={guestGalleryItems} aspectRatio="2:3" />
-                </div>
+                <Gallery4 
+                  items={guestGallery4Items}
+                />
               </div>
             ) : section.id === "playlist" ? (
               <div className="max-w-4xl mx-auto">

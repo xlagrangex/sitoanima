@@ -98,7 +98,7 @@ export function Lightbox({ images, initialIndex, isOpen, onClose, hideText = fal
 
         {/* Image container */}
         <div
-          className="relative w-full h-full flex items-center justify-center p-4 md:p-12"
+          className="relative w-full h-full flex items-center justify-center"
           onClick={(e) => e.stopPropagation()}
         >
           <AnimatePresence mode="wait">
@@ -108,14 +108,17 @@ export function Lightbox({ images, initialIndex, isOpen, onClose, hideText = fal
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-6xl max-h-full w-full h-full flex items-center justify-center"
+              className="relative w-full h-full"
+              style={{ 
+                aspectRatio: '4/3',
+                width: 'min(100vw, calc(100vh * 4 / 3))',
+                height: 'min(100vh, calc(100vw * 3 / 4))'
+              }}
             >
               <img
                 src={images[currentIndex].photo.url}
                 alt={images[currentIndex].photo.text}
-                className={`max-w-full max-h-full w-auto h-auto rounded-lg shadow-2xl ${
-                  aspectRatio === "2:3" ? "object-cover aspect-[2/3]" : "object-contain"
-                }`}
+                className="absolute inset-0 w-full h-full object-cover shadow-2xl"
                 style={{ objectPosition: images[currentIndex].photo.pos || 'center' }}
               />
             </motion.div>
