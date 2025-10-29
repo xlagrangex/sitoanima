@@ -13,29 +13,70 @@ export function HeroSection() {
     const video = videoRef.current
     if (!video) return
 
+    // DISABILITA COMPLETAMENTE TUTTI I CONTROLLI
+    video.controls = false
+    video.removeAttribute('controls')
+    video.setAttribute('controls', 'false')
+    video.setAttribute('controlslist', 'nodownload nofullscreen noremoteplayback')
+    video.setAttribute('disablePictureInPicture', 'true')
+    video.setAttribute('disableRemotePlayback', 'true')
+    
+    // Nascondi tutti i controlli via JavaScript (doppia sicurezza)
+    const hideControls = () => {
+      video.controls = false
+      video.removeAttribute('controls')
+      
+      // Rimuovi eventuali controlli aggiunti dal browser
+      const controls = video.querySelectorAll('*')
+      controls.forEach((el: any) => {
+        if (el.classList && (
+          el.classList.contains('controls') ||
+          el.classList.contains('media-controls') ||
+          el.classList.contains('play-button') ||
+          el.classList.contains('pause-button')
+        )) {
+          el.style.display = 'none'
+          el.remove()
+        }
+      })
+    }
+
     // Reset del video per risolvere problemi di cache su dispositivi mobili
     // Questo è cruciale per dispositivi che hanno già visitato il sito
     video.load()
     video.currentTime = 0
+    hideControls()
 
-    // Funzione per forzare la riproduzione
+    // Funzione per forzare la riproduzione SENZA MAI mostrare controlli
     const attemptPlay = () => {
       // Assicurati che il video sia muto (richiesto per autoplay)
       video.muted = true
+      video.controls = false
+      hideControls()
       
       const playPromise = video.play()
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
             console.log("Video playing successfully")
+            // Nascondi controlli anche dopo che parte
+            hideControls()
+            video.controls = false
           })
           .catch((error) => {
             console.log("Autoplay prevented:", error)
+            hideControls()
             // Su mobile, prova più volte con delay crescenti
             setTimeout(() => {
+              video.muted = true
+              video.controls = false
               video.play().catch(() => {
+                hideControls()
                 setTimeout(() => {
+                  video.muted = true
+                  video.controls = false
                   video.play().catch(() => {
+                    hideControls()
                     console.log("Multiple autoplay attempts failed")
                   })
                 }, 300)
@@ -47,10 +88,25 @@ export function HeroSection() {
 
     // Gestione quando il video è pronto
     const handleVideoReady = () => {
+      hideControls()
+      video.controls = false
       if (video.paused) {
         attemptPlay()
       }
     }
+
+    // Observer per nascondere eventuali controlli aggiunti dinamicamente
+    const observer = new MutationObserver(() => {
+      hideControls()
+      video.controls = false
+    })
+
+    observer.observe(video, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['controls', 'class']
+    })
 
     // Prova immediatamente se il video è già caricato
     if (video.readyState >= 2) {
@@ -80,12 +136,20 @@ export function HeroSection() {
 
     window.addEventListener('focus', handleFocus)
 
+    // Controlla periodicamente che i controlli non appaiano
+    const controlCheckInterval = setInterval(() => {
+      hideControls()
+      video.controls = false
+    }, 100)
+
     return () => {
       video.removeEventListener('loadeddata', handleVideoReady)
       video.removeEventListener('canplay', handleVideoReady)
       video.removeEventListener('canplaythrough', handleVideoReady)
       document.removeEventListener('visibilitychange', handleVisibilityChange)
       window.removeEventListener('focus', handleFocus)
+      observer.disconnect()
+      clearInterval(controlCheckInterval)
     }
   }, [])
   
@@ -120,6 +184,9 @@ export function HeroSection() {
         loop
         playsInline
         controls={false}
+        disablePictureInPicture
+        disableRemotePlayback
+        controlsList="nodownload nofullscreen noremoteplayback"
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover pointer-events-none"
         style={{ zIndex: 0 }}
@@ -127,27 +194,46 @@ export function HeroSection() {
           // Forza la riproduzione quando i dati sono caricati
           const video = e.currentTarget
           video.muted = true
+          video.controls = false
+          video.removeAttribute('controls')
           video.play().catch(() => {
             // Retry dopo breve delay per dispositivi mobili
-            setTimeout(() => video.play().catch(() => {}), 100)
+            setTimeout(() => {
+              video.muted = true
+              video.controls = false
+              video.play().catch(() => {})
+            }, 100)
           })
         }}
         onCanPlay={(e) => {
           // Forza la riproduzione quando può essere riprodotto
           const video = e.currentTarget
           video.muted = true
+          video.controls = false
+          video.removeAttribute('controls')
           if (video.paused) {
             video.play().catch(() => {
-              setTimeout(() => video.play().catch(() => {}), 100)
+              setTimeout(() => {
+                video.muted = true
+                video.controls = false
+                video.play().catch(() => {})
+              }, 100)
             })
           }
         }}
         onPlay={() => {
-          // Assicurati che rimanga muto quando parte
+          // Assicurati che rimanga muto e senza controlli quando parte
           const video = videoRef.current
-          if (video && !video.muted) {
+          if (video) {
             video.muted = true
+            video.controls = false
+            video.removeAttribute('controls')
           }
+        }}
+        onContextMenu={(e) => {
+          // Previeni menu contestuale su video
+          e.preventDefault()
+          return false
         }}
       >
         <source src="/video2-optimized.mp4" type="video/mp4" />
