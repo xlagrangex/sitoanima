@@ -363,7 +363,12 @@ export function AccordionSections() {
         <div 
           key={section.id}
           id={section.id}
-          className={`w-full min-h-screen flex items-center justify-center ${'hasCarousel' in section && section.hasCarousel ? 'py-1 md:py-2' : 'py-12 md:py-16'} px-4 text-center ${scheme.bg}`}
+          className={`w-full flex items-center justify-center ${'hasCarousel' in section && section.hasCarousel ? 'py-1 md:py-2' : 'py-12 md:py-16'} px-4 text-center ${scheme.bg} ${
+            section.id === "format" ? "h-[70vh] md:min-h-screen" :
+            section.id === "collaborations" ? "h-[60vh] md:min-h-screen" :
+            section.id === "liste" ? "h-[60vh] md:min-h-screen" :
+            "min-h-screen"
+          }`}
         >
           <div className="max-w-[90%] md:max-w-[60%] mx-auto w-full">
             {section.subtitleKey && (
