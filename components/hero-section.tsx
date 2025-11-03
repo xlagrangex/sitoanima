@@ -28,83 +28,192 @@ export function HeroSection() {
     const video = videoRef.current
     if (!video) return
 
+    let retryInterval: NodeJS.Timeout | null = null
+    let retryCount = 0
+    const MAX_RETRIES = 100 // Aumentato per modalità risparmio energetico
+    let isPlayingSuccessfully = false
+
     // Reset del video per risolvere problemi di cache su dispositivi mobili
-    // Questo è cruciale per dispositivi che hanno già visitato il sito
     video.load()
     video.currentTime = 0
+    video.muted = true
+    video.volume = 0
+    video.autoplay = true
 
-    // Funzione per forzare la riproduzione
+    // Funzione AGRESSIVA per forzare la riproduzione (anche in modalità risparmio energetico)
     const attemptPlay = () => {
-      // Assicurati che il video sia muto (richiesto per autoplay)
+      if (!video || isPlayingSuccessfully && !video.paused) return
+
+      // Preparazione aggressiva per sbloccare autoplay
       video.muted = true
+      video.volume = 0
+      video.autoplay = true
       
+      // Su iOS potrebbe servire ricaricare
+      if (video.readyState < 2) {
+        video.load()
+      }
+
       const playPromise = video.play()
       if (playPromise !== undefined) {
         playPromise
           .then(() => {
-            console.log("Video playing successfully")
-            // Nascondi fallback solo se è passato il tempo minimo
+            isPlayingSuccessfully = true
+            retryCount = 0
+            if (retryInterval) {
+              clearInterval(retryInterval)
+              retryInterval = null
+            }
             if (minTimeElapsed) {
               setShowFallback(false)
             }
           })
           .catch((error) => {
-            console.log("Autoplay prevented:", error)
-            // Su mobile, prova più volte con delay crescenti
-            setTimeout(() => {
-              video.play().catch(() => {
-                setTimeout(() => {
-                  video.play().catch(() => {
-                    console.log("Multiple autoplay attempts failed")
-                  })
-                }, 300)
-              })
-            }, 200)
+            retryCount++
+            // Retry continuo anche in modalità risparmio energetico
+            if (retryCount < MAX_RETRIES) {
+              // Retry più frequenti per forzare anche con risparmio energetico
+              setTimeout(() => {
+                if (video && video.paused) {
+                  attemptPlay()
+                }
+              }, 100)
+            }
           })
+      } else {
+        // Browser che non supportano Promise, verifica manualmente
+        setTimeout(() => {
+          if (video && video.paused) {
+            attemptPlay()
+          }
+        }, 200)
       }
+    }
+
+    // Retry continuo per forzare anche in modalità risparmio energetico
+    const startContinuousRetry = () => {
+      if (retryInterval) return
+      
+      retryInterval = setInterval(() => {
+        if (video && video.paused && !isPlayingSuccessfully) {
+          attemptPlay()
+        }
+      }, 500) // Check ogni 500ms
     }
 
     // Gestione quando il video è pronto
     const handleVideoReady = () => {
-      if (video.paused) {
-        attemptPlay()
+      attemptPlay()
+      startContinuousRetry()
+    }
+
+    // Event listener per quando il video inizia a riprodurre
+    const handlePlaying = () => {
+      isPlayingSuccessfully = true
+      if (retryInterval) {
+        clearInterval(retryInterval)
+        retryInterval = null
+      }
+      if (minTimeElapsed) {
+        setShowFallback(false)
       }
     }
+
+    // Event listener per quando il video si mette in pausa (anche automaticamente)
+    const handlePause = () => {
+      // Se non è stato terminato e non è stato messo in pausa manualmente, riprova
+      if (!video.ended && !document.hidden) {
+        setTimeout(() => {
+          attemptPlay()
+        }, 100)
+      }
+    }
+
+    video.addEventListener('play', handlePlaying)
+    video.addEventListener('playing', handlePlaying)
+    video.addEventListener('pause', handlePause)
 
     // Prova immediatamente se il video è già caricato
     if (video.readyState >= 2) {
       setTimeout(handleVideoReady, 50)
     } else {
-      // Aspetta che il video sia pronto
       video.addEventListener('loadeddata', handleVideoReady, { once: true })
       video.addEventListener('canplay', handleVideoReady, { once: true })
       video.addEventListener('canplaythrough', handleVideoReady, { once: true })
+      video.addEventListener('loadedmetadata', handleVideoReady, { once: true })
     }
 
-    // Gestione della visibilità della pagina (importante per mobile quando si torna al tab)
+    // Gestione della visibilità della pagina
     const handleVisibilityChange = () => {
       if (!document.hidden && video.paused) {
+        isPlayingSuccessfully = false
         attemptPlay()
+        startContinuousRetry()
       }
     }
 
     document.addEventListener('visibilitychange', handleVisibilityChange)
 
-    // Gestione quando la pagina diventa visibile (per mobile)
+    // Gestione quando la pagina diventa visibile
     const handleFocus = () => {
       if (video.paused) {
+        isPlayingSuccessfully = false
         attemptPlay()
+        startContinuousRetry()
       }
     }
 
     window.addEventListener('focus', handleFocus)
 
+    // LISTENER AGGIUNTIVI PER SBLOCCO AUTOPLAY (anche in modalità risparmio energetico)
+    // Qualsiasi interazione utente può sbloccare l'autoplay bloccato
+    const interactionEvents = [
+      'scroll',
+      'touchstart',
+      'touchend',
+      'mousedown',
+      'click',
+      'keydown',
+      'wheel',
+      'resize',
+      'orientationchange'
+    ]
+
+    const handleUserInteraction = () => {
+      if (video && video.paused) {
+        isPlayingSuccessfully = false
+        attemptPlay()
+        startContinuousRetry()
+      }
+    }
+
+    interactionEvents.forEach(event => {
+      window.addEventListener(event, handleUserInteraction, { passive: true })
+      document.addEventListener(event, handleUserInteraction, { passive: true })
+    })
+
+    // Avvia retry continuo dopo un breve delay
+    setTimeout(() => {
+      startContinuousRetry()
+    }, 1000)
+
     return () => {
+      if (retryInterval) {
+        clearInterval(retryInterval)
+      }
+      video.removeEventListener('play', handlePlaying)
+      video.removeEventListener('playing', handlePlaying)
+      video.removeEventListener('pause', handlePause)
       video.removeEventListener('loadeddata', handleVideoReady)
       video.removeEventListener('canplay', handleVideoReady)
       video.removeEventListener('canplaythrough', handleVideoReady)
+      video.removeEventListener('loadedmetadata', handleVideoReady)
       document.removeEventListener('visibilitychange', handleVisibilityChange)
       window.removeEventListener('focus', handleFocus)
+      interactionEvents.forEach(event => {
+        window.removeEventListener(event, handleUserInteraction)
+        document.removeEventListener(event, handleUserInteraction)
+      })
     }
   }, [minTimeElapsed])
   
