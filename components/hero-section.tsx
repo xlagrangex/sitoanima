@@ -8,6 +8,8 @@ import { useEffect, useRef, useState } from "react"
 export function HeroSection() {
   const { t } = useLanguage()
   const videoRef = useRef<HTMLVideoElement>(null)
+  const heroSectionRef = useRef<HTMLElement>(null)
+  const interactionOverlayRef = useRef<HTMLDivElement>(null)
   const [showFallback, setShowFallback] = useState(true)
   const [minTimeElapsed, setMinTimeElapsed] = useState(false)
   
@@ -40,9 +42,89 @@ export function HeroSection() {
     video.volume = 0
     video.autoplay = true
 
+    // Funzione per simulare interazione sulla hero section (per sbloccare autoplay iOS)
+    const simulateInteraction = () => {
+      if (!heroSectionRef.current || !video) return
+
+      // Strategia 1: Scroll minimo impercettibile che potrebbe innescare un'interazione reale
+      try {
+        const currentScroll = window.pageYOffset
+        window.scrollTo({ top: currentScroll + 0.1, behavior: 'auto' })
+        setTimeout(() => {
+          window.scrollTo({ top: currentScroll, behavior: 'auto' })
+        }, 10)
+      } catch (e) {}
+
+      // Strategia 2: Prova click diretto sull'overlay (più probabile che funzioni)
+      try {
+        if (interactionOverlayRef.current) {
+          // Usa requestAnimationFrame per rendere il click più "naturale"
+          requestAnimationFrame(() => {
+            interactionOverlayRef.current?.click()
+          })
+        }
+      } catch (e) {}
+
+      // Strategia 3: Click diretto sulla hero section
+      try {
+        requestAnimationFrame(() => {
+          heroSectionRef.current?.click()
+        })
+      } catch (e) {}
+
+      // Strategia 4: TouchEvent simulato (più "naturale" per iOS)
+      try {
+        if ('TouchEvent' in window && heroSectionRef.current) {
+          requestAnimationFrame(() => {
+            const touchObj = new Touch({
+              identifier: Date.now(),
+              target: heroSectionRef.current!,
+              clientX: window.innerWidth / 2,
+              clientY: window.innerHeight / 2,
+              radiusX: 2.5,
+              radiusY: 2.5,
+              rotationAngle: 0,
+              force: 0.5
+            })
+            const touchEvent = new TouchEvent('touchstart', {
+              bubbles: true,
+              cancelable: true,
+              view: window,
+              touches: [touchObj]
+            })
+            heroSectionRef.current.dispatchEvent(touchEvent)
+            
+            setTimeout(() => {
+              const touchEndEvent = new TouchEvent('touchend', {
+                bubbles: true,
+                cancelable: true,
+                view: window,
+                changedTouches: [touchObj]
+              })
+              heroSectionRef.current?.dispatchEvent(touchEndEvent)
+              
+              // Dopo il touch, prova immediatamente il play
+              setTimeout(() => {
+                if (video && video.paused) {
+                  video.play().catch(() => {})
+                }
+              }, 10)
+            }, 50)
+          })
+        }
+      } catch (e) {}
+
+      // Strategia 5: Focus sulla hero section
+      try {
+        if (heroSectionRef.current instanceof HTMLElement) {
+          heroSectionRef.current.focus()
+        }
+      } catch (e) {}
+    }
+
     // Funzione AGRESSIVA per forzare la riproduzione (anche in modalità risparmio energetico)
     const attemptPlay = () => {
-      if (!video || isPlayingSuccessfully && !video.paused) return
+      if (!video || (isPlayingSuccessfully && !video.paused)) return
 
       // Preparazione aggressiva per sbloccare autoplay
       video.muted = true
@@ -70,6 +152,10 @@ export function HeroSection() {
           })
           .catch((error) => {
             retryCount++
+            // Se dopo 5 tentativi falliti, prova a simulare interazione
+            if (retryCount === 5 || retryCount === 10 || retryCount === 20) {
+              simulateInteraction()
+            }
             // Retry continuo anche in modalità risparmio energetico
             if (retryCount < MAX_RETRIES) {
               // Retry più frequenti per forzare anche con risparmio energetico
@@ -192,10 +278,126 @@ export function HeroSection() {
       document.addEventListener(event, handleUserInteraction, { passive: true })
     })
 
+    // Funzione per simulare click automatico fittizio all'apertura
+    const simulateAutomaticClick = () => {
+      if (!video || !heroSectionRef.current) return
+
+      // Strategia 1: Crea un elemento button temporaneo INTERATTIVO e cliccalo
+      try {
+        const fakeButton = document.createElement('button')
+        fakeButton.setAttribute('tabindex', '0')
+        fakeButton.style.position = 'fixed'
+        fakeButton.style.top = '50%'
+        fakeButton.style.left = '50%'
+        fakeButton.style.width = '2px'
+        fakeButton.style.height = '2px'
+        fakeButton.style.opacity = '0.01' // Opacity minima ma non zero per evitare blocchi
+        fakeButton.style.pointerEvents = 'auto'
+        fakeButton.style.zIndex = '999999'
+        fakeButton.style.border = 'none'
+        fakeButton.style.background = 'transparent'
+        fakeButton.style.outline = 'none'
+        fakeButton.onclick = () => {
+          if (video && video.paused) {
+            video.muted = true
+            video.play().catch(() => {})
+          }
+        }
+        document.body.appendChild(fakeButton)
+        
+        // Focus e click per rendere più "naturale"
+        requestAnimationFrame(() => {
+          fakeButton.focus()
+          setTimeout(() => {
+            fakeButton.click()
+            setTimeout(() => {
+              fakeButton.blur()
+              setTimeout(() => {
+                fakeButton.remove()
+              }, 50)
+            }, 10)
+          }, 10)
+        })
+      } catch (e) {}
+
+      // Strategia 2: Click multipli sull'overlay con delay diversi
+      [0, 5, 10, 20, 30, 50, 100].forEach((delay) => {
+        setTimeout(() => {
+          try {
+            if (interactionOverlayRef.current) {
+              // Prova con requestAnimationFrame per renderlo più "naturale"
+              requestAnimationFrame(() => {
+                interactionOverlayRef.current?.click()
+              })
+            }
+          } catch (e) {}
+        }, delay)
+      })
+
+      // Strategia 3: Click multipli sulla hero section
+      [10, 30, 60, 100].forEach((delay) => {
+        setTimeout(() => {
+          try {
+            requestAnimationFrame(() => {
+              heroSectionRef.current?.click()
+            })
+          } catch (e) {}
+        }, delay)
+      })
+
+      // Strategia 4: Simula touch completo (più efficace su iOS)
+      setTimeout(() => {
+        simulateInteraction()
+      }, 50)
+
+      // Strategia 5: Prova a forzare play dopo le simulazioni
+      setTimeout(() => {
+        if (video && video.paused) {
+          video.muted = true
+          video.play().catch(() => {})
+        }
+      }, 150)
+    }
+
+    // Simula click automatico IMMEDIATAMENTE all'apertura
+    simulateAutomaticClick()
+
+    // Simula anche quando la pagina è completamente caricata
+    if (document.readyState === 'complete') {
+      setTimeout(() => simulateAutomaticClick(), 50)
+    } else {
+      window.addEventListener('load', () => {
+        setTimeout(() => simulateAutomaticClick(), 50)
+      }, { once: true })
+    }
+
+    // Simula anche al primo frame disponibile (prima possibile)
+    requestAnimationFrame(() => {
+      simulateAutomaticClick()
+    })
+
     // Avvia retry continuo dopo un breve delay
     setTimeout(() => {
       startContinuousRetry()
-    }, 1000)
+      // Simula di nuovo dopo 500ms
+      setTimeout(() => {
+        if (video && video.paused && !isPlayingSuccessfully) {
+          simulateAutomaticClick()
+        }
+      }, 500)
+      // Dopo 1 secondo
+      setTimeout(() => {
+        if (video && video.paused && !isPlayingSuccessfully) {
+          simulateAutomaticClick()
+        }
+      }, 1000)
+      // Dopo 2 secondi se ancora non parte
+      setTimeout(() => {
+        if (video && video.paused && !isPlayingSuccessfully) {
+          simulateAutomaticClick()
+        }
+      }, 2000)
+    }, 100)
 
     return () => {
       if (retryInterval) {
@@ -239,7 +441,54 @@ export function HeroSection() {
   }
 
   return (
-    <section id="hero" className="relative flex items-center justify-center overflow-hidden w-screen bg-black" style={{ height: '80vh' }}>
+    <section 
+      id="hero" 
+      ref={heroSectionRef}
+      className="relative flex items-center justify-center overflow-hidden w-screen bg-black" 
+      style={{ height: '80vh' }}
+    >
+      {/* Overlay invisibile per sbloccare autoplay quando necessario */}
+      <div
+        ref={interactionOverlayRef}
+        className="absolute inset-0 z-[3]"
+        style={{ 
+          opacity: 0,
+          pointerEvents: 'auto',
+          cursor: 'pointer',
+          touchAction: 'auto',
+          // Usa opacity minima invece di 0 per permettere interazioni
+          // Alcuni browser bloccano interazioni su elementi con opacity: 0
+          // opacity: 0.0001 potrebbe funzionare meglio
+        }}
+        onClick={(e) => {
+          // Quando viene cliccato, forza il play
+          e.preventDefault()
+          e.stopPropagation()
+          const video = videoRef.current
+          if (video && video.paused) {
+            video.muted = true
+            video.play().catch(() => {})
+          }
+        }}
+        onTouchStart={(e) => {
+          // Intercetta touch per sbloccare autoplay
+          e.preventDefault()
+          e.stopPropagation()
+          const video = videoRef.current
+          if (video && video.paused) {
+            video.muted = true
+            video.play().catch(() => {})
+          }
+        }}
+        onMouseDown={(e) => {
+          // Intercetta anche mousedown
+          const video = videoRef.current
+          if (video && video.paused) {
+            video.muted = true
+            video.play().catch(() => {})
+          }
+        }}
+      />
       {/* Fallback Image - Mostrata per almeno 1.5 secondi durante il precaricamento */}
       {showFallback && (
         <Image
