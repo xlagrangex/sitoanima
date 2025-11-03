@@ -31,38 +31,29 @@ export function StickyHeader() {
       return
     }
 
-    // Set initial viewport height variable
+    // Set initial viewport height variable (solo per altri elementi, non per l'header)
     const setViewportHeight = () => {
       const vh = window.innerHeight * 0.01
       document.documentElement.style.setProperty('--vh', `${vh}px`)
     }
 
-    // Imposta valore iniziale
+    // Imposta valore iniziale una sola volta
     setViewportHeight()
     setHeaderTop(16)
 
-    // Solo resize e orientationchange - NO scroll listener che causa lag
-    let resizeTimeout: NodeJS.Timeout
-    const debouncedResize = () => {
-      clearTimeout(resizeTimeout)
-      resizeTimeout = setTimeout(() => {
-        setViewportHeight()
-        // Mantieni sempre top a 16px su mobile
-        setHeaderTop(16)
-      }, 100)
-    }
-
-    window.addEventListener('resize', debouncedResize, { passive: true })
+    // IMPORTANTE: Su Chrome mobile, NON reagire ai resize della viewport
+    // perché quando la barra dell'indirizzo si espande/contrae, causa movimento dell'header
+    // Solo orientationchange (rotazione dispositivo) merita un aggiornamento
     window.addEventListener('orientationchange', () => {
       setTimeout(() => {
         setViewportHeight()
+        // Solo su orientationchange aggiorniamo, ma manteniamo sempre 16px
         setHeaderTop(16)
       }, 150)
     })
 
     return () => {
-      window.removeEventListener('resize', debouncedResize)
-      clearTimeout(resizeTimeout)
+      window.removeEventListener('orientationchange', () => {})
     }
   }, [])
 
@@ -104,8 +95,8 @@ export function StickyHeader() {
           ? `${headerTop}px` 
           : '16px', // Fixed position on mobile when address bar expands/contracts
       }}
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
     >
       <nav className="flex items-center justify-between h-full">
