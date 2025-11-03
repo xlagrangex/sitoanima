@@ -222,6 +222,12 @@ export function AccordionSections() {
       name: "Peaty",
       designation: "Techno DJ & Producer",
       src: "/immagini-guest-cropped/peaty.webp"
+    },
+    {
+      quote: "Electronic music duo bringing innovative sounds and dynamic performances to the scene.",
+      name: "Picca & Mars",
+      designation: "Electronic Duo",
+      src: "/immagini guest/piccaemars.jpg"
     }
   ]
 
