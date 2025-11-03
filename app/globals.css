@@ -261,14 +261,7 @@ html {
       scroll-behavior: auto !important;
     }
     
-    /* Previeni trasformazioni CSS durante lo scroll che causano lag */
-    header[class*="fixed"] {
-      transform: translateX(-50%) !important;
-      will-change: transform;
-      /* Usa GPU acceleration ma previeni repaint inutili */
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-    }
+    /* Non forzare transform - Tailwind gestisce già il centraggio con left-1/2 -translate-x-1/2 */
   }
   
   /* Add scroll margin to sections with IDs to account for browser address bar on mobile */
@@ -289,17 +282,20 @@ html {
     /* Mantieni posizione stabile durante i cambiamenti della viewport */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    /* Assicura che left-1/2 -translate-x-1/2 funzioni correttamente */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
   }
   
   /* Stabilizza header su mobile durante i cambiamenti della viewport */
   @media (max-width: 768px) {
     header[class*="fixed"] {
-      /* Mantieni centrato - NON forzare transform con !important che interferisce con Tailwind */
-      /* Il centraggio è già gestito da left-1/2 -translate-x-1/2 nella className */
-      /* Solo forza top per stabilità */
+      /* Mantieni sempre centrato su mobile */
+      left: 50% !important;
+      transform: translateX(-50%) !important;
       top: 16px !important;
       /* Previeni repaint durante scroll per performance migliori */
-      will-change: auto;
+      will-change: transform;
     }
   }
   
