@@ -387,13 +387,13 @@ export function HeroSection() {
       {/* Fallback Image - Mostrata per almeno 1.5 secondi durante il precaricamento */}
       {showFallback && (
         <Image
-          src="/Screenshot 2025-10-29 at 14.32.56.png"
+          src="/Screenshot 2025-10-29 at 14.32.56.webp"
           alt="ANIMA Background"
           fill
           className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
           style={{ zIndex: 0 }}
           priority
-          quality={90}
+          quality={80}
         />
       )}
       
