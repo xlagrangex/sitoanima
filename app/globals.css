@@ -282,9 +282,9 @@ html {
     /* Mantieni posizione stabile durante i cambiamenti della viewport */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* Assicura che left-1/2 -translate-x-1/2 funzioni correttamente */
+    /* Assicura che left-1/2 di Tailwind funzioni correttamente */
     left: 50% !important;
-    transform: translateX(-50%) !important;
+    /* NON forzare transform - lascia che Tailwind (-translate-x-1/2) e Framer Motion gestiscano le animazioni */
   }
   
   /* Stabilizza header su mobile durante i cambiamenti della viewport */
@@ -292,7 +292,6 @@ html {
     header[class*="fixed"] {
       /* Mantieni sempre centrato su mobile */
       left: 50% !important;
-      transform: translateX(-50%) !important;
       top: 16px !important;
       /* Previeni repaint durante scroll per performance migliori */
       will-change: transform;

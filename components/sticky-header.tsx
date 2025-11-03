@@ -99,6 +99,7 @@ export function StickyHeader() {
       style={{ 
         width: "min(95vw, 1100px)", 
         padding: "12px 32px",
+        left: '50%', // Forza centraggio orizzontale
         top: typeof window !== 'undefined' && window.innerWidth < 768 
           ? `${headerTop}px` 
           : '16px', // Fixed position on mobile when address bar expands/contracts
