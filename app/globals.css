@@ -258,7 +258,6 @@ html {
   /* Fix sticky header to stay in place when address bar expands/contracts */
   header[class*="fixed"] {
     position: fixed !important;
-    will-change: auto;
     /* Mantieni posizione stabile durante i cambiamenti della viewport */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -267,14 +266,12 @@ html {
   /* Stabilizza header su mobile durante i cambiamenti della viewport */
   @media (max-width: 768px) {
     header[class*="fixed"] {
-      /* Previeni transizioni durante i cambiamenti della viewport che causano spostamenti */
-      transition: background-color 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease !important;
-      /* Non applicare transizioni a top o transform per evitare spostamenti */
-      /* Mantieni centrato con transform */
-      left: 50% !important;
-      transform: translateX(-50%) !important;
-      /* Forza posizione fissa indipendentemente dai cambiamenti della viewport */
+      /* Mantieni centrato - NON forzare transform con !important che interferisce con Tailwind */
+      /* Il centraggio è già gestito da left-1/2 -translate-x-1/2 nella className */
+      /* Solo forza top per stabilità */
       top: 16px !important;
+      /* Previeni repaint durante scroll per performance migliori */
+      will-change: auto;
     }
   }
   
