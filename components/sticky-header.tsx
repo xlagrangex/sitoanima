@@ -26,27 +26,101 @@ export function StickyHeader() {
     if (typeof window === 'undefined') return
     
     const isMobile = window.innerWidth < 768
-    if (!isMobile) return
+    if (!isMobile) {
+      // Su desktop, mantieni posizione fissa
+      setHeaderTop(16)
+      return
+    }
+
+    // Calcola l'altezza iniziale della viewport (senza barra degli indirizzi)
+    const initialViewportHeight = window.innerHeight
+    let lastKnownScroll = window.pageYOffset
 
     // Set initial viewport height
     const setViewportHeight = () => {
       const vh = window.innerHeight * 0.01
       document.documentElement.style.setProperty('--vh', `${vh}px`)
-      
-      // Keep header position fixed
-      const currentTop = window.pageYOffset === 0 ? 16 : Math.max(16, window.innerHeight * 0.02)
-      setHeaderTop(currentTop)
     }
 
+    // Funzione per stabilizzare la posizione dell'header
+    const stabilizeHeaderPosition = () => {
+      // Usa sempre la stessa posizione top indipendentemente dai cambiamenti della viewport
+      // Questo previene lo spostamento quando la barra degli indirizzi si nasconde/mostra
+      const currentScroll = window.pageYOffset
+      
+      // Se siamo in cima, mantieni posizione fissa
+      if (currentScroll === 0) {
+        setHeaderTop(16)
+      } else {
+        // Durante lo scroll, usa una posizione relativa allo scroll per stabilità
+        setHeaderTop(16)
+      }
+      
+      lastKnownScroll = currentScroll
+    }
+
+    // Debounce per evitare troppe chiamate
+    let resizeTimeout: NodeJS.Timeout
+    const debouncedResize = () => {
+      clearTimeout(resizeTimeout)
+      resizeTimeout = setTimeout(() => {
+        setViewportHeight()
+        stabilizeHeaderPosition()
+      }, 50)
+    }
+
+    // Imposta valori iniziali
     setViewportHeight()
-    window.addEventListener('resize', setViewportHeight)
-    window.addEventListener('orientationchange', setViewportHeight)
-    window.addEventListener('scroll', setViewportHeight, { passive: true })
+    stabilizeHeaderPosition()
+
+    // Listener per tutti gli eventi che possono causare cambiamenti della viewport
+    window.addEventListener('resize', debouncedResize, { passive: true })
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        setViewportHeight()
+        stabilizeHeaderPosition()
+      }, 100)
+    })
+    
+    // Usa requestAnimationFrame per aggiornamenti smooth durante lo scroll
+    let rafId: number
+    const handleScroll = () => {
+      if (rafId) cancelAnimationFrame(rafId)
+      rafId = requestAnimationFrame(() => {
+        stabilizeHeaderPosition()
+      })
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    
+    // Listener aggiuntivo per visualViewport API (supportato su mobile browsers moderni)
+    if (window.visualViewport) {
+      const handleViewportChange = () => {
+        // Ignora i cambiamenti della viewport dovuti alla barra degli indirizzi
+        // Mantieni la posizione dell'header stabile
+        stabilizeHeaderPosition()
+      }
+      window.visualViewport.addEventListener('resize', handleViewportChange)
+      window.visualViewport.addEventListener('scroll', handleViewportChange)
+      
+      return () => {
+        window.removeEventListener('resize', debouncedResize)
+        window.removeEventListener('orientationchange', () => {})
+        window.removeEventListener('scroll', handleScroll)
+        if (window.visualViewport) {
+          window.visualViewport.removeEventListener('resize', handleViewportChange)
+          window.visualViewport.removeEventListener('scroll', handleViewportChange)
+        }
+        if (rafId) cancelAnimationFrame(rafId)
+        clearTimeout(resizeTimeout)
+      }
+    }
 
     return () => {
-      window.removeEventListener('resize', setViewportHeight)
-      window.removeEventListener('orientationchange', setViewportHeight)
-      window.removeEventListener('scroll', setViewportHeight)
+      window.removeEventListener('resize', debouncedResize)
+      window.removeEventListener('scroll', handleScroll)
+      if (rafId) cancelAnimationFrame(rafId)
+      clearTimeout(resizeTimeout)
     }
   }, [])
 
@@ -83,7 +157,9 @@ export function StickyHeader() {
       style={{ 
         width: "min(95vw, 1100px)", 
         padding: "12px 32px",
-        top: `${headerTop}px` // Fixed position on mobile when address bar expands/contracts
+        top: typeof window !== 'undefined' && window.innerWidth < 768 
+          ? `${headerTop}px` 
+          : '16px', // Fixed position on mobile when address bar expands/contracts
       }}
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
