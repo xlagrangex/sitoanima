@@ -26,27 +26,32 @@ export function StickyHeader() {
     if (typeof window === 'undefined') return
     
     const isMobile = window.innerWidth < 768
-    if (!isMobile) return
+    if (!isMobile) {
+      setHeaderTop(16)
+      return
+    }
 
-    // Set initial viewport height
+    // Set initial viewport height (per altri elementi)
     const setViewportHeight = () => {
       const vh = window.innerHeight * 0.01
       document.documentElement.style.setProperty('--vh', `${vh}px`)
-      
-      // Keep header position fixed
-      const currentTop = window.pageYOffset === 0 ? 16 : Math.max(16, window.innerHeight * 0.02)
-      setHeaderTop(currentTop)
     }
 
+    // Header sempre a 20px dal top per evitare che finisca sotto la barra del browser
+    // 20px è sufficiente per la maggior parte dei browser mobile
+    setHeaderTop(20)
     setViewportHeight()
-    window.addEventListener('resize', setViewportHeight)
-    window.addEventListener('orientationchange', setViewportHeight)
-    window.addEventListener('scroll', setViewportHeight, { passive: true })
+
+    // Solo orientationchange - NO resize/scroll listeners che causano movimento
+    window.addEventListener('orientationchange', () => {
+      setTimeout(() => {
+        setViewportHeight()
+        setHeaderTop(20) // Mantieni sempre 20px
+      }, 150)
+    })
 
     return () => {
-      window.removeEventListener('resize', setViewportHeight)
-      window.removeEventListener('orientationchange', setViewportHeight)
-      window.removeEventListener('scroll', setViewportHeight)
+      window.removeEventListener('orientationchange', () => {})
     }
   }, [])
 

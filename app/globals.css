@@ -293,7 +293,10 @@ html {
       /* Mantieni sempre centrato e fisso su mobile */
       /* left: 50% viene gestito da Tailwind left-1/2 */
       /* transform: translateX(-50%) viene gestito da Tailwind -translate-x-1/2 */
-      top: 16px !important;
+      /* 20px dal top per evitare che finisca sotto la barra del browser */
+      top: 20px !important;
+      /* Usa safe-area-inset-top se disponibile per dispositivi con notch */
+      padding-top: env(safe-area-inset-top, 0);
       position: fixed !important;
       /* Previeni qualsiasi movimento durante i cambiamenti della barra del browser */
       will-change: transform;
@@ -302,6 +305,8 @@ html {
       -webkit-backface-visibility: hidden;
       /* Fix Chrome mobile: previeni movimento durante resize viewport */
       isolation: isolate;
+      /* Z-index alto per rimanere sopra tutto */
+      z-index: 9999 !important;
     }
   }
   
