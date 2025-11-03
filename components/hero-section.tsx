@@ -42,18 +42,30 @@ export function HeroSection() {
     video.volume = 0
     video.autoplay = true
 
+    // Rileva Chrome mobile per disabilitare strategie che interferiscono con lo scroll
+    const isChromeMobile = typeof navigator !== 'undefined' && 
+      /Chrome/.test(navigator.userAgent) && 
+      /Mobile|Android|iPhone|iPad/.test(navigator.userAgent)
+
     // Funzione per simulare interazione sulla hero section (per sbloccare autoplay iOS)
     const simulateInteraction = () => {
       if (!heroSectionRef.current || !video) return
 
-      // Strategia 1: Scroll minimo impercettibile che potrebbe innescare un'interazione reale
-      try {
-        const currentScroll = window.pageYOffset
-        window.scrollTo({ top: currentScroll + 0.1, behavior: 'auto' })
-        setTimeout(() => {
-          window.scrollTo({ top: currentScroll, behavior: 'auto' })
-        }, 10)
-      } catch (e) {}
+      // Su Chrome mobile, SKIP completamente lo scroll minimo perché causa bug di scroll
+      // quando si cambia direzione. Usa solo click/touch che non interferiscono.
+      if (!isChromeMobile) {
+        // Strategia 1: Scroll minimo impercettibile (solo su browser non-Chrome mobile)
+        try {
+          const currentScroll = window.pageYOffset
+          // Usa requestAnimationFrame per evitare conflitti con scroll nativo
+          requestAnimationFrame(() => {
+            window.scrollTo({ top: currentScroll + 0.1, behavior: 'auto' })
+            setTimeout(() => {
+              window.scrollTo({ top: currentScroll, behavior: 'auto' })
+            }, 10)
+          })
+        } catch (e) {}
+      }
 
       // Strategia 2: Prova click diretto sull'overlay (più probabile che funzioni)
       try {
@@ -253,14 +265,13 @@ export function HeroSection() {
 
     // LISTENER AGGIUNTIVI PER SBLOCCO AUTOPLAY (anche in modalità risparmio energetico)
     // Qualsiasi interazione utente può sbloccare l'autoplay bloccato
+    // NOTA: Rimosso 'scroll' e 'wheel' per evitare interferenze con lo scroll nativo su Chrome mobile
     const interactionEvents = [
-      'scroll',
       'touchstart',
       'touchend',
       'mousedown',
       'click',
       'keydown',
-      'wheel',
       'resize',
       'orientationchange'
     ]
@@ -278,125 +289,9 @@ export function HeroSection() {
       document.addEventListener(event, handleUserInteraction, { passive: true })
     })
 
-    // Funzione per simulare click automatico fittizio all'apertura
-    const simulateAutomaticClick = () => {
-      if (!video || !heroSectionRef.current) return
-
-      // Strategia 1: Crea un elemento button temporaneo INTERATTIVO e cliccalo
-      try {
-        const fakeButton = document.createElement('button')
-        fakeButton.setAttribute('tabindex', '0')
-        fakeButton.style.position = 'fixed'
-        fakeButton.style.top = '50%'
-        fakeButton.style.left = '50%'
-        fakeButton.style.width = '2px'
-        fakeButton.style.height = '2px'
-        fakeButton.style.opacity = '0.01' // Opacity minima ma non zero per evitare blocchi
-        fakeButton.style.pointerEvents = 'auto'
-        fakeButton.style.zIndex = '999999'
-        fakeButton.style.border = 'none'
-        fakeButton.style.background = 'transparent'
-        fakeButton.style.outline = 'none'
-        fakeButton.onclick = () => {
-          if (video && video.paused) {
-            video.muted = true
-            video.play().catch(() => {})
-          }
-        }
-        document.body.appendChild(fakeButton)
-        
-        // Focus e click per rendere più "naturale"
-        requestAnimationFrame(() => {
-          fakeButton.focus()
-          setTimeout(() => {
-            fakeButton.click()
-            setTimeout(() => {
-              fakeButton.blur()
-              setTimeout(() => {
-                fakeButton.remove()
-              }, 50)
-            }, 10)
-          }, 10)
-        })
-      } catch (e) {}
-
-      // Strategia 2: Click multipli sull'overlay con delay diversi
-      [0, 5, 10, 20, 30, 50, 100].forEach((delay) => {
-        setTimeout(() => {
-          try {
-            if (interactionOverlayRef.current) {
-              // Prova con requestAnimationFrame per renderlo più "naturale"
-              requestAnimationFrame(() => {
-                interactionOverlayRef.current?.click()
-              })
-            }
-          } catch (e) {}
-        }, delay)
-      })
-
-      // Strategia 3: Click multipli sulla hero section
-      [10, 30, 60, 100].forEach((delay) => {
-        setTimeout(() => {
-          try {
-            requestAnimationFrame(() => {
-              heroSectionRef.current?.click()
-            })
-          } catch (e) {}
-        }, delay)
-      })
-
-      // Strategia 4: Simula touch completo (più efficace su iOS)
-      setTimeout(() => {
-        simulateInteraction()
-      }, 50)
-
-      // Strategia 5: Prova a forzare play dopo le simulazioni
-      setTimeout(() => {
-        if (video && video.paused) {
-          video.muted = true
-          video.play().catch(() => {})
-        }
-      }, 150)
-    }
-
-    // Simula click automatico IMMEDIATAMENTE all'apertura
-    simulateAutomaticClick()
-
-    // Simula anche quando la pagina è completamente caricata
-    if (document.readyState === 'complete') {
-      setTimeout(() => simulateAutomaticClick(), 50)
-    } else {
-      window.addEventListener('load', () => {
-        setTimeout(() => simulateAutomaticClick(), 50)
-      }, { once: true })
-    }
-
-    // Simula anche al primo frame disponibile (prima possibile)
-    requestAnimationFrame(() => {
-      simulateAutomaticClick()
-    })
-
     // Avvia retry continuo dopo un breve delay
     setTimeout(() => {
       startContinuousRetry()
-      // Simula di nuovo dopo 500ms
-      setTimeout(() => {
-        if (video && video.paused && !isPlayingSuccessfully) {
-          simulateAutomaticClick()
-        }
-      }, 500)
-      // Dopo 1 secondo
-      setTimeout(() => {
-        if (video && video.paused && !isPlayingSuccessfully) {
-          simulateAutomaticClick()
-        }
-      }, 1000)
-      // Dopo 2 secondi se ancora non parte
-      setTimeout(() => {
-        if (video && video.paused && !isPlayingSuccessfully) {
-          simulateAutomaticClick()
-        }
-      }, 2000)
     }, 100)
 
     return () => {

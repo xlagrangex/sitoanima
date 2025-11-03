@@ -231,16 +231,44 @@ html {
     min-height: -webkit-fill-available;
     /* Use CSS variable for dynamic viewport height */
     min-height: calc(var(--vh, 1vh) * 100);
-    -webkit-overflow-scrolling: touch;
+    /* Rimuovo -webkit-overflow-scrolling: touch per Chrome mobile che causa bug */
+    /* touch-action: pan-y è sufficiente per lo scroll */
     touch-action: pan-y;
     /* Prevent content shifting when address bar expands/contracts */
     position: relative;
     overflow-x: hidden;
+    /* Fix per Chrome mobile: scroll fluido */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: auto;
+    /* Previeni momentum scrolling bug su Chrome mobile */
+    overscroll-behavior-y: contain;
   }
   
   /* Prevent scroll jumping due to viewport height changes */
   * {
     -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Fix specifico per Chrome mobile: previeni scroll bug quando si cambia direzione */
+  /* Chrome mobile ha problemi con momentum scrolling e cambi di direzione */
+  @supports (-webkit-appearance: none) {
+    body {
+      /* Disabilita momentum scrolling solo su Chrome (non Safari) */
+      -webkit-overflow-scrolling: auto !important;
+      /* Previeni scroll elastic bouncing bug */
+      overscroll-behavior-y: contain;
+      /* Fix per scroll fluido su Chrome mobile */
+      scroll-behavior: auto !important;
+    }
+    
+    /* Previeni trasformazioni CSS durante lo scroll che causano lag */
+    header[class*="fixed"] {
+      transform: translateX(-50%) !important;
+      will-change: transform;
+      /* Usa GPU acceleration ma previeni repaint inutili */
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
   }
   
   /* Add scroll margin to sections with IDs to account for browser address bar on mobile */
