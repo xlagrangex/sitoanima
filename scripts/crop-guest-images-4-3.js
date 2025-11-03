@@ -12,7 +12,8 @@ const images = [
   'Marco Lys at Il Muretto 3.webp',
   'Pieropirupa.webp',
   'grossomoddo-new.webp',
-  'peaty.webp'
+  'peaty.webp',
+  'piccaemars.jpg'
 ];
 
 async function cropImageTo23(inputPath, outputPath) {
@@ -40,11 +41,18 @@ async function cropImageTo23(inputPath, outputPath) {
       top = Math.round((height - cropHeight) / 2);
     }
     
-    await sharp(inputPath)
+    // Ritaglia e converte in WebP se l'output è .webp
+    const sharpInstance = sharp(inputPath)
       .extract({ left, top, width: cropWidth, height: cropHeight })
-      .toFile(outputPath);
+      .resize(700, null, { withoutEnlargement: true });
     
-    console.log(`✓ Ritagliata: ${path.basename(inputPath)} → ${cropWidth}x${cropHeight}`);
+    if (outputPath.endsWith('.webp')) {
+      await sharpInstance.webp({ quality: 85 }).toFile(outputPath);
+    } else {
+      await sharpInstance.toFile(outputPath);
+    }
+    
+    console.log(`✓ Ritagliata e ottimizzata: ${path.basename(inputPath)} → ${cropWidth}x${cropHeight}`);
     return true;
   } catch (error) {
     console.error(`✗ Errore ritaglio ${path.basename(inputPath)}:`, error.message);
@@ -62,7 +70,8 @@ async function cropAllImages() {
   for (let i = 0; i < images.length; i++) {
     const imageName = images[i];
     const inputPath = path.join(inputDir, imageName);
-    const outputName = imageName;
+    // Converti .jpg in .webp per l'output
+    const outputName = imageName.replace(/\.(jpg|jpeg)$/i, '.webp');
     const outputPath = path.join(outputDir, outputName);
     
     if (!fs.existsSync(inputPath)) {

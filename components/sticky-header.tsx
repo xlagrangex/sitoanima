@@ -26,34 +26,27 @@ export function StickyHeader() {
     if (typeof window === 'undefined') return
     
     const isMobile = window.innerWidth < 768
-    if (!isMobile) {
-      setHeaderTop(16)
-      return
-    }
+    if (!isMobile) return
 
-    // Set initial viewport height variable (solo per altri elementi, non per l'header)
+    // Set initial viewport height
     const setViewportHeight = () => {
       const vh = window.innerHeight * 0.01
       document.documentElement.style.setProperty('--vh', `${vh}px`)
+      
+      // Keep header position fixed
+      const currentTop = window.pageYOffset === 0 ? 16 : Math.max(16, window.innerHeight * 0.02)
+      setHeaderTop(currentTop)
     }
 
-    // Imposta valore iniziale una sola volta
     setViewportHeight()
-    setHeaderTop(16)
-
-    // IMPORTANTE: Su Chrome mobile, NON reagire ai resize della viewport
-    // perché quando la barra dell'indirizzo si espande/contrae, causa movimento dell'header
-    // Solo orientationchange (rotazione dispositivo) merita un aggiornamento
-    window.addEventListener('orientationchange', () => {
-      setTimeout(() => {
-        setViewportHeight()
-        // Solo su orientationchange aggiorniamo, ma manteniamo sempre 16px
-        setHeaderTop(16)
-      }, 150)
-    })
+    window.addEventListener('resize', setViewportHeight)
+    window.addEventListener('orientationchange', setViewportHeight)
+    window.addEventListener('scroll', setViewportHeight, { passive: true })
 
     return () => {
-      window.removeEventListener('orientationchange', () => {})
+      window.removeEventListener('resize', setViewportHeight)
+      window.removeEventListener('orientationchange', setViewportHeight)
+      window.removeEventListener('scroll', setViewportHeight)
     }
   }, [])
 
@@ -90,13 +83,11 @@ export function StickyHeader() {
       style={{ 
         width: "min(95vw, 1100px)", 
         padding: "12px 32px",
-        left: '50%', // Forza centraggio orizzontale
-        top: typeof window !== 'undefined' && window.innerWidth < 768 
-          ? `${headerTop}px` 
-          : '16px', // Fixed position on mobile when address bar expands/contracts
+        left: '50%', // Forza centraggio orizzontale per tutti i dispositivi
+        top: `${headerTop}px` // Fixed position on mobile when address bar expands/contracts
       }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
     >
       <nav className="flex items-center justify-between h-full">

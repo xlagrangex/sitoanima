@@ -227,7 +227,7 @@ export function AccordionSections() {
       quote: "Electronic music duo bringing innovative sounds and dynamic performances to the scene.",
       name: "Picca & Mars",
       designation: "Electronic Duo",
-      src: "/immagini guest/piccaemars.jpg"
+      src: "/immagini-guest-cropped/piccaemars.webp"
     }
   ]
 

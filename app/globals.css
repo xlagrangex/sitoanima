@@ -282,25 +282,21 @@ html {
     /* Mantieni posizione stabile durante i cambiamenti della viewport */
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    /* Assicura che left-1/2 di Tailwind funzioni correttamente */
-    left: 50% !important;
-    /* NON forzare transform - lascia che Tailwind (-translate-x-1/2) e Framer Motion gestiscano le animazioni */
+    /* left e transform vengono gestiti completamente da Tailwind (left-1/2 -translate-x-1/2) */
+    /* NON forzare valori che interferiscono con Framer Motion */
   }
   
   /* Stabilizza header su mobile durante i cambiamenti della viewport */
   /* IMPORTANTE: Usa position fixed con top fisso - NON deve reagire ai cambiamenti della viewport */
   @media (max-width: 768px) {
     header[class*="fixed"] {
-      /* Mantieni sempre centrato e fisso su mobile - posizione assoluta rispetto alla viewport */
-      left: 50% !important;
+      /* Mantieni sempre centrato e fisso su mobile */
+      /* left: 50% viene gestito da Tailwind left-1/2 */
+      /* transform: translateX(-50%) viene gestito da Tailwind -translate-x-1/2 */
       top: 16px !important;
       position: fixed !important;
-      /* Il transform per centraggio viene gestito da Tailwind -translate-x-1/2 */
       /* Previeni qualsiasi movimento durante i cambiamenti della barra del browser */
       will-change: transform;
-      /* Fix specifico per Chrome mobile: usa GPU acceleration per stabilità */
-      transform: translateX(-50%) translateZ(0) !important;
-      -webkit-transform: translateX(-50%) translateZ(0) !important;
       /* Previeni repaint durante scroll per performance migliori */
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;

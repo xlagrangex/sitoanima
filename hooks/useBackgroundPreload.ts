@@ -28,7 +28,7 @@ export function useBackgroundPreload() {
       '/immagini-guest-cropped/Pieropirupa.webp',
       '/immagini-guest-cropped/grossomoddo-new.webp',
       '/immagini-guest-cropped/peaty.webp',
-      '/immagini guest/piccaemars.jpg',
+      '/immagini-guest-cropped/piccaemars.webp',
     ]
 
     const allBackgroundImages = [...secondCarouselImages, ...guestImages]
