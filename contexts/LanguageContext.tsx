@@ -22,7 +22,7 @@ const translations = {
     'nav.contact': 'Contact',
 
     // Hero
-    'hero.tagline': 'Where house and afrohouse converge into a radiant journey.',
+    'hero.tagline': 'Where electronic music converge into a radiant journey.',
     'hero.tagline2': 'A club experience built around joy, light and freedom — designed to last until the sunrise.',
     'hero.cta': 'Discover the Format',
     
@@ -88,7 +88,7 @@ const translations = {
     
     // Footer
     'footer.tagline': 'Until the Sunrise',
-    'footer.description': 'Where house and afrohouse converge into a radiant journey. A club experience built around joy, light and freedom.',
+    'footer.description': 'Where electronic music converge into a radiant journey. A club experience built around joy, light and freedom.',
     'footer.quicklinks': 'Quick Links',
     'footer.contact': 'Contact',
     'footer.social': 'Let\'s get in touch! Follow us on our Social Media',
@@ -105,14 +105,14 @@ const translations = {
     'nav.contact': 'Contatti',
 
     // Hero
-    'hero.tagline': 'Dove house e afrohouse convergono in un viaggio radioso.',
+    'hero.tagline': 'Dove la musica elettronica converge in un viaggio radioso.',
     'hero.tagline2': 'Un\'esperienza club costruita su gioia, luce e libertà — progettata per durare fino all\'alba.',
     'hero.cta': 'Scopri il Format',
     
     // Sections
     'section1.subtitle': 'Il Format',
     'section1.title': 'L\'ANIMA DELLA NOTTE.',
-    'section1.content': 'ANIMA è più di una festa — è un rituale di suono e luce. Guidata dai ritmi house e afrohouse, la pista da ballo diventa un luogo di pura espressione, libero da giudizi e pieno di unità.\n\nIl sole che sorge sopra la console DJ simboleggia l\'energia infinita che ci accompagna dalla mezzanotte all\'alba.',
+    'section1.content': 'ANIMA è più di una festa — è un rituale di suono e luce. Guidata dalla musica elettronica, la pista da ballo diventa un luogo di pura espressione, libero da giudizi e pieno di unità.\n\nIl sole che sorge sopra la console DJ simboleggia l\'energia infinita che ci accompagna dalla mezzanotte all\'alba.',
     
     'section2.subtitle': 'Il Locale',
     'section2.title': 'IL FUTURO\u00A0DEL CLUBBING, OGGI.',
@@ -171,7 +171,7 @@ const translations = {
     
     // Footer
     'footer.tagline': 'Fino all\'Alba',
-    'footer.description': 'Dove house e afrohouse convergono in un viaggio radioso. Un\'esperienza club costruita su gioia, luce e libertà.',
+    'footer.description': 'Dove la musica elettronica converge in un viaggio radioso. Un\'esperienza club costruita su gioia, luce e libertà.',
     'footer.quicklinks': 'Link Rapidi',
     'footer.contact': 'Contatti',
     'footer.social': 'Mettiamoci in contatto! Seguici sui nostri Social Media',
