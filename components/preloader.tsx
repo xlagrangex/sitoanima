@@ -11,18 +11,20 @@ export function Preloader() {
   useEffect(() => {
     let progressInterval: NodeJS.Timeout | null = null
     let allImagesLoaded = false
+    const startTime = Date.now()
+    const MIN_DISPLAY_TIME = 1500 // 1.5 secondi minimi
 
-    // Start progress animation - ultra fast for FCP
+    // Start progress animation
     progressInterval = setInterval(() => {
       setProgress((prev) => {
-        // Very fast progress for instant FCP
         if (prev >= 100) {
           if (progressInterval) clearInterval(progressInterval)
           return 100
         }
-        return prev + 8 // Ultra fast progress
+        // Progress più graduale per raggiungere 100% in circa 1.5 secondi
+        return prev + 6.67 // ~100% in 1.5 secondi (100/15 = 6.67 per step)
       })
-    }, 10) // Ultra fast interval
+    }, 100) // Intervallo di 100ms
 
     // Load only critical assets for LCP optimization
     const criticalImages = [
@@ -41,11 +43,19 @@ export function Preloader() {
         })
       })
 
-      // Wait for critical assets only
+      // Wait for critical assets
       await Promise.all(imagePromises)
       allImagesLoaded = true
       setProgress(100)
-      setTimeout(() => setIsLoading(false), 50) // Ultra fast exit for FCP
+      
+      // Calcola quanto tempo è passato
+      const elapsed = Date.now() - startTime
+      const remainingTime = Math.max(0, MIN_DISPLAY_TIME - elapsed)
+      
+      // Aspetta almeno 1.5 secondi totali prima di nascondere
+      setTimeout(() => {
+        setIsLoading(false)
+      }, remainingTime)
     }
 
     preloadAssets()
