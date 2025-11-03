@@ -182,10 +182,10 @@ export function AccordionSections() {
 
   const guestDJs = [
     {
-      quote: "A special surprise guest to be revealed soon. Stay tuned for an unforgettable performance.",
-      name: "??? - Announcing soon",
-      designation: "Announcing soon",
-      src: "/immagini-guest-cropped/guestmisterioso.webp"
+      quote: "Electronic music duo bringing innovative sounds and dynamic performances to the scene.",
+      name: "Picca & Mars",
+      designation: "Electronic Duo",
+      src: "/immagini-guest-cropped/piccaemars.webp"
     },
     {
       quote: "Electronic music artist bringing fresh sounds and innovative beats to the underground scene.",
@@ -222,12 +222,6 @@ export function AccordionSections() {
       name: "Peaty",
       designation: "Techno DJ & Producer",
       src: "/immagini-guest-cropped/peaty.webp"
-    },
-    {
-      quote: "Electronic music duo bringing innovative sounds and dynamic performances to the scene.",
-      name: "Picca & Mars",
-      designation: "Electronic Duo",
-      src: "/immagini-guest-cropped/piccaemars.webp"
     }
   ]
 
