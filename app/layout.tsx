@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "ANIMA – Until the Sun Rises",
-    description: "ANIMA is more than a party — it's a ritual of sound and light. Guided by every shade of house music, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.",
+    description: "ANIMA is more than a party — it's a ritual of sound and light. Where electronic music converge into a radiant journey.",
     type: "website",
-    url: "https://anima.ent",
+    url: "https://animaent.club",
     siteName: "ANIMA",
     images: [
       {
-        url: "/anima-complete-white-optimized.webp",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "ANIMA - Until the Sun Rises",
@@ -39,8 +39,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "ANIMA – Until the Sun Rises",
-    description: "ANIMA is more than a party — it's a ritual of sound and light. Guided by every shade of house music, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.",
-    images: ["/anima-complete-white-optimized.webp"],
+    description: "ANIMA is more than a party — it's a ritual of sound and light. Where electronic music converge into a radiant journey.",
+    images: ["/og-image.webp"],
   },
   robots: {
     index: true,
