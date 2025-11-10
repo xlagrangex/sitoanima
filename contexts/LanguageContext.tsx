@@ -33,7 +33,7 @@ const translations = {
     
     'section2.subtitle': 'The Venue',
     'section2.title': 'THE FUTURE\u00A0OF CLUBBING, TODAY.',
-    'section2.content': 'Our venue hosts up to 1,200 people, transformed by immersive light and sound. At its core shines a glowing glass Sun, surrounded by spiraling LED cables — a symbol of power and beauty that defines the ANIMA experience.\n\nRed and white beams cut through the crowd, setting the rhythm for a night of elegance and intensity.\n\nOur home for the Winter is the Iconic neapolitan club HBToo, who hosts Anima since the beginning.',
+    'section2.content': 'Our venue hosts up to 900 people, transformed by immersive light and sound. At its core shines a glowing glass Sun, surrounded by spiraling LED cables — a symbol of power and beauty that defines the ANIMA experience.\n\nRed and white beams cut through the crowd, setting the rhythm for a night of elegance and intensity.\n\nOur home for the Winter is the Iconic neapolitan club HBToo, who hosts Anima since the beginning.',
     'section2.cta': 'How to get here',
     
     'section3.subtitle': 'Events',
@@ -116,7 +116,7 @@ const translations = {
     
     'section2.subtitle': 'Il Locale',
     'section2.title': 'IL FUTURO\u00A0DEL CLUBBING, OGGI.',
-    'section2.content': 'Il nostro locale ospita fino a 1.200 persone, trasformate da luci e suoni immersivi. Al centro brilla un Sole di vetro luminoso, circondato da cavi LED a spirale — un simbolo di potere e bellezza che definisce l\'esperienza ANIMA.\n\nFasci rossi e bianchi attraversano la folla, dettando il ritmo di una notte di eleganza e intensità.\n\nLa nostra casa per l\'inverno è l\'iconico club napoletano HBToo, che ospita Anima fin dall\'inizio.',
+    'section2.content': 'Il nostro locale ospita fino a 900 persone, trasformate da luci e suoni immersivi. Al centro brilla un Sole di vetro luminoso, circondato da cavi LED a spirale — un simbolo di potere e bellezza che definisce l\'esperienza ANIMA.\n\nFasci rossi e bianchi attraversano la folla, dettando il ritmo di una notte di eleganza e intensità.\n\nLa nostra casa per l\'inverno è l\'iconico club napoletano HBToo, che ospita Anima fin dall\'inizio.',
     'section2.cta': 'Come arrivare',
     
     'section3.subtitle': 'Eventi',
