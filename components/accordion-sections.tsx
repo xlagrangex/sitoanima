@@ -429,10 +429,10 @@ export function AccordionSections() {
                 </p>
                 <div className="w-full max-w-2xl mx-auto">
                   <Image
-                    src="/immagini-optimized/IMG_9929.webp"
+                    src="/immagini-optimized/FEED-14-11.webp"
                     alt="ANIMA Event - Next Act"
-                    width={800}
-                    height={1131}
+                    width={1081}
+                    height={1081}
                     className="w-full h-auto rounded-lg shadow-2xl"
                     priority
                   />
