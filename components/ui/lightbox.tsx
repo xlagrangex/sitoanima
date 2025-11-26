@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import Image from 'next/image'
 import type { GalleryItem } from './circular-gallery'
 
 interface LightboxProps {
@@ -120,11 +121,15 @@ export function Lightbox({ images, initialIndex, isOpen, onClose, hideText = fal
                 margin: '0 auto'
               }}
             >
-              <img
+              <Image
                 src={images[currentIndex].photo.url}
                 alt={images[currentIndex].photo.text}
-                className="absolute inset-0 w-full h-full object-cover shadow-2xl"
+                fill
+                sizes="100vw"
+                className="object-cover shadow-2xl"
                 style={{ objectPosition: 'center' }}
+                quality={90}
+                priority={currentIndex === initialIndex}
               />
             </motion.div>
           </AnimatePresence>

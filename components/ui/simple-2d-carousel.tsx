@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 import { Lightbox } from './lightbox';
 import type { GalleryItem } from './circular-gallery';
 
@@ -108,13 +109,17 @@ export function Simple2DCarousel({ items, className = "", aspectRatio }: SimpleC
                   style={{ aspectRatio: '4/3' }}
                   onClick={() => handleImageClick(index)}
                 >
-                  <img
+                  <Image
                     src={item.photo.url}
                     alt={item.photo.text || `Image ${index + 1}`}
-                    className="w-full h-full object-cover rounded-lg transition-transform group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover rounded-lg transition-transform group-hover:scale-105"
                     style={{
                       objectPosition: item.photo.pos || 'center'
                     }}
+                    loading={index < 2 ? "eager" : "lazy"}
+                    quality={85}
                   />
                   {/* Text Overlay */}
                   {item.photo.text && (
