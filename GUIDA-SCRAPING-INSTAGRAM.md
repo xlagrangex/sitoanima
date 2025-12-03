@@ -372,3 +372,5 @@ Dopo aver completato tutti i passaggi, i nuovi post Instagram saranno visibili s
 
 **Ricorda:** Instagram cambia spesso la struttura HTML, quindi se lo script smette di funzionare, potrebbe essere necessario aggiornare i pattern di estrazione.
 
+
+
