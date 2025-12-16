@@ -189,10 +189,13 @@ async function updateInstagramPosts() {
       const filepath = path.join(outputDir, filename);
       const croppedFilePath = path.join(croppedDir, filename);
       
+      // Correggi gli URL HTML entities (&amp; -> &)
+      const imageUrl = post.image.replace(/&amp;/g, '&');
+      
       // Scarica l'immagine solo se non esiste già
       if (!fs.existsSync(filepath)) {
         console.log(`[${i + 1}/${posts.length}] Downloading ${post.id}...`);
-        await downloadImage(post.image, filepath);
+        await downloadImage(imageUrl, filepath);
         console.log(`[${i + 1}/${posts.length}] ✓ Downloaded ${post.id}`);
       } else {
         console.log(`[${i + 1}/${posts.length}] ⊙ Skipping download ${post.id} (already exists)`);
@@ -207,13 +210,17 @@ async function updateInstagramPosts() {
         console.log(`[${i + 1}/${posts.length}] ⊙ Skipping crop ${post.id} (already exists)`);
       }
       
+      // Usa sempre i percorsi locali se l'immagine esiste
+      const originalExists = fs.existsSync(filepath);
+      const croppedExists = fs.existsSync(croppedFilePath);
+      
       updatedPosts.push({
         id: post.id,
-        image: `/instagram-posts-cropped/${filename}`,
+        image: croppedExists ? `/instagram-posts-cropped/${filename}` : (originalExists ? `/instagram-posts/${filename}` : post.image),
         alt: post.alt.replace(/\n/g, ' ').replace(/\s+/g, ' ').trim(),
         url: post.url,
         type: post.type,
-        originalImage: `/instagram-posts/${filename}`
+        originalImage: originalExists ? `/instagram-posts/${filename}` : undefined
       });
     } catch (error) {
       console.error(`[${i + 1}/${posts.length}] ✗ Error processing ${post.id}:`, error.message);
@@ -233,9 +240,15 @@ async function updateInstagramPosts() {
     }
   }
   
-  // Salva il JSON aggiornato con solo i 9 post più recenti
-  fs.writeFileSync(jsonPath, JSON.stringify(updatedPosts, null, 2));
-  console.log(`\n✓ Updated ${updatedPosts.length} posts in ${jsonPath}`);
+  // Filtra solo i post che hanno immagini locali (non URL Instagram)
+  const postsWithLocalImages = updatedPosts.filter(post => 
+    post.image.startsWith('/instagram-posts')
+  );
+  
+  // Salva il JSON aggiornato con solo i post che hanno immagini locali
+  const finalPosts = postsWithLocalImages.slice(0, 9);
+  fs.writeFileSync(jsonPath, JSON.stringify(finalPosts, null, 2));
+  console.log(`\n✓ Updated ${finalPosts.length} posts in ${jsonPath} (filtered ${updatedPosts.length - postsWithLocalImages.length} posts without local images)`);
   console.log(`✓ All images saved to ${outputDir}`);
   console.log(`✓ All cropped images saved to ${croppedDir}`);
 }
