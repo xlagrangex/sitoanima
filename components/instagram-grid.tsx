@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import { Instagram, Heart, MessageCircle } from "lucide-react"
-import instagramPostsData from "@/data/instagram-posts.json"
 
 interface InstagramPost {
   id: string
@@ -18,25 +17,40 @@ export function InstagramGrid() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Load posts from imported JSON data
-    try {
-      // Convert JSON format to component format
-      const convertedPosts: InstagramPost[] = instagramPostsData.map((post: any) => ({
-        id: post.id,
-        image: post.image,
-        alt: post.alt,
-        url: post.url,
-        type: post.type || 'post'
-      }))
-      
-      // Mostra solo i primi 9 post (3 righe da 3)
-      const allPosts = convertedPosts.slice(0, 9)
-      setPosts(allPosts)
-      setLoading(false)
-    } catch (error) {
-      console.error('Error loading Instagram posts:', error)
-      setLoading(false)
+    // Load posts dynamically from JSON file to avoid build-time caching
+    const loadPosts = async () => {
+      try {
+        const response = await fetch('/data/instagram-posts.json', {
+          cache: 'no-store', // Disable caching to get fresh data
+          next: { revalidate: 0 } // Force revalidation
+        })
+        
+        if (!response.ok) {
+          throw new Error('Failed to load Instagram posts')
+        }
+        
+        const instagramPostsData = await response.json()
+        
+        // Convert JSON format to component format
+        const convertedPosts: InstagramPost[] = instagramPostsData.map((post: any) => ({
+          id: post.id,
+          image: post.image,
+          alt: post.alt,
+          url: post.url,
+          type: post.type || 'post'
+        }))
+        
+        // Mostra solo i primi 9 post (3 righe da 3)
+        const allPosts = convertedPosts.slice(0, 9)
+        setPosts(allPosts)
+        setLoading(false)
+      } catch (error) {
+        console.error('Error loading Instagram posts:', error)
+        setLoading(false)
+      }
     }
+    
+    loadPosts()
   }, [])
 
   if (loading) {
