@@ -438,7 +438,7 @@ export function AccordionSections() {
                 </p>
                 <div className="w-full max-w-2xl mx-auto">
                   <Image
-                    src="/immagini-optimized/FEED-30-01.webp"
+                    src="/immagini-optimized/FEED-06-02.webp"
                     alt="ANIMA Event - Next Act"
                     width={1081}
                     height={1081}
