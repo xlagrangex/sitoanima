@@ -8,6 +8,7 @@ import { LanguageSwitcher } from "@/components/language-switcher"
 import { Preloader } from "@/components/preloader"
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://animaent.club"),
   title: "ANIMA – Until the Sun Rises | Electronic Music Events",
   description:
     "ANIMA is more than a party — it's a ritual of sound and light. Guided by every shade of house music, the dancefloor becomes a place of pure expression, free from judgment and filled with unity.",
