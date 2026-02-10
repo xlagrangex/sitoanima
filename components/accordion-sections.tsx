@@ -236,7 +236,7 @@ export function AccordionSections() {
 
   const guestGalleryItems: GalleryItem[] = [
     {
-      common: "",
+      common: "KILIMANJARO",
       binomial: "",
       photo: {
         url: "/KILLI_PART_II_16_10_2025154301.webp",
