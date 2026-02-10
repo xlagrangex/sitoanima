@@ -234,17 +234,29 @@ export function AccordionSections() {
     }
   ]
 
-  const guestGalleryItems: GalleryItem[] = guestDJs.map((guest) => ({
-    common: guest.name,
-    binomial: guest.designation,
-    photo: {
-      url: guest.src,
-      text: guest.quote,
-      by: "ANIMA Events",
-      pos: guest.name === "Grossomoddo" ? "center top" : 
-           guest.name === "Peppe Citarella" ? "center center" : "center"
-    }
-  }))
+  const guestGalleryItems: GalleryItem[] = [
+    {
+      common: "",
+      binomial: "",
+      photo: {
+        url: "/KILLI_PART_II_16_10_2025154301.webp",
+        text: "ANIMA Event - KILLI PART II",
+        by: "ANIMA Events",
+        pos: "center"
+      }
+    },
+    ...guestDJs.map((guest) => ({
+      common: guest.name,
+      binomial: guest.designation,
+      photo: {
+        url: guest.src,
+        text: guest.quote,
+        by: "ANIMA Events",
+        pos: guest.name === "Grossomoddo" ? "center top" : 
+             guest.name === "Peppe Citarella" ? "center center" : "center"
+      }
+    }))
+  ]
 
   // Helper function to convert GalleryItem[] to Gallery4Item[]
   // Per media: nessun titolo. Per guests: solo il nome dell'artista (common)

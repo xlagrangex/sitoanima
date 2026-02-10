@@ -57,6 +57,7 @@ export function useMediaQuery(
 }
 
 const animaImages = [
+  "/KILLI_PART_II_16_10_2025154301.webp",
   "/charlotte-de-witte-dj-poster-dark-techno.webp",
   "/amelie-lens-dj-poster-techno-event.webp",
   "/ben-klock-dj-poster-underground-techno.webp",
