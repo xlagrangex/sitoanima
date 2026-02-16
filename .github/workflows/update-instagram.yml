@@ -1,0 +1,42 @@
+name: Update Instagram Feed
+
+on:
+  schedule:
+    # Lunedi, Mercoledi, Venerdi alle 23:00 (ora italiana = 22:00 UTC in inverno, 21:00 UTC in estate)
+    - cron: '0 22 * * 1,3,5'
+  workflow_dispatch: # Permette di lanciarlo manualmente
+
+jobs:
+  update-instagram:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install sharp
+
+      - name: Run Apify Instagram Scraper
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: node scripts/apify-update-instagram.js
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet data/ public/instagram-posts/ public/instagram-posts-cropped/ || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/instagram-posts.json public/instagram-posts/ public/instagram-posts-cropped/
+          git commit -m "auto: update Instagram feed $(date +'%Y-%m-%d %H:%M')"
+          git push
