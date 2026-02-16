@@ -35,13 +35,13 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet data/ public/instagram-posts/ public/instagram-posts-cropped/ || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --quiet data/ public/data/ public/instagram-posts/ public/instagram-posts-cropped/ || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push changes
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/instagram-posts.json public/instagram-posts/ public/instagram-posts-cropped/
+          git add data/instagram-posts.json public/data/instagram-posts.json public/instagram-posts/ public/instagram-posts-cropped/
           git commit -m "auto: update Instagram feed $(date +'%Y-%m-%d %H:%M')"
           git push

@@ -141,9 +141,11 @@ async function main() {
   const outputDir = path.join(__dirname, '../public/instagram-posts');
   const croppedDir = path.join(__dirname, '../public/instagram-posts-cropped');
   const jsonPath = path.join(__dirname, '../data/instagram-posts.json');
+  const publicJsonPath = path.join(__dirname, '../public/data/instagram-posts.json');
 
   fs.mkdirSync(outputDir, { recursive: true });
   fs.mkdirSync(croppedDir, { recursive: true });
+  fs.mkdirSync(path.dirname(publicJsonPath), { recursive: true });
 
   // 1. Start Apify Instagram Scraper
   console.log('Starting Apify Instagram Scraper for @anima.ent...');
@@ -242,8 +244,10 @@ async function main() {
 
   // 5. Save JSON (max 9 posts)
   const finalPosts = updatedPosts.slice(0, DISPLAY_LIMIT);
-  fs.writeFileSync(jsonPath, JSON.stringify(finalPosts, null, 2));
-  console.log(`\nDone! Updated ${finalPosts.length} posts in ${jsonPath}`);
+  const jsonContent = JSON.stringify(finalPosts, null, 2);
+  fs.writeFileSync(jsonPath, jsonContent);
+  fs.writeFileSync(publicJsonPath, jsonContent);
+  console.log(`\nDone! Updated ${finalPosts.length} posts in ${jsonPath} and ${publicJsonPath}`);
 }
 
 main().catch(err => {
