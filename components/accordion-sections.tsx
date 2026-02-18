@@ -314,7 +314,10 @@ export function AccordionSections() {
       subtitleKey: "section3.subtitle",
       titleKey: "section3.title",
       contentKey: "section3.content",
-      cta: null,
+      cta: {
+        textKey: "section3.cta",
+        href: "https://www.eventbrite.it/e/biglietti-anima-vol03-act-17-1982662695494?aff=oddtdtcreator",
+      },
     },
     {
       id: "guests",
@@ -458,6 +461,23 @@ export function AccordionSections() {
                     priority
                   />
                 </div>
+                {section.cta && section.cta.href && (
+                  <div className="mt-8 flex justify-center">
+                    <Button
+                      asChild
+                      className={`btn-primary ${scheme.accent === 'text-red-600' ? 'bg-red-600 hover:bg-red-700' : scheme.accent === 'text-black' ? 'bg-black hover:bg-gray-900' : 'bg-white hover:bg-gray-100'} ${scheme.accent === 'text-white' ? 'text-black' : 'text-white'} px-3 md:px-8 py-3 md:py-4 text-sm md:text-base shadow-lg max-w-full`}
+                    >
+                      <a
+                        href={section.cta.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center"
+                      >
+                        {t(section.cta.textKey)}
+                      </a>
+                    </Button>
+                  </div>
+                )}
               </div>
             ) : section.id === "guests" ? (
               <div className="w-full max-w-6xl mx-auto">

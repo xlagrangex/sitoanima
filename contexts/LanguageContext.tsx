@@ -39,6 +39,7 @@ const translations = {
     'section3.subtitle': 'Events',
     'section3.title': 'NEXT ACT',
     'section3.content': 'Every season ANIMA curates nights where international electronic music rise and spreads vibes through the night. Be part of the story — explore the upcoming shows and secure your spot beneath the Sun.',
+    'section3.cta': 'Register on Eventbrite – FREE LADY',
     
     'section4.subtitle': 'Artists',
     'section4.title': 'THOSE WHO SHARED THE LIGHT.',
@@ -122,6 +123,7 @@ const translations = {
     'section3.subtitle': 'Eventi',
     'section3.title': 'PROSSIMO EVENTO',
     'section3.content': 'Ogni stagione ANIMA cura serate in cui la musica elettronica internazionale si eleva e diffonde vibrazioni per tutta la notte. Fai parte della storia — esplora i prossimi eventi e assicurati il tuo posto sotto il Sole.',
+    'section3.cta': 'Registrati su Eventbrite – FREE LADY',
     
     'section4.subtitle': 'Artisti',
     'section4.title': 'CHI HA CONDIVISO LA LUCE.',
