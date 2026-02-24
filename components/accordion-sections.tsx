@@ -316,7 +316,7 @@ export function AccordionSections() {
       contentKey: "section3.content",
       cta: {
         textKey: "section3.cta",
-        href: "https://www.eventbrite.it/e/biglietti-anima-vol03-act-17-1982662695494?aff=oddtdtcreator",
+        href: "https://www.eventbrite.it/e/biglietti-anima-meets-disco-magazine-vol03-act-18-1982663047547?aff=oddtdtcreator",
       },
     },
     {
