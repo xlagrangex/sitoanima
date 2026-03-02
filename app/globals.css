@@ -186,7 +186,7 @@
     font-size: 1.43em;
   }
   
-  /* Button styles using Sequel */
+  /* Button styles using Sequel (desktop-first) */
   .btn-primary {
     font-family: var(--font-sequel);
     font-weight: 900;
@@ -199,7 +199,7 @@
     text-overflow: ellipsis;
   }
   
-  /* Assicura che tutti i bottoni mantengano il testo su una riga */
+  /* Assicura che tutti i bottoni mantengano il testo su una riga su desktop */
   button, 
   a[role="button"],
   [data-slot="button"] {
@@ -218,6 +218,15 @@ html {
 
 /* Disable smooth scroll on mobile to prevent scroll jumping/bugging */
 @media (max-width: 768px) {
+  /* Permetti ai bottoni di andare a capo su mobile per evitare overflow orizzontale */
+  .btn-primary,
+  button,
+  a[role="button"],
+  [data-slot="button"] {
+    white-space: normal;
+    text-overflow: clip;
+  }
+
   html {
     scroll-behavior: auto;
     /* Fix viewport height to prevent content shifting when browser address bar expands/contracts */
