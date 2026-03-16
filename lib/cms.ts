@@ -8,6 +8,7 @@ let settingsCache: SiteSetting[] | null = null
 
 export async function fetchContent(): Promise<SectionContent[]> {
   if (contentCache) return contentCache
+  if (!supabase) return []
   const { data, error } = await supabase
     .from("section_content")
     .select("*")
@@ -19,6 +20,7 @@ export async function fetchContent(): Promise<SectionContent[]> {
 
 export async function fetchImages(section?: string): Promise<SectionImage[]> {
   if (imagesCache && !section) return imagesCache
+  if (!supabase) return []
   let query = supabase
     .from("section_images")
     .select("*")
@@ -32,6 +34,7 @@ export async function fetchImages(section?: string): Promise<SectionImage[]> {
 
 export async function fetchSettings(): Promise<SiteSetting[]> {
   if (settingsCache) return settingsCache
+  if (!supabase) return []
   const { data, error } = await supabase
     .from("site_settings")
     .select("*")
