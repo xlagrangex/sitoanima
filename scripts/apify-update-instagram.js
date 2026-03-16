@@ -183,6 +183,14 @@ async function main() {
 
   console.log(`Got ${dataset.length} posts from Apify`);
 
+  // 3b. Sort by timestamp descending (most recent first)
+  dataset.sort((a, b) => {
+    const dateA = new Date(a.timestamp || a.takenAtTimestamp || 0).getTime();
+    const dateB = new Date(b.timestamp || b.takenAtTimestamp || 0).getTime();
+    return dateB - dateA;
+  });
+  console.log('Posts sorted by date (most recent first)');
+
   // 4. Process each post
   const updatedPosts = [];
 
@@ -228,7 +236,8 @@ async function main() {
         alt: caption.slice(0, 300),
         url: postUrl,
         type: type,
-        originalImage: `/instagram-posts/${filename}`
+        originalImage: `/instagram-posts/${filename}`,
+        timestamp: item.timestamp || item.takenAtTimestamp || null
       });
 
       console.log(`  [${i + 1}/${dataset.length}] OK ${postId}`);
