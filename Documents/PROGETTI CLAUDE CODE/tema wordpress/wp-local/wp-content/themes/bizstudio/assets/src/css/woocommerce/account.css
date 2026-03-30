@@ -8,13 +8,20 @@
 	padding-bottom: 3rem;
 }
 
+/* Remove entry-content prose constraints on WC account page */
+.woocommerce-account .biz-page-content {
+	max-width: none;
+	font-size: inherit;
+	color: inherit;
+}
+
 .woocommerce-MyAccount-navigation,
 .woocommerce-MyAccount-content {
 	font-family: var(--biz-font);
 }
 
-/* Two-column layout */
-.woocommerce-account .woocommerce {
+/* Two-column layout (logged in) */
+.woocommerce-account.logged-in .woocommerce {
 	display: grid;
 	grid-template-columns: 240px 1fr;
 	gap: 2rem;
@@ -271,8 +278,17 @@ mark.order-status.status-failed::before {
 .woocommerce-account:not(.logged-in) .woocommerce {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 2rem;
+	gap: 2.5rem;
 	align-items: start;
+	max-width: 860px;
+	margin: 0 auto;
+	padding-top: 1rem;
+}
+
+/* Column wrappers (u-column1, u-column2) */
+.woocommerce-account:not(.logged-in) .u-column1,
+.woocommerce-account:not(.logged-in) .u-column2 {
+	min-width: 0;
 }
 
 /* Form containers */
@@ -281,6 +297,7 @@ mark.order-status.status-failed::before {
 	background: var(--biz-surface);
 	border-radius: var(--biz-radius-lg);
 	padding: 2rem;
+	border: 1px solid var(--biz-border);
 }
 
 /* Form headings (added by WC) */
@@ -288,11 +305,18 @@ mark.order-status.status-failed::before {
 .u-column2 h2,
 .woocommerce-form-login h2,
 .woocommerce-form-register h2 {
-	font-size: 1.375rem;
+	font-size: 1.25rem;
 	font-weight: 700;
+	margin-top: 0;
 	margin-bottom: 1.5rem;
-	padding-bottom: 1rem;
-	border-bottom: 2px solid var(--biz-border);
+	padding-bottom: 0.875rem;
+	border-bottom: 1px solid var(--biz-border);
+}
+
+/* Paragraphs inside the form columns */
+.woocommerce-account:not(.logged-in) .u-column1 > p,
+.woocommerce-account:not(.logged-in) .u-column2 > p {
+	margin-bottom: 0;
 }
 
 /* Labels */
@@ -470,6 +494,7 @@ mark.order-status.status-failed::before {
 .dark .woocommerce-form-register,
 .dark .woocommerce-Address {
 	background: var(--biz-surface);
+	border-color: var(--biz-border);
 }
 .dark .woocommerce-orders-table thead th {
 	background: var(--biz-surface);
@@ -479,7 +504,7 @@ mark.order-status.status-failed::before {
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
-	.woocommerce-account .woocommerce {
+	.woocommerce-account.logged-in .woocommerce {
 		grid-template-columns: 1fr;
 	}
 	.woocommerce-MyAccount-navigation {

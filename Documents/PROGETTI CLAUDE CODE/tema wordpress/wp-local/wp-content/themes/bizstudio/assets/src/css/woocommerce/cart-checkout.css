@@ -9,6 +9,15 @@
 	padding-bottom: 3rem;
 }
 
+/* Remove entry-content prose constraints on WC cart/checkout */
+.woocommerce-cart .biz-page-content,
+.woocommerce-checkout .biz-page-content {
+	max-width: none;
+	font-size: inherit;
+	color: inherit;
+	padding-bottom: 0;
+}
+
 /* --- Shared Block Overrides --- */
 .wp-block-woocommerce-cart,
 .wp-block-woocommerce-checkout {

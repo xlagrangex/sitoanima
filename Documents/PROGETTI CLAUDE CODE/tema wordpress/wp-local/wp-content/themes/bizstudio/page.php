@@ -11,13 +11,16 @@ get_header();
 <main class="biz-main">
 	<div class="biz-container">
 		<?php while ( have_posts() ) : the_post(); ?>
-			<?php if ( ! is_cart() && ! is_checkout() && ! is_account_page() ) : ?>
+			<?php
+			$is_wc = is_cart() || is_checkout() || is_account_page();
+			?>
+			<?php if ( ! $is_wc ) : ?>
 				<header class="biz-page-header">
 					<h1 class="biz-page-header__title"><?php the_title(); ?></h1>
 				</header>
 			<?php endif; ?>
 
-			<div class="biz-page-content entry-content">
+			<div class="biz-page-content <?php echo $is_wc ? '' : 'entry-content'; ?>">
 				<?php the_content(); ?>
 			</div>
 		<?php endwhile; ?>
