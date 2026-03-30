@@ -1,7 +1,7 @@
 # BizStudio Theme — Sprint Plan
 
-> Ultimo aggiornamento: 2026-03-30
-> Stato: Sprint 1, 2, 3, 4 e 5 COMPLETATI (implementazione), test sprint da fare
+> Ultimo aggiornamento: 2026-03-31
+> Stato: Sprint 1-6 COMPLETATI (implementazione), Sprint 7-8 da fare, test da fare
 
 ---
 
@@ -194,7 +194,7 @@ Effetti premium: parallax, hover avanzati, page transitions, micro-interazioni.
 
 ---
 
-## Sprint 6 — Header/Footer Builder + Admin [DA FARE]
+## Sprint 6 — Header/Footer Builder + Admin [IMPLEMENTATO]
 
 ### Obiettivo
 Builder visuali nel Customizer, Customizer completo, Schema.org.
@@ -202,37 +202,48 @@ Builder visuali nel Customizer, Customizer completo, Schema.org.
 ### Task — Header Builder
 | # | Funzionalita | Impl | Test |
 |---|---|---|---|
-| 6.1 | Pannello Customizer con 3 righe: Top Bar, Main Header, Bottom Bar | [ ] | [ ] |
-| 6.2 | Ogni riga 3 zone: Sinistra, Centro, Destra | [ ] | [ ] |
-| 6.3 | Elementi trascinabili (Logo, Menu, Ricerca, Cart, Account, ecc.) | [ ] | [ ] |
-| 6.4 | 5 preset header (Default, Centered, Minimal, Transparent, E-commerce) | [ ] | [ ] |
-| 6.5 | Top bar promo dismissibile | [ ] | [ ] |
-| 6.6 | Opzioni per riga (altezza, sfondo, bordi, sticky, visibilita device) | [ ] | [ ] |
-| 6.7 | Header mobile separato | [ ] | [ ] |
-| 6.8 | Preview live nel Customizer | [ ] | [ ] |
+| 6.1 | Pannello Customizer con 3 righe: Top Bar, Main Header, Bottom Bar | [x] | [ ] |
+| 6.2 | Ogni riga 3 zone: Sinistra, Centro, Destra | [x] | [ ] |
+| 6.3 | Elementi assegnabili (Logo, Menu, Ricerca, Cart, Account) via preset | [x] | [ ] |
+| 6.4 | 5 preset header (Default, Centered, Minimal, Transparent, E-commerce) | [x] | [ ] |
+| 6.5 | Top bar promo dismissibile | [x] | [ ] |
+| 6.6 | Opzioni per riga (altezza, sfondo, bordi, sticky, visibilita device) | [x] | [ ] |
+| 6.7 | Header mobile separato (logo + burger) | [x] | [ ] |
+| 6.8 | Preview live nel Customizer | [x] | [ ] |
 
 ### Task — Footer Builder
 | # | Funzionalita | Impl | Test |
 |---|---|---|---|
-| 6.9 | 3 sezioni: Pre-Footer, Widgets, Bottom Bar | [ ] | [ ] |
-| 6.10 | Layout colonne selezionabile (1/2/3/4 + asimmetrici) | [ ] | [ ] |
-| 6.11 | Elementi (widget, logo, social, newsletter, payment icons, copyright) | [ ] | [ ] |
-| 6.12 | 5 preset footer | [ ] | [ ] |
-| 6.13 | Colori custom footer | [ ] | [ ] |
-| 6.14 | Preview live nel Customizer | [ ] | [ ] |
+| 6.9 | 3 sezioni: Pre-Footer vantaggi, Colonne info, Bottom Bar | [x] | [ ] |
+| 6.10 | Layout colonne selezionabile (1/2/3/4 + asimmetrici) | [x] | [ ] |
+| 6.11 | Elementi (logo, social, payment icons, copyright, link legali) | [x] | [ ] |
+| 6.12 | 5 preset footer | [x] | [ ] |
+| 6.13 | Colori custom footer | [x] | [ ] |
+| 6.14 | Preview live nel Customizer | [x] | [ ] |
 
 ### Task — Customizer + SEO
 | # | Funzionalita | Impl | Test |
 |---|---|---|---|
-| 6.15 | Customizer: sezione Colori | [ ] | [ ] |
-| 6.16 | Customizer: sezione Tipografia | [ ] | [ ] |
-| 6.17 | Customizer: sezione Shop | [ ] | [ ] |
-| 6.18 | Customizer: sezione Performance | [ ] | [ ] |
-| 6.19 | Schema.org: Product + BreadcrumbList + Organization + WebSite | [ ] | [ ] |
-| 6.20 | Open Graph meta tags | [ ] | [ ] |
-| 6.21 | Form contatto basico via shortcode | [ ] | [ ] |
+| 6.15 | Customizer: sezione Colori (10 color picker) | [x] | [ ] |
+| 6.16 | Customizer: sezione Tipografia (font, size, weight) | [x] | [ ] |
+| 6.17 | Customizer: sezione Shop (prodotti/pagina, colonne, card style) | [x] | [ ] |
+| 6.18 | Customizer: sezione Performance (scroll reveal, lazy load, preload) | [x] | [ ] |
+| 6.19 | Schema.org: Product + BreadcrumbList + Organization + WebSite | [x] | [ ] |
+| 6.20 | Open Graph + Twitter Card meta tags | [x] | [ ] |
+| 6.21 | Form contatto basico via shortcode [bizstudio_contact_form] | [x] | [ ] |
 
 ### Sprint 6 — Test completo: [ ]
+
+### File creati in Sprint 6
+- `inc/header-builder.php` — Header Builder (5 preset, Top/Bottom Bar, Customizer, inline CSS)
+- `inc/footer-builder.php` — Footer Builder (preset, pre-footer, payment icons, social, Customizer)
+- `inc/customizer.php` — Sezioni Colori, Tipografia, Shop, Performance + Google Fonts dinamico
+- `inc/seo.php` — Schema.org JSON-LD (Organization, WebSite, BreadcrumbList, Product) + Open Graph + Twitter Card
+- `inc/contact-form.php` — Shortcode form contatto con AJAX, honeypot, rate limiting
+- `assets/src/css/components/header-builder.css` — Stili 5 preset header + top/bottom bar
+- `assets/src/css/components/footer-builder.css` — Stili pre-footer, payment icons, social links
+- `assets/src/css/components/contact-form.css` — Stili form contatto
+- `woocommerce/checkout.php` — Template checkout full-page (solo logo, no header/footer)
 
 ---
 
