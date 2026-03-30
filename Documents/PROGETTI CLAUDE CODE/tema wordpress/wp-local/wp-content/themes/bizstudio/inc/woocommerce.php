@@ -36,6 +36,29 @@ add_filter( 'template_include', function ( $template ) {
 	return $template;
 } );
 
+/**
+ * Match guest orders to existing accounts by email.
+ *
+ * If a guest checks out with an email that belongs to a registered user,
+ * assign the order to that user automatically.
+ */
+add_action( 'woocommerce_checkout_order_created', function ( $order ) {
+	if ( $order->get_customer_id() ) {
+		return; // Already assigned to a user.
+	}
+
+	$email = $order->get_billing_email();
+	if ( ! $email ) {
+		return;
+	}
+
+	$user = get_user_by( 'email', $email );
+	if ( $user ) {
+		$order->set_customer_id( $user->ID );
+		$order->save();
+	}
+} );
+
 // HPOS compatibility
 add_action( 'before_woocommerce_init', function () {
 	if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {

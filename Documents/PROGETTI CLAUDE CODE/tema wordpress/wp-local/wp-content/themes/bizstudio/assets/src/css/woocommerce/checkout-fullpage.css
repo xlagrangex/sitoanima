@@ -2,7 +2,7 @@
    Checkout Full-Page — Minimal chrome, WC blocks handle layout
    ============================================================ */
 
-/* Hide ALL site chrome (injected by wp_head / wp_body_open / wp_footer) */
+/* Hide ALL site chrome */
 body.biz-checkout-page .biz-header,
 body.biz-checkout-page .biz-footer,
 body.biz-checkout-page .biz-promo-bar,
@@ -28,7 +28,7 @@ body.biz-checkout-page .biz-mobile-overlay {
 }
 
 /* ============================================================
-   Header — logo centered
+   Header — logo a sinistra, "checkout sicuro" a destra
    ============================================================ */
 .biz-checkout__header {
 	padding: 1.25rem 0;
@@ -38,9 +38,13 @@ body.biz-checkout-page .biz-mobile-overlay {
 .biz-checkout__header-inner {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 }
-.biz-checkout__header-inner img {
+.biz-checkout__logo {
+	display: flex;
+	align-items: center;
+}
+.biz-checkout__logo img {
 	max-height: 40px;
 	width: auto;
 }
@@ -54,6 +58,17 @@ body.biz-checkout-page .biz-mobile-overlay {
 .biz-checkout__logo-text:hover {
 	color: var(--biz-primary);
 }
+.biz-checkout__secure-badge {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
+	font-size: 0.8125rem;
+	color: var(--biz-text-muted);
+}
+.biz-checkout__secure-badge svg {
+	color: var(--biz-success);
+	flex-shrink: 0;
+}
 
 /* ============================================================
    Main — let WC blocks own the layout
@@ -64,43 +79,79 @@ body.biz-checkout-page .biz-mobile-overlay {
 }
 
 /* ============================================================
-   Footer — back link + copyright
+   Footer — back link + sicuro + privacy/terms
    ============================================================ */
 .biz-checkout__footer {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 1.25rem 0;
 	border-top: 1px solid var(--biz-border);
 	flex-shrink: 0;
 	margin-top: auto;
+	padding: 1.25rem 0;
 }
+.biz-checkout__footer-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+/* Back to cart */
 .biz-checkout__back {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 0.375rem;
 	color: var(--biz-primary);
-	font-size: 0.875rem;
+	font-size: 0.8125rem;
 	font-weight: 500;
 	text-decoration: none;
 	transition: color var(--biz-fast);
+	white-space: nowrap;
 }
 .biz-checkout__back:hover {
 	color: var(--biz-primary-dark);
 }
-.biz-checkout__back:hover svg {
-	transform: translateX(-3px);
-}
 .biz-checkout__back svg {
 	transition: transform var(--biz-fast);
 }
-.biz-checkout__copy {
+.biz-checkout__back:hover svg {
+	transform: translateX(-3px);
+}
+
+/* Center: checkout sicuro */
+.biz-checkout__footer-center {
+	display: flex;
+	align-items: center;
+	gap: 0.375rem;
 	font-size: 0.8125rem;
 	color: var(--biz-text-muted);
 }
+.biz-checkout__footer-center svg {
+	color: var(--biz-success);
+}
+
+/* Right: legal links */
+.biz-checkout__footer-links {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 0.8125rem;
+}
+.biz-checkout__footer-links a {
+	color: var(--biz-text-muted);
+	text-decoration: none;
+	transition: color var(--biz-fast);
+	white-space: nowrap;
+}
+.biz-checkout__footer-links a:hover {
+	color: var(--biz-primary);
+	text-decoration: underline;
+}
+.biz-checkout__copy {
+	color: var(--biz-text-muted);
+	white-space: nowrap;
+}
 
 /* ============================================================
-   Dark mode — input contrast (checkout + cart shared)
+   Dark mode — input contrast
    ============================================================ */
 .dark .wc-block-components-text-input input,
 .dark .wc-block-components-text-input textarea,
@@ -146,11 +197,22 @@ body.biz-checkout-page .biz-mobile-overlay {
 		padding: 0 1rem;
 	}
 	.biz-checkout__main {
-		padding: 1rem 0;
+		padding: 1.25rem 0;
 	}
-	.biz-checkout__footer {
+	.biz-checkout__secure-badge {
+		display: none;
+	}
+	.biz-checkout__footer-inner {
 		flex-direction: column;
 		gap: 0.75rem;
 		text-align: center;
+	}
+	.biz-checkout__footer-center {
+		order: -1;
+	}
+	.biz-checkout__footer-links {
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.75rem;
 	}
 }
