@@ -1,0 +1,87 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"color": {
+			"palette": [
+				{ "slug": "primary", "color": "#8367C7", "name": "Primary" },
+				{ "slug": "primary-dark", "color": "#6B4FAF", "name": "Primary Dark" },
+				{ "slug": "text-primary", "color": "#1A1A2E", "name": "Text Primary" },
+				{ "slug": "text-secondary", "color": "#555570", "name": "Text Secondary" },
+				{ "slug": "text-muted", "color": "#8E8EA0", "name": "Text Muted" },
+				{ "slug": "background", "color": "#FFFFFF", "name": "Background" },
+				{ "slug": "surface", "color": "#F7F7FA", "name": "Surface" },
+				{ "slug": "border", "color": "#E5E5EE", "name": "Border" },
+				{ "slug": "success", "color": "#2EA043", "name": "Success" },
+				{ "slug": "warning", "color": "#E5A100", "name": "Warning" },
+				{ "slug": "error", "color": "#E5383B", "name": "Error" },
+				{ "slug": "rating", "color": "#F5A623", "name": "Rating" }
+			],
+			"custom": true,
+			"defaultPalette": false
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"fontFamily": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif",
+					"slug": "primary",
+					"name": "Primary"
+				},
+				{
+					"fontFamily": "'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace",
+					"slug": "mono",
+					"name": "Monospace"
+				}
+			],
+			"fontSizes": [
+				{ "slug": "xs", "size": "0.75rem", "name": "Extra Small" },
+				{ "slug": "sm", "size": "0.875rem", "name": "Small" },
+				{ "slug": "base", "size": "1rem", "name": "Base" },
+				{ "slug": "md", "size": "1.125rem", "name": "Medium" },
+				{ "slug": "lg", "size": "1.25rem", "name": "Large" },
+				{ "slug": "xl", "size": "1.5rem", "name": "Extra Large" },
+				{ "slug": "2xl", "size": "2rem", "name": "2XL" },
+				{ "slug": "3xl", "size": "2.5rem", "name": "3XL" },
+				{ "slug": "4xl", "size": "3rem", "name": "4XL" }
+			],
+			"customFontSize": true
+		},
+		"spacing": {
+			"units": ["px", "rem", "%", "vw"],
+			"spacingSizes": [
+				{ "slug": "xs", "size": "0.5rem", "name": "XS" },
+				{ "slug": "sm", "size": "0.75rem", "name": "SM" },
+				{ "slug": "md", "size": "1rem", "name": "MD" },
+				{ "slug": "lg", "size": "1.5rem", "name": "LG" },
+				{ "slug": "xl", "size": "2rem", "name": "XL" },
+				{ "slug": "2xl", "size": "3rem", "name": "2XL" },
+				{ "slug": "3xl", "size": "4rem", "name": "3XL" },
+				{ "slug": "4xl", "size": "6rem", "name": "4XL" }
+			]
+		},
+		"layout": {
+			"contentSize": "1200px",
+			"wideSize": "1400px"
+		},
+		"custom": {
+			"border-radius": {
+				"sm": "6px",
+				"md": "8px",
+				"lg": "12px",
+				"xl": "16px",
+				"full": "9999px"
+			},
+			"shadow": {
+				"sm": "0 1px 3px rgba(26,26,46,0.06)",
+				"md": "0 4px 12px rgba(26,26,46,0.08)",
+				"lg": "0 8px 24px rgba(26,26,46,0.12)",
+				"xl": "0 16px 48px rgba(26,26,46,0.16)"
+			},
+			"transition": {
+				"fast": "150ms ease",
+				"base": "250ms ease",
+				"slow": "400ms ease"
+			}
+		}
+	}
+}

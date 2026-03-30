@@ -1,0 +1,156 @@
+/* ============================================================
+   Universal Form Styling
+   ============================================================ */
+
+/* Text inputs, selects, textareas */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="search"],
+input[type="date"],
+select,
+textarea {
+	font-family: var(--biz-font);
+	font-size: 0.9375rem;
+	color: var(--biz-text);
+	background: var(--biz-bg);
+	border: 1.5px solid var(--biz-border);
+	border-radius: var(--biz-radius);
+	padding: 0.75rem 0.875rem;
+	transition: border-color var(--biz-fast), box-shadow var(--biz-fast);
+	width: 100%;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="date"]:focus,
+select:focus,
+textarea:focus {
+	border-color: var(--biz-primary);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(131,103,199,0.15);
+}
+input::placeholder,
+textarea::placeholder {
+	color: var(--biz-text-muted);
+}
+
+/* Disabled state */
+input:disabled,
+select:disabled,
+textarea:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+	background: var(--biz-surface);
+}
+
+/* Select */
+select {
+	appearance: auto;
+	cursor: pointer;
+}
+
+/* Textarea */
+textarea {
+	min-height: 120px;
+	resize: vertical;
+	line-height: 1.6;
+}
+
+/* Labels */
+label {
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: var(--biz-text-secondary);
+	margin-bottom: 0.375rem;
+}
+label .required {
+	color: var(--biz-error);
+	margin-left: 0.125rem;
+}
+
+/* Form rows */
+.form-row {
+	margin-bottom: 1.25rem;
+}
+.form-row-first,
+.form-row-last {
+	width: 48%;
+	display: inline-block;
+	vertical-align: top;
+}
+.form-row-first {
+	margin-right: 4%;
+}
+.form-row-wide {
+	width: 100%;
+}
+
+/* Checkbox & radio */
+input[type="checkbox"],
+input[type="radio"] {
+	width: 18px;
+	height: 18px;
+	accent-color: var(--biz-primary);
+	cursor: pointer;
+	vertical-align: middle;
+}
+
+/* Error state */
+.woocommerce-invalid input,
+.biz-input--error {
+	border-color: var(--biz-error) !important;
+}
+.woocommerce-invalid input:focus,
+.biz-input--error:focus {
+	box-shadow: 0 0 0 3px rgba(229,56,59,0.15) !important;
+}
+
+/* Inline validation message */
+.woocommerce-error,
+.biz-field-error {
+	font-size: 0.8125rem;
+	color: var(--biz-error);
+	margin-top: 0.25rem;
+}
+
+/* Password visibility toggle */
+.password-input {
+	position: relative;
+}
+.show-password-input {
+	position: absolute;
+	right: 0.75rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--biz-text-muted);
+	cursor: pointer;
+	transition: color var(--biz-fast);
+}
+.show-password-input:hover {
+	color: var(--biz-text);
+}
+
+/* Dark mode */
+.dark input[type="text"],
+.dark input[type="email"],
+.dark input[type="password"],
+.dark input[type="tel"],
+.dark input[type="url"],
+.dark input[type="number"],
+.dark input[type="search"],
+.dark input[type="date"],
+.dark select,
+.dark textarea {
+	background: var(--biz-surface);
+	border-color: var(--biz-border);
+	color: var(--biz-text);
+}

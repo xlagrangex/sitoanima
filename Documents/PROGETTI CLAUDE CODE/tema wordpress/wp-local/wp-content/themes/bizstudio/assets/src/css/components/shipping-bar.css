@@ -1,0 +1,276 @@
+/* ============================================================
+   Shipping Progress Bar
+   Multi-step progress bar with confetti effects
+
+   @package BizStudio
+   ============================================================ */
+
+/* --- Container --- */
+.biz-shipping-bar-wrap {
+	width: 100%;
+}
+
+.biz-shipping-bar {
+	position: relative;
+	padding: 12px 16px 20px;
+	margin: 0 0 12px;
+	background: var(--biz-surface);
+	border-radius: var(--biz-radius-sm);
+	overflow: visible;
+}
+
+/* --- Message --- */
+.biz-shipping-bar__message {
+	font-size: 13px;
+	line-height: 1.4;
+	color: var(--biz-text);
+	margin-bottom: 10px;
+	font-weight: 500;
+	min-height: 18px;
+}
+
+.biz-shipping-bar__next-msg {
+	display: inline;
+}
+
+/* --- Complete state --- */
+.biz-shipping-bar__complete {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--sb-fill-color, #10B981);
+	font-weight: 600;
+}
+
+.biz-shipping-bar__check-icon {
+	color: var(--sb-fill-color, #10B981);
+	flex-shrink: 0;
+}
+
+/* --- Track --- */
+.biz-shipping-bar__track {
+	position: relative;
+	height: 8px;
+	background: var(--biz-border);
+	border-radius: 99px;
+	overflow: visible;
+}
+
+/* --- Fill (animated) --- */
+.biz-shipping-bar__fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	border-radius: 99px;
+	background: var(--sb-fill-color, #F59E0B);
+	transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+	            background-color 0.4s ease;
+	will-change: width;
+	min-width: 0;
+}
+
+/* Subtle shine effect on the fill */
+.biz-shipping-bar__fill::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 50%;
+	border-radius: 99px 99px 0 0;
+	background: linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.3),
+		rgba(255, 255, 255, 0)
+	);
+}
+
+/* --- Step markers --- */
+.biz-shipping-bar__steps {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	pointer-events: none;
+}
+
+.biz-shipping-bar__step {
+	position: absolute;
+	top: 50%;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: var(--biz-border);
+	border: 2px solid var(--biz-surface);
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.4s ease,
+	            transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+	            box-shadow 0.3s ease;
+}
+
+.biz-shipping-bar__step--reached {
+	background: var(--step-color, #10B981);
+	border-color: var(--biz-surface);
+	transform: translate(-50%, -50%) scale(1.1);
+	box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.biz-shipping-bar__step-check {
+	display: block;
+}
+
+/* Step labels below the track */
+.biz-shipping-bar__step-label {
+	position: absolute;
+	top: 100%;
+	transform: translateX(-50%);
+	margin-top: 6px;
+	font-size: 10px;
+	font-weight: 600;
+	color: var(--biz-text-muted);
+	white-space: nowrap;
+	transition: color 0.3s ease;
+}
+
+.biz-shipping-bar__step-label--reached {
+	color: var(--biz-text);
+}
+
+/* --- Confetti --- */
+.biz-shipping-bar__confetti {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	overflow: visible;
+	z-index: 10;
+}
+
+.biz-shipping-bar__confetti-dot {
+	position: absolute;
+	width: 6px;
+	height: 6px;
+	border-radius: 50%;
+	opacity: 0;
+	will-change: transform, opacity;
+}
+
+/* Confetti animation — each dot gets a unique animation via nth-child */
+.biz-shipping-bar__confetti-dot.is-active {
+	animation: bizConfettiBurst 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.biz-shipping-bar__confetti-dot:nth-child(1) {
+	background: #F59E0B;
+	--confetti-x: -24px;
+	--confetti-y: -30px;
+	animation-delay: 0s;
+}
+.biz-shipping-bar__confetti-dot:nth-child(2) {
+	background: #10B981;
+	--confetti-x: 18px;
+	--confetti-y: -28px;
+	animation-delay: 0.05s;
+}
+.biz-shipping-bar__confetti-dot:nth-child(3) {
+	background: #8B5CF6;
+	--confetti-x: -14px;
+	--confetti-y: -36px;
+	animation-delay: 0.08s;
+}
+.biz-shipping-bar__confetti-dot:nth-child(4) {
+	background: #EF4444;
+	--confetti-x: 28px;
+	--confetti-y: -22px;
+	animation-delay: 0.03s;
+}
+.biz-shipping-bar__confetti-dot:nth-child(5) {
+	background: #3B82F6;
+	--confetti-x: -30px;
+	--confetti-y: -18px;
+	animation-delay: 0.1s;
+}
+.biz-shipping-bar__confetti-dot:nth-child(6) {
+	background: #F97316;
+	--confetti-x: 10px;
+	--confetti-y: -34px;
+	animation-delay: 0.06s;
+}
+.biz-shipping-bar__confetti-dot:nth-child(7) {
+	background: #EC4899;
+	--confetti-x: -8px;
+	--confetti-y: -26px;
+	animation-delay: 0.12s;
+}
+.biz-shipping-bar__confetti-dot:nth-child(8) {
+	background: #14B8A6;
+	--confetti-x: 22px;
+	--confetti-y: -32px;
+	animation-delay: 0.04s;
+}
+
+@keyframes bizConfettiBurst {
+	0% {
+		opacity: 1;
+		transform: translate(0, 0) scale(1);
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		transform: translate(var(--confetti-x), var(--confetti-y)) scale(0.4);
+	}
+}
+
+/* --- Complete state with pulse glow --- */
+.biz-shipping-bar--complete .biz-shipping-bar__fill {
+	animation: bizFillPulse 2s ease-in-out 1;
+}
+
+@keyframes bizFillPulse {
+	0%, 100% {
+		box-shadow: none;
+	}
+	50% {
+		box-shadow: 0 0 12px var(--sb-fill-color, #10B981);
+	}
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+	.biz-shipping-bar__fill {
+		transition: none;
+	}
+	.biz-shipping-bar__step {
+		transition: none;
+	}
+	.biz-shipping-bar__confetti-dot.is-active {
+		animation: none;
+		opacity: 0;
+	}
+	.biz-shipping-bar--complete .biz-shipping-bar__fill {
+		animation: none;
+	}
+}
+
+/* --- Dark mode adjustments --- */
+.dark .biz-shipping-bar {
+	background: var(--biz-surface);
+}
+
+.dark .biz-shipping-bar__step {
+	border-color: var(--biz-surface);
+}
+
+.dark .biz-shipping-bar__step:not(.biz-shipping-bar__step--reached) {
+	background: var(--biz-border);
+}

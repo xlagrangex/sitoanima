@@ -1,0 +1,47 @@
+# WordPress core
+wp-local/wp-admin/
+wp-local/wp-includes/
+wp-local/wp-*.php
+wp-local/index.php
+wp-local/license.txt
+wp-local/readme.html
+wp-local/xmlrpc.php
+
+# Config (contains local paths)
+wp-local/wp-config.php
+wp-local/wp-config-sample.php
+
+# Keep router.php (needed for dev)
+!wp-local/router.php
+
+# Database
+wp-local/wp-content/database/
+wp-local/wp-content/db.php
+
+# Uploads (generated content)
+wp-local/wp-content/uploads/
+
+# Debug log
+wp-local/wp-content/debug.log
+
+# Plugins (installed via WP)
+wp-local/wp-content/plugins/
+
+# Languages
+wp-local/wp-content/languages/
+
+# Default themes
+wp-local/wp-content/themes/twentytwenty*/
+wp-local/wp-content/themes/index.php
+
+# Setup scripts (one-time use)
+wp-local/create-*.php
+wp-local/setup-*.php
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# PDF builds
+*.pdf
+/tmp/

@@ -1,0 +1,106 @@
+/* ============================================================
+   BizStudio — Promo Bar
+   Promotional banner above the header
+   ============================================================ */
+
+/* --- Custom Property (height offset) --- */
+:root {
+	--biz-promo-bar-h: 0px;
+}
+
+/* --- Bar --- */
+.biz-promo-bar {
+	position: relative;
+	z-index: 1001;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.625rem 1rem;
+	font-family: var(--biz-font);
+	font-size: 0.875rem;
+	font-weight: 500;
+	line-height: 1.4;
+	text-align: center;
+	overflow: hidden;
+	max-height: 60px;                         /* enough for two lines on mobile */
+	transition: max-height var(--biz-base),
+				padding var(--biz-base),
+				opacity var(--biz-fast);
+}
+
+/* --- Inner wrapper (centers text, positions close btn) --- */
+.biz-promo-bar__inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	max-width: var(--biz-container);
+	gap: 1rem;
+}
+
+/* --- Text --- */
+.biz-promo-bar__text {
+	flex: 1 1 auto;
+	text-align: center;
+}
+
+/* --- Close button --- */
+.biz-promo-bar__close {
+	flex: 0 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.5rem;
+	height: 1.5rem;
+	font-size: 1.25rem;
+	line-height: 1;
+	opacity: 0.8;
+	border-radius: var(--biz-radius-sm);
+	transition: opacity var(--biz-fast),
+				background var(--biz-fast);
+	cursor: pointer;
+	/* reset (inherited from base) */
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+.biz-promo-bar__close:hover,
+.biz-promo-bar__close:focus-visible {
+	opacity: 1;
+	background: rgba(255, 255, 255, 0.15);
+}
+
+.biz-promo-bar__close:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 2px;
+}
+
+/* --- Dismiss animation (slide-up) --- */
+.biz-promo-bar--dismissed {
+	max-height: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+/* --- Header offset when promo bar is visible --- */
+.biz-header {
+	transition: transform var(--biz-base);
+}
+
+/* --- Responsive (mobile) --- */
+@media (max-width: 600px) {
+	.biz-promo-bar {
+		font-size: 0.75rem;
+		padding: 0.5rem 0.75rem;
+	}
+
+	.biz-promo-bar__close {
+		width: 1.25rem;
+		height: 1.25rem;
+		font-size: 1rem;
+	}
+}
