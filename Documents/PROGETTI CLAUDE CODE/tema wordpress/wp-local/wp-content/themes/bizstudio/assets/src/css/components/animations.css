@@ -1,0 +1,454 @@
+/* ============================================================
+   BizStudio — Premium Animations
+   Sprint 5: parallax, hover effects, transitions, micro-interactions
+   ============================================================ */
+
+/* ============================================================
+   5.1 PARALLAX — Hero Section
+   ============================================================ */
+.biz-hero {
+	/* Enable parallax layer */
+	position: relative;
+	overflow: hidden;
+}
+
+.biz-hero__parallax-bg {
+	position: absolute;
+	inset: -20% 0;
+	background: inherit;
+	will-change: transform;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.biz-hero__content {
+	position: relative;
+	z-index: 1;
+}
+
+.biz-hero::before {
+	z-index: 0;
+	will-change: transform;
+}
+
+/* ============================================================
+   5.3 HOVER EFFECTS — Card lift + shadow (enhanced)
+   ============================================================ */
+.biz-card {
+	transition:
+		transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+		box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+		border-color var(--biz-base);
+}
+
+.biz-card:hover {
+	transform: translateY(-6px);
+	box-shadow:
+		0 12px 28px rgba(26, 26, 46, 0.1),
+		0 4px 10px rgba(26, 26, 46, 0.06);
+	border-color: transparent;
+}
+
+.dark .biz-card:hover {
+	box-shadow:
+		0 12px 28px rgba(0, 0, 0, 0.3),
+		0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Category card lift */
+.biz-category-card {
+	transition:
+		transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+		box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+		border-color var(--biz-base);
+}
+
+.biz-category-card:hover {
+	transform: translateY(-4px);
+	box-shadow:
+		0 8px 24px rgba(26, 26, 46, 0.08),
+		0 2px 8px rgba(26, 26, 46, 0.04);
+	border-color: var(--biz-primary-light);
+}
+
+.dark .biz-category-card:hover {
+	box-shadow:
+		0 8px 24px rgba(0, 0, 0, 0.25),
+		0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================================
+   5.4 IMAGE ZOOM ON HOVER — Improved
+   ============================================================ */
+.biz-card__image {
+	transition:
+		opacity var(--biz-slow),
+		transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.biz-card:hover .biz-card__image--primary {
+	transform: scale(1.06);
+}
+
+.biz-card:hover .biz-card__image--secondary {
+	transform: scale(1.03);
+}
+
+/* Category card icon scale */
+.biz-category-card__icon {
+	transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.biz-category-card:hover .biz-category-card__icon {
+	transform: scale(1.08);
+}
+
+/* ============================================================
+   5.5 LINK UNDERLINE — Left to Right
+   ============================================================ */
+.biz-link-underline,
+.biz-footer__menu a,
+.biz-section__link,
+.biz-nav__link {
+	position: relative;
+	display: inline-block;
+}
+
+.biz-link-underline::after,
+.biz-footer__menu a::after,
+.biz-nav__link::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 1.5px;
+	background: var(--biz-primary);
+	transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.biz-link-underline:hover::after,
+.biz-footer__menu a:hover::after,
+.biz-nav__link:hover::after,
+.biz-nav__link.is-active::after {
+	width: 100%;
+}
+
+/* Section link — arrow already has animation, so skip underline */
+
+/* ============================================================
+   5.6 PAGE TRANSITION — Fade out/in
+   ============================================================ */
+.biz-page-transition {
+	opacity: 1;
+	transition: opacity 0.2s ease;
+}
+
+.biz-page-transition--leaving {
+	opacity: 0;
+}
+
+/* ============================================================
+   5.7 LOADING BAR — Top progress bar
+   ============================================================ */
+.biz-loading-bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 3px;
+	background: linear-gradient(90deg, var(--biz-primary), var(--biz-primary-light));
+	z-index: 9999;
+	transition: width 0.4s ease;
+	pointer-events: none;
+	border-radius: 0 2px 2px 0;
+}
+
+.biz-loading-bar--active {
+	width: 85%;
+	transition: width 8s cubic-bezier(0.1, 0.5, 0.1, 1);
+}
+
+.biz-loading-bar--done {
+	width: 100%;
+	transition: width 0.2s ease;
+}
+
+.biz-loading-bar--hide {
+	opacity: 0;
+	transition: width 0.2s ease, opacity 0.3s 0.1s ease;
+}
+
+/* ============================================================
+   5.8 ADD TO CART — Checkmark animation
+   ============================================================ */
+@keyframes biz-checkmark-draw {
+	0% {
+		stroke-dashoffset: 24;
+	}
+	100% {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes biz-checkmark-pop {
+	0% {
+		transform: scale(0.8);
+		opacity: 0;
+	}
+	50% {
+		transform: scale(1.15);
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+.biz-add-to-cart-btn.is-added .biz-btn-icon,
+.biz-card__action.is-added .biz-btn-icon {
+	display: none;
+}
+
+.biz-add-to-cart-btn.is-added .biz-btn-check,
+.biz-card__action.is-added .biz-btn-check {
+	display: inline-flex;
+	animation: biz-checkmark-pop 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.biz-btn-check {
+	display: none;
+}
+
+.biz-btn-check svg {
+	stroke-dasharray: 24;
+	stroke-dashoffset: 24;
+	animation: biz-checkmark-draw 0.4s 0.15s ease forwards;
+}
+
+/* ============================================================
+   5.9 WISHLIST — Heart beat animation (enhanced)
+   ============================================================ */
+@keyframes biz-heart-beat-enhanced {
+	0%   { transform: scale(1); }
+	15%  { transform: scale(1.35); }
+	30%  { transform: scale(0.95); }
+	45%  { transform: scale(1.2); }
+	60%  { transform: scale(1); }
+	75%  { transform: scale(1.1); }
+	100% { transform: scale(1); }
+}
+
+@keyframes biz-heart-particles {
+	0% {
+		opacity: 1;
+		transform: scale(0);
+	}
+	100% {
+		opacity: 0;
+		transform: scale(2.5);
+	}
+}
+
+.biz-wishlist-btn--beat {
+	animation: biz-heart-beat-enhanced 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Particle ring effect on activate */
+.biz-wishlist-btn--active.biz-wishlist-btn--beat::before {
+	content: '';
+	position: absolute;
+	inset: 0;
+	border-radius: 50%;
+	border: 2px solid var(--biz-error);
+	animation: biz-heart-particles 0.5s ease forwards;
+	pointer-events: none;
+}
+
+/* ============================================================
+   5.10 SKELETON LOADING
+   ============================================================ */
+@keyframes biz-skeleton-shimmer {
+	0% {
+		background-position: -200% 0;
+	}
+	100% {
+		background-position: 200% 0;
+	}
+}
+
+.biz-skeleton {
+	background: linear-gradient(
+		90deg,
+		var(--biz-surface) 25%,
+		var(--biz-border) 50%,
+		var(--biz-surface) 75%
+	);
+	background-size: 200% 100%;
+	animation: biz-skeleton-shimmer 1.5s ease infinite;
+	border-radius: var(--biz-radius);
+}
+
+.biz-skeleton--text {
+	height: 1em;
+	width: 80%;
+	margin-bottom: 0.5rem;
+}
+
+.biz-skeleton--text-sm {
+	height: 0.75em;
+	width: 60%;
+}
+
+.biz-skeleton--image {
+	aspect-ratio: 4/5;
+	width: 100%;
+	border-radius: var(--biz-radius-lg);
+}
+
+.biz-skeleton--card {
+	border-radius: var(--biz-radius-lg);
+	overflow: hidden;
+}
+
+.biz-skeleton--card .biz-skeleton--image {
+	border-radius: 0;
+}
+
+.biz-skeleton--card-info {
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+/* Quick view skeleton */
+.biz-quick-view__skeleton {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	padding: 2rem;
+}
+
+/* Search results skeleton */
+.biz-search__skeleton {
+	display: flex;
+	gap: 1rem;
+	padding: 0.75rem 0;
+}
+
+.biz-search__skeleton .biz-skeleton--thumb {
+	width: 50px;
+	height: 50px;
+	border-radius: var(--biz-radius-sm);
+	flex-shrink: 0;
+}
+
+.biz-search__skeleton .biz-skeleton--info {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+/* ============================================================
+   5.12 BACK TO TOP BUTTON
+   ============================================================ */
+.biz-back-to-top {
+	position: fixed;
+	bottom: 2rem;
+	right: 2rem;
+	width: 44px;
+	height: 44px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--biz-primary);
+	color: #fff;
+	border-radius: 50%;
+	box-shadow: var(--biz-shadow-md);
+	cursor: pointer;
+	z-index: 200;
+	opacity: 0;
+	transform: translateY(10px) scale(0.9);
+	visibility: hidden;
+	transition:
+		opacity 0.3s ease,
+		transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+		visibility 0.3s ease,
+		background var(--biz-fast);
+	border: none;
+}
+
+.biz-back-to-top.is-visible {
+	opacity: 1;
+	transform: translateY(0) scale(1);
+	visibility: visible;
+}
+
+.biz-back-to-top:hover {
+	background: var(--biz-primary-dark);
+	transform: translateY(-2px) scale(1.05);
+	box-shadow: var(--biz-shadow-lg);
+}
+
+.biz-back-to-top:active {
+	transform: translateY(0) scale(1);
+}
+
+.biz-back-to-top svg {
+	transition: transform 0.2s ease;
+}
+
+.biz-back-to-top:hover svg {
+	transform: translateY(-2px);
+}
+
+/* Move toast up when back-to-top is visible */
+.biz-back-to-top.is-visible ~ .biz-toast,
+body:has(.biz-back-to-top.is-visible) .biz-toast {
+	bottom: 5rem;
+}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+	.biz-card,
+	.biz-category-card,
+	.biz-card__image,
+	.biz-category-card__icon,
+	.biz-page-transition {
+		transition-duration: 0.01ms !important;
+	}
+
+	.biz-loading-bar {
+		display: none !important;
+	}
+
+	.biz-wishlist-btn--beat,
+	.biz-btn-check svg {
+		animation: none !important;
+	}
+
+	.biz-skeleton {
+		animation: none;
+		background: var(--biz-surface);
+	}
+
+	.biz-back-to-top {
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+	.biz-back-to-top {
+		bottom: 1.25rem;
+		right: 1.25rem;
+		width: 40px;
+		height: 40px;
+	}
+}

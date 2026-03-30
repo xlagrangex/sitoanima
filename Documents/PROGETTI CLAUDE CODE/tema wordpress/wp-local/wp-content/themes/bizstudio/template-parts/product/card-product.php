@@ -64,7 +64,8 @@ $categories   = wc_get_product_category_list( $product_id, ', ' );
 		<div class="biz-card__actions">
 			<?php if ( $stock_status === 'instock' && $product->is_type( 'simple' ) ) : ?>
 				<button class="biz-card__action biz-add-to-cart-btn" data-product-id="<?php echo esc_attr( $product_id ); ?>" aria-label="<?php esc_attr_e( 'Aggiungi al carrello', 'bizstudio' ); ?>">
-					<?php echo bizstudio_icon( 'cart' ); ?>
+					<span class="biz-btn-icon"><?php echo bizstudio_icon( 'cart' ); ?></span>
+					<span class="biz-btn-check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
 				</button>
 			<?php endif; ?>
 			<a href="<?php echo esc_url( $permalink ); ?>" class="biz-card__action" aria-label="<?php esc_attr_e( 'Vedi prodotto', 'bizstudio' ); ?>">

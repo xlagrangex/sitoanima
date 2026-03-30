@@ -55,8 +55,9 @@
 			return;
 		}
 
-		// Show loading
-		results.innerHTML = '<div class="biz-search-results__loading"><div class="biz-spinner"></div></div>';
+		// Show skeleton loading
+		results.innerHTML =
+			'<div class="biz-search__skeleton"><div class="biz-skeleton biz-skeleton--thumb"></div><div class="biz-skeleton--info"><div class="biz-skeleton biz-skeleton--text"></div><div class="biz-skeleton biz-skeleton--text-sm"></div></div></div>'.repeat(3);
 
 		debounceTimer = setTimeout(() => {
 			fetch(`${window.bizstudio?.ajaxUrl || '/wp-admin/admin-ajax.php'}?action=bizstudio_live_search&q=${encodeURIComponent(query)}`, {

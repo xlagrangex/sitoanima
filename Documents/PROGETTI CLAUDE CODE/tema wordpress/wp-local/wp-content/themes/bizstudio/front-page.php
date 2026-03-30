@@ -10,7 +10,7 @@ get_header();
 
 <main class="biz-main">
 	<!-- Hero Section -->
-	<section class="biz-hero" data-reveal>
+	<section class="biz-hero" data-reveal data-parallax="0.15">
 		<div class="biz-container">
 			<div class="biz-hero__content">
 				<span class="biz-hero__tag"><?php esc_html_e( 'Nuova collezione', 'bizstudio' ); ?></span>

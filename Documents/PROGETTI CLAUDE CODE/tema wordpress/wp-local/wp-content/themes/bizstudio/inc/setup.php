@@ -41,6 +41,14 @@ add_action( 'after_setup_theme', function () {
 	] );
 } );
 
+// Add biz-nav__link class to primary menu links for underline animation.
+add_filter( 'nav_menu_link_attributes', function ( $atts, $menu_item, $args ) {
+	if ( isset( $args->theme_location ) && 'primary' === $args->theme_location ) {
+		$atts['class'] = isset( $atts['class'] ) ? $atts['class'] . ' biz-nav__link' : 'biz-nav__link';
+	}
+	return $atts;
+}, 10, 3 );
+
 // Widget areas
 add_action( 'widgets_init', function () {
 	register_sidebar( [

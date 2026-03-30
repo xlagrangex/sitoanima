@@ -26,6 +26,14 @@ add_action( 'wp_enqueue_scripts', function () {
 		$ver
 	);
 
+	// Animations (parallax, hover, transitions, skeleton, back-to-top)
+	wp_enqueue_style(
+		'bizstudio-animations',
+		BIZSTUDIO_URI . '/assets/src/css/components/animations.css',
+		[ 'bizstudio-main' ],
+		$ver
+	);
+
 	// WooCommerce CSS
 	if ( class_exists( 'WooCommerce' ) ) {
 		wp_enqueue_style(
@@ -81,6 +89,15 @@ add_action( 'wp_enqueue_scripts', function () {
 		'nonce'    => wp_create_nonce( 'bizstudio_nonce' ),
 		'cartUrl'  => function_exists( 'wc_get_cart_url' ) ? wc_get_cart_url() : '',
 	] );
+
+	// Animations JS (parallax, page transitions, loading bar, smooth scroll, back-to-top)
+	wp_enqueue_script(
+		'bizstudio-animations',
+		BIZSTUDIO_URI . '/assets/src/js/modules/animations.js',
+		[ 'bizstudio-main' ],
+		$ver,
+		[ 'strategy' => 'defer', 'in_footer' => true ]
+	);
 
 	// WooCommerce JS modules
 	if ( class_exists( 'WooCommerce' ) ) {

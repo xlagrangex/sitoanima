@@ -1,7 +1,7 @@
 # BizStudio Theme — Sprint Plan
 
 > Ultimo aggiornamento: 2026-03-30
-> Stato: Sprint 1, 2, 3 e 4 COMPLETATI (implementazione), test sprint da fare
+> Stato: Sprint 1, 2, 3, 4 e 5 COMPLETATI (implementazione), test sprint da fare
 
 ---
 
@@ -165,7 +165,7 @@ Checkout fluido, my account restyled, wishlist funzionante, promo bar, shipping 
 
 ---
 
-## Sprint 5 — Animazioni [DA FARE]
+## Sprint 5 — Animazioni [IMPLEMENTATO]
 
 ### Obiettivo
 Effetti premium: parallax, hover avanzati, page transitions, micro-interazioni.
@@ -173,20 +173,24 @@ Effetti premium: parallax, hover avanzati, page transitions, micro-interazioni.
 ### Task
 | # | Funzionalita | Impl | Test |
 |---|---|---|---|
-| 5.1 | Parallax su hero section | [ ] | [ ] |
-| 5.2 | Parallax leggero su banner promozionali | [ ] | [ ] |
-| 5.3 | Hover effects avanzati sulle card (lift + shadow) | [ ] | [ ] |
-| 5.4 | Image zoom on hover migliorato | [ ] | [ ] |
-| 5.5 | Link underline animation (left-to-right) | [ ] | [ ] |
-| 5.6 | Page transition (fade out/in) | [ ] | [ ] |
-| 5.7 | Loading bar top durante caricamento | [ ] | [ ] |
-| 5.8 | Add to cart: checkmark animato | [ ] | [ ] |
-| 5.9 | Wishlist: heart beat animation | [ ] | [ ] |
-| 5.10 | Skeleton loading per contenuti AJAX | [ ] | [ ] |
-| 5.11 | Smooth scroll per anchor links | [ ] | [ ] |
-| 5.12 | Back to top button animato | [ ] | [ ] |
+| 5.1 | Parallax su hero section | [x] | [ ] |
+| 5.2 | Parallax leggero su banner promozionali | [x] | [ ] |
+| 5.3 | Hover effects avanzati sulle card (lift + shadow) | [x] | [ ] |
+| 5.4 | Image zoom on hover migliorato | [x] | [ ] |
+| 5.5 | Link underline animation (left-to-right) | [x] | [ ] |
+| 5.6 | Page transition (fade out/in) | [x] | [ ] |
+| 5.7 | Loading bar top durante caricamento | [x] | [ ] |
+| 5.8 | Add to cart: checkmark animato | [x] | [ ] |
+| 5.9 | Wishlist: heart beat animation | [x] | [ ] |
+| 5.10 | Skeleton loading per contenuti AJAX | [x] | [ ] |
+| 5.11 | Smooth scroll per anchor links | [x] | [ ] |
+| 5.12 | Back to top button animato | [x] | [ ] |
 
 ### Sprint 5 — Test completo: [ ]
+
+### File creati in Sprint 5
+- `assets/src/css/components/animations.css` — stili animazioni premium (parallax, hover, transitions, skeleton, back-to-top)
+- `assets/src/js/modules/animations.js` — JS animazioni (parallax, page transitions, loading bar, smooth scroll, back-to-top)
 
 ---
 
@@ -340,6 +344,7 @@ wp-local/wp-content/themes/bizstudio/
     │   ├── components/shipping-bar.css    → Stili barra spedizione + confetti
     │   ├── components/wishlist.css        → Stili wishlist (heart, page, badge)
     │   ├── components/sticky-bar.css      → Stili sticky bar
+    │   ├── components/animations.css     → Stili animazioni premium (parallax, hover, transitions, skeleton, back-to-top)
     │   ├── woocommerce/shop.css           → Stili shop + sidebar + filtri
     │   ├── woocommerce/product.css        → Stili prodotto + swatches + qty
     │   ├── woocommerce/cart-checkout.css   → Stili block cart + checkout
@@ -357,7 +362,8 @@ wp-local/wp-content/themes/bizstudio/
             ├── swatches.js           → Sync pallini colore con WC select
             ├── shipping-bar.js       → Confetti, step tracking, AJAX update
             ├── wishlist.js           → Toggle AJAX, heart beat, badge update
-            └── sticky-bar.js         → IntersectionObserver, variation sync
+            ├── sticky-bar.js         → IntersectionObserver, variation sync
+            └── animations.js        → Parallax, page transitions, loading bar, smooth scroll, back-to-top
 ```
 
 ### Convenzioni codice
