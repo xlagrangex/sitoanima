@@ -1,0 +1,302 @@
+/* ============================================================
+   BizStudio — Footer Builder
+   Pre-footer, payment icons, social links & preset overrides
+   ============================================================ */
+
+/* ============================================================
+   PRE-FOOTER
+   ============================================================ */
+
+.biz-pre-footer {
+	background: var(--biz-bg);
+	border-bottom: 1px solid var(--biz-border);
+	padding: 2rem 0;
+}
+
+.biz-pre-footer__grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+}
+
+.biz-pre-footer__box {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.biz-pre-footer__icon {
+	flex: 0 0 auto;
+	width: 2rem;
+	height: 2rem;
+	color: var(--biz-primary);
+	margin-top: 0.125rem;
+}
+
+.biz-pre-footer__content {
+	flex: 1 1 auto;
+}
+
+.biz-pre-footer__title {
+	font-size: 0.9375rem;
+	font-weight: 600;
+	line-height: 1.3;
+	margin-bottom: 0.25rem;
+	color: var(--biz-text);
+}
+
+.biz-pre-footer__text {
+	font-size: 0.8125rem;
+	line-height: 1.5;
+	color: var(--biz-text-secondary);
+}
+
+/* ============================================================
+   PAYMENT ICONS
+   ============================================================ */
+
+.biz-payment-icons {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.biz-payment-icons__item {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.biz-payment-icons__item svg {
+	width: 32px;
+	height: 20px;
+	opacity: 0.7;
+	transition: opacity var(--biz-fast);
+}
+
+.biz-payment-icons__item:hover svg {
+	opacity: 1;
+}
+
+/* ============================================================
+   SOCIAL LINKS
+   ============================================================ */
+
+.biz-social-links {
+	display: flex;
+	align-items: center;
+	gap: 0.625rem;
+	flex-wrap: wrap;
+}
+
+.biz-social-links__item {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.25rem;
+	height: 2.25rem;
+	border-radius: 50%;
+	background: var(--biz-border);
+	color: var(--biz-text-secondary);
+	transition: background var(--biz-fast),
+				color var(--biz-fast),
+				transform var(--biz-fast);
+}
+
+.biz-social-links__item svg {
+	width: 1rem;
+	height: 1rem;
+}
+
+.biz-social-links__item:hover,
+.biz-social-links__item:focus-visible {
+	background: var(--biz-primary);
+	color: #fff;
+	transform: translateY(-2px);
+}
+
+.biz-social-links__item:focus-visible {
+	outline: 2px solid var(--biz-primary);
+	outline-offset: 2px;
+}
+
+/* ============================================================
+   FOOTER BOTTOM — enhanced layout
+   (extends existing .biz-footer__bottom)
+   ============================================================ */
+
+.biz-footer__bottom-row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	gap: 1rem;
+	padding: 1.5rem 0;
+	border-top: 1px solid var(--biz-border);
+}
+
+.biz-footer__bottom-left {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+}
+
+.biz-footer__bottom-right {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	flex-wrap: wrap;
+}
+
+/* ============================================================
+   FOOTER PRESET OVERRIDES
+   ============================================================ */
+
+/* --- Centered: single column, centered text --- */
+.biz-footer-preset--centered .biz-footer__grid {
+	grid-template-columns: 1fr;
+	max-width: 36rem;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.biz-footer-preset--centered .biz-footer__col {
+	text-align: center;
+}
+
+.biz-footer-preset--centered .biz-footer__bottom,
+.biz-footer-preset--centered .biz-footer__bottom-row {
+	flex-direction: column;
+	text-align: center;
+}
+
+.biz-footer-preset--centered .biz-footer__bottom-left,
+.biz-footer-preset--centered .biz-footer__bottom-right {
+	justify-content: center;
+}
+
+.biz-footer-preset--centered .biz-payment-icons,
+.biz-footer-preset--centered .biz-social-links {
+	justify-content: center;
+}
+
+/* --- Two Columns --- */
+.biz-footer-preset--two-col .biz-footer__grid {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+/* --- Three Columns --- */
+.biz-footer-preset--three-col .biz-footer__grid {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/* --- Asymmetric: 2fr 1fr 1fr --- */
+.biz-footer-preset--asymmetric .biz-footer__grid {
+	grid-template-columns: 2fr 1fr 1fr;
+}
+
+/* ============================================================
+   DARK MODE ADJUSTMENTS
+   ============================================================ */
+
+.dark .biz-pre-footer {
+	background: var(--biz-bg);
+	border-bottom-color: var(--biz-border);
+}
+
+.dark .biz-social-links__item {
+	background: var(--biz-border);
+	color: var(--biz-text-secondary);
+}
+
+.dark .biz-social-links__item:hover,
+.dark .biz-social-links__item:focus-visible {
+	background: var(--biz-primary);
+	color: #fff;
+}
+
+.dark .biz-payment-icons__item svg {
+	filter: brightness(0.85);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1024px) {
+	.biz-pre-footer__grid {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem;
+	}
+
+	/* Preset overrides follow main.css footer grid at this breakpoint */
+	.biz-footer-preset--asymmetric .biz-footer__grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 768px) {
+	.biz-pre-footer {
+		padding: 1.5rem 0;
+	}
+
+	.biz-pre-footer__grid {
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
+	}
+
+	.biz-pre-footer__box {
+		gap: 0.75rem;
+	}
+
+	.biz-pre-footer__icon {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+
+	/* Bottom bar stacking */
+	.biz-footer__bottom-row {
+		flex-direction: column;
+		text-align: center;
+		gap: 0.75rem;
+	}
+
+	.biz-footer__bottom-left,
+	.biz-footer__bottom-right {
+		justify-content: center;
+	}
+
+	.biz-payment-icons {
+		justify-content: center;
+	}
+
+	.biz-social-links {
+		justify-content: center;
+	}
+
+	/* Preset overrides all collapse to 1 column */
+	.biz-footer-preset--two-col .biz-footer__grid,
+	.biz-footer-preset--three-col .biz-footer__grid,
+	.biz-footer-preset--asymmetric .biz-footer__grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 480px) {
+	.biz-payment-icons__item svg {
+		width: 28px;
+		height: 18px;
+	}
+
+	.biz-social-links__item {
+		width: 2rem;
+		height: 2rem;
+	}
+
+	.biz-social-links__item svg {
+		width: 0.875rem;
+		height: 0.875rem;
+	}
+}
