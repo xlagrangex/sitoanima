@@ -45,20 +45,13 @@ add_action( 'wp_enqueue_scripts', function () {
 			);
 		}
 
-		// Full-page checkout (Shopify-style)
+		// Full-page checkout (minimal chrome — no header/footer)
 		if ( is_checkout() && ! is_wc_endpoint_url() ) {
 			wp_enqueue_style(
 				'bizstudio-checkout-fullpage',
 				BIZSTUDIO_URI . '/assets/src/css/woocommerce/checkout-fullpage.css',
 				[ 'bizstudio-main', 'bizstudio-cart-checkout' ],
 				$ver
-			);
-			wp_enqueue_script(
-				'bizstudio-checkout-steps',
-				BIZSTUDIO_URI . '/assets/src/js/modules/checkout-steps.js',
-				[ 'bizstudio-main' ],
-				$ver,
-				[ 'strategy' => 'defer', 'in_footer' => true ]
 			);
 		}
 

@@ -1,446 +1,80 @@
 /* ============================================================
-   Full-Page Checkout — Shopify-Style
-   Layered on top of cart-checkout.css base styles.
+   Checkout Full-Page — Minimal chrome, WC blocks handle layout
    ============================================================ */
 
-/* --- Hide site chrome on checkout pages --- */
+/* Hide ALL site chrome (injected by wp_head / wp_body_open / wp_footer) */
 body.biz-checkout-page .biz-header,
 body.biz-checkout-page .biz-footer,
-body.biz-checkout-page .biz-mini-cart-overlay,
-body.biz-checkout-page .biz-mini-cart,
-body.biz-checkout-page .biz-search-overlay,
-body.biz-checkout-page .biz-search-modal,
-body.biz-checkout-page .biz-mobile-overlay,
-body.biz-checkout-page .biz-mobile-menu,
 body.biz-checkout-page .biz-promo-bar,
-body.biz-checkout-page .biz-breadcrumb,
-body.biz-checkout-page .biz-page-header {
-	display: none !important;
-}
-
-/* Also hide if using body.woocommerce-checkout fallback */
-body.woocommerce-checkout .biz-header,
-body.woocommerce-checkout .biz-footer,
-body.woocommerce-checkout .biz-mini-cart-overlay,
-body.woocommerce-checkout .biz-mini-cart,
-body.woocommerce-checkout .biz-search-overlay,
-body.woocommerce-checkout .biz-search-modal,
-body.woocommerce-checkout .biz-mobile-overlay,
-body.woocommerce-checkout .biz-mobile-menu {
+body.biz-checkout-page .biz-mini-cart,
+body.biz-checkout-page .biz-mini-cart-overlay,
+body.biz-checkout-page .biz-search-modal,
+body.biz-checkout-page .biz-search-overlay,
+body.biz-checkout-page .biz-mobile-menu,
+body.biz-checkout-page .biz-mobile-overlay {
 	display: none !important;
 }
 
 /* ============================================================
-   CHECKOUT WRAPPER
+   Page wrapper
    ============================================================ */
 .biz-checkout {
-	max-width: var(--biz-container);
-	margin: 0 auto;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	max-width: 1200px;
+	margin: 0 auto;
 	padding: 0 1.5rem;
 }
 
 /* ============================================================
-   CHECKOUT HEADER — Logo + Step Breadcrumbs + Secure badge
+   Header — logo centered
    ============================================================ */
 .biz-checkout__header {
-	padding: 1.5rem 0;
+	padding: 1.25rem 0;
 	border-bottom: 1px solid var(--biz-border);
 	flex-shrink: 0;
 }
-
 .biz-checkout__header-inner {
-	display: grid;
-	grid-template-columns: 1fr auto 1fr;
-	align-items: center;
-	gap: 1.5rem;
-}
-
-/* Logo */
-.biz-checkout__logo {
 	display: flex;
 	align-items: center;
+	justify-content: center;
 }
-
-.biz-checkout__logo img {
+.biz-checkout__header-inner img {
 	max-height: 40px;
 	width: auto;
 }
-
 .biz-checkout__logo-text {
-	font-size: 1.375rem;
+	font-size: 1.5rem;
 	font-weight: 700;
 	color: var(--biz-text);
 	text-decoration: none;
 	letter-spacing: -0.02em;
 }
-
 .biz-checkout__logo-text:hover {
 	color: var(--biz-primary);
 }
 
-/* Secure badge */
-.biz-checkout__secure {
-	display: flex;
-	align-items: center;
-	gap: 0.375rem;
-	justify-content: flex-end;
-	font-size: 0.8125rem;
-	color: var(--biz-text-muted);
-}
-
-.biz-checkout__secure svg {
-	flex-shrink: 0;
-}
-
 /* ============================================================
-   STEP BREADCRUMBS
+   Main — let WC blocks own the layout
    ============================================================ */
-.biz-checkout__steps {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	justify-content: center;
-}
-
-.biz-checkout__step {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.375rem;
-	padding: 0.5rem 0.75rem;
-	border: none;
-	background: none;
-	font-family: var(--biz-font);
-	font-size: 0.875rem;
-	font-weight: 500;
-	color: var(--biz-text-muted);
-	cursor: default;
-	border-radius: var(--biz-radius);
-	transition: all var(--biz-fast);
-	white-space: nowrap;
-}
-
-.biz-checkout__step:disabled {
-	opacity: 0.5;
-	cursor: default;
-}
-
-.biz-checkout__step-num {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 22px;
-	height: 22px;
-	border-radius: 50%;
-	font-size: 0.75rem;
-	font-weight: 600;
-	background: var(--biz-border);
-	color: var(--biz-text-muted);
-	transition: all var(--biz-fast);
-}
-
-.biz-checkout__step-label {
-	transition: color var(--biz-fast);
-}
-
-/* Active step */
-.biz-checkout__step--active {
-	color: var(--biz-primary);
-	cursor: default;
-	opacity: 1;
-}
-
-.biz-checkout__step--active .biz-checkout__step-num {
-	background: var(--biz-primary);
-	color: #fff;
-}
-
-/* Completed step */
-.biz-checkout__step--completed {
-	color: var(--biz-success);
-	cursor: pointer;
-	opacity: 1;
-}
-
-.biz-checkout__step--completed:hover {
-	background: rgba(46, 160, 67, 0.06);
-}
-
-.biz-checkout__step--completed .biz-checkout__step-num {
-	background: var(--biz-success);
-	color: #fff;
-}
-
-/* Checkmark inside completed step number */
-.biz-checkout__step--completed .biz-checkout__step-num::after {
-	content: '';
-	display: block;
-	width: 10px;
-	height: 10px;
-	background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") no-repeat center / contain;
-}
-
-.biz-checkout__step--completed .biz-checkout__step-num {
-	font-size: 0;
-}
-
-/* Step separator chevron */
-.biz-checkout__step-sep {
-	display: flex;
-	align-items: center;
-	color: var(--biz-border);
-	flex-shrink: 0;
-}
-
-/* ============================================================
-   MOBILE ORDER SUMMARY TOGGLE
-   ============================================================ */
-.biz-checkout__summary-toggle {
-	display: none;
-	border-bottom: 1px solid var(--biz-border);
-}
-
-.biz-checkout__summary-btn {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-	width: 100%;
-	padding: 1rem 0;
-	background: none;
-	border: none;
-	font-family: var(--biz-font);
-	font-size: 0.9375rem;
-	color: var(--biz-primary);
-	cursor: pointer;
-	transition: color var(--biz-fast);
-}
-
-.biz-checkout__summary-btn:hover {
-	color: var(--biz-primary-dark);
-}
-
-.biz-checkout__summary-chevron {
-	transition: transform var(--biz-base);
-	margin-left: auto;
-}
-
-.biz-checkout__summary-toggle.is-open .biz-checkout__summary-chevron {
-	transform: rotate(180deg);
-}
-
-.biz-checkout__summary-total {
-	font-weight: 700;
-	color: var(--biz-text);
-	font-size: 1rem;
-}
-
-/* ============================================================
-   CHECKOUT BODY — 2-column grid
-   ============================================================ */
-.biz-checkout__body {
+.biz-checkout__main {
 	flex: 1;
 	padding: 2rem 0;
 }
 
-/* Override default WC checkout block layout — force 2-column grid.
-   WC blocks nests fields-block + totals-block inside a <form>,
-   so we apply the grid to both the outer wrapper AND the inner form. */
-.biz-checkout .wp-block-woocommerce-checkout,
-.biz-checkout .wp-block-woocommerce-checkout.alignwide,
-.biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout {
-	max-width: 100% !important;
-	width: 100% !important;
-	margin: 0 !important;
-	padding: 0 !important;
-}
-
-.biz-checkout .wp-block-woocommerce-checkout,
-.biz-checkout .wp-block-woocommerce-checkout.alignwide,
-.biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout,
-.biz-checkout .wc-block-checkout__form {
-	display: grid !important;
-	grid-template-columns: 1fr 400px !important;
-	gap: 3rem !important;
-	align-items: start !important;
-}
-
-/* Left column — form fields */
-.biz-checkout .wp-block-woocommerce-checkout-fields-block {
-	padding-right: 0 !important;
-	min-width: 0;
-	order: 1;
-}
-
-/* Right column — order summary */
-.biz-checkout .wp-block-woocommerce-checkout-totals-block {
-	position: sticky;
-	top: 2rem;
-	background: var(--biz-surface);
-	border-radius: var(--biz-radius-lg);
-	padding: 1.5rem;
-	order: 2;
-	min-width: 0;
-	max-width: 400px;
-	width: 100%;
-}
-
 /* ============================================================
-   STEP CONTENT — show/hide blocks per step
-   ============================================================ */
-
-/* Step wrapper added by JS */
-.biz-checkout__step-content {
-	display: none;
-	animation: bizCheckoutFadeIn 0.3s ease;
-}
-
-.biz-checkout__step-content--active {
-	display: block;
-}
-
-@keyframes bizCheckoutFadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(8px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-/* Express payment — always visible above steps */
-.biz-checkout .wp-block-woocommerce-checkout-express-payment-block {
-	margin-bottom: 1.5rem;
-}
-
-/* ============================================================
-   STEP CONTINUE BUTTONS
-   ============================================================ */
-.biz-checkout__continue {
-	display: block;
-	width: 100%;
-	padding: 1rem 1.5rem;
-	margin-top: 1.5rem;
-	background: var(--biz-primary);
-	color: #fff;
-	border: none;
-	border-radius: var(--biz-radius);
-	font-family: var(--biz-font);
-	font-size: 1rem;
-	font-weight: 600;
-	text-align: center;
-	cursor: pointer;
-	transition: all var(--biz-base);
-	letter-spacing: 0.01em;
-}
-
-.biz-checkout__continue:hover {
-	background: var(--biz-primary-dark);
-	transform: translateY(-1px);
-	box-shadow: var(--biz-shadow-md);
-}
-
-.biz-checkout__continue:active {
-	transform: translateY(0);
-	box-shadow: none;
-}
-
-.biz-checkout__continue:disabled {
-	opacity: 0.6;
-	cursor: not-allowed;
-	transform: none;
-	box-shadow: none;
-}
-
-/* Spinner on continue button while validating */
-.biz-checkout__continue--loading {
-	position: relative;
-	color: transparent;
-	pointer-events: none;
-}
-
-.biz-checkout__continue--loading::after {
-	content: '';
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 20px;
-	height: 20px;
-	margin: -10px 0 0 -10px;
-	border: 2px solid rgba(255, 255, 255, 0.3);
-	border-top-color: #fff;
-	border-radius: 50%;
-	animation: bizCheckoutSpin 0.6s linear infinite;
-}
-
-@keyframes bizCheckoutSpin {
-	to { transform: rotate(360deg); }
-}
-
-/* Hide the default WC place-order button until step 3 */
-.biz-checkout .wc-block-components-checkout-place-order-button {
-	display: none;
-}
-
-/* Show place order on step 3 */
-.biz-checkout.biz-checkout--step-3 .wc-block-components-checkout-place-order-button {
-	display: block;
-}
-
-/* Step summary shown between steps (mini recap) */
-.biz-checkout__step-summary {
-	display: none;
-	padding: 1rem 1.25rem;
-	margin-bottom: 1rem;
-	background: var(--biz-surface);
-	border-radius: var(--biz-radius);
-	border: 1px solid var(--biz-border);
-	font-size: 0.875rem;
-	color: var(--biz-text-secondary);
-	line-height: 1.5;
-}
-
-.biz-checkout__step-summary--visible {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	gap: 1rem;
-}
-
-.biz-checkout__step-summary-edit {
-	color: var(--biz-primary);
-	font-size: 0.8125rem;
-	font-weight: 500;
-	cursor: pointer;
-	white-space: nowrap;
-	background: none;
-	border: none;
-	font-family: var(--biz-font);
-	padding: 0;
-	transition: color var(--biz-fast);
-}
-
-.biz-checkout__step-summary-edit:hover {
-	color: var(--biz-primary-dark);
-	text-decoration: underline;
-}
-
-/* ============================================================
-   CHECKOUT FOOTER
+   Footer — back link + copyright
    ============================================================ */
 .biz-checkout__footer {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	padding: 1.5rem 0;
+	padding: 1.25rem 0;
 	border-top: 1px solid var(--biz-border);
-	margin-top: auto;
 	flex-shrink: 0;
+	margin-top: auto;
 }
-
 .biz-checkout__back {
 	display: inline-flex;
 	align-items: center;
@@ -451,408 +85,72 @@ body.woocommerce-checkout .biz-mobile-menu {
 	text-decoration: none;
 	transition: color var(--biz-fast);
 }
-
 .biz-checkout__back:hover {
 	color: var(--biz-primary-dark);
 }
-
-.biz-checkout__back svg {
-	transition: transform var(--biz-fast);
-}
-
 .biz-checkout__back:hover svg {
 	transform: translateX(-3px);
 }
-
-.biz-checkout__copyright {
+.biz-checkout__back svg {
+	transition: transform var(--biz-fast);
+}
+.biz-checkout__copy {
 	font-size: 0.8125rem;
 	color: var(--biz-text-muted);
 }
 
 /* ============================================================
-   STEP-LEVEL SECTION STYLING
+   Dark mode — input contrast (checkout + cart shared)
    ============================================================ */
-
-/* Each step's WC blocks — remove borders between steps since we manage visibility */
-.biz-checkout__step-content .wc-block-components-checkout-step {
-	border-bottom: 1px solid var(--biz-border);
-}
-
-.biz-checkout__step-content .wc-block-components-checkout-step:last-child {
-	border-bottom: none;
-}
-
-/* Address form grid — 2 columns on desktop */
-.biz-checkout .wc-block-components-address-form {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 0.75rem;
-}
-
-/* Full width fields */
-.biz-checkout .wc-block-components-address-form > .wc-block-components-text-input:first-child,
-.biz-checkout .wc-block-components-address-form > .wc-block-components-text-input[id*="address_1"],
-.biz-checkout .wc-block-components-address-form > .wc-block-components-text-input[id*="address_2"],
-.biz-checkout .wc-block-components-address-form > .wc-block-components-country-input,
-.biz-checkout .wc-block-components-address-form > .wc-block-components-combobox:first-of-type {
-	grid-column: 1 / -1;
-}
-
-/* Contact info email full width */
-.biz-checkout .wp-block-woocommerce-checkout-contact-information-block .wc-block-components-text-input {
-	margin-bottom: 0.75rem;
-}
-
-/* ============================================================
-   ORDER SUMMARY — RIGHT COLUMN ENHANCEMENTS
-   ============================================================ */
-
-/* Summary heading */
-.biz-checkout .wc-block-components-order-summary .wc-block-components-panel__button {
-	font-size: 1.125rem;
-	font-weight: 700;
-	padding: 0 0 1rem;
-}
-
-/* Product items in summary */
-.biz-checkout .wc-block-components-order-summary-item {
-	padding: 0.75rem 0;
-}
-
-.biz-checkout .wc-block-components-order-summary-item__image {
-	width: 56px;
-	height: 56px;
-	border-radius: var(--biz-radius);
-	border: 1px solid var(--biz-border);
-	overflow: hidden;
-	position: relative;
-}
-
-/* Quantity badge on image */
-.biz-checkout .wc-block-components-order-summary-item__quantity {
-	position: absolute;
-	top: -6px;
-	right: -6px;
-	background: var(--biz-primary);
-	color: #fff;
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	font-size: 0.6875rem;
-	font-weight: 600;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	z-index: 1;
-}
-
-/* Totals fine-tuning */
-.biz-checkout .wc-block-components-totals-footer-item {
-	margin-top: 0.75rem;
-	padding-top: 1rem;
-	border-top: 2px solid var(--biz-border);
-}
-
-/* ============================================================
-   VALIDATION ERROR HIGHLIGHT ON STEP CHANGE
-   ============================================================ */
-.biz-checkout .wc-block-components-text-input.has-error input,
-.biz-checkout .wc-block-components-text-input.has-error textarea {
-	border-color: var(--biz-error) !important;
-	animation: bizCheckoutShake 0.4s ease;
-}
-
-@keyframes bizCheckoutShake {
-	0%, 100% { transform: translateX(0); }
-	20%, 60% { transform: translateX(-4px); }
-	40%, 80% { transform: translateX(4px); }
-}
-
-/* ============================================================
-   DARK MODE
-   ============================================================ */
-.dark .biz-checkout__header {
-	border-bottom-color: var(--biz-border);
-}
-
-.dark .biz-checkout__logo-text {
-	color: var(--biz-text);
-}
-
-.dark .biz-checkout__step-num {
-	background: var(--biz-border);
-	color: var(--biz-text-muted);
-}
-
-.dark .biz-checkout__step--active .biz-checkout__step-num {
-	background: var(--biz-primary);
-	color: #fff;
-}
-
-.dark .biz-checkout__step--completed .biz-checkout__step-num {
-	background: var(--biz-success);
-}
-
-.dark .biz-checkout__step-sep {
-	color: var(--biz-border);
-}
-
-.dark .biz-checkout .wp-block-woocommerce-checkout-totals-block {
-	background: var(--biz-surface);
-	border: 1px solid var(--biz-border);
-}
-
-.dark .biz-checkout__summary-total {
-	color: var(--biz-text);
-}
-
-.dark .biz-checkout__step-summary {
-	background: var(--biz-surface);
-	border-color: var(--biz-border);
-	color: var(--biz-text-secondary);
-}
-
-.dark .biz-checkout__footer {
-	border-top-color: var(--biz-border);
-}
-
-.dark .biz-checkout__continue {
-	background: var(--biz-primary);
-}
-
-.dark .biz-checkout__continue:hover {
-	background: var(--biz-primary-light);
-}
-
-/* Dark mode: input/select/textarea contrast fix */
-.dark .biz-checkout input,
-.dark .biz-checkout select,
-.dark .biz-checkout textarea,
-.dark .biz-checkout .wc-block-components-text-input input,
-.dark .biz-checkout .wc-block-components-text-input textarea,
-.dark .biz-checkout .wc-block-components-combobox input,
-.dark .biz-checkout .wc-block-components-combobox .components-form-token-field__input {
+.dark .wc-block-components-text-input input,
+.dark .wc-block-components-text-input textarea,
+.dark .wc-block-components-combobox input,
+.dark .wc-block-components-country-input select,
+.dark .wc-block-components-state-input select {
 	background: var(--biz-surface) !important;
 	border-color: var(--biz-border) !important;
 	color: var(--biz-text) !important;
 }
-
-/* Dark mode: placeholders and labels */
-.dark .biz-checkout input::placeholder,
-.dark .biz-checkout textarea::placeholder,
-.dark .biz-checkout .wc-block-components-text-input input::placeholder,
-.dark .biz-checkout .wc-block-components-text-input textarea::placeholder {
+.dark .wc-block-components-text-input input::placeholder,
+.dark .wc-block-components-text-input textarea::placeholder {
 	color: var(--biz-text-muted) !important;
 	opacity: 1 !important;
 }
-
-.dark .biz-checkout .wc-block-components-text-input label,
-.dark .biz-checkout .wc-block-components-combobox label,
-.dark .biz-checkout label {
+.dark .wc-block-components-text-input label {
 	color: var(--biz-text-muted) !important;
 }
-
-.dark .biz-checkout .wc-block-components-text-input.is-active label,
-.dark .biz-checkout .wc-block-components-text-input input:focus + label {
+.dark .wc-block-components-text-input.is-active label {
 	color: var(--biz-primary-light) !important;
 }
-
-/* Dark mode: focus ring */
-.dark .biz-checkout input:focus,
-.dark .biz-checkout select:focus,
-.dark .biz-checkout textarea:focus,
-.dark .biz-checkout .wc-block-components-text-input input:focus {
+.dark .wc-block-components-text-input input:focus,
+.dark .wc-block-components-text-input textarea:focus {
 	border-color: var(--biz-primary) !important;
 	box-shadow: 0 0 0 3px rgba(131, 103, 199, 0.25) !important;
 }
-
-/* Dark mode: select dropdown */
-.dark .biz-checkout select option {
-	background: var(--biz-surface);
+.dark .wc-block-components-checkout-step__heading {
 	color: var(--biz-text);
 }
-
-/* Dark mode: WC block radio options & checkboxes */
-.dark .biz-checkout .wc-block-components-radio-control__option {
+.dark .wc-block-components-radio-control__option {
 	border-color: var(--biz-border);
 }
-.dark .biz-checkout .wc-block-components-radio-control__option--checked {
+.dark .wc-block-components-radio-control__option--checked {
 	border-color: var(--biz-primary);
 	background: rgba(131, 103, 199, 0.1);
 }
 
-/* Dark mode: notice banners */
-.dark .biz-checkout .wc-block-components-notice-banner.is-error {
-	background: rgba(229, 56, 59, 0.1);
-}
-
-/* Dark mode: order summary */
-.dark .biz-checkout .wc-block-components-order-summary-item__image {
-	border-color: var(--biz-border);
-}
-
 /* ============================================================
-   RESPONSIVE — Tablet (1024px)
-   ============================================================ */
-@media (max-width: 1024px) {
-	.biz-checkout .wp-block-woocommerce-checkout,
-	.biz-checkout .wp-block-woocommerce-checkout.alignwide,
-	.biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout,
-	.biz-checkout .wc-block-checkout__form {
-		grid-template-columns: 1fr 340px !important;
-		gap: 2rem !important;
-	}
-
-	.biz-checkout__header-inner {
-		grid-template-columns: auto 1fr auto;
-	}
-}
-
-/* ============================================================
-   RESPONSIVE — Mobile (768px)
+   Responsive
    ============================================================ */
 @media (max-width: 768px) {
 	.biz-checkout {
 		padding: 0 1rem;
 	}
-
-	/* Header: stack logo above steps */
-	.biz-checkout__header-inner {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1rem;
+	.biz-checkout__main {
+		padding: 1rem 0;
 	}
-
-	.biz-checkout__logo {
-		justify-content: center;
-	}
-
-	.biz-checkout__secure {
-		display: none;
-	}
-
-	/* Steps: smaller text */
-	.biz-checkout__step {
-		font-size: 0.8125rem;
-		padding: 0.375rem 0.5rem;
-		gap: 0.25rem;
-	}
-
-	.biz-checkout__step-num {
-		width: 20px;
-		height: 20px;
-		font-size: 0.6875rem;
-	}
-
-	/* Show mobile summary toggle */
-	.biz-checkout__summary-toggle {
-		display: block;
-	}
-
-	/* Single column layout */
-	.biz-checkout .wp-block-woocommerce-checkout,
-	.biz-checkout .wp-block-woocommerce-checkout.alignwide,
-	.biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout,
-	.biz-checkout .wc-block-checkout__form {
-		grid-template-columns: 1fr !important;
-		gap: 0 !important;
-	}
-
-	/* Order summary: hidden by default on mobile, controlled by toggle */
-	.biz-checkout .wp-block-woocommerce-checkout-totals-block {
-		position: static;
-		display: none;
-		margin-bottom: 1.5rem;
-		border-radius: 0 0 var(--biz-radius-lg) var(--biz-radius-lg);
-	}
-
-	/* When toggled open */
-	.biz-checkout .wp-block-woocommerce-checkout-totals-block.is-visible {
-		display: block;
-		animation: bizCheckoutSlideDown 0.3s ease;
-	}
-
-	@keyframes bizCheckoutSlideDown {
-		from {
-			opacity: 0;
-			max-height: 0;
-			overflow: hidden;
-		}
-		to {
-			opacity: 1;
-			max-height: 600px;
-			overflow: visible;
-		}
-	}
-
-	/* Address form: single column on mobile */
-	.biz-checkout .wc-block-components-address-form {
-		grid-template-columns: 1fr;
-	}
-
-	/* Footer */
 	.biz-checkout__footer {
 		flex-direction: column;
 		gap: 0.75rem;
 		text-align: center;
-	}
-
-	/* Body padding */
-	.biz-checkout__body {
-		padding: 1.25rem 0;
-	}
-}
-
-/* ============================================================
-   RESPONSIVE — Small mobile (480px)
-   ============================================================ */
-@media (max-width: 480px) {
-	.biz-checkout__steps {
-		gap: 0.25rem;
-	}
-
-	.biz-checkout__step {
-		font-size: 0.75rem;
-		padding: 0.25rem 0.375rem;
-	}
-
-	.biz-checkout__step-label {
-		display: none;
-	}
-
-	.biz-checkout__step-num {
-		width: 28px;
-		height: 28px;
-		font-size: 0.8125rem;
-	}
-
-	.biz-checkout__step-sep svg {
-		width: 6px;
-		height: 10px;
-	}
-}
-
-/* ============================================================
-   PRINT — Clean print styles
-   ============================================================ */
-@media print {
-	.biz-checkout__steps,
-	.biz-checkout__summary-toggle,
-	.biz-checkout__continue,
-	.biz-checkout__back,
-	.biz-checkout__secure,
-	.wc-block-components-checkout-place-order-button {
-		display: none !important;
-	}
-
-	.biz-checkout .wp-block-woocommerce-checkout,
-	.biz-checkout .wc-block-checkout__form {
-		display: block;
-	}
-
-	.biz-checkout .wp-block-woocommerce-checkout-totals-block {
-		position: static;
-		page-break-inside: avoid;
 	}
 }
