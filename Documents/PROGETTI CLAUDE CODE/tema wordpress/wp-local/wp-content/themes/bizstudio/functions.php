@@ -20,6 +20,10 @@ require_once BIZSTUDIO_DIR . '/inc/translations.php';
 
 // Theme features (always loaded)
 require_once BIZSTUDIO_DIR . '/inc/promo-bar.php';
+require_once BIZSTUDIO_DIR . '/inc/customizer.php';
+require_once BIZSTUDIO_DIR . '/inc/header-builder.php';
+require_once BIZSTUDIO_DIR . '/inc/seo.php';
+require_once BIZSTUDIO_DIR . '/inc/contact-form.php';
 
 // WooCommerce integration
 if ( class_exists( 'WooCommerce' ) ) {

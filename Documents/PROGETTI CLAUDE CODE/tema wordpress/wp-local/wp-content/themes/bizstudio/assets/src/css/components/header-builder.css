@@ -1,0 +1,444 @@
+/* ============================================================
+   BizStudio — Header Builder Styles
+   Preset layouts, top bar, bottom bar, and responsive overrides.
+   ============================================================ */
+
+/* ── CSS Variables (defaults, overridden inline by PHP) ────── */
+:root {
+	--biz-header-h: 72px;
+	--biz-header-bg: var(--biz-bg);
+	--biz-header-color: var(--biz-text);
+	--biz-topbar-h: 0px;
+	--biz-topbar-bg: #1A1A2E;
+	--biz-topbar-color: #FFFFFF;
+	--biz-bottombar-h: 0px;
+	--biz-bottombar-bg: var(--biz-surface);
+	--biz-bottombar-color: var(--biz-text);
+}
+
+/* ============================================================
+   TOP BAR
+   ============================================================ */
+.biz-header-topbar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.8125rem;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	z-index: 101;
+	position: relative;
+}
+
+.biz-header-topbar__inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	text-align: center;
+}
+
+.biz-header-topbar__text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Visibility */
+.biz-header-topbar--desktop-only { display: flex; }
+.biz-header-topbar--mobile-only  { display: none; }
+
+@media (max-width: 768px) {
+	.biz-header-topbar--desktop-only { display: none; }
+	.biz-header-topbar--mobile-only  { display: flex; }
+}
+
+/* ============================================================
+   BOTTOM BAR
+   ============================================================ */
+.biz-header-bottom {
+	display: flex;
+	align-items: center;
+	z-index: 99;
+	position: relative;
+}
+
+.biz-header-bottom__inner {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+}
+
+.biz-header-bottom__inner::-webkit-scrollbar {
+	display: none;
+}
+
+.biz-header-bottom__nav {
+	width: 100%;
+}
+
+.biz-header-bottom__list {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+
+.biz-header-bottom__link {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: inherit;
+	text-decoration: none;
+	transition: color var(--biz-fast);
+	padding: 0.25rem 0;
+	position: relative;
+}
+
+.biz-header-bottom__link::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: var(--biz-primary);
+	transition: width var(--biz-base);
+}
+
+.biz-header-bottom__link:hover {
+	color: var(--biz-primary);
+}
+
+.biz-header-bottom__link:hover::after {
+	width: 100%;
+}
+
+/* Also style wp_nav_menu output in bottom bar */
+.biz-header-bottom__list li a {
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: inherit;
+	text-decoration: none;
+	transition: color var(--biz-fast);
+}
+
+.biz-header-bottom__list li a:hover {
+	color: var(--biz-primary);
+}
+
+/* Visibility */
+.biz-header-bottom--desktop-only { display: flex; }
+.biz-header-bottom--mobile-only  { display: none; }
+
+@media (max-width: 768px) {
+	.biz-header-bottom--desktop-only { display: none; }
+	.biz-header-bottom--mobile-only  { display: flex; }
+}
+
+/* ============================================================
+   MAIN HEADER — Custom background / color from variables
+   ============================================================ */
+.biz-header {
+	background: var(--biz-header-bg);
+	color: var(--biz-header-color);
+	height: var(--biz-header-h);
+}
+
+/* When sticky is disabled via body class */
+body:not(.biz-header--sticky) .biz-header {
+	position: relative;
+}
+
+/* When main border is disabled — the PHP outputs inline,
+   but this provides a default fallback */
+.biz-header--no-border .biz-header {
+	border-bottom: none;
+}
+
+/* ============================================================
+   PRESET: DEFAULT
+   Logo left, Menu center, Actions right
+   (This is the base layout already in main.css, no overrides needed)
+   ============================================================ */
+/* .biz-header--default — no additional styles needed */
+
+/* ============================================================
+   PRESET: CENTERED
+   Menu left, Logo center, Actions right
+   ============================================================ */
+.biz-header--centered .biz-header__inner {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+}
+
+.biz-header--centered .biz-header__nav {
+	order: -1;
+	justify-content: flex-start;
+}
+
+.biz-header--centered .biz-header__logo {
+	justify-self: center;
+	text-align: center;
+}
+
+.biz-header--centered .biz-header__actions {
+	justify-self: end;
+}
+
+/* ============================================================
+   PRESET: MINIMAL
+   Logo left, Actions right, no visible nav (burger only)
+   ============================================================ */
+.biz-header--minimal .biz-header__nav {
+	display: none;
+}
+
+.biz-header--minimal .biz-header__burger {
+	display: flex;
+}
+
+/* ============================================================
+   PRESET: TRANSPARENT
+   Same as default but transparent bg, solid on scroll
+   ============================================================ */
+.biz-header--transparent .biz-header {
+	background: transparent;
+	border-bottom-color: transparent;
+}
+
+.biz-header--transparent .biz-header.is-transparent {
+	background: transparent;
+	border-bottom-color: transparent;
+	box-shadow: none;
+}
+
+/* White text on transparent when on homepage with hero */
+.biz-header--transparent-home .biz-header.is-transparent {
+	color: #FFFFFF;
+}
+
+.biz-header--transparent-home .biz-header.is-transparent .biz-header__action {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.biz-header--transparent-home .biz-header.is-transparent .biz-header__action:hover {
+	color: #FFFFFF;
+	background: rgba(255, 255, 255, 0.12);
+}
+
+.biz-header--transparent-home .biz-header.is-transparent .biz-nav__list li a {
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.biz-header--transparent-home .biz-header.is-transparent .biz-nav__list li a:hover {
+	color: #FFFFFF;
+}
+
+.biz-header--transparent-home .biz-header.is-transparent .biz-header__logo-text {
+	color: #FFFFFF;
+}
+
+/* Transition to solid */
+.biz-header--transparent .biz-header.is-scrolled {
+	background: var(--biz-header-bg, var(--biz-bg));
+	color: var(--biz-header-color, var(--biz-text));
+	border-bottom-color: var(--biz-border);
+	box-shadow: var(--biz-shadow-sm);
+}
+
+.biz-header--transparent .biz-header.is-scrolled .biz-header__action {
+	color: var(--biz-text-secondary);
+}
+
+.biz-header--transparent .biz-header.is-scrolled .biz-nav__list li a {
+	color: var(--biz-text-secondary);
+}
+
+/* Transparent preset: absolute position to overlap hero */
+.biz-header--transparent-home .biz-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 100;
+}
+
+.biz-header--transparent-home.biz-header--sticky .biz-header.is-scrolled {
+	position: fixed;
+}
+
+/* ============================================================
+   PRESET: ECOMMERCE
+   Logo left, Search bar center (wide), Actions right
+   ============================================================ */
+.biz-header--ecommerce .biz-header__inner {
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.biz-header--ecommerce .biz-header__nav {
+	display: none;
+}
+
+.biz-header--ecommerce .biz-header__burger {
+	display: flex;
+}
+
+/* Search bar in center column */
+.biz-header--ecommerce .biz-header__logo {
+	grid-column: 1;
+}
+
+.biz-header--ecommerce .biz-header__actions {
+	grid-column: 3;
+}
+
+/* The search bar needs to be placed in the header for this preset.
+   Since we cannot modify header.php, we promote the existing search toggle
+   into a visible inline search bar via CSS when the ecommerce preset is active. */
+.biz-header--ecommerce .biz-header__inner::after {
+	content: '';
+	grid-column: 2;
+	grid-row: 1;
+}
+
+/* If a .biz-header__search-bar element exists (can be added later) */
+.biz-header__search-bar {
+	display: none;
+}
+
+.biz-header--ecommerce .biz-header__search-bar {
+	display: flex;
+	grid-column: 2;
+	grid-row: 1;
+	align-items: center;
+	background: var(--biz-surface);
+	border: 1px solid var(--biz-border);
+	border-radius: var(--biz-radius-lg);
+	padding: 0 1rem;
+	height: 44px;
+	gap: 0.5rem;
+	transition: border-color var(--biz-fast), box-shadow var(--biz-fast);
+}
+
+.biz-header--ecommerce .biz-header__search-bar:focus-within {
+	border-color: var(--biz-primary);
+	box-shadow: 0 0 0 3px rgba(131, 103, 199, 0.15);
+}
+
+.biz-header--ecommerce .biz-header__search-bar input {
+	border: none;
+	background: transparent;
+	flex: 1;
+	font-size: 0.9375rem;
+	color: var(--biz-text);
+	outline: none;
+}
+
+.biz-header--ecommerce .biz-header__search-bar input::placeholder {
+	color: var(--biz-text-muted);
+}
+
+.biz-header--ecommerce .biz-header__search-bar .biz-icon {
+	color: var(--biz-text-muted);
+	flex-shrink: 0;
+}
+
+/* ============================================================
+   RESPONSIVE — Mobile always: Logo left + Burger right
+   ============================================================ */
+@media (max-width: 768px) {
+
+	/* Reset all preset grid layouts to simple flexbox on mobile */
+	.biz-header--centered .biz-header__inner,
+	.biz-header--ecommerce .biz-header__inner {
+		display: flex;
+		grid-template-columns: none;
+	}
+
+	/* Always show burger on mobile */
+	.biz-header__burger {
+		display: flex;
+	}
+
+	/* Always hide desktop nav on mobile */
+	.biz-header__nav {
+		display: none;
+	}
+
+	/* Centered preset: restore normal logo position on mobile */
+	.biz-header--centered .biz-header__nav {
+		order: 0;
+	}
+
+	.biz-header--centered .biz-header__logo {
+		justify-self: start;
+		text-align: left;
+	}
+
+	/* Ecommerce preset: hide search bar on mobile (use modal instead) */
+	.biz-header--ecommerce .biz-header__search-bar {
+		display: none;
+	}
+
+	/* Transparent preset: keep mobile adjustments */
+	.biz-header--transparent-home .biz-header.is-transparent {
+		color: #FFFFFF;
+	}
+
+	/* Mobile header height */
+	:root {
+		--biz-header-h: 60px;
+	}
+
+	/* Bottom bar: scrollable on mobile */
+	.biz-header-bottom__inner {
+		padding-right: 1rem;
+	}
+
+	.biz-header-bottom__list {
+		gap: 1rem;
+	}
+}
+
+/* ============================================================
+   TRANSITIONS — Smooth preset switching and color changes
+   ============================================================ */
+.biz-header,
+.biz-header-topbar,
+.biz-header-bottom {
+	transition:
+		background var(--biz-base),
+		color var(--biz-base),
+		border-color var(--biz-base),
+		box-shadow var(--biz-base);
+}
+
+/* ============================================================
+   DARK MODE — Adjustments for header builder elements
+   ============================================================ */
+.dark .biz-header-topbar {
+	border-bottom-color: var(--biz-border);
+}
+
+.dark .biz-header-bottom {
+	border-bottom-color: var(--biz-border);
+}
+
+.dark .biz-header--ecommerce .biz-header__search-bar {
+	background: var(--biz-surface);
+	border-color: var(--biz-border);
+}
+
+.dark .biz-header--ecommerce .biz-header__search-bar input {
+	color: var(--biz-text);
+}

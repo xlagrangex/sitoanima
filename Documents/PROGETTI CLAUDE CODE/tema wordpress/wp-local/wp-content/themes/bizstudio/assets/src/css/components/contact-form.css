@@ -1,0 +1,95 @@
+/* ============================================================
+   Contact Form Component
+   Shortcode: [bizstudio_contact_form]
+   ============================================================ */
+
+/* --- Form wrapper --- */
+.biz-contact-form {
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+/* --- Two-column row (Nome + Email) --- */
+.biz-contact-form__row {
+	display: flex;
+	gap: var(--biz-gap);
+}
+.biz-contact-form__row > .biz-contact-form__field {
+	flex: 1;
+}
+
+/* --- Field spacing --- */
+.biz-contact-form__field {
+	margin-bottom: 1.25rem;
+}
+
+/* --- Honeypot (hidden) --- */
+.biz-contact-form__hp {
+	display: none !important;
+	visibility: hidden;
+	position: absolute;
+	left: -9999px;
+}
+
+/* --- Submit button --- */
+.biz-contact-form__submit {
+	margin-top: 0.5rem;
+}
+.biz-contact-form__submit:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+	transform: none !important;
+}
+.biz-contact-form__submit-loading {
+	display: inline-flex;
+	align-items: center;
+}
+.biz-contact-form__submit-loading svg {
+	animation: biz-cf-spin 1s linear infinite;
+}
+
+@keyframes biz-cf-spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+/* --- Message box --- */
+.biz-contact-form__msg {
+	margin-top: 1rem;
+	padding: 0.875rem 1rem;
+	border-radius: var(--biz-radius);
+	font-size: 0.9375rem;
+	font-weight: 500;
+	text-align: center;
+}
+
+.biz-contact-form__msg--success {
+	background: rgba(46, 160, 67, 0.1);
+	color: var(--biz-success);
+	border: 1px solid rgba(46, 160, 67, 0.25);
+}
+
+.biz-contact-form__msg--error {
+	background: rgba(229, 56, 59, 0.1);
+	color: var(--biz-error);
+	border: 1px solid rgba(229, 56, 59, 0.25);
+}
+
+/* --- Responsive: single column on mobile --- */
+@media (max-width: 600px) {
+	.biz-contact-form__row {
+		flex-direction: column;
+		gap: 0;
+	}
+}
+
+/* --- Dark mode --- */
+.dark .biz-contact-form__msg--success {
+	background: rgba(46, 160, 67, 0.15);
+	border-color: rgba(46, 160, 67, 0.3);
+}
+
+.dark .biz-contact-form__msg--error {
+	background: rgba(229, 56, 59, 0.15);
+	border-color: rgba(229, 56, 59, 0.3);
+}
