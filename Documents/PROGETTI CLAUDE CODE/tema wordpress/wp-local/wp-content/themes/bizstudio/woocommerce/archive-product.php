@@ -20,7 +20,7 @@ get_header();
 			<?php else : ?>
 				<h1 class="biz-shop-header__title"><?php single_cat_title(); ?></h1>
 				<?php if ( category_description() ) : ?>
-					<div class="biz-shop-header__desc"><?php echo category_description(); ?></div>
+					<div class="biz-shop-header__desc term-description"><?php echo category_description(); ?></div>
 				<?php endif; ?>
 			<?php endif; ?>
 		</div>
