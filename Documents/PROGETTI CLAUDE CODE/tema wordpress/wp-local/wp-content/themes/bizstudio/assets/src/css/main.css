@@ -113,29 +113,48 @@ h4 { font-size: 1.125rem; }
 	letter-spacing: -0.02em;
 }
 
-/* --- Editorial Content (prose) --- */
+/* --- Prose (editorial content spacing) ---
+   Applied to every container that renders WordPress/WooCommerce content.
+   The global reset removes all margin/padding, so we restore them here. */
+
+/* Prose containers */
+.entry-content,
+.biz-prose,
+.woocommerce-MyAccount-content,
+.woocommerce-order-details,
+.woocommerce-order-received,
+.woocommerce-thankyou-order-details,
+.woocommerce-notices-wrapper,
+.comment-content,
+.widget_text,
+.wp-block-post-content {
+	line-height: 1.7;
+}
+
+/* Page content specific */
 .entry-content {
 	max-width: 780px;
 	padding-bottom: 3rem;
-	line-height: 1.7;
 	font-size: 1.0625rem;
 	color: var(--biz-text-secondary);
 }
 
-.entry-content h1,
-.entry-content h2,
-.entry-content h3,
-.entry-content h4,
-.entry-content h5,
-.entry-content h6 {
+/* --- Prose: Headings --- */
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6,
+.woocommerce-MyAccount-content h2, .woocommerce-MyAccount-content h3, .woocommerce-MyAccount-content h4,
+.woocommerce-order-details h2, .woocommerce-order-details h3,
+.biz-prose h1, .biz-prose h2, .biz-prose h3, .biz-prose h4, .biz-prose h5, .biz-prose h6,
+.comment-content h2, .comment-content h3, .comment-content h4,
+.widget_text h2, .widget_text h3, .widget_text h4 {
 	color: var(--biz-text);
-	margin-top: 2em;
-	margin-bottom: 0.75em;
+	margin-top: 1.75em;
+	margin-bottom: 0.6em;
 }
 
-.entry-content h1:first-child,
-.entry-content h2:first-child,
-.entry-content h3:first-child {
+.entry-content > :first-child,
+.woocommerce-MyAccount-content > :first-child,
+.biz-prose > :first-child,
+.comment-content > :first-child {
 	margin-top: 0;
 }
 
@@ -144,39 +163,54 @@ h4 { font-size: 1.125rem; }
 .entry-content h3 { font-size: 1.25rem; }
 .entry-content h4 { font-size: 1.125rem; }
 
-.entry-content p {
-	margin-bottom: 1.25em;
+/* --- Prose: Paragraphs --- */
+.entry-content p,
+.woocommerce-MyAccount-content p,
+.woocommerce-order-details p,
+.biz-prose p,
+.comment-content p,
+.widget_text p {
+	margin-bottom: 1em;
 }
 
-.entry-content ul,
-.entry-content ol {
-	margin-bottom: 1.25em;
+/* --- Prose: Lists --- */
+.entry-content ul, .entry-content ol,
+.woocommerce-MyAccount-content ul, .woocommerce-MyAccount-content ol,
+.biz-prose ul, .biz-prose ol,
+.comment-content ul, .comment-content ol,
+.widget_text ul, .widget_text ol {
+	margin-bottom: 1em;
 	padding-left: 1.5em;
 }
 
-.entry-content ul { list-style: disc; }
-.entry-content ol { list-style: decimal; }
+.entry-content ul, .biz-prose ul, .comment-content ul, .widget_text ul,
+.woocommerce-MyAccount-content ul { list-style: disc; }
+.entry-content ol, .biz-prose ol, .comment-content ol, .widget_text ol,
+.woocommerce-MyAccount-content ol { list-style: decimal; }
 
-.entry-content li {
+.entry-content li, .biz-prose li, .comment-content li, .widget_text li,
+.woocommerce-MyAccount-content li {
 	margin-bottom: 0.375em;
 }
 
-.entry-content li::marker {
+.entry-content li::marker, .biz-prose li::marker {
 	color: var(--biz-primary);
 }
 
-.entry-content a {
+/* --- Prose: Links --- */
+.entry-content a, .biz-prose a, .comment-content a {
 	color: var(--biz-primary);
 	text-decoration: underline;
 	text-underline-offset: 2px;
 	transition: color var(--biz-fast);
 }
 
-.entry-content a:hover {
+.entry-content a:hover, .biz-prose a:hover, .comment-content a:hover {
 	color: var(--biz-primary-dark);
 }
 
-.entry-content blockquote {
+/* --- Prose: Block elements --- */
+.entry-content blockquote, .biz-prose blockquote {
 	border-left: 3px solid var(--biz-primary);
 	padding: 0.75rem 1.25rem;
 	margin: 1.5em 0;
@@ -186,38 +220,38 @@ h4 { font-size: 1.125rem; }
 	font-style: italic;
 }
 
-.entry-content img {
+.entry-content img, .biz-prose img {
 	border-radius: var(--biz-radius);
 	margin: 1.5em 0;
 }
 
-.entry-content table {
+.entry-content table, .biz-prose table {
 	width: 100%;
 	border-collapse: collapse;
 	margin: 1.5em 0;
 	font-size: 0.9375rem;
 }
 
-.entry-content th,
-.entry-content td {
+.entry-content th, .entry-content td,
+.biz-prose th, .biz-prose td {
 	padding: 0.75rem 1rem;
 	border: 1px solid var(--biz-border);
 	text-align: left;
 }
 
-.entry-content th {
+.entry-content th, .biz-prose th {
 	background: var(--biz-surface);
 	font-weight: 600;
 	color: var(--biz-text);
 }
 
-.entry-content hr {
+.entry-content hr, .biz-prose hr {
 	border: none;
 	border-top: 1px solid var(--biz-border);
 	margin: 2em 0;
 }
 
-.entry-content code {
+.entry-content code, .biz-prose code {
 	background: var(--biz-surface);
 	padding: 0.15em 0.4em;
 	border-radius: var(--biz-radius-sm);
@@ -225,7 +259,7 @@ h4 { font-size: 1.125rem; }
 	font-size: 0.875em;
 }
 
-.entry-content pre {
+.entry-content pre, .biz-prose pre {
 	background: var(--biz-surface);
 	padding: 1.25rem;
 	border-radius: var(--biz-radius);
@@ -235,9 +269,92 @@ h4 { font-size: 1.125rem; }
 	line-height: 1.5;
 }
 
-.entry-content pre code {
+.entry-content pre code, .biz-prose pre code {
 	background: none;
 	padding: 0;
+}
+
+/* --- WooCommerce Account content extras --- */
+.woocommerce-MyAccount-content h2 {
+	font-size: 1.375rem;
+	font-weight: 700;
+	padding-bottom: 0.75rem;
+	border-bottom: 1px solid var(--biz-border);
+}
+
+.woocommerce-MyAccount-content h3 {
+	font-size: 1.125rem;
+	font-weight: 600;
+}
+
+/* Exclude lists that are already styled (nav, orders table, etc.) */
+.woocommerce-MyAccount-navigation ul,
+.woocommerce-orders-table,
+.woocommerce-Addresses {
+	list-style: none;
+	padding-left: 0;
+}
+
+/* WooCommerce notices spacing */
+.woocommerce-notices-wrapper {
+	margin-bottom: 1.5rem;
+}
+
+.woocommerce-message,
+.woocommerce-error,
+.woocommerce-info {
+	padding: 1rem 1.25rem;
+	margin-bottom: 1rem;
+	border-radius: var(--biz-radius);
+	font-size: 0.9375rem;
+	line-height: 1.6;
+}
+
+.woocommerce-message {
+	background: rgba(46, 160, 67, 0.06);
+	border: 1px solid var(--biz-success);
+	color: var(--biz-success);
+}
+
+.woocommerce-error {
+	background: rgba(229, 56, 59, 0.06);
+	border: 1px solid var(--biz-error);
+	color: var(--biz-error);
+}
+
+.woocommerce-error li {
+	list-style: none;
+	margin-bottom: 0.25em;
+}
+
+/* General WC content: address blocks, order details */
+.woocommerce-customer-details address,
+.woocommerce-order-details address {
+	font-style: normal;
+	line-height: 1.7;
+	color: var(--biz-text-secondary);
+}
+
+.woocommerce-table--order-details {
+	width: 100%;
+	border-collapse: collapse;
+	margin: 1rem 0;
+}
+
+.woocommerce-table--order-details th,
+.woocommerce-table--order-details td {
+	padding: 0.75rem 1rem;
+	border-bottom: 1px solid var(--biz-border);
+	text-align: left;
+	font-size: 0.9375rem;
+}
+
+.woocommerce-table--order-details thead th {
+	font-weight: 600;
+	color: var(--biz-text-muted);
+	font-size: 0.8125rem;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
 }
 
 /* --- Buttons --- */
