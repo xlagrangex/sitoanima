@@ -44,7 +44,7 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp_customize 
 
 	// ── Promo text ─────────────────────────────
 	$wp_customize->add_setting( 'bizstudio_promo_bar_text', [
-		'default'           => __( 'Spedizione gratuita per ordini superiori a 49€', 'bizstudio' ),
+		'default'           => __( 'Spedizione gratuita per ordini superiori a 49', 'bizstudio' ),
 		'sanitize_callback' => 'wp_kses_post',
 		'transport'         => 'postMessage',
 	] );
@@ -84,7 +84,7 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp_customize 
 		$wp_customize->selective_refresh->add_partial( 'bizstudio_promo_bar_text', [
 			'selector'        => '.biz-promo-bar__text',
 			'render_callback' => function () {
-				echo esc_html( get_theme_mod( 'bizstudio_promo_bar_text', __( 'Spedizione gratuita per ordini superiori a 49€', 'bizstudio' ) ) );
+				echo esc_html( get_theme_mod( 'bizstudio_promo_bar_text', __( 'Spedizione gratuita per ordini superiori a 49', 'bizstudio' ) ) );
 			},
 		] );
 	}
@@ -136,7 +136,7 @@ function bizstudio_render_promo_bar() {
 		return;
 	}
 
-	$text  = get_theme_mod( 'bizstudio_promo_bar_text', __( 'Spedizione gratuita per ordini superiori a 49€', 'bizstudio' ) );
+	$text  = get_theme_mod( 'bizstudio_promo_bar_text', __( 'Spedizione gratuita per ordini superiori a 49', 'bizstudio' ) );
 	$bg    = get_theme_mod( 'bizstudio_promo_bar_bg', '#8367C7' );
 	$color = get_theme_mod( 'bizstudio_promo_bar_color', '#FFFFFF' );
 

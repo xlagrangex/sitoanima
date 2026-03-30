@@ -25,6 +25,17 @@ add_action( 'after_setup_theme', function () {
 	add_theme_support( 'wc-product-gallery-slider' );
 } );
 
+// Full-page checkout template (Shopify-style) — no header/footer
+add_filter( 'template_include', function ( $template ) {
+	if ( is_checkout() && ! is_wc_endpoint_url() ) {
+		$checkout_tpl = get_template_directory() . '/woocommerce/checkout.php';
+		if ( file_exists( $checkout_tpl ) ) {
+			return $checkout_tpl;
+		}
+	}
+	return $template;
+} );
+
 // HPOS compatibility
 add_action( 'before_woocommerce_init', function () {
 	if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {

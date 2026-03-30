@@ -584,6 +584,36 @@
 	background: rgba(131,103,199,0.08);
 }
 
+/* Dark mode: form inputs contrast */
+.dark .wc-block-components-text-input input,
+.dark .wc-block-components-text-input textarea,
+.dark .wc-block-components-combobox input,
+.dark .wc-block-components-country-input select,
+.dark .wc-block-components-state-input select {
+	background: var(--biz-surface) !important;
+	border-color: var(--biz-border) !important;
+	color: var(--biz-text) !important;
+}
+.dark .wc-block-components-text-input input::placeholder,
+.dark .wc-block-components-text-input textarea::placeholder {
+	color: var(--biz-text-muted) !important;
+	opacity: 1 !important;
+}
+.dark .wc-block-components-text-input label {
+	color: var(--biz-text-muted) !important;
+}
+.dark .wc-block-components-text-input.is-active label {
+	color: var(--biz-primary-light) !important;
+}
+.dark .wc-block-components-text-input input:focus,
+.dark .wc-block-components-text-input textarea:focus {
+	border-color: var(--biz-primary) !important;
+	box-shadow: 0 0 0 3px rgba(131,103,199,0.25) !important;
+}
+.dark .wc-block-components-checkout-step__heading {
+	color: var(--biz-text);
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */

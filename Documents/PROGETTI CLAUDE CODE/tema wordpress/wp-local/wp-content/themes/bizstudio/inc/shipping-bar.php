@@ -42,7 +42,8 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp_customize 
 		'transport'         => 'refresh',
 	] );
 	$wp_customize->add_control( 'bizstudio_shipping_bar_step1_amount', [
-		'label'       => __( 'Step 1 — Soglia (€)', 'bizstudio' ),
+		/* translators: %s = currency symbol */
+		'label'       => sprintf( __( 'Step 1 — Soglia (%s)', 'bizstudio' ), get_woocommerce_currency_symbol() ),
 		'section'     => 'bizstudio_shipping_bar',
 		'type'        => 'number',
 		'input_attrs' => [ 'min' => 1, 'step' => 1 ],
@@ -76,7 +77,8 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp_customize 
 		'transport'         => 'refresh',
 	] );
 	$wp_customize->add_control( 'bizstudio_shipping_bar_step2_amount', [
-		'label'       => __( 'Step 2 — Soglia (€)', 'bizstudio' ),
+		/* translators: %s = currency symbol */
+		'label'       => sprintf( __( 'Step 2 — Soglia (%s)', 'bizstudio' ), get_woocommerce_currency_symbol() ),
 		'section'     => 'bizstudio_shipping_bar',
 		'type'        => 'number',
 		'input_attrs' => [ 'min' => 1, 'step' => 1 ],
@@ -255,22 +257,20 @@ function bizstudio_render_shipping_bar( bool $echo = true ): string {
 	$fill_color    = $progress['fill_color'];
 	$complete_msg  = $config['complete_msg'];
 
-	// Build the message
+	// Build the message — use wc_price() for proper currency formatting
 	if ( $all_complete ) {
 		$message = $complete_msg;
 	} elseif ( $next_step ) {
-		$formatted_remaining = number_format( $remaining, 2, ',', '.' );
-		/* translators: %1$s = remaining amount, %2$s = step label */
+		/* translators: %1$s = formatted price with currency, %2$s = step label */
 		$message = sprintf(
-			__( 'Aggiungi %1$s&euro; per ottenere: %2$s!', 'bizstudio' ),
-			$formatted_remaining,
+			__( 'Aggiungi %1$s per ottenere: %2$s!', 'bizstudio' ),
+			wc_price( $remaining ),
 			$next_step['label']
 		);
 	} else {
-		$formatted_remaining = number_format( $steps[0]['amount'] - $progress['cart_total'], 2, ',', '.' );
 		$message = sprintf(
-			__( 'Aggiungi %1$s&euro; per ottenere: %2$s!', 'bizstudio' ),
-			$formatted_remaining,
+			__( 'Aggiungi %1$s per ottenere: %2$s!', 'bizstudio' ),
+			wc_price( $steps[0]['amount'] - $progress['cart_total'] ),
 			$steps[0]['label']
 		);
 	}
@@ -316,7 +316,7 @@ function bizstudio_render_shipping_bar( bool $echo = true ): string {
 						<div class="biz-shipping-bar__step<?php echo $reached ? ' biz-shipping-bar__step--reached' : ''; ?>"
 							style="left: <?php echo esc_attr( $step_position ); ?>%; --step-color: <?php echo esc_attr( $step['color'] ); ?>;"
 							data-step="<?php echo esc_attr( $i ); ?>"
-							title="<?php echo esc_attr( $step['label'] . ' — ' . number_format( $step['amount'], 0, ',', '.' ) . '€' ); ?>">
+							title="<?php echo esc_attr( $step['label'] . ' — ' . wp_strip_all_tags( wc_price( $step['amount'] ) ) ); ?>">
 							<?php if ( $reached ) : ?>
 								<svg class="biz-shipping-bar__step-check" width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
 									<path d="M2.5 5.5L4.5 7.5L7.5 3.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -325,7 +325,7 @@ function bizstudio_render_shipping_bar( bool $echo = true ): string {
 						</div>
 						<span class="biz-shipping-bar__step-label<?php echo $reached ? ' biz-shipping-bar__step-label--reached' : ''; ?>"
 							style="left: <?php echo esc_attr( $step_position ); ?>%;">
-							<?php echo esc_html( number_format( $step['amount'], 0, ',', '.' ) ); ?>&euro;
+							<?php echo wp_kses_post( wc_price( $step['amount'] ) ); ?>
 						</span>
 					<?php endforeach; ?>
 				</div>
