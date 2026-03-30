@@ -244,18 +244,26 @@ body.woocommerce-checkout .biz-mobile-menu {
 	padding: 2rem 0;
 }
 
-/* Override default WC checkout block layout — force 2-column grid */
+/* Override default WC checkout block layout — force 2-column grid.
+   WC blocks nests fields-block + totals-block inside a <form>,
+   so we apply the grid to both the outer wrapper AND the inner form. */
 .biz-checkout .wp-block-woocommerce-checkout,
 .biz-checkout .wp-block-woocommerce-checkout.alignwide,
 .biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout {
-	display: grid !important;
-	grid-template-columns: 1fr 400px !important;
-	gap: 3rem !important;
-	align-items: start !important;
 	max-width: 100% !important;
 	width: 100% !important;
 	margin: 0 !important;
 	padding: 0 !important;
+}
+
+.biz-checkout .wp-block-woocommerce-checkout,
+.biz-checkout .wp-block-woocommerce-checkout.alignwide,
+.biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout,
+.biz-checkout .wc-block-checkout__form {
+	display: grid !important;
+	grid-template-columns: 1fr 400px !important;
+	gap: 3rem !important;
+	align-items: start !important;
 }
 
 /* Left column — form fields */
@@ -689,7 +697,8 @@ body.woocommerce-checkout .biz-mobile-menu {
 @media (max-width: 1024px) {
 	.biz-checkout .wp-block-woocommerce-checkout,
 	.biz-checkout .wp-block-woocommerce-checkout.alignwide,
-	.biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout {
+	.biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout,
+	.biz-checkout .wc-block-checkout__form {
 		grid-template-columns: 1fr 340px !important;
 		gap: 2rem !important;
 	}
@@ -744,7 +753,8 @@ body.woocommerce-checkout .biz-mobile-menu {
 	/* Single column layout */
 	.biz-checkout .wp-block-woocommerce-checkout,
 	.biz-checkout .wp-block-woocommerce-checkout.alignwide,
-	.biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout {
+	.biz-checkout .wp-block-woocommerce-checkout.wc-block-checkout,
+	.biz-checkout .wc-block-checkout__form {
 		grid-template-columns: 1fr !important;
 		gap: 0 !important;
 	}
@@ -836,7 +846,8 @@ body.woocommerce-checkout .biz-mobile-menu {
 		display: none !important;
 	}
 
-	.biz-checkout .wp-block-woocommerce-checkout {
+	.biz-checkout .wp-block-woocommerce-checkout,
+	.biz-checkout .wc-block-checkout__form {
 		display: block;
 	}
 
