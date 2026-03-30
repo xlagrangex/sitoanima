@@ -38,8 +38,11 @@
 	margin-bottom: 1.5rem;
 }
 
-/* Cart layout: items left, totals right */
-.wp-block-woocommerce-filled-cart-block {
+/* Cart layout: items left, totals right.
+   WC blocks nests items + totals inside a <form> or inner wrapper,
+   so apply grid to both the outer block AND its direct children. */
+.wp-block-woocommerce-filled-cart-block,
+.wp-block-woocommerce-filled-cart-block > .wc-block-cart {
 	display: grid;
 	grid-template-columns: 1fr 380px;
 	gap: 2rem;
@@ -627,13 +630,15 @@
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
-	.wp-block-woocommerce-filled-cart-block {
+	.wp-block-woocommerce-filled-cart-block,
+	.wp-block-woocommerce-filled-cart-block > .wc-block-cart {
 		grid-template-columns: 1fr 320px;
 	}
 }
 
 @media (max-width: 768px) {
-	.wp-block-woocommerce-filled-cart-block {
+	.wp-block-woocommerce-filled-cart-block,
+	.wp-block-woocommerce-filled-cart-block > .wc-block-cart {
 		grid-template-columns: 1fr;
 	}
 	.wp-block-woocommerce-checkout-fields-block {

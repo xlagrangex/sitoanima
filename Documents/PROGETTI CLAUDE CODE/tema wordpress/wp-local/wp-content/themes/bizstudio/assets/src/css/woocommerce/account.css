@@ -274,18 +274,34 @@ mark.order-status.status-failed::before {
    LOGIN / REGISTER FORMS
    ============================================================ */
 
-/* Side-by-side layout */
+/* Login/Register layout — centered on page */
 .woocommerce-account:not(.logged-in) .woocommerce {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 2.5rem;
-	align-items: start;
 	max-width: 860px;
 	margin: 0 auto;
 	padding-top: 1rem;
 }
 
-/* Column wrappers (u-column1, u-column2) */
+/* Side-by-side when BOTH login + register are present */
+.woocommerce-account:not(.logged-in) .woocommerce:has(.u-column2) {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2.5rem;
+	align-items: start;
+}
+
+/* Single login form only — center it narrower */
+.woocommerce-account:not(.logged-in) .woocommerce:not(:has(.u-column2)),
+.woocommerce-account:not(.logged-in) .woocommerce:not(:has(.woocommerce-form-register)) {
+	max-width: 440px;
+}
+
+/* Direct login form without column wrappers */
+.woocommerce-account:not(.logged-in) .woocommerce > .woocommerce-form-login {
+	max-width: 440px;
+	margin: 0 auto;
+}
+
+/* Column wrappers */
 .woocommerce-account:not(.logged-in) .u-column1,
 .woocommerce-account:not(.logged-in) .u-column2 {
 	min-width: 0;
@@ -523,7 +539,8 @@ mark.order-status.status-failed::before {
 	}
 
 	/* Login/register stack on mobile */
-	.woocommerce-account:not(.logged-in) .woocommerce {
+	.woocommerce-account:not(.logged-in) .woocommerce,
+	.woocommerce-account:not(.logged-in) .woocommerce:has(.u-column2) {
 		grid-template-columns: 1fr;
 	}
 
