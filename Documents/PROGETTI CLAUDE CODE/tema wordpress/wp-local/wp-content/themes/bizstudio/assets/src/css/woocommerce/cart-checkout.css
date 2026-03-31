@@ -38,15 +38,26 @@
 	margin-bottom: 1.5rem;
 }
 
-/* Cart layout: items left, totals right.
-   WC blocks nests items + totals inside a <form> or inner wrapper,
-   so apply grid to both the outer block AND its direct children. */
-.wp-block-woocommerce-filled-cart-block,
-.wp-block-woocommerce-filled-cart-block > .wc-block-cart {
-	display: grid;
-	grid-template-columns: 1fr 380px;
+/* Cart layout: WC blocks uses its own sidebar-layout flex system after
+   React hydration. We style within that, not override it.
+   Loading state uses flex with width % on the server-rendered blocks. */
+
+/* Override WC's default container width/alignment */
+.wp-block-woocommerce-cart {
+	max-width: var(--biz-container) !important;
+	margin: 0 auto;
+}
+
+/* WC sidebar layout — the actual 2-column after hydration */
+.wc-block-components-sidebar-layout.wc-block-cart {
 	gap: 2rem;
-	align-items: start;
+}
+
+/* Cart sidebar (totals) — sticky */
+.wc-block-cart__sidebar {
+	background: var(--biz-surface);
+	border-radius: var(--biz-radius-lg);
+	padding: 1.5rem;
 }
 
 /* Cart items table */
@@ -177,7 +188,8 @@
 }
 
 /* --- Cart Totals Sidebar --- */
-.wp-block-woocommerce-cart-totals-block {
+.wp-block-woocommerce-cart-totals-block,
+.wc-block-cart__sidebar {
 	background: var(--biz-surface);
 	border-radius: var(--biz-radius-lg);
 	padding: 1.5rem;
@@ -586,7 +598,8 @@
    DARK MODE
    ============================================================ */
 .dark .wp-block-woocommerce-cart-totals-block,
-.dark .wp-block-woocommerce-checkout-totals-block {
+.dark .wp-block-woocommerce-checkout-totals-block,
+.dark .wc-block-cart__sidebar {
 	background: var(--biz-surface);
 }
 .dark .wc-block-components-quantity-selector button {
@@ -629,23 +642,13 @@
 /* ============================================================
    RESPONSIVE
    ============================================================ */
-@media (max-width: 1024px) {
-	.wp-block-woocommerce-filled-cart-block,
-	.wp-block-woocommerce-filled-cart-block > .wc-block-cart {
-		grid-template-columns: 1fr 320px;
-	}
-}
-
 @media (max-width: 768px) {
-	.wp-block-woocommerce-filled-cart-block,
-	.wp-block-woocommerce-filled-cart-block > .wc-block-cart {
-		grid-template-columns: 1fr;
-	}
 	.wp-block-woocommerce-checkout-fields-block {
 		padding-right: 0;
 	}
 	.wp-block-woocommerce-cart-totals-block,
-	.wp-block-woocommerce-checkout-totals-block {
+	.wp-block-woocommerce-checkout-totals-block,
+	.wc-block-cart__sidebar {
 		position: static;
 	}
 	.wc-block-cart-items__row {
