@@ -25,6 +25,9 @@ require_once BIZSTUDIO_DIR . '/inc/header-builder.php';
 require_once BIZSTUDIO_DIR . '/inc/seo.php';
 require_once BIZSTUDIO_DIR . '/inc/contact-form.php';
 require_once BIZSTUDIO_DIR . '/inc/footer-builder.php';
+require_once BIZSTUDIO_DIR . '/inc/performance.php';
+require_once BIZSTUDIO_DIR . '/inc/cleanup.php';
+require_once BIZSTUDIO_DIR . '/inc/compat.php';
 
 // WooCommerce integration
 if ( class_exists( 'WooCommerce' ) ) {

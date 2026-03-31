@@ -1,0 +1,482 @@
+/*
+ * BizStudio RTL Stylesheet
+ *
+ * Automatically loaded by WordPress for RTL languages (Arabic, Hebrew, etc.).
+ * Flips all directional properties from the LTR theme styles.
+ *
+ * @package BizStudio
+ * @since   1.0.0
+ */
+
+/* ============================================================
+   GLOBAL DIRECTION
+   ============================================================ */
+
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+
+/* ============================================================
+   RESET & PROSE
+   ============================================================ */
+
+/* Lists: flip padding-left to padding-right */
+.entry-content ul, .entry-content ol,
+.woocommerce-MyAccount-content ul, .woocommerce-MyAccount-content ol,
+.biz-prose ul, .biz-prose ol,
+.comment-content ul, .comment-content ol,
+.widget_text ul, .widget_text ol,
+.woocommerce-Tabs-panel ul, .woocommerce-Tabs-panel ol,
+.woocommerce-product-details__short-description ul,
+.woocommerce-product-details__short-description ol {
+	padding-left: 0;
+	padding-right: 1.5em;
+}
+
+.wp-block-list {
+	padding-left: 0;
+	padding-right: 1.5em;
+}
+
+dd {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/* Blockquote: flip border */
+.entry-content blockquote, .biz-prose blockquote,
+.wp-block-quote {
+	border-left: none;
+	border-right: 3px solid var(--biz-primary);
+	border-radius: var(--biz-radius) 0 0 var(--biz-radius);
+}
+
+/* Table text alignment */
+.entry-content th, .entry-content td,
+.biz-prose th, .biz-prose td,
+.wp-block-table th, .wp-block-table td,
+.woocommerce-product-attributes th,
+.woocommerce-product-attributes td,
+.woocommerce-table--order-details th,
+.woocommerce-table--order-details td {
+	text-align: right;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.biz-header__inner {
+	flex-direction: row-reverse;
+}
+
+/* Navigation underline: flip from left to right */
+.biz-nav__list li a::after {
+	left: auto;
+	right: 0;
+}
+
+/* Cart & wishlist count badges */
+.biz-cart-count,
+.biz-header__wishlist-count {
+	right: auto;
+	left: 2px;
+}
+
+/* Rating count margin */
+.biz-rating__count {
+	margin-left: 0;
+	margin-right: 0.25rem;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.biz-hero::before {
+	right: auto;
+	left: -20%;
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+
+.biz-section__header {
+	flex-direction: row-reverse;
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+
+.biz-mobile-menu {
+	right: auto;
+	left: 0;
+	transform: translateX(-100%);
+}
+
+.biz-mobile-menu.is-open {
+	transform: translateX(0);
+}
+
+/* ============================================================
+   SEARCH MODAL
+   ============================================================ */
+
+.biz-search-modal__input-wrap svg:first-child {
+	left: auto;
+	right: 1rem;
+}
+
+.biz-search-modal__input {
+	padding-left: 0;
+	padding-right: 3rem;
+}
+
+.biz-search-modal__close {
+	right: auto;
+	left: 0.5rem;
+}
+
+/* ============================================================
+   MINI-CART DRAWER
+   ============================================================ */
+
+.biz-mini-cart {
+	right: auto;
+	left: 0;
+	transform: translateX(-100%);
+}
+
+.biz-mini-cart.is-open {
+	transform: translateX(0);
+}
+
+.biz-mini-cart__item-remove {
+	right: auto;
+	left: 0;
+}
+
+/* ============================================================
+   PROMO BAR
+   ============================================================ */
+
+.biz-promo-bar__close {
+	right: auto;
+	left: 1rem;
+}
+
+/* ============================================================
+   PRODUCT CARDS
+   ============================================================ */
+
+/* Badge positioning */
+.biz-card__badges {
+	left: auto;
+	right: 0.75rem;
+}
+
+/* Card actions */
+.biz-card__actions {
+	right: auto;
+	left: 0.75rem;
+}
+
+/* ============================================================
+   SHOP / ARCHIVE
+   ============================================================ */
+
+/* Shop layout: flip sidebar */
+.biz-shop-layout {
+	direction: rtl;
+}
+
+.biz-shop-sidebar {
+	border-right: none;
+	border-left: 1px solid var(--biz-border);
+}
+
+/* Filter checkboxes */
+.biz-filter-group input[type="checkbox"] {
+	margin-right: 0;
+	margin-left: 0.5rem;
+}
+
+/* View toggle */
+.biz-view-toggle {
+	margin-left: 0;
+	margin-right: auto;
+}
+
+/* ============================================================
+   SINGLE PRODUCT
+   ============================================================ */
+
+/* Product meta labels */
+.biz-product-meta__label {
+	margin-right: 0;
+	margin-left: 0.5rem;
+}
+
+/* Share links */
+.biz-share-links {
+	direction: rtl;
+}
+
+/* Gallery thumbnails */
+.biz-gallery__thumbs {
+	direction: rtl;
+}
+
+/* ============================================================
+   WOOCOMMERCE PAGINATION
+   ============================================================ */
+
+.woocommerce-pagination ul {
+	direction: rtl;
+}
+
+/* ============================================================
+   CART & CHECKOUT
+   ============================================================ */
+
+/* Cart item layout */
+.biz-cart-item__remove {
+	right: auto;
+	left: 0;
+}
+
+/* Checkout columns: flip */
+.biz-checkout__grid {
+	direction: rtl;
+}
+
+/* Form fields */
+.biz-checkout .form-row-first {
+	float: right;
+}
+
+.biz-checkout .form-row-last {
+	float: left;
+}
+
+/* ============================================================
+   SHIPPING BAR
+   ============================================================ */
+
+.biz-shipping-bar__step-label {
+	transform: translateX(50%);
+}
+
+.biz-shipping-bar__step {
+	transform: translateX(50%);
+}
+
+.biz-shipping-bar__check-icon {
+	margin-right: 0;
+	margin-left: 0.375rem;
+}
+
+/* ============================================================
+   STICKY ADD-TO-CART BAR
+   ============================================================ */
+
+.biz-sticky-bar__inner {
+	direction: rtl;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.biz-footer__grid {
+	direction: rtl;
+}
+
+.biz-footer__bottom {
+	direction: rtl;
+}
+
+.biz-footer__bottom-left,
+.biz-footer__bottom-right {
+	text-align: right;
+}
+
+.biz-footer__legal {
+	direction: rtl;
+}
+
+/* Social links */
+.biz-social-links {
+	direction: rtl;
+}
+
+/* ============================================================
+   HEADER BUILDER — TOP BAR
+   ============================================================ */
+
+.biz-header-topbar__inner {
+	direction: rtl;
+}
+
+/* ============================================================
+   HEADER BUILDER — BOTTOM BAR
+   ============================================================ */
+
+.biz-header-bottom__inner {
+	direction: rtl;
+}
+
+.biz-header-bottom__list {
+	direction: rtl;
+}
+
+/* ============================================================
+   FORMS
+   ============================================================ */
+
+/* Input fields */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+	text-align: right;
+}
+
+/* Contact form */
+.biz-contact-form__row {
+	direction: rtl;
+}
+
+/* ============================================================
+   WIDGETS
+   ============================================================ */
+
+.biz-widget {
+	text-align: right;
+}
+
+.biz-footer-widget {
+	text-align: right;
+}
+
+/* ============================================================
+   QUICK VIEW MODAL
+   ============================================================ */
+
+.biz-qv__close {
+	right: auto;
+	left: 1rem;
+}
+
+.biz-qv__content {
+	direction: rtl;
+}
+
+/* ============================================================
+   WISHLIST
+   ============================================================ */
+
+.biz-wishlist-page__remove {
+	right: auto;
+	left: 0.75rem;
+}
+
+/* ============================================================
+   MY ACCOUNT
+   ============================================================ */
+
+.woocommerce-MyAccount-navigation {
+	float: right;
+}
+
+.woocommerce-MyAccount-content {
+	float: left;
+}
+
+/* ============================================================
+   DARK MODE TOGGLE
+   ============================================================ */
+
+/* No directional changes needed */
+
+/* ============================================================
+   PRE-FOOTER FEATURES
+   ============================================================ */
+
+.biz-pre-footer__grid {
+	direction: rtl;
+}
+
+.biz-pre-footer__icon {
+	margin-right: 0;
+	margin-left: 1rem;
+}
+
+/* ============================================================
+   ARTICLE / BLOG
+   ============================================================ */
+
+.biz-article__meta {
+	direction: rtl;
+}
+
+/* ============================================================
+   404 PAGE
+   ============================================================ */
+
+.biz-404__actions {
+	direction: rtl;
+}
+
+/* ============================================================
+   WOOCOMMERCE NOTICES
+   ============================================================ */
+
+.woocommerce-message,
+.woocommerce-error,
+.woocommerce-info {
+	text-align: right;
+}
+
+/* ============================================================
+   BUTTONS — Flip icon gaps
+   ============================================================ */
+
+.biz-btn {
+	flex-direction: row-reverse;
+}
+
+/* ============================================================
+   PAYMENT ICONS
+   ============================================================ */
+
+.biz-payment-icons {
+	direction: rtl;
+}
+
+/* ============================================================
+   RESPONSIVE OVERRIDES
+   ============================================================ */
+
+@media (max-width: 768px) {
+	.biz-header__inner {
+		flex-direction: row-reverse;
+	}
+
+	.biz-footer__grid {
+		direction: rtl;
+	}
+
+	.biz-checkout .form-row-first,
+	.biz-checkout .form-row-last {
+		float: none;
+	}
+}

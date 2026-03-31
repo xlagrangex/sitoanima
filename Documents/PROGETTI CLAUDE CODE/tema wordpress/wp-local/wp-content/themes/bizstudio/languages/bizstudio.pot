@@ -1,0 +1,997 @@
+# Copyright (C) 2026 Biz Studio
+# This file is distributed under the GNU General Public License v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: BizStudio 1.0.0\n"
+"Report-Msgid-Bugs-To: https://bizstudio.it/support\n"
+"Last-Translator: Biz Studio <info@bizstudio.it>\n"
+"Language-Team: Biz Studio <info@bizstudio.it>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-03-30T00:00:00+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: BizStudio Theme\n"
+"X-Domain: bizstudio\n"
+
+#. Theme Name of the plugin/theme
+msgid "BizStudio"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "https://bizstudio.it"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Premium WooCommerce theme with modern design, fluid animations, and exceptional performance. Built for serious e-commerce."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Biz Studio"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://bizstudio.it"
+msgstr ""
+
+#. --- front-page.php ---
+
+#: front-page.php
+msgid "Nuova collezione"
+msgstr ""
+
+#: front-page.php
+msgid "Scopri il tuo stile"
+msgstr ""
+
+#: front-page.php
+msgid "Prodotti selezionati con cura per chi cerca qualita e design."
+msgstr ""
+
+#: front-page.php
+msgid "Esplora lo Shop"
+msgstr ""
+
+#: front-page.php
+msgid "Categorie"
+msgstr ""
+
+#: front-page.php
+msgid "Vedi tutto"
+msgstr ""
+
+#: front-page.php
+msgid "prodotti"
+msgstr ""
+
+#: front-page.php
+msgid "Prodotti in evidenza"
+msgstr ""
+
+#: front-page.php
+msgid "In offerta"
+msgstr ""
+
+#. --- index.php ---
+
+#: index.php
+msgid "Nessun contenuto trovato."
+msgstr ""
+
+#. --- header.php ---
+
+#: header.php
+msgid "Navigazione principale"
+msgstr ""
+
+#: header.php
+msgid "Cambia tema"
+msgstr ""
+
+#: header.php
+msgid "Cerca"
+msgstr ""
+
+#: header.php
+msgid "Wishlist"
+msgstr ""
+
+#: header.php
+msgid "Account"
+msgstr ""
+
+#: header.php
+msgid "Carrello"
+msgstr ""
+
+#: header.php
+msgid "Menu"
+msgstr ""
+
+#: header.php
+msgid "Cerca prodotti..."
+msgstr ""
+
+#. --- footer.php ---
+
+#: footer.php
+msgid "Il tuo negozio online di fiducia. Qualita, stile e convenienza."
+msgstr ""
+
+#: footer.php
+msgid "Shop"
+msgstr ""
+
+#: footer.php
+msgid "Tutti i prodotti"
+msgstr ""
+
+#: footer.php
+msgid "Il mio account"
+msgstr ""
+
+#: footer.php
+msgid "Accedi / Registrati"
+msgstr ""
+
+#: footer.php
+msgid "I miei ordini"
+msgstr ""
+
+#: footer.php
+msgid "Indirizzi"
+msgstr ""
+
+#: footer.php
+msgid "Traccia ordine"
+msgstr ""
+
+#: footer.php
+msgid "Informazioni"
+msgstr ""
+
+#: footer.php
+msgid "Privacy Policy"
+msgstr ""
+
+#: footer.php
+msgid "Termini e Condizioni"
+msgstr ""
+
+#: footer.php
+msgid "Cookie Policy"
+msgstr ""
+
+#: footer.php
+msgid "Contattaci"
+msgstr ""
+
+#: footer.php
+msgid "Tutti i diritti riservati."
+msgstr ""
+
+#: footer.php
+msgid "Privacy"
+msgstr ""
+
+#: footer.php
+msgid "Termini"
+msgstr ""
+
+#. --- 404.php ---
+
+#: 404.php
+msgid "Pagina non trovata"
+msgstr ""
+
+#: 404.php
+msgid "La pagina che cerchi non esiste o e stata spostata."
+msgstr ""
+
+#: 404.php
+msgid "Torna alla Home"
+msgstr ""
+
+#: 404.php
+msgid "Vai allo Shop"
+msgstr ""
+
+#. --- template-parts/global/mini-cart.php ---
+
+#: template-parts/global/mini-cart.php
+msgid "Il tuo carrello e vuoto."
+msgstr ""
+
+#: template-parts/global/mini-cart.php
+msgid "Inizia lo shopping"
+msgstr ""
+
+#: template-parts/global/mini-cart.php
+msgid "Totale"
+msgstr ""
+
+#: template-parts/global/mini-cart.php
+msgid "Vai al carrello"
+msgstr ""
+
+#: template-parts/global/mini-cart.php
+msgid "Checkout"
+msgstr ""
+
+#. --- template-parts/product/card-product.php ---
+
+#: template-parts/product/card-product.php
+msgid "Esaurito"
+msgstr ""
+
+#: template-parts/product/card-product.php
+msgid "New"
+msgstr ""
+
+#: template-parts/product/card-product.php
+msgid "Aggiungi al carrello"
+msgstr ""
+
+#: template-parts/product/card-product.php
+msgid "Vedi prodotto"
+msgstr ""
+
+#. --- template-parts/product/quick-view-modal.php ---
+
+#: template-parts/product/quick-view-modal.php
+msgid "Anteprima prodotto"
+msgstr ""
+
+#: template-parts/product/quick-view-modal.php
+msgid "Chiudi"
+msgstr ""
+
+#. --- woocommerce/single-product.php ---
+
+#: woocommerce/single-product.php
+msgid "SKU:"
+msgstr ""
+
+#: woocommerce/single-product.php
+msgid "Categoria:"
+msgstr ""
+
+#: woocommerce/single-product.php
+msgid "Tag:"
+msgstr ""
+
+#: woocommerce/single-product.php
+msgid "Condividi:"
+msgstr ""
+
+#: woocommerce/single-product.php
+msgid "Copia link"
+msgstr ""
+
+#. --- woocommerce/checkout.php ---
+
+#: woocommerce/checkout.php
+msgid "Checkout sicuro"
+msgstr ""
+
+#: woocommerce/checkout.php
+msgid "Torna al carrello"
+msgstr ""
+
+#. --- woocommerce/archive-product.php ---
+
+#: woocommerce/archive-product.php
+msgid "Filtri"
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Prezzo"
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Filtra"
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Disponibilita"
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Solo prodotti disponibili"
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Solo in offerta"
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Vista griglia"
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Vista lista"
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Nessun prodotto trovato"
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Prova a cambiare i filtri o torna allo shop."
+msgstr ""
+
+#: woocommerce/archive-product.php
+msgid "Torna allo Shop"
+msgstr ""
+
+#. --- inc/setup.php ---
+
+#: inc/setup.php
+msgid "Menu Principale"
+msgstr ""
+
+#: inc/setup.php
+msgid "Menu Mobile"
+msgstr ""
+
+#: inc/setup.php
+msgid "Menu Footer"
+msgstr ""
+
+#: inc/setup.php
+msgid "Shop Sidebar"
+msgstr ""
+
+#: inc/setup.php
+msgid "Sidebar della pagina shop"
+msgstr ""
+
+#. --- inc/promo-bar.php ---
+
+#: inc/promo-bar.php
+msgid "BizStudio"
+msgstr ""
+
+#: inc/promo-bar.php
+msgid "Barra Promozionale"
+msgstr ""
+
+#: inc/promo-bar.php
+msgid "Mostra barra promozionale"
+msgstr ""
+
+#: inc/promo-bar.php
+msgid "Spedizione gratuita per ordini superiori a 49"
+msgstr ""
+
+#: inc/promo-bar.php
+msgid "Testo promozionale"
+msgstr ""
+
+#: inc/promo-bar.php
+msgid "Colore di sfondo"
+msgstr ""
+
+#: inc/promo-bar.php
+msgid "Colore del testo"
+msgstr ""
+
+#: inc/promo-bar.php
+msgid "Promozione"
+msgstr ""
+
+#: inc/promo-bar.php
+msgid "Chiudi barra promozionale"
+msgstr ""
+
+#. --- inc/shipping-bar.php ---
+
+#: inc/shipping-bar.php
+msgid "Barra Spedizione"
+msgstr ""
+
+#: inc/shipping-bar.php
+msgid "Abilita barra spedizione"
+msgstr ""
+
+#. translators: %s = currency symbol
+#: inc/shipping-bar.php
+msgid "Step 1 — Soglia (%s)"
+msgstr ""
+
+#: inc/shipping-bar.php
+msgid "Step 1 — Etichetta"
+msgstr ""
+
+#: inc/shipping-bar.php
+msgid "Step 1 — Colore barra"
+msgstr ""
+
+#. translators: %s = currency symbol
+#: inc/shipping-bar.php
+msgid "Step 2 — Soglia (%s)"
+msgstr ""
+
+#: inc/shipping-bar.php
+msgid "Step 2 — Etichetta"
+msgstr ""
+
+#: inc/shipping-bar.php
+msgid "Step 2 — Colore barra"
+msgstr ""
+
+#: inc/shipping-bar.php
+msgid "Messaggio completamento"
+msgstr ""
+
+#. translators: %1$s = formatted price with currency, %2$s = step label
+#: inc/shipping-bar.php
+msgid "Aggiungi %1$s per ottenere: %2$s!"
+msgstr ""
+
+#. --- inc/customizer.php ---
+
+#: inc/customizer.php
+msgid "Colori"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Colore primario"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Primario scuro"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Colore testo"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Testo secondario"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Colore di sfondo"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Colore superficie"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Colore bordo"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Colore successo"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Colore errore"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Colore valutazione"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Tipografia"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Uguale al corpo"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Font corpo"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Font titoli"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Dimensione font base (px)"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Altezza riga corpo"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Peso font titoli"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Prodotti per pagina"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Prodotti per riga"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Stile scheda prodotto"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Predefinito"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Minimale"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Con bordo"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Mostra valutazione nelle schede"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Mostra categoria nelle schede"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Mostra pulsante vista rapida"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Mostra pulsante lista desideri"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Stile badge sconto"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Percentuale"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Testo"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Entrambi"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Performance"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Abilita animazioni scroll reveal"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Gli elementi appaiono con animazione al passaggio dello scroll."
+msgstr ""
+
+#: inc/customizer.php
+msgid "Abilita cambio immagine al passaggio"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Al passaggio del mouse la scheda prodotto mostra la seconda immagine."
+msgstr ""
+
+#: inc/customizer.php
+msgid "Pre-carica i font"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Aggiunge link preload per i Google Fonts selezionati."
+msgstr ""
+
+#: inc/customizer.php
+msgid "Caricamento lazy immagini"
+msgstr ""
+
+#: inc/customizer.php
+msgid "Le immagini vengono caricate solo quando entrano nella viewport."
+msgstr ""
+
+#. --- inc/header-builder.php ---
+
+#: inc/header-builder.php
+msgid "Header"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Preset Header"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Default — Logo sx, Menu centro, Azioni dx"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Centrato — Menu sx, Logo centro, Azioni dx"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Minimale — Solo logo e hamburger"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Trasparente — Sfondo trasparente, solido allo scroll"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "E-commerce — Logo sx, Ricerca centro, Azioni dx"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Top Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Mostra Top Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Altezza Top Bar (px)"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Colore sfondo Top Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Colore testo Top Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Testo Top Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Testo mostrato nella Top Bar (es. info contatto, promo)."
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Bordo inferiore Top Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Visibilita Top Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Desktop e Mobile"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Solo Desktop"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Solo Mobile"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Header Principale"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Altezza Header (px)"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Colore sfondo Header"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Lascia vuoto per usare il colore di sfondo del tema."
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Colore testo Header"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Lascia vuoto per usare il colore del testo del tema."
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Bordo inferiore Header"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Header Sticky (fisso allo scroll)"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Trasparente in Homepage"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Attivo solo con preset Trasparente. Header con sfondo trasparente nella homepage, diventa solido allo scroll."
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Bottom Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Mostra Bottom Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Altezza Bottom Bar (px)"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Colore sfondo Bottom Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Colore testo Bottom Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Contenuto Bottom Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Nessuno"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Categorie prodotto"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Menu secondario"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Bordo inferiore Bottom Bar"
+msgstr ""
+
+#: inc/header-builder.php
+msgid "Visibilita Bottom Bar"
+msgstr ""
+
+#. --- inc/footer-builder.php ---
+
+#: inc/footer-builder.php
+msgid "Footer"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Layout Footer"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Predefinito (4 colonne)"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Centrato"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "2 colonne"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "3 colonne"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Asimmetrico (2fr 1fr 1fr)"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Mostra Pre-Footer"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Spedizione gratuita"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Per ordini superiori a 49\u20ac"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Reso facile in 14 giorni"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Rimborso garantito"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Pagamento 100% sicuro"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Crittografia SSL avanzata"
+msgstr ""
+
+#. translators: %d: feature number
+#: inc/footer-builder.php
+msgid "Feature %d — Titolo"
+msgstr ""
+
+#. translators: %d: feature number
+#: inc/footer-builder.php
+msgid "Feature %d — Testo"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Colore di sfondo Footer"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Lascia vuoto per usare il colore di superficie del tema."
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Colore testo Footer"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Lascia vuoto per usare il colore testo del tema."
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "\u00a9 {year} {site_name}. Tutti i diritti riservati."
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Testo Copyright"
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Usa {year} per l'anno corrente e {site_name} per il nome del sito."
+msgstr ""
+
+#: inc/footer-builder.php
+msgid "Mostra icone pagamento"
+msgstr ""
+
+#. translators: %s: social network name
+#: inc/footer-builder.php
+msgid "Social: %s URL"
+msgstr ""
+
+#. --- inc/contact-form.php ---
+
+#: inc/contact-form.php
+msgid "Nome"
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Il tuo nome"
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Email"
+msgstr ""
+
+#: inc/contact-form.php
+msgid "La tua email"
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Oggetto"
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Oggetto del messaggio"
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Messaggio"
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Scrivi il tuo messaggio..."
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Invia messaggio"
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Si e verificato un errore. Riprova."
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Messaggio inviato con successo! Ti risponderemo al piu presto."
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Hai inviato troppi messaggi. Riprova tra un'ora."
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Compila tutti i campi obbligatori."
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Inserisci un indirizzo email valido."
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Nuovo messaggio dal sito"
+msgstr ""
+
+#: inc/contact-form.php
+msgid "Inviato dal modulo di contatto del sito."
+msgstr ""
+
+#. --- inc/wishlist.php ---
+
+#: inc/wishlist.php
+msgid "Prodotto non valido."
+msgstr ""
+
+#: inc/wishlist.php
+msgid "Aggiungi alla wishlist"
+msgstr ""
+
+#: inc/wishlist.php
+msgid "Rimuovi dalla wishlist"
+msgstr ""
+
+#: inc/wishlist.php
+msgid "La tua wishlist \u00e8 vuota"
+msgstr ""
+
+#: inc/wishlist.php
+msgid "Esplora il nostro catalogo e salva i prodotti che ti piacciono."
+msgstr ""
+
+#: inc/wishlist.php
+msgid "Vai allo shop"
+msgstr ""
+
+#. --- inc/sticky-bar.php ---
+
+#: inc/sticky-bar.php
+msgid "Aggiungi al carrello rapido"
+msgstr ""
+
+#. --- inc/swatches.php ---
+
+#: inc/swatches.php
+msgid "Colore HEX"
+msgstr ""
+
+#: inc/swatches.php
+msgid "Seleziona il colore per lo swatch."
+msgstr ""
+
+#. --- inc/woocommerce.php ---
+
+#: inc/woocommerce.php
+msgid "Home"
+msgstr ""
+
+#. --- inc/ajax-handlers.php ---
+
+#: inc/ajax-handlers.php
+msgid "Prodotto aggiunto al carrello!"
+msgstr ""
+
+#: inc/ajax-handlers.php
+msgid "Impossibile aggiungere al carrello."
+msgstr ""
+
+#: inc/ajax-handlers.php
+msgid "Vedi tutti i dettagli"
+msgstr ""
+
+#. --- inc/seo.php ---
+
+#: inc/seo.php
+msgid "Shop"
+msgstr ""

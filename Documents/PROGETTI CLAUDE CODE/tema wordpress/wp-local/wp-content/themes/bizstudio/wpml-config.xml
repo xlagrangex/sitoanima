@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	WPML Configuration File for BizStudio Theme
+	@package BizStudio
+	@since   1.0.0
+
+	Registers theme_mod settings, custom post meta, and admin strings
+	for translation via WPML or compatible plugins.
+-->
+<wpml-config>
+
+	<!-- ============================================================
+	     Theme Mods (Customizer settings)
+	     ============================================================ -->
+	<theme-mods-text>
+
+		<!-- Promo Bar -->
+		<key name="bizstudio_promo_bar_text" />
+
+		<!-- Header Builder — Top Bar -->
+		<key name="bizstudio_header_topbar_text" />
+
+		<!-- Shipping Bar -->
+		<key name="bizstudio_shipping_bar_step1_label" />
+		<key name="bizstudio_shipping_bar_step2_label" />
+		<key name="bizstudio_shipping_bar_complete_msg" />
+
+		<!-- Footer Builder — Feature Boxes -->
+		<key name="bizstudio_footer_feature_1_title" />
+		<key name="bizstudio_footer_feature_1_text" />
+		<key name="bizstudio_footer_feature_2_title" />
+		<key name="bizstudio_footer_feature_2_text" />
+		<key name="bizstudio_footer_feature_3_title" />
+		<key name="bizstudio_footer_feature_3_text" />
+
+		<!-- Footer Builder — Copyright -->
+		<key name="bizstudio_footer_copyright" />
+
+		<!-- Footer Builder — Social Links -->
+		<key name="bizstudio_footer_social_facebook" />
+		<key name="bizstudio_footer_social_instagram" />
+		<key name="bizstudio_footer_social_x" />
+		<key name="bizstudio_footer_social_linkedin" />
+		<key name="bizstudio_footer_social_tiktok" />
+
+		<!-- SEO — Social Links (Organization schema) -->
+		<key name="bizstudio_social_facebook" />
+		<key name="bizstudio_social_instagram" />
+		<key name="bizstudio_social_twitter" />
+		<key name="bizstudio_social_linkedin" />
+		<key name="bizstudio_social_youtube" />
+		<key name="bizstudio_social_tiktok" />
+		<key name="bizstudio_social_pinterest" />
+
+	</theme-mods-text>
+
+	<!-- ============================================================
+	     Custom Fields (Post Meta)
+	     ============================================================ -->
+	<custom-fields>
+		<custom-field action="copy">bizstudio_wishlist</custom-field>
+	</custom-fields>
+
+	<!-- ============================================================
+	     Admin Texts (Strings registered for translation in WPML
+	     String Translation)
+	     ============================================================ -->
+	<admin-texts>
+		<key name="bizstudio_promo_bar_text">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_header_topbar_text">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_shipping_bar_step1_label">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_shipping_bar_step2_label">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_shipping_bar_complete_msg">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_footer_feature_1_title">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_footer_feature_1_text">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_footer_feature_2_title">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_footer_feature_2_text">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_footer_feature_3_title">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_footer_feature_3_text">
+			<key name="value" />
+		</key>
+		<key name="bizstudio_footer_copyright">
+			<key name="value" />
+		</key>
+	</admin-texts>
+
+	<!-- ============================================================
+	     Language Switcher Locations
+	     ============================================================ -->
+	<language-switcher-settings>
+		<key name="menu_order">footer,primary</key>
+	</language-switcher-settings>
+
+</wpml-config>
