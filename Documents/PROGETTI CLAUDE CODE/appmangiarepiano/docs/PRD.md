@@ -30,7 +30,7 @@ App iOS che aiuta a costruire l'abitudine di **mangiare lentamente** attraverso 
 
 1. **Welcome** — 1 schermata con claim + "Inizia".
 2. **Scelta pasti tracciati** — checkbox multipli: Colazione, Spuntino mattina, Pranzo, Spuntino pomeriggio, Cena. Default: Colazione + Pranzo + Cena.
-3. **Finestra oraria per ogni pasto scelto** — time picker per ora tipica di inizio (es. colazione 07:30, pranzo 13:00, cena 20:00). La finestra è ±2h attorno a quell'ora.
+3. **Finestra oraria per ogni pasto scelto** — time picker per ora tipica di inizio (es. colazione 07:30, pranzo 13:00, cena 20:00). La finestra è ±1h attorno a quell'ora (2h totali, es. pranzo 12:00–14:00). Dentro la finestra l'utente può avviare il timer; fuori, il pasto viene marcato "mancato" a chiusura della finestra.
 4. **Durata timer per ogni pasto scelto** — stepper (minuti). Default sensati: Colazione 10', Spuntini 5', Pranzo 15', Cena 15'.
 5. **Permessi notifiche** — richiesta nativa iOS con spiegazione ("Ti avvisiamo solo a inizio pasto e a completamento, max 2 notifiche al giorno per pasto").
 6. **Fine onboarding** → Home.
@@ -40,7 +40,7 @@ App iOS che aiuta a costruire l'abitudine di **mangiare lentamente** attraverso 
 1. Arriva la finestra del pasto → notifica push: *"È ora del pranzo. Avvia il timer quando inizi a mangiare."*
 2. Utente apre app → tap grosso sul pasto corrente in home → **timer parte**.
 3. Utente blocca il telefono e lo appoggia. Zero feedback durante.
-4. Allo scadere del timer → notifica silenziosa: *"✓ Pranzo lento completato. Ring al 2/3."*
+4. Allo scadere del timer → notifica silenziosa: *"✓ Pranzo lento completato. Ring al [X/N]."* (dove N = pasti tracciati totali del giorno, X = completati).
 5. Se l'utente chiude l'app o riapre il timer prima dello scadere → il pasto **non** è completato (stato "interrotto"). Può riavviarlo.
 6. A fine giornata, ring chiuso = streak +1. Altrimenti → freeze usato (se disponibile e settimana ha freeze) o streak si rompe.
 
@@ -52,8 +52,8 @@ App iOS che aiuta a costruire l'abitudine di **mangiare lentamente** attraverso 
 - **Ring giornaliero** (stile Apple Fitness, 1 solo anello): si riempie proporzionalmente ai pasti completati nel giorno.
 - **Streak counter** con numero giorni consecutivi + icona "fiamma".
 - **Freeze disponibili** per la settimana corrente (badge piccolo, es. "🛡 1").
-- **Lista pasti di oggi** con stato per ciascuno: da fare / in corso / completato / mancato / fuori finestra.
-- **Tap grosso sul pasto attivo** → parte il timer.
+- **Lista pasti di oggi** con stato per ciascuno: *da fare* (finestra non ancora aperta), *attivo* (finestra aperta, timer non avviato), *in corso* (timer running), *completato*, *mancato* (finestra chiusa senza completamento).
+- **Tap grosso sul pasto "attivo"** (pasto la cui finestra oraria è aperta adesso e non ancora completato) → parte il timer.
 
 ### 4.2 Timer pasto
 - Schermata fullscreen con countdown grande e un solo pulsante "Annulla".
@@ -64,7 +64,7 @@ App iOS che aiuta a costruire l'abitudine di **mangiare lentamente** attraverso 
 
 ### 4.3 Streak & Freeze (regole "medie")
 - Ring chiuso = giorno completato, streak +1.
-- Giorno non completato: se c'è **freeze disponibile** nella settimana → freeze consumato, streak **congelato** (non +1, non si rompe).
+- Giorno non completato: se c'è **freeze disponibile** nella settimana → freeze consumato **automaticamente** (no conferma utente), streak **congelato** (non +1, non si rompe). L'utente viene informato il giorno dopo in home con badge "🛡 Freeze usato ieri".
 - Niente freeze rimasto → streak si rompe e riparte da 0.
 - **1 freeze per settimana**, rigenera ogni lunedì 00:00 (timezone locale).
 - "Best streak" salvato come trofeo anche dopo rottura.
@@ -78,9 +78,10 @@ Niente reminder aggressivi, niente "stai mangiando troppo veloce", niente notifi
 
 ### 4.5 Calendario storico
 - Vista mensile con un pallino per giorno, colorato in base allo stato:
-  - Verde pieno: ring chiuso
-  - Verde tratteggiato: ring chiuso con freeze
-  - Grigio: giorno saltato/rotto
+  - Verde pieno: ring chiuso (giorno completato, streak +1)
+  - Azzurro/scudo: giorno con freeze usato (ring non chiuso ma streak preservato)
+  - Grigio pieno: giorno rotto (streak si è spezzato)
+  - Grigio chiaro: oggi non ancora concluso
   - Bianco: futuro
 - Tap sul giorno → dettaglio: quali pasti completati, quali no, durate effettive.
 
@@ -90,7 +91,6 @@ Niente reminder aggressivi, niente "stai mangiando troppo veloce", niente notifi
 - Modifica durate timer per pasto.
 - Toggle notifiche.
 - Info / versione.
-- (Futuro, non MVP) Reset dati.
 
 ---
 
@@ -128,7 +128,7 @@ Queste funzionalità NON sono nell'MVP ma sono compatibili architetturalmente pe
   id: UUID
   kind: MealKind // enum: breakfast, morningSnack, lunch, afternoonSnack, dinner
   typicalStartTime: Date // solo ora:minuti
-  windowMinutes: Int // default 120 (±2h)
+  windowMinutes: Int // default 120 (=2h totali, ±1h attorno a typicalStartTime)
   durationSeconds: Int // durata timer
   isEnabled: Bool
 }
@@ -256,7 +256,7 @@ Elenco completo schermate da prototipare, con contenuti chiave:
 
 - Ring chiuso ≥ 5 giorni/settimana dopo 2 settimane d'uso.
 - Streak medio ≥ 14 giorni nel primo mese.
-- Durata media pasti (rilevata dai timer) aumentata del 50% rispetto a baseline auto-dichiarato in onboarding (opzionale).
+- Durata media effettiva dei pasti (rilevata dai timer) stabilmente ≥ durata configurata.
 
 ---
 
