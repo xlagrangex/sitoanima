@@ -240,15 +240,45 @@ Elenco completo schermate da prototipare, con contenuti chiave:
 
 ---
 
-## 8. Design system (indicazioni per Claude Design)
+## 8. Design system (tokens concreti)
 
-- **Mood:** calmo, pulito, "spa-like", non clinico. L'app è un rituale, non un medical device.
-- **Palette primaria:** un solo colore accent caldo (ambra/terracotta o verde salvia) + neutri. No arcobaleno.
-- **Tipografia:** SF Pro Display per titoli, SF Pro Text per body. Numeri del timer molto grandi (timer screen) con SF Pro Rounded.
-- **Ring:** gradiente sottile sul colore accent, grosso stroke, animazione "breath" al completamento.
-- **Dark mode:** supportata nativamente, stessi toni invertiti con accent invariato.
-- **Aptico:** solo 1 tap leggero al completamento timer, zero haptic durante il countdown.
-- **Suoni:** nessuno di default. Opzionale in impostazioni future.
+**Mood:** ispirazione Apple Fitness / Health. Dark mode only (l'app si usa spesso di sera/a tavola). Rituale calmo, non clinico.
+
+### Colori
+- **Background primario:** `#000000` (true black)
+- **Superficie secondaria:** `#1C1C1E` (card, sheet)
+- **Superficie terziaria:** `#2C2C2E` (elementi in evidenza su card)
+- **Testo primario:** `#FFFFFF`
+- **Testo secondario:** `rgba(255,255,255,0.6)`
+- **Testo terziario:** `rgba(255,255,255,0.3)`
+- **Accent gradient (ring, CTA principali):** `#FF2D55` → `#FF9500` (magenta → amber, Move ring Apple)
+- **Success (freeze badge, giorno chiuso):** `#30D158`
+- **Freeze/ice (badge freeze usato):** `#64D2FF`
+- **Error:** `#FF453A`
+
+### Tipografia
+- **Titoli grandi:** SF Pro Display (iOS nativo, equivalente Inter Display)
+- **Body / UI:** SF Pro Text
+- **Accenti editoriali (claim onboarding, frasi rotanti timer):** New York (serif iOS nativo, equivalente Instrument Serif)
+- **Numeri timer:** SF Pro Rounded, dimensione molto grande (100pt+), tabular numbers per stabilità countdown
+
+### Componenti chiave
+- **Ring giornaliero:** single ring, stroke spesso (~20pt), gradient accent lungo il cerchio, rotazione -90° (parte dall'alto), animazione "breath" al completamento (scale 1 → 1.05 → 1, 1.5s ease).
+- **Meal card:** rounded 16pt, background `#1C1C1E`, icona + nome pasto + stato sulla destra.
+- **CTA primario (avvia timer):** fullwidth, altezza 56pt, corner radius 16pt, background gradient accent.
+- **Badge streak:** pill con icona fiamma SF Symbol + numero, sfondo `#1C1C1E`.
+- **Badge freeze:** pill con SF Symbol `shield.fill` + numero, sfondo ice blue.
+
+### Timer screen
+- Countdown enorme al centro (SF Pro Rounded, tabular).
+- Cerchio "respirante": stroke sottile attorno al countdown, animazione scale 1 → 1.08 → 1 su durata 4s (ritmo respiro lento).
+- Micro-frasi editoriali in New York che ruotano ogni 5s con fade: "respira", "un altro boccone", "nessuna fretta", "assapora", "rallenta", "presente".
+- Pulsante "Annulla" discreto in basso (testo grigio secondario, no bordo).
+
+### Interazione
+- **Aptico:** solo 1 tap leggero (`.impact(.soft)`) al completamento timer, e un `.success` notification al +1 streak. Zero haptic durante countdown.
+- **Suoni:** nessuno di default.
+- **Transizioni:** fade + scale 0.98→1 sulle card, spring naturale sui sheet. Nessuna animazione appariscente.
 
 ---
 
