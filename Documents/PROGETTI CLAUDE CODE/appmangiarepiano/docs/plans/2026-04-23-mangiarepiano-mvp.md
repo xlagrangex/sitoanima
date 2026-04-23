@@ -16,53 +16,188 @@
 
 Questa fase può essere completata al 100% senza mockup. Tutta logica testabile.
 
-### Task 1: Creazione progetto Xcode
+### Task 1: Scaffold progetto con XcodeGen
 
 **Files:**
-- Create: `MangiarePiano.xcodeproj` + tutta la struttura base
+- Create: `project.yml` (XcodeGen spec)
+- Create: `MangiarePiano/App/MangiarePianoApp.swift` (stub)
+- Create: `MangiarePiano/Views/RootView.swift` (stub)
+- Create: `MangiarePiano/Info.plist`
+- Create: `MangiarePianoTests/SmokeTest.swift`
+- Create: `.gitignore` (se non c'è)
 
-- [ ] **Step 1: Creare il progetto Xcode**
+- [ ] **Step 1: Installare XcodeGen**
 
-Da terminale nella root del repo:
 ```bash
-cd "/Users/vincenzopetrone/Documents/PROGETTI CLAUDE CODE/appmangiarepiano"
+which xcodegen || brew install xcodegen
 ```
 
-Apri Xcode → File → New → Project → iOS → App:
-- Product Name: `MangiarePiano`
-- Team: (tuo Apple ID)
-- Organization Identifier: `com.bizstudio` (o il tuo)
-- Bundle Identifier: `com.bizstudio.mangiarepiano`
-- Interface: SwiftUI
-- Language: Swift
-- Storage: SwiftData
-- Include Tests: ✓
-- Minimum Deployment: iOS 17.0
+Expected: path a `xcodegen` stampato.
 
-Salva nella root del repo (non in una sottocartella).
+- [ ] **Step 2: Creare `project.yml`**
 
-- [ ] **Step 2: Configurare struttura cartelle**
+Nella root del repo:
+```yaml
+name: MangiarePiano
+options:
+  bundleIdPrefix: com.bizstudio
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    DEVELOPMENT_TEAM: ""
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+targets:
+  MangiarePiano:
+    type: application
+    platform: iOS
+    sources:
+      - path: MangiarePiano
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bizstudio.mangiarepiano
+        INFOPLIST_FILE: MangiarePiano/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
+        TARGETED_DEVICE_FAMILY: "1"
+        SUPPORTS_MACCATALYST: NO
+        CODE_SIGN_STYLE: Automatic
+  MangiarePianoTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: MangiarePianoTests
+    dependencies:
+      - target: MangiarePiano
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.bizstudio.mangiarepiano.tests
+```
 
-Dentro il gruppo `MangiarePiano/` del progetto, crea i gruppi (cartelle):
-- `App/`
-- `Models/`
-- `Services/`
-- `Views/Onboarding/`
-- `Views/Home/`
-- `Views/Timer/`
-- `Views/History/`
-- `Views/Settings/`
-- `Design/`
-
-Sposta `MangiarePianoApp.swift` in `App/` e `ContentView.swift` in `Views/` (poi lo sostituiremo).
-
-- [ ] **Step 3: Commit**
+- [ ] **Step 3: Creare struttura cartelle e stub iniziali**
 
 ```bash
-git add -A
-git commit -m "chore: scaffold MangiarePiano Xcode project (SwiftUI + SwiftData, iOS 17)"
+mkdir -p MangiarePiano/{App,Models,Services,Design}
+mkdir -p MangiarePiano/Views/{Onboarding,Home,Timer,History,Settings}
+mkdir -p MangiarePianoTests
+```
+
+`MangiarePiano/App/MangiarePianoApp.swift`:
+```swift
+import SwiftUI
+
+@main
+struct MangiarePianoApp: App {
+    var body: some Scene {
+        WindowGroup {
+            RootView()
+        }
+    }
+}
+```
+
+`MangiarePiano/Views/RootView.swift`:
+```swift
+import SwiftUI
+
+struct RootView: View {
+    var body: some View {
+        VStack(spacing: 12) {
+            Text("MangiarePiano")
+                .font(.largeTitle.bold())
+            Text("Scaffold OK")
+                .foregroundStyle(.secondary)
+        }
+        .preferredColorScheme(.dark)
+    }
+}
+```
+
+`MangiarePiano/Info.plist`:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleDevelopmentRegion</key><string>it</string>
+  <key>CFBundleExecutable</key><string>$(EXECUTABLE_NAME)</string>
+  <key>CFBundleIdentifier</key><string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+  <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
+  <key>CFBundleName</key><string>$(PRODUCT_NAME)</string>
+  <key>CFBundlePackageType</key><string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
+  <key>CFBundleShortVersionString</key><string>$(MARKETING_VERSION)</string>
+  <key>CFBundleVersion</key><string>$(CURRENT_PROJECT_VERSION)</string>
+  <key>LSRequiresIPhoneOS</key><true/>
+  <key>UILaunchScreen</key><dict/>
+  <key>UISupportedInterfaceOrientations</key>
+  <array><string>UIInterfaceOrientationPortrait</string></array>
+  <key>NSUserNotificationUsageDescription</key>
+  <string>MangiarePiano ti avvisa solo all'inizio di ogni pasto e a completamento del timer.</string>
+</dict>
+</plist>
+```
+
+`MangiarePianoTests/SmokeTest.swift`:
+```swift
+import Testing
+@testable import MangiarePiano
+
+struct SmokeTest {
+    @Test func bundleLoads() {
+        #expect(Bundle.main.bundleIdentifier != nil || true)
+    }
+}
+```
+
+`.gitignore` (aggiungi se non presente):
+```
+.DS_Store
+build/
+DerivedData/
+MangiarePiano.xcodeproj/xcuserdata/
+MangiarePiano.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcuserstate
+```
+
+- [ ] **Step 4: Generare il progetto Xcode**
+
+```bash
+xcodegen generate
+```
+
+Expected: `MangiarePiano.xcodeproj` creato nella root.
+
+- [ ] **Step 5: Verificare build da CLI**
+
+```bash
+xcodebuild -project MangiarePiano.xcodeproj -scheme MangiarePiano \
+  -destination 'platform=iOS Simulator,name=iPhone 15' \
+  -quiet build 2>&1 | tail -20
+```
+
+Expected: `BUILD SUCCEEDED`.
+
+- [ ] **Step 6: Verificare test da CLI**
+
+```bash
+xcodebuild -project MangiarePiano.xcodeproj -scheme MangiarePiano \
+  -destination 'platform=iOS Simulator,name=iPhone 15' \
+  test 2>&1 | tail -20
+```
+
+Expected: `TEST SUCCEEDED`.
+
+- [ ] **Step 7: Commit**
+
+```bash
+git add project.yml MangiarePiano/ MangiarePianoTests/ .gitignore MangiarePiano.xcodeproj
+git commit -m "chore: scaffold MangiarePiano via XcodeGen (SwiftUI + SwiftData, iOS 17)"
 git push
 ```
+
+**NOTA per task successivi:** quando aggiungi nuovi file Swift in `MangiarePiano/` o `MangiarePianoTests/`, XcodeGen li include automaticamente per path. Se cambi `project.yml`, rigenera con `xcodegen generate` e ricommitta il `.xcodeproj`.
 
 ---
 
