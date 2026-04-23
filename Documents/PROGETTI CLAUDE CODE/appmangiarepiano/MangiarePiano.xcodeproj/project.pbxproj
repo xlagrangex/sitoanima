@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93C8942B1BA470DF1EF4064F /* SmokeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ACB07844095B74CBE873CB1 /* SmokeTest.swift */; };
+		ACE770A31F5062C74AB076E3 /* MangiarePianoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA816BD47D6F759E0EF8E66 /* MangiarePianoApp.swift */; };
+		DABDE4B9E591D67700DF4CE1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E25105AAB49108BE3D97E0 /* RootView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		26378AD74E58C7B63163C34E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6061974933E558EEB3BC3DE5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 226D7E22A44376F028C3C145;
+			remoteInfo = MangiarePiano;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		46E25105AAB49108BE3D97E0 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		7ACB07844095B74CBE873CB1 /* SmokeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTest.swift; sourceTree = "<group>"; };
+		7C17D3B96C9CB69903D79FFB /* MangiarePiano.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = MangiarePiano.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		910FA65EAE64402D5E97DD98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9CA816BD47D6F759E0EF8E66 /* MangiarePianoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MangiarePianoApp.swift; sourceTree = "<group>"; };
+		F1CDC000F7DA6786F10ACD25 /* MangiarePianoTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = MangiarePianoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3BACB0D9F2B978ECDC14CFBB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9CA816BD47D6F759E0EF8E66 /* MangiarePianoApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		560DC958B1FDE2B93A1AB3F5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				46E25105AAB49108BE3D97E0 /* RootView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9611BA2CD96ED7FC77182D8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7C17D3B96C9CB69903D79FFB /* MangiarePiano.app */,
+				F1CDC000F7DA6786F10ACD25 /* MangiarePianoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BFA90F72BF29691C5E5E6BE6 /* MangiarePiano */ = {
+			isa = PBXGroup;
+			children = (
+				910FA65EAE64402D5E97DD98 /* Info.plist */,
+				3BACB0D9F2B978ECDC14CFBB /* App */,
+				560DC958B1FDE2B93A1AB3F5 /* Views */,
+			);
+			path = MangiarePiano;
+			sourceTree = "<group>";
+		};
+		E03425D330EEFE4F27E8D75C = {
+			isa = PBXGroup;
+			children = (
+				BFA90F72BF29691C5E5E6BE6 /* MangiarePiano */,
+				F973CA530697CDFAAD5EE997 /* MangiarePianoTests */,
+				9611BA2CD96ED7FC77182D8C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F973CA530697CDFAAD5EE997 /* MangiarePianoTests */ = {
+			isa = PBXGroup;
+			children = (
+				7ACB07844095B74CBE873CB1 /* SmokeTest.swift */,
+			);
+			path = MangiarePianoTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		226D7E22A44376F028C3C145 /* MangiarePiano */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5ED6800FC6D2B6105BE2424 /* Build configuration list for PBXNativeTarget "MangiarePiano" */;
+			buildPhases = (
+				6912E01169A662BE0C14BD24 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MangiarePiano;
+			packageProductDependencies = (
+			);
+			productName = MangiarePiano;
+			productReference = 7C17D3B96C9CB69903D79FFB /* MangiarePiano.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6845C0EB8CA009ED1E9F68A3 /* MangiarePianoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 68428BB130298AB4CEDA1BF0 /* Build configuration list for PBXNativeTarget "MangiarePianoTests" */;
+			buildPhases = (
+				0B3621C3A39C76111FD03024 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8360D14D36AE3B9F92AC4A3 /* PBXTargetDependency */,
+			);
+			name = MangiarePianoTests;
+			packageProductDependencies = (
+			);
+			productName = MangiarePianoTests;
+			productReference = F1CDC000F7DA6786F10ACD25 /* MangiarePianoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6061974933E558EEB3BC3DE5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					226D7E22A44376F028C3C145 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					6845C0EB8CA009ED1E9F68A3 = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = F68E35F7F380D99133D5D7B1 /* Build configuration list for PBXProject "MangiarePiano" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = E03425D330EEFE4F27E8D75C;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 9611BA2CD96ED7FC77182D8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				226D7E22A44376F028C3C145 /* MangiarePiano */,
+				6845C0EB8CA009ED1E9F68A3 /* MangiarePianoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0B3621C3A39C76111FD03024 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C8942B1BA470DF1EF4064F /* SmokeTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6912E01169A662BE0C14BD24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ACE770A31F5062C74AB076E3 /* MangiarePianoApp.swift in Sources */,
+				DABDE4B9E591D67700DF4CE1 /* RootView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8360D14D36AE3B9F92AC4A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 226D7E22A44376F028C3C145 /* MangiarePiano */;
+			targetProxy = 26378AD74E58C7B63163C34E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		10D61BDD094F45833B8FA497 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		690E67C53CF3C15CAA4BFF49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bizstudio.mangiarepiano.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MangiarePiano.app/MangiarePiano";
+			};
+			name = Debug;
+		};
+		9EADB2C00FE3B5D374817A59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		B1D655F285DB80F0B6567EEA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MangiarePiano/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bizstudio.mangiarepiano;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C4199893BB4123213646F038 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = MangiarePiano/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bizstudio.mangiarepiano;
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		EDC02AC595E508FAB6FFD7C3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bizstudio.mangiarepiano.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MangiarePiano.app/MangiarePiano";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		68428BB130298AB4CEDA1BF0 /* Build configuration list for PBXNativeTarget "MangiarePianoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				690E67C53CF3C15CAA4BFF49 /* Debug */,
+				EDC02AC595E508FAB6FFD7C3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B5ED6800FC6D2B6105BE2424 /* Build configuration list for PBXNativeTarget "MangiarePiano" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1D655F285DB80F0B6567EEA /* Debug */,
+				C4199893BB4123213646F038 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F68E35F7F380D99133D5D7B1 /* Build configuration list for PBXProject "MangiarePiano" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9EADB2C00FE3B5D374817A59 /* Debug */,
+				10D61BDD094F45833B8FA497 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6061974933E558EEB3BC3DE5 /* Project object */;
+}

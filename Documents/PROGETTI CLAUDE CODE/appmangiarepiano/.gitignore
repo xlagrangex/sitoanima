@@ -1,0 +1,6 @@
+.DS_Store
+build/
+DerivedData/
+MangiarePiano.xcodeproj/xcuserdata/
+MangiarePiano.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcuserstate
