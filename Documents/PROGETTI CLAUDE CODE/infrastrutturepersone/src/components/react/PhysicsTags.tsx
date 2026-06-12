@@ -40,13 +40,15 @@ export default function PhysicsTags({ tags, height = 420 }: Props) {
       Matter.World.add(engine.world, walls);
 
       const els = Array.from(container.querySelectorAll<HTMLElement>("[data-pill]"));
-      // Come l'originale: spawn casuale DENTRO il contenitore (metà superiore),
-      // su colonne sfalsate per ridurre gli overlap iniziali.
+      // Spawn raggruppato nella fascia centrale (~metà larghezza): la pioggia
+      // iniziale resta compatta, poi col drag si possono spargere ovunque.
       const bodies = els.map((el, i) => {
         const r = el.getBoundingClientRect();
         const cols = els.length;
-        const slot = (bounds.width / cols) * (i + 0.5);
-        const x = Math.min(Math.max(slot + (Math.random() - 0.5) * 60, r.width / 2 + 4), bounds.width - r.width / 2 - 4);
+        const clusterStart = bounds.width * 0.28;
+        const clusterWidth = bounds.width * 0.44;
+        const slot = clusterStart + (clusterWidth / cols) * (i + 0.5);
+        const x = Math.min(Math.max(slot + (Math.random() - 0.5) * 50, r.width / 2 + 4), bounds.width - r.width / 2 - 4);
         const y = r.height / 2 + Math.random() * (bounds.height * 0.4);
         const body = Matter.Bodies.rectangle(x, y, r.width, r.height, {
           friction: 0.4,
