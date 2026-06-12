@@ -9,7 +9,7 @@ export interface PhysicsTag {
 
 interface Props {
   tags: PhysicsTag[];
-  height?: number;
+  height?: number | string;
 }
 
 /** Pill che cadono con gravità nel contenitore e si possono trascinare (replica del Physics.tsx Framer). */
@@ -49,7 +49,7 @@ export default function PhysicsTags({ tags, height = 420 }: Props) {
         const clusterWidth = bounds.width * 0.44;
         const slot = clusterStart + (clusterWidth / cols) * (i + 0.5);
         const x = Math.min(Math.max(slot + (Math.random() - 0.5) * 50, r.width / 2 + 4), bounds.width - r.width / 2 - 4);
-        const y = r.height / 2 + Math.random() * (bounds.height * 0.4);
+        const y = r.height / 2 + Math.random() * (bounds.height * 0.25);
         const body = Matter.Bodies.rectangle(x, y, r.width, r.height, {
           friction: 0.4,
           frictionAir: 0.03,
