@@ -5,10 +5,6 @@ interface Props {
 const { class: className = "" } = Astro.props;
 ---
 
-<a href="/" class={`flex items-center gap-2 ${className}`} aria-label="Flexio — home">
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M2 19 A18 18 0 0 1 38 19 Z" fill="#6248B0" />
-    <path d="M2 21 A18 18 0 0 0 38 21 Z" fill="#232030" />
-  </svg>
-  <span class="text-[27px] font-medium text-ink" style="letter-spacing:-0.02em">Flexio</span>
+<a href="/" class={`flex items-center ${className}`} aria-label="Infrastruttura Persone — home">
+  <img src="/images/logo-ip-nav.png" alt="Infrastruttura Persone" class="h-[42px] w-auto" />
 </a>
