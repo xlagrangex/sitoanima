@@ -1,0 +1,203 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Eyebrow from "../../components/ui/Eyebrow.astro";
+import Button from "../../components/ui/Button.astro";
+import CtaBanner from "../../components/CtaBanner.astro";
+import services from "../../data/services.json";
+
+export function getStaticPaths() {
+  return services.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+interface Service {
+  slug: string;
+  title: string;
+  description: string;
+  image: string;
+  mainContentHtml: string;
+  inlineImage: string;
+  subContentHtml: string;
+}
+
+const { service } = Astro.props as { service: Service };
+const otherServices = (services as Service[]).filter((s) => s.slug !== service.slug);
+
+const localImg = (url: string) => `/images/${url.split("/").pop()}`;
+---
+
+<Layout title={`${service.title} - Flexio`} description={service.description}>
+  <!-- 1. Hero -->
+  <section id="hero" class="overflow-hidden bg-orange">
+    <div class="curtain-panel w-full bg-cream px-4 pb-16 pt-[144px] md:px-[30px] md:pb-[100px] md:pt-[180px]">
+      <div class="mx-auto flex w-full max-w-[1140px] flex-col items-center gap-10 text-center">
+        <Eyebrow>our service</Eyebrow>
+        <h2 class="t-h2 max-w-[700px]">{service.title}</h2>
+        <p class="max-w-[700px] text-[16px] font-medium leading-[26px] md:text-[18px] md:leading-[28px]">
+          {service.description}
+        </p>
+        <div class="aspect-[2.07273] w-full overflow-hidden rounded-[16px] bg-peach md:rounded-[20px] lg:rounded-[24px]">
+          <img
+            src={localImg(service.image)}
+            alt={service.title}
+            class="h-full w-full object-cover"
+            data-scale-in
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Body -->
+  <section class="bg-cream pb-[120px]">
+    <div class="container-page flex flex-col gap-16 px-4 md:gap-20 md:px-7 lg:gap-[100px]">
+      <!-- 2a. Blog Container: article + sticky CTA card -->
+      <div class="flex flex-col gap-[60px] md:flex-row md:gap-10 xl:gap-[100px]">
+        <article class="flex min-w-0 flex-col gap-10 md:flex-[2]">
+          <div class="rich-text" set:html={service.mainContentHtml} />
+
+          <div class="rounded-[8px] bg-quote p-6">
+            <p class="text-[18px] font-medium leading-[28px]">
+              "Effective marketing is not just about reaching people—it's about connecting with them in meaningful ways."
+            </p>
+          </div>
+
+          <div class="aspect-[1.5] w-full overflow-hidden rounded-[8px] bg-peach">
+            <img
+              src={localImg(service.inlineImage)}
+              alt="Group of people using laptop"
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="rich-text" set:html={service.subContentHtml} />
+        </article>
+
+        <aside class="md:flex-1">
+          <div class="sticky top-[60px] flex flex-col gap-10 rounded-[16px] bg-quote p-[30px]">
+            <h4 class="t-h4">Transform Your Business Today</h4>
+            <p class="t-body-sm">
+              Partner with us to achieve your business goals and unlock your full potential. Start your journey toward success today!
+            </p>
+            <Button href="/contact" variant="primary">Let's Talk</Button>
+            <div class="aspect-[1.09] w-full">
+              <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-full w-full" preserveAspectRatio="xMidYMid meet">
+                <path d="M0 300C0 260.2 15.8 222.07 43.93 193.93C72.06 165.8 110.22 150 150 150C189.78 150 227.94 165.8 256.07 193.93C284.2 222.07 300 260.22 300 300H0Z" fill="#FE6037"></path>
+                <path d="M0 150C0 110.22 15.8 72.06 43.93 43.93C72.06 15.8 110.22 0 150 0C189.78 0 227.94 15.8 256.07 43.93C284.2 72.06 300 110.22 300 150H0Z" fill="#262121"></path>
+              </svg>
+            </div>
+          </div>
+        </aside>
+      </div>
+
+      <!-- 2b. Check Other Services -->
+      <div class="flex flex-col items-center gap-6 md:gap-[60px] lg:gap-10">
+        <h2 class="t-h2 text-center">Check Other Services</h2>
+        <div class="flex w-full flex-col gap-6 md:flex-row">
+          {otherServices.map((other) => (
+            <a
+              href={`/services/${other.slug}`}
+              class="group relative block h-[480px] w-full overflow-hidden rounded-[20px] md:flex-1"
+            >
+              <img
+                src={localImg(other.image)}
+                alt={other.title}
+                class="absolute inset-0 h-full w-full scale-[1.15] object-cover transition-transform duration-700 ease-out group-hover:scale-100"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(38,32,32,1)_0%,rgba(38,33,33,0)_100%)]"></div>
+              <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(38,33,33,0)_0%,rgba(38,32,32,1)_100%)]"></div>
+              <div class="absolute inset-x-0 top-0 z-[3] flex items-center justify-between gap-4 p-6">
+                <h4 class="text-[20px] font-medium leading-[1.2] text-white md:text-[24px]">{other.title}</h4>
+                <span
+                  class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/25"
+                  aria-label="view more button"
+                >
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 1V17M1 9H17" stroke="#fff" stroke-width="1.5" stroke-linecap="round"></path>
+                  </svg>
+                </span>
+              </div>
+              <div class="absolute inset-x-0 bottom-0 z-[3] p-6">
+                <p class="text-[16px] leading-[26px] text-white md:text-[18px] md:leading-[28px]">{other.description}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Pre-footer CTA banner (shared) -->
+  <CtaBanner />
+
+  <!-- 5. Back to top -->
+  <a
+    href="#hero"
+    id="back-to-top"
+    class="back-to-top fixed bottom-6 right-6 z-[5] flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-[0_2px_4px_rgba(0,0,0,0.1)] md:bottom-[68px] md:right-8"
+    aria-label="Back to top"
+  >
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 16V4M10 4L4 10M10 4L16 10" stroke="#262121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+  </a>
+</Layout>
+
+<style>
+  .rich-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .rich-text :global(h3) {
+    font-size: clamp(36px, 3vw, 40px);
+    line-height: 1.2;
+    font-weight: 500;
+  }
+  .rich-text :global(h3:not(:first-child)) {
+    margin-top: 24px;
+  }
+  .rich-text :global(p) {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 400;
+  }
+  .rich-text :global(ul) {
+    margin: 0;
+    padding-left: 24px;
+    list-style: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .rich-text :global(li::marker) {
+    color: var(--color-ink);
+  }
+
+  .back-to-top {
+    opacity: 0;
+    transform: translateY(48px);
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  .back-to-top.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+</style>
+
+<script>
+  const updateBackToTop = () => {
+    const btn = document.getElementById("back-to-top");
+    if (!btn) return;
+    btn.classList.toggle("is-visible", window.scrollY > 400);
+  };
+  window.addEventListener("scroll", updateBackToTop, { passive: true });
+  document.addEventListener("astro:page-load", updateBackToTop);
+  updateBackToTop();
+</script>

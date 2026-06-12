@@ -1,37 +1,66 @@
 @import "tailwindcss";
 
-/* Self-hosted fonts via Fontsource (Variable) */
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/outfit";
+/* Clash Grotesk + Cabinet Grotesk self-hosted (Fontshare) */
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/clash-grotesk-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/clash-grotesk-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Clash Grotesk";
+  src: url("/fonts/clash-grotesk-600.woff2") format("woff2");
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/fonts/cabinet-grotesk-400.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/fonts/cabinet-grotesk-500.woff2") format("woff2");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/fonts/cabinet-grotesk-700.woff2") format("woff2");
+  font-weight: 700;
+  font-display: swap;
+}
 
 @theme {
-  /* Fonts */
-  --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
-  --font-display: "Outfit Variable", "Outfit", system-ui, sans-serif;
+  --font-sans: "Clash Grotesk", system-ui, sans-serif;
+  --font-form: "Cabinet Grotesk", system-ui, sans-serif;
 
-  /* Brand colors — placeholder, da sostituire con la palette del progetto */
-  --color-brand: #2563eb;
-  --color-brand-dark: #1e40af;
+  /* Flexio palette */
+  --color-orange: #fe6037;
+  --color-cream: #fefaf6;
+  --color-peach: #faebdc;
+  --color-quote: #f9eadb;
+  --color-ink: #262121;
+  --color-tag-blue: #3861f9;
+  --color-tag-teal: #76c6b3;
+  --color-tag-darkblue: #3758d3;
+  --color-tag-yellow: #ffd37d;
+  --color-tag-pink: #ffbab9;
+  --color-tag-lightblue: #70a2e1;
+  --color-tag-lightorange: #ffa37c;
 
-  /* Neutrals — single dark tint, opacity-based grays */
-  --color-off-white: #f6f6f6;
-  --color-ink: #16121f;
-  --color-cool-gray: rgba(22, 18, 31, 0.72);
-  --color-mid-gray: rgba(22, 18, 31, 0.55);
-  --color-soft-gray: rgba(22, 18, 31, 0.12);
+  --radius-card: 20px;
+  --radius-panel: 24px;
+  --radius-pill: 99px;
 
-  /* Border radius scale */
-  --radius-card: 17px;
-  --radius-button: 22px;
-  --radius-pill: 60px;
-
-  /* Containers */
   --container-page: 1140px;
-  --container-wide: 1280px;
-
-  /* Shadows */
-  --shadow-card: 0 4px 20px 0 rgb(0 0 0 / 0.08);
-  --shadow-nav: 0 8px 32px 0 rgb(0 0 0 / 0.3);
 }
 
 /* Lenis smooth scroll */
@@ -40,51 +69,23 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
-/* FOUC guard per il reveal system: nasconde i target solo quando JS è attivo
-   (html.has-js-reveal, settata da script inline nel layout) e l'utente non ha
-   prefers-reduced-motion. reveal.ts marca data-reveal-init e GSAP prende il controllo. */
-@media (prefers-reduced-motion: no-preference) {
-  .has-js-reveal .reveal:not([data-reveal-init]),
-  .has-js-reveal [data-reveal]:not([data-reveal-init]),
-  .has-js-reveal .eyebrow:not([data-reveal-init]),
-  .has-js-reveal section p:not([data-reveal-init]):not([data-no-reveal] *):not([data-no-reveal]),
-  .has-js-reveal section blockquote:not([data-reveal-init]),
-  .has-js-reveal section figure:not([data-reveal-init]),
-  .has-js-reveal [data-reveal-group] p:not([data-reveal-init]):not([data-no-reveal] *):not([data-no-reveal]) {
-    opacity: 0;
-  }
-}
-
 @layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+  *, *::before, *::after { box-sizing: border-box; }
 
   body {
     margin: 0;
     font-family: var(--font-sans);
+    font-weight: 400;
     color: var(--color-ink);
-    background: #fff;
+    background: var(--color-cream);
     overflow-x: clip;
     -webkit-font-smoothing: antialiased;
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    font-family: var(--font-display);
-  }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+  h1, h2, h3, h4, h5, h6 { margin: 0; font-weight: 500; }
+  p { margin: 0; }
 }
 
 @layer components {
@@ -92,55 +93,118 @@ html.lenis, html.lenis body { height: auto; }
     width: 100%;
     max-width: var(--container-page);
     margin-inline: auto;
-    padding-inline: 24px;
   }
 
+  /* Type scale (desktop / tablet / phone via clamp) */
+  .t-h1 { font-size: clamp(48px, 7vw, 82px); line-height: 0.9; font-weight: 500; }
+  .t-h2 { font-size: clamp(40px, 5vw, 60px); line-height: 1; font-weight: 500; }
+  .t-h3 { font-size: clamp(36px, 3.7vw, 44px); line-height: 1.2; font-weight: 500; }
+  .t-h4 { font-size: clamp(26px, 2.7vw, 32px); line-height: 1.2; font-weight: 500; }
+  .t-large { font-size: clamp(20px, 2vw, 24px); line-height: 1.2; font-weight: 500; }
+  .t-body { font-size: clamp(16px, 1.5vw, 18px); line-height: 1.55; }
+  .t-body-sm { font-size: 16px; line-height: 26px; }
+
+  /* Eyebrow pills */
   .eyebrow {
     display: inline-block;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
+    background: var(--color-orange);
+    color: #fff;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--color-brand);
+  }
+  .eyebrow--light {
+    background: #fff;
+    color: var(--color-orange);
   }
 
-  .btn-pill {
+  /* Buttons — vertical text-swap hover (two stacked labels) */
+  .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 14px 28px;
+    justify-content: center;
+    min-width: 130px;
+    height: 50px;
+    padding: 0 28px;
     border-radius: var(--radius-pill);
-    background: var(--color-ink);
-    color: #fff;
+    font-size: clamp(16px, 1.5vw, 18px);
     font-weight: 500;
-    font-size: 15px;
-    transition: background 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
   }
-  .btn-pill:hover {
-    background: var(--color-brand);
-    transform: translateY(-1px);
+  .btn .btn-label {
+    position: relative;
+    display: inline-block;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s;
+  }
+  .btn .btn-label--ghost {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 80%);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s;
+  }
+  .btn:hover .btn-label { transform: translateY(-180%); opacity: 0; }
+  .btn:hover .btn-label--ghost { transform: translate(-50%, -50%); opacity: 1; }
+
+  .btn--primary { background: var(--color-orange); color: #fff; }
+  .btn--secondary {
+    background: var(--color-cream);
+    color: var(--color-orange);
+    border: 1px solid var(--color-orange);
+  }
+  .btn--dark { background: var(--color-ink); color: #fff; }
+
+  /* Marquee base (animated by lib/marquee.ts) */
+  .marquee {
+    overflow: hidden;
+    width: 100%;
+  }
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    will-change: transform;
   }
 
-  /* Scala tipografica (mirror di style.md quando presente) */
-  .t-hero {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(34px, 7vw, 85px);
-    line-height: 1.04;
-    letter-spacing: -0.02em;
+  /* Curtain hero panel: slides up from below on page load */
+  @media (prefers-reduced-motion: no-preference) {
+    .curtain-panel {
+      animation: curtain-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    @keyframes curtain-up {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(0); }
+    }
+    /* Nav fades in after the curtain */
+    .nav-appear {
+      animation: nav-in 0.4s ease-out 1s both;
+    }
+    @keyframes nav-in {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Scroll-in zoom for photos (initial state; lib/flexio-anim.ts animates to 1) */
+    [data-scale-in] { transform: scale(1.15); }
+    [data-scale-in].is-inview { transform: scale(1); transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1); }
   }
 
-  .t-h2 {
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: clamp(28px, 4.2vw, 48px);
-    line-height: 1.08;
-    letter-spacing: -0.015em;
+  /* Rounded 40px strip that slides content over the pinned video */
+  .radius-top {
+    height: 40px;
+    border-radius: 40px 40px 0 0;
+    background: var(--color-cream);
+    margin-top: -40px;
+    position: relative;
   }
-
-  .t-body-lg {
-    font-size: clamp(17px, 1.6vw, 20px);
-    line-height: 1.55;
-    color: var(--color-cool-gray);
+  @media (max-width: 809px) {
+    .radius-top { height: 30px; border-radius: 30px 30px 0 0; margin-top: -30px; }
   }
 }

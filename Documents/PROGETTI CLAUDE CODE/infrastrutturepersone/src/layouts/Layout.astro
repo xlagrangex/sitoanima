@@ -10,41 +10,36 @@ interface Props {
 }
 
 const {
-  title = "Nuovo progetto — BizStudio Astro",
-  description = "Scaffold BizStudio Astro: contenuti placeholder da sostituire.",
+  title = "Flexio",
+  description = "Flexio — Flexible solutions for modern business. Marketing agencies, business consultants, growth experts.",
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="it">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/fonts/clash-grotesk-500.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/clash-grotesk-400.woff2" as="font" type="font/woff2" crossorigin />
     <title>{title}</title>
     <ClientRouter />
-    <script is:inline>document.documentElement.classList.add('has-js-reveal')</script>
     <style is:global>
       @keyframes ethereal-out {
-        0%   { opacity: 1; filter: blur(0); transform: scale(1); }
-        100% { opacity: 0; filter: blur(14px); transform: scale(1.015); }
+        0%   { opacity: 1; filter: blur(0); }
+        100% { opacity: 0; filter: blur(14px); }
       }
       @keyframes ethereal-in {
-        0%   { opacity: 0; filter: blur(14px); transform: scale(0.992); }
-        100% { opacity: 1; filter: blur(0); transform: scale(1); }
+        0%   { opacity: 0; filter: blur(14px); }
+        100% { opacity: 1; filter: blur(0); }
       }
-      ::view-transition-old(root) {
-        animation: ethereal-out .55s cubic-bezier(.4,0,.2,1) both;
-      }
-      ::view-transition-new(root) {
-        animation: ethereal-in .65s cubic-bezier(.2,.7,.2,1) both;
-      }
-      ::view-transition-group(root) { animation-duration: .65s; }
+      ::view-transition-old(root) { animation: ethereal-out .45s cubic-bezier(.4,0,.2,1) both; }
+      ::view-transition-new(root) { animation: ethereal-in .55s cubic-bezier(.2,.7,.2,1) both; }
       @media (prefers-reduced-motion: reduce) {
-        ::view-transition-old(root),
-        ::view-transition-new(root) { animation: none; }
+        ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
       }
     </style>
   </head>
@@ -58,17 +53,15 @@ const {
     <script>
       import "lenis/dist/lenis.css";
       import { initLenis } from "../lib/lenis";
-      import { initReveal } from "../lib/reveal";
-      import { ScrollTrigger } from "../lib/gsap";
+      import { initMarquees } from "../lib/marquee";
+      import { initFlexioAnimations } from "../lib/flexio-anim";
 
       initLenis();
 
       const boot = () => {
-        // Aspetta che i font siano caricati prima di calcolare le righe (SplitType),
-        // altrimenti al ritorno via page-transition il line break misurato col font
-        // di fallback può cambiare il numero di righe.
         const run = () => {
-          initReveal();
+          initMarquees();
+          initFlexioAnimations();
         };
         if (document.fonts?.ready) {
           document.fonts.ready.then(run).catch(run);
@@ -83,9 +76,6 @@ const {
         boot();
       }
       document.addEventListener("astro:page-load", boot);
-      document.addEventListener("astro:before-swap", () => {
-        ScrollTrigger.getAll().forEach((t) => t.kill());
-      });
     </script>
   </body>
 </html>

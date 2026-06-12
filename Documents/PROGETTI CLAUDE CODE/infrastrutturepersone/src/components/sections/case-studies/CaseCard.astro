@@ -1,0 +1,40 @@
+---
+import Eyebrow from "../../ui/Eyebrow.astro";
+
+interface Props {
+  slug: string;
+  title: string;
+  tag: string;
+  image: string;
+}
+
+const { slug, title, tag, image } = Astro.props;
+
+const src = `/images/${image.split("/").pop()}`;
+
+// Alt text verbatim dalla spec, mappato per slug
+const alts: Record<string, string> = {
+  "driving-impact-a-healthcare-platform-s-rebuild": "people discussing",
+  "optimizing-conversions-a-tech-startup-s-leap": "team using laptop",
+  "scaling-success-a-nonprofit-s-digital-growth": "business women discussing",
+  "innovating-spaces-real-estate-website-revamp": "Business team presenting chart",
+};
+const alt = alts[slug] ?? title;
+---
+
+<a href={`/case-studies/${slug}`} class="group flex w-full cursor-pointer flex-col">
+  <div class="aspect-[1.44935] w-full overflow-hidden rounded-[16px] md:aspect-auto md:h-[385px] md:rounded-[20px]">
+    <div data-scale-in class="h-full w-full">
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        class="h-full w-full object-cover transition-transform duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110 md:group-hover:scale-[1.15]"
+      />
+    </div>
+  </div>
+  <div class="mt-6 flex flex-col items-start gap-2">
+    <Eyebrow>{tag}</Eyebrow>
+    <h4 class="t-h4">{title}</h4>
+  </div>
+</a>

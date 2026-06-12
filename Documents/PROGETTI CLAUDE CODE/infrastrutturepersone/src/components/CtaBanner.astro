@@ -1,0 +1,33 @@
+---
+import Eyebrow from "./ui/Eyebrow.astro";
+import Button from "./ui/Button.astro";
+---
+
+<section class="px-4 md:px-7">
+  <div class="relative mx-auto max-w-[1380px] overflow-hidden rounded-[24px] bg-orange pb-0 pt-20 md:pt-28">
+    <div class="flex flex-col items-center gap-6 px-6 text-center">
+      <Eyebrow variant="light">Ready to Elevate?</Eyebrow>
+      <h2 class="t-h2 max-w-3xl text-white">Proceed Toward Your Next Achievement</h2>
+      <div class="mt-2 flex flex-wrap items-center justify-center gap-4">
+        <Button href="/contact" variant="dark">Let's Talk</Button>
+        <Button href="/about-us" variant="secondary">Learn More</Button>
+      </div>
+    </div>
+
+    <div class="marquee mt-16" data-marquee-speed="50">
+      <div class="marquee-track gap-6 pb-0">
+        <div class="h-[220px] w-[220px] shrink-0 rounded-full bg-tag-teal"></div>
+        <div class="h-[220px] w-[110px] shrink-0 rounded-l-full bg-cream"></div>
+        <div class="relative h-[220px] w-[400px] shrink-0 overflow-hidden rounded-[20px]">
+          <img src="/images/XHpUkHWKP4ZHwwcTpsF5ImDEY8.png" alt="Business people discussing" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+          <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        <div class="h-[220px] w-[110px] shrink-0 rounded-r-full bg-ink"></div>
+        <div class="h-[220px] w-[220px] shrink-0 rounded-full bg-tag-lightblue"></div>
+        <div class="h-[220px] w-[70px] shrink-0 rounded-[20px] bg-cream"></div>
+        <div class="h-[220px] w-[110px] shrink-0 rounded-t-full bg-tag-teal"></div>
+      </div>
+    </div>
+  </div>
+  <div class="radius-top"></div>
+</section>

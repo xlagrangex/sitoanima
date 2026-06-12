@@ -1,0 +1,14 @@
+---
+interface Props {
+  href: string;
+  variant?: "primary" | "secondary" | "dark";
+  class?: string;
+}
+const { href, variant = "primary", class: className = "" } = Astro.props;
+const label = await Astro.slots.render("default");
+---
+
+<a href={href} class={`btn btn--${variant} ${className}`}>
+  <span class="btn-label" set:html={label} />
+  <span class="btn-label btn-label--ghost" aria-hidden="true" set:html={label} />
+</a>

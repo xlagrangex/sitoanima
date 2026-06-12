@@ -1,0 +1,20 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Eyebrow from "../components/ui/Eyebrow.astro";
+import Button from "../components/ui/Button.astro";
+---
+
+<Layout>
+  <section class="curtain-panel flex h-screen items-center justify-center bg-cream px-4 pt-[144px] md:px-10 md:pt-0 lg:px-[30px] lg:pt-20">
+    <div class="mx-auto flex w-full max-w-[1140px] flex-col items-center gap-6 text-center md:gap-8">
+      <div class="flex flex-col items-center gap-3">
+        <Eyebrow>404</Eyebrow>
+        <h1 class="t-h1 max-w-[700px]">OOPS, Something went wrong.</h1>
+      </div>
+      <p class="max-w-[700px] text-[16px] font-medium leading-[26px] md:text-[18px] md:leading-[28px]">
+        We couldn't find the page you were looking for
+      </p>
+      <Button href="/" variant="primary">Go back home</Button>
+    </div>
+  </section>
+</Layout>
