@@ -1,6 +1,7 @@
 # Mappa di migrazione GHL → Sito Astro (Infrastruttura Persone)
 
 > Fonte di verità per il piano. Censimento completo via API GHL (location `8ItWj4qKDokr2jFJsySV`) + scrape delle pagine pubblicate, 12/06/2026. Dati grezzi in `docs/ghl/*.json`.
+> **Contenuti estratti** (copy integrale pagine, schemi survey/form, 30 trascrizioni video ~117k parole) → **`docs/cervellone/`**.
 >
 > **Perimetro deciso**: tutto il front-end si rifà in Astro; GHL resta SOLO per contatti, form/submission e automazioni. I multistep condizionali li costruiamo nativi. I video si trascrivono per generare le pagine caso studio.
 

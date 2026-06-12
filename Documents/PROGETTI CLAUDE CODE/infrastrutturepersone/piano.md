@@ -165,7 +165,7 @@ Allineate all'ordine di migrazione della mappa (§"Ordine di migrazione consigli
 
 **Ancora aperti:**
 1. **Hero copy**: tenere "Il sistema di selezione che la tua azienda merita." o variante più corta?
-2. **Multistep**: l'albero attuale è nella Survey VSL-FRP — va scaricato il dettaglio domande/rami e validato con Chiara se cambiarlo o replicarlo 1:1.
+2. **Multistep**: ~~albero da scaricare~~ → FATTO, è in `docs/cervellone/survey/UkxjlTAQKDfFtlqugde1.md` (3 rami: azienda / consulente-agenzia / freelancer). Resta da validare con Chiara: replicare 1:1 o evolvere?
 3. **Social proof**: loghi aziende utilizzabili? Numeri dichiarabili (anni, ruoli piazzati, settori)?
 4. **Chi siamo**: Chiara in prima persona (foto/video) o brand impersonale?
 5. **Font**: teniamo Clash Grotesk o cerchiamo qualcosa di più "corporate fresco"?
