@@ -10,13 +10,13 @@ const services = [
 ---
 
 <header class="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
-  <div class="nav-appear mx-auto rounded-[32px] border border-cream bg-peach px-5 py-3 md:px-6">
-    <div class="flex items-center justify-between gap-6">
+  <div class="nav-appear mx-auto rounded-[32px] bg-peach py-1.5 pl-6 pr-1.5">
+    <div class="flex items-center gap-12">
       <Logo />
 
       <nav class="hidden items-center gap-8 md:flex">
         <div class="nav-dropdown relative">
-          <button class="flex items-center gap-1.5 text-[18px] font-medium" aria-haspopup="true">
+          <button class="flex items-center gap-1.5 text-[16px] font-medium" aria-haspopup="true">
             Services
             <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           </button>
@@ -32,15 +32,15 @@ const services = [
             </div>
           </div>
         </div>
-        <a href="/about-us" class="text-[18px] font-medium">About Us</a>
-        <a href="/case-studies" class="text-[18px] font-medium">Case Studies</a>
+        <a href="/about-us" class="text-[16px] font-medium">About Us</a>
+        <a href="/case-studies" class="text-[16px] font-medium">Case Studies</a>
       </nav>
 
-      <div class="hidden md:block">
+      <div class="ml-auto hidden md:block">
         <Button href="/contact" variant="primary">Let's Talk</Button>
       </div>
 
-      <button id="nav-toggle" class="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden" aria-label="Open menu" aria-expanded="false">
+      <button id="nav-toggle" class="ml-auto flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden" aria-label="Open menu" aria-expanded="false">
         <span class="block h-[2px] w-6 bg-ink transition-transform"></span>
         <span class="block h-[2px] w-6 bg-ink transition-transform"></span>
       </button>
