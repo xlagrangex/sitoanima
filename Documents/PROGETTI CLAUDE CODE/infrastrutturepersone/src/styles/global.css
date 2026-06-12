@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+/* Self-hosted fonts via Fontsource (Variable) */
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/outfit";
+
+@theme {
+  /* Fonts */
+  --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
+  --font-display: "Outfit Variable", "Outfit", system-ui, sans-serif;
+
+  /* Brand colors — placeholder, da sostituire con la palette del progetto */
+  --color-brand: #2563eb;
+  --color-brand-dark: #1e40af;
+
+  /* Neutrals — single dark tint, opacity-based grays */
+  --color-off-white: #f6f6f6;
+  --color-ink: #16121f;
+  --color-cool-gray: rgba(22, 18, 31, 0.72);
+  --color-mid-gray: rgba(22, 18, 31, 0.55);
+  --color-soft-gray: rgba(22, 18, 31, 0.12);
+
+  /* Border radius scale */
+  --radius-card: 17px;
+  --radius-button: 22px;
+  --radius-pill: 60px;
+
+  /* Containers */
+  --container-page: 1140px;
+  --container-wide: 1280px;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px 0 rgb(0 0 0 / 0.08);
+  --shadow-nav: 0 8px 32px 0 rgb(0 0 0 / 0.3);
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* FOUC guard per il reveal system: nasconde i target solo quando JS è attivo
+   (html.has-js-reveal, settata da script inline nel layout) e l'utente non ha
+   prefers-reduced-motion. reveal.ts marca data-reveal-init e GSAP prende il controllo. */
+@media (prefers-reduced-motion: no-preference) {
+  .has-js-reveal .reveal:not([data-reveal-init]),
+  .has-js-reveal [data-reveal]:not([data-reveal-init]),
+  .has-js-reveal .eyebrow:not([data-reveal-init]),
+  .has-js-reveal section p:not([data-reveal-init]):not([data-no-reveal] *):not([data-no-reveal]),
+  .has-js-reveal section blockquote:not([data-reveal-init]),
+  .has-js-reveal section figure:not([data-reveal-init]),
+  .has-js-reveal [data-reveal-group] p:not([data-reveal-init]):not([data-no-reveal] *):not([data-no-reveal]) {
+    opacity: 0;
+  }
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: #fff;
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    max-width: var(--container-page);
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+  }
+
+  .btn-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border-radius: var(--radius-pill);
+    background: var(--color-ink);
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  .btn-pill:hover {
+    background: var(--color-brand);
+    transform: translateY(-1px);
+  }
+
+  /* Scala tipografica (mirror di style.md quando presente) */
+  .t-hero {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(34px, 7vw, 85px);
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+  }
+
+  .t-h2 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(28px, 4.2vw, 48px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+  }
+
+  .t-body-lg {
+    font-size: clamp(17px, 1.6vw, 20px);
+    line-height: 1.55;
+    color: var(--color-cool-gray);
+  }
+}

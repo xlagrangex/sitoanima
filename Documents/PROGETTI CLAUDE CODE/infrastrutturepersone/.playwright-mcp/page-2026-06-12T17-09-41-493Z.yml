@@ -1,0 +1,153 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Logo" [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "Sezione uno" [ref=e6] [cursor=pointer]:
+          - /url: "#uno"
+        - link "Sezione due" [ref=e7] [cursor=pointer]:
+          - /url: "#due"
+        - link "Contatti" [ref=e8] [cursor=pointer]:
+          - /url: "#contatti"
+      - link "Call to action" [ref=e9] [cursor=pointer]:
+        - /url: "#contatti"
+  - main [ref=e10]:
+    - generic [ref=e12]:
+      - generic [ref=e13]: Eyebrow di esempio
+      - heading "T i t o l o p l a c e h o l d e r d e l l o s c a f f o l d" [level=1] [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]:
+            - generic [ref=e17]: T
+            - generic [ref=e18]: i
+            - generic [ref=e19]: t
+            - generic [ref=e20]: o
+            - generic [ref=e21]: l
+            - generic [ref=e22]: o
+          - generic [ref=e23]:
+            - generic [ref=e24]: p
+            - generic [ref=e25]: l
+            - generic [ref=e26]: a
+            - generic [ref=e27]: c
+            - generic [ref=e28]: e
+            - generic [ref=e29]: h
+            - generic [ref=e30]: o
+            - generic [ref=e31]: l
+            - generic [ref=e32]: d
+            - generic [ref=e33]: e
+            - generic [ref=e34]: r
+          - generic [ref=e35]:
+            - generic [ref=e36]: d
+            - generic [ref=e37]: e
+            - generic [ref=e38]: l
+            - generic [ref=e39]: l
+            - generic [ref=e40]: o
+        - generic [ref=e42]:
+          - generic [ref=e43]: s
+          - generic [ref=e44]: c
+          - generic [ref=e45]: a
+          - generic [ref=e46]: f
+          - generic [ref=e47]: f
+          - generic [ref=e48]: o
+          - generic [ref=e49]: l
+          - generic [ref=e50]: d
+      - paragraph [ref=e51]: "Questo è un paragrafo di esempio. Tutti i contenuti di questa pagina sono placeholder neutri: vanno sostituiti con i contenuti reali del progetto."
+      - link "Bottone di esempio" [ref=e53] [cursor=pointer]:
+        - /url: "#due"
+    - generic [ref=e55]:
+      - generic [ref=e56]: Seconda sezione
+      - heading "G r i g l i a d i c a r d p l a c e h o l d e r" [level=2] [ref=e57]:
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - generic [ref=e60]: G
+            - generic [ref=e61]: r
+            - generic [ref=e62]: i
+            - generic [ref=e63]: g
+            - generic [ref=e64]: l
+            - generic [ref=e65]: i
+            - generic [ref=e66]: a
+          - generic [ref=e67]:
+            - generic [ref=e68]: d
+            - generic [ref=e69]: i
+          - generic [ref=e70]:
+            - generic [ref=e71]: c
+            - generic [ref=e72]: a
+            - generic [ref=e73]: r
+            - generic [ref=e74]: d
+          - generic [ref=e75]:
+            - generic [ref=e76]: p
+            - generic [ref=e77]: l
+            - generic [ref=e78]: a
+            - generic [ref=e79]: c
+            - generic [ref=e80]: e
+            - generic [ref=e81]: h
+            - generic [ref=e82]: o
+            - generic [ref=e83]: l
+            - generic [ref=e84]: d
+            - generic [ref=e85]: e
+            - generic [ref=e86]: r
+      - generic [ref=e87]:
+        - generic [ref=e88]:
+          - heading "C a r d 1" [level=3] [ref=e89]:
+            - generic [ref=e90]:
+              - generic [ref=e91]:
+                - generic [ref=e92]: C
+                - generic [ref=e93]: a
+                - generic [ref=e94]: r
+                - generic [ref=e95]: d
+              - generic [ref=e97]: "1"
+          - paragraph [ref=e98]: Testo descrittivo di esempio per la card numero 1.
+        - generic [ref=e99]:
+          - heading "C a r d 2" [level=3] [ref=e100]:
+            - generic [ref=e101]:
+              - generic [ref=e102]:
+                - generic [ref=e103]: C
+                - generic [ref=e104]: a
+                - generic [ref=e105]: r
+                - generic [ref=e106]: d
+              - generic [ref=e108]: "2"
+          - paragraph [ref=e109]: Testo descrittivo di esempio per la card numero 2.
+        - generic [ref=e110]:
+          - heading "C a r d 3" [level=3] [ref=e111]:
+            - generic [ref=e112]:
+              - generic [ref=e113]:
+                - generic [ref=e114]: C
+                - generic [ref=e115]: a
+                - generic [ref=e116]: r
+                - generic [ref=e117]: d
+              - generic [ref=e119]: "3"
+          - paragraph [ref=e120]: Testo descrittivo di esempio per la card numero 3.
+    - generic [ref=e122]:
+      - heading "S e z i o n e d i c h i u s u r a" [level=2] [ref=e123]:
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - generic [ref=e126]: S
+            - generic [ref=e127]: e
+            - generic [ref=e128]: z
+            - generic [ref=e129]: i
+            - generic [ref=e130]: o
+            - generic [ref=e131]: "n"
+            - generic [ref=e132]: e
+          - generic [ref=e133]:
+            - generic [ref=e134]: d
+            - generic [ref=e135]: i
+          - generic [ref=e136]:
+            - generic [ref=e137]: c
+            - generic [ref=e138]: h
+            - generic [ref=e139]: i
+            - generic [ref=e140]: u
+            - generic [ref=e141]: s
+            - generic [ref=e142]: u
+            - generic [ref=e143]: r
+            - generic [ref=e144]: a
+      - paragraph [ref=e145]: Paragrafo conclusivo placeholder con invito all'azione.
+      - link "Contattaci" [ref=e147] [cursor=pointer]:
+        - /url: mailto:esempio@esempio.it
+  - contentinfo [ref=e148]:
+    - generic [ref=e149]:
+      - paragraph [ref=e150]: © 2026 Nome Azienda — P.IVA 00000000000
+      - navigation [ref=e151]:
+        - link "Privacy Policy" [ref=e152] [cursor=pointer]:
+          - /url: /privacy-policy
+        - link "Cookie Policy" [ref=e153] [cursor=pointer]:
+          - /url: /cookie-policy

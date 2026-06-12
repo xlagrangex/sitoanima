@@ -1,0 +1,17 @@
+---
+const links = [
+  { label: "Sezione uno", href: "#uno" },
+  { label: "Sezione due", href: "#due" },
+  { label: "Contatti", href: "#contatti" },
+];
+---
+
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur-md" data-no-reveal>
+  <div class="container-page flex items-center justify-between py-4">
+    <a href="/" class="font-display text-lg font-semibold">Logo</a>
+    <nav class="hidden items-center gap-8 text-sm md:flex">
+      {links.map((link) => <a href={link.href} class="hover:text-brand transition-colors">{link.label}</a>)}
+    </nav>
+    <a href="#contatti" class="btn-pill !py-2.5 !px-5 text-sm">Call to action</a>
+  </div>
+</header>

@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Pagina di esempio — scaffold BizStudio Astro">
+  <!-- Hero: h1 riceve il char-reveal automatico, i p il fade cascata -->
+  <section class="flex min-h-[80vh] items-center" id="uno">
+    <div class="container-page">
+      <span class="eyebrow">Eyebrow di esempio</span>
+      <h1 class="t-hero mt-4 max-w-4xl">Titolo placeholder dello scaffold</h1>
+      <p class="t-body-lg mt-6 max-w-xl">
+        Questo è un paragrafo di esempio. Tutti i contenuti di questa pagina sono
+        placeholder neutri: vanno sostituiti con i contenuti reali del progetto.
+      </p>
+      <div class="mt-8" data-reveal>
+        <a href="#due" class="btn-pill">Bottone di esempio</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione card: dimostra data-reveal con direzioni custom -->
+  <section class="bg-off-white py-24" id="due">
+    <div class="container-page">
+      <span class="eyebrow">Seconda sezione</span>
+      <h2 class="t-h2 mt-4">Griglia di card placeholder</h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        {
+          [1, 2, 3].map((n) => (
+            <div class="rounded-card bg-white p-8 shadow-card" data-reveal data-reveal-distance="32">
+              <h3 class="font-display text-xl font-semibold">Card {n}</h3>
+              <p class="mt-3 text-cool-gray">
+                Testo descrittivo di esempio per la card numero {n}.
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Sezione CTA finale -->
+  <section class="py-24" id="contatti">
+    <div class="container-page text-center">
+      <h2 class="t-h2">Sezione di chiusura</h2>
+      <p class="t-body-lg mx-auto mt-4 max-w-lg">
+        Paragrafo conclusivo placeholder con invito all'azione.
+      </p>
+      <div class="mt-8" data-reveal>
+        <a href="mailto:esempio@esempio.it" class="btn-pill">Contattaci</a>
+      </div>
+    </div>
+  </section>
+</Layout>
