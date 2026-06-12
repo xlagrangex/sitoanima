@@ -29,26 +29,25 @@ export default function PhysicsTags({ tags, height = 420 }: Props) {
       const bounds = container.getBoundingClientRect();
       const engine = Matter.Engine.create({ gravity: { x: 0, y: 1 } });
       const wallOpts = { isStatic: true, friction: 2 };
-      // Soffitto ben sopra l'area di spawn (le pill nascono fino a ~ -1200px),
-      // pareti laterali alte quanto tutto lo spazio di caduta.
-      const ceilingY = -1500;
-      const sideH = bounds.height - ceilingY;
+      // Come il Physics.tsx originale: le 4 pareti combaciano col contenitore.
+      // Le pill non possono mai uscire dalla fascia, nemmeno trascinandole.
       const walls = [
         Matter.Bodies.rectangle(bounds.width / 2, bounds.height + 50, bounds.width + 200, 100, wallOpts),
-        Matter.Bodies.rectangle(bounds.width / 2, ceilingY, bounds.width + 200, 100, wallOpts),
-        Matter.Bodies.rectangle(-50, ceilingY + sideH / 2, 100, sideH, wallOpts),
-        Matter.Bodies.rectangle(bounds.width + 50, ceilingY + sideH / 2, 100, sideH, wallOpts),
+        Matter.Bodies.rectangle(bounds.width / 2, -50, bounds.width + 200, 100, wallOpts),
+        Matter.Bodies.rectangle(-50, bounds.height / 2, 100, bounds.height + 200, wallOpts),
+        Matter.Bodies.rectangle(bounds.width + 50, bounds.height / 2, 100, bounds.height + 200, wallOpts),
       ];
       Matter.World.add(engine.world, walls);
 
       const els = Array.from(container.querySelectorAll<HTMLElement>("[data-pill]"));
-      // Spawn scaglionato nella fascia centrale: evita esplosioni da overlap
-      // iniziale che sparano le pill fuori dalle pareti.
+      // Come l'originale: spawn casuale DENTRO il contenitore (metà superiore),
+      // su colonne sfalsate per ridurre gli overlap iniziali.
       const bodies = els.map((el, i) => {
         const r = el.getBoundingClientRect();
-        const margin = bounds.width * 0.12;
-        const x = margin + Math.random() * (bounds.width - margin * 2);
-        const y = -100 - i * 130;
+        const cols = els.length;
+        const slot = (bounds.width / cols) * (i + 0.5);
+        const x = Math.min(Math.max(slot + (Math.random() - 0.5) * 60, r.width / 2 + 4), bounds.width - r.width / 2 - 4);
+        const y = r.height / 2 + Math.random() * (bounds.height * 0.4);
         const body = Matter.Bodies.rectangle(x, y, r.width, r.height, {
           friction: 0.4,
           frictionAir: 0.03,
