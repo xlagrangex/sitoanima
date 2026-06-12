@@ -17,7 +17,7 @@
 
 ## 2. Architettura del sito
 
-```
+```text
 infrastrutturapersone.it (Astro su Vercel)
 ├── /                              Home
 ├── /servizi                       (mega menu "Servizi")
@@ -47,10 +47,11 @@ infrastrutturapersone.it (Astro su Vercel)
 ## 3. Pagine — struttura e copy direction
 
 ### 3.1 Home `/`
+
 Mapping diretto sulle sezioni Flexio già costruite:
 
 | # | Sezione (componente esistente) | Contenuto |
-|---|---|---|
+| --- | --- | --- |
 | 1 | Hero curtain | Eyebrow "Selezione del personale per PMI" · H1 **"Il sistema di selezione che la tua azienda merita."** · sub "Attivo in 10 giorni, con 5 ore del tuo tempo. Il resto lo facciamo noi." · CTA: Prenota una chiamata + Fai il quiz · marquee foto (asset da sostituire con foto/visual di Chiara) |
 | 2 | Banda ticker (ex logo ticker) | Numeri aggregati: 7.500+ candidature · 107+ assunzioni · Trustpilot 4.5/5 · settori serviti |
 | 3 | Problema (testo+foto) | "Due lunedì mattina" condensato lato vecchio modo: 3 pain ("CV spazzatura", "colloqui a sensazione", "'Bravo' non è una definizione. È una speranza.") |
@@ -64,31 +65,40 @@ Mapping diretto sulle sezioni Flexio già costruite:
 | 11 | CTA banner full-width | "Ogni settimana senza un sistema è una settimana in cui i migliori accettano l'offerta di qualcun altro." → Prenota / Fai il quiz |
 
 ### 3.2 AChiM `/servizi/assunzioni-chiavi-in-mano` (+ gemella /vsl fuori menu)
+
 Pagina di vendita completa, fonte: pagina ACIM + VSL + TSL del cervellone.
 Sezioni: hero con video VSL (Wistia) · "due lunedì mattina" integrale (versione TSL, lo storytelling scritto) · 4 Pilastri approfonditi con i blocchi "fallo da solo" (value-first) · cosa è incluso (lista esatta) · 2 bonus (Masterclass Colloqui + Onboarding 90 giorni) · timeline 10 giorni · garanzia ("non ci devi un centesimo… il sistema resta tuo comunque") · casi e numeri · FAQ (12 obiezioni dal brief) · scarcity onesta ("15 aziende al mese") · CTA prenota. La variante `/tsl` è la stessa pagina senza video.
 
 ### 3.3 Altri servizi (3 pagine, template unico)
+
 Employer Branding (career page stile lunagagroup, "idea di un'azienda più grande") · HR in affitto (screening e colloqui preliminari gestiti, "il colloquio finale resta tuo") · Gestione campagne (ricorrente). Struttura: hero → per chi è → cosa facciamo → integrazione con AChiM → CTA.
 
 ### 3.4 Casi d'uso `/per-chi/[ruolo]` (template unico declinato)
+
 Hero "Assumere [ruolo] senza perdere mesi" · pain specifici del ruolo · come il sistema si adatta (test pratici specifici, esempi di annunci) · caso studio del ruolo (link) · numeri del ruolo · CTA. Si parte con **venditori** (il più forte), poi gli altri man mano.
 
 ### 3.5 Casi studio `/casi-studio` + `/casi-studio/[slug]`
+
 Indice: card con video thumb + tag ruolo + numeri chiave. Dettaglio (dalle trascrizioni): video in alto → problema iniziale → perché questa soluzione → cosa abbiamo fatto → processo → risultati con numeri → CTA. Primi 3: SmartWills (venditori), Metodo Toddler (28 venditori/15 mesi), il caso "4 venditori su 3.024 in 32 giorni" già trascritto.
 
 ### 3.6 Quiz `/quiz`
+
 Nativo Astro/React (UX migliore di GHL survey), 7 domande con la logica esatta del brief (lezione per ogni risposta), lead-gate prima del risultato, profilo su 4 aree + PDF, CTA prenota. Submit → GHL con tag per risposta (lead scoring: urgenza da domanda 2).
 
 ### 3.7 Multistep `/candidati` (application)
+
 Replica dell'albero Survey VSL-FRP (`docs/cervellone/survey/UkxjlTAQKDfFtlqugde1.md`): anagrafica+consensi → ramo (azienda / consulente-agenzia / freelancer) → dettagli per ramo → submit GHL con UTM. Ramo freelancer → redirect a /lavora-con-noi (ex "Fit Sbagliato").
 
 ### 3.8 Lavora con noi `/lavora-con-noi`
+
 Hero **"Non cerchiamo CV. Cerchiamo persone."** · chi è IP · framework persone A (moltiplicatori / colonna portante / freno silenzioso) · form freelancer nativo (campi dalla Survey Freelancer: specializzazione, esperienza, tariffa, proposte sì/no, CV upload, LinkedIn, consenso) → lista GHL.
 
 ### 3.9 Chi siamo `/chi-siamo`
+
 Origin story in prima persona (motorino → 8 ore in pronto soccorso → versione 1.0) · "Metodo, non improvvisazione" · processo 4 step · foto/numeri · CTA.
 
 ### 3.10 Prenota `/prenota` + Grazie `/grazie`
+
 Widget booking GHL `gF1UjuH7LzWl61KAucVE` · "Cosa succede durante la consulenza" (Analisi del Ruolo / Il Nostro Metodo / Prossimi Passi) · FAQ · anti-pressione ("Zero obbligo. Zero pressione."). TYP: 3 step (controlla email, preparati, ci vediamo).
 
 ## 4. Funnel e integrazioni GHL
@@ -116,7 +126,7 @@ Da decidere: foto reali (Chiara/clienti) vs placeholder; eventuale sostituzione 
 ## 7. Fasi operative
 
 | Fase | Deliverable | Materia prima |
-|---|---|---|
+| --- | --- | --- |
 | **1 — Core** | Home + /prenota + /grazie + /chi-siamo + /contatti con copy vero; nav/footer IP; staging Vercel | brief narrativo, copy vecchio sito |
 | **2 — AChiM** | /servizi/assunzioni-chiavi-in-mano + /vsl + /tsl; redirect dominio AChiM | pagina ACIM + VSL/TSL trascritte |
 | **3 — Conversione** | Quiz nativo + multistep /candidati + /lavora-con-noi; webhook+UTM | schemi survey, logica quiz dal brief |
