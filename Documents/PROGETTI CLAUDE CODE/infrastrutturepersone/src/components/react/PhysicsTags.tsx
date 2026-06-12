@@ -29,24 +29,31 @@ export default function PhysicsTags({ tags, height = 420 }: Props) {
       const bounds = container.getBoundingClientRect();
       const engine = Matter.Engine.create({ gravity: { x: 0, y: 1 } });
       const wallOpts = { isStatic: true, friction: 2 };
+      // Soffitto ben sopra l'area di spawn (le pill nascono fino a ~ -1200px),
+      // pareti laterali alte quanto tutto lo spazio di caduta.
+      const ceilingY = -1500;
+      const sideH = bounds.height - ceilingY;
       const walls = [
         Matter.Bodies.rectangle(bounds.width / 2, bounds.height + 50, bounds.width + 200, 100, wallOpts),
-        Matter.Bodies.rectangle(bounds.width / 2, -bounds.height, bounds.width + 200, 100, wallOpts),
-        Matter.Bodies.rectangle(-50, bounds.height / 2, 100, bounds.height * 3, wallOpts),
-        Matter.Bodies.rectangle(bounds.width + 50, bounds.height / 2, 100, bounds.height * 3, wallOpts),
+        Matter.Bodies.rectangle(bounds.width / 2, ceilingY, bounds.width + 200, 100, wallOpts),
+        Matter.Bodies.rectangle(-50, ceilingY + sideH / 2, 100, sideH, wallOpts),
+        Matter.Bodies.rectangle(bounds.width + 50, ceilingY + sideH / 2, 100, sideH, wallOpts),
       ];
       Matter.World.add(engine.world, walls);
 
       const els = Array.from(container.querySelectorAll<HTMLElement>("[data-pill]"));
-      const bodies = els.map((el) => {
+      // Spawn scaglionato nella fascia centrale: evita esplosioni da overlap
+      // iniziale che sparano le pill fuori dalle pareti.
+      const bodies = els.map((el, i) => {
         const r = el.getBoundingClientRect();
-        const x = Math.random() * Math.max(bounds.width - r.width, 1) + r.width / 2;
-        const y = -Math.random() * 300 - r.height;
+        const margin = bounds.width * 0.12;
+        const x = margin + Math.random() * (bounds.width - margin * 2);
+        const y = -100 - i * 130;
         return Matter.Bodies.rectangle(x, y, r.width, r.height, {
-          friction: 0.1,
-          frictionAir: 0.01,
+          friction: 0.4,
+          frictionAir: 0.03,
           density: 0.001,
-          restitution: 0.25,
+          restitution: 0.05,
           chamfer: { radius: r.height / 2 },
         });
       });
