@@ -15,15 +15,15 @@ const services = [
       <Logo />
 
       <nav class="hidden items-center gap-8 md:flex">
-        <div class="nav-dropdown">
-          <button class="flex items-center gap-1.5 text-[16px] font-medium" aria-haspopup="true">
+        <div class="nav-dropdown relative">
+          <button class="nav-dropdown-trigger flex items-center gap-1.5 text-[16px] font-medium transition-colors duration-200" aria-haspopup="true">
             Services
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg class="nav-dropdown-caret transition-transform duration-300" width="12" height="8" viewBox="0 0 12 8" fill="none"><path d="M1 1.5 6 6.5 11 1.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           </button>
-          <div class="nav-dropdown-panel absolute left-1/2 top-[calc(100%-12px)] z-50 hidden -translate-x-1/2 pt-7">
-            <div class="flex gap-4 rounded-[20px] border border-cream bg-peach p-4 shadow-xl">
+          <div class="nav-dropdown-panel absolute left-0 top-[calc(100%+2px)] z-50 pt-5">
+            <div class="flex gap-4 rounded-[20px] bg-peach p-4 shadow-xl">
               {services.map((s) => (
-                <a href={s.href} class="group relative block h-[140px] w-[200px] overflow-hidden rounded-[14px]">
+                <a href={s.href} class="group relative block h-[clamp(110px,11vw,150px)] w-[clamp(160px,16vw,215px)] overflow-hidden rounded-[14px]">
                   <img src={s.img} alt={s.title} class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                   <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/10"></div>
                   <span class="absolute bottom-3 left-3 right-3 text-[16px] font-medium text-white">{s.title}</span>
@@ -72,10 +72,36 @@ const services = [
 </header>
 
 <style>
+  /* Mega menu: ancorato sotto "Services", fade + slide morbido (niente display toggle) */
+  .nav-dropdown-panel {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition:
+      opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      visibility 0s linear 0.3s;
+  }
   @media (min-width: 810px) {
     .nav-dropdown:hover .nav-dropdown-panel,
     .nav-dropdown:focus-within .nav-dropdown-panel {
-      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+      transition:
+        opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s;
+    }
+    .nav-dropdown:hover .nav-dropdown-trigger,
+    .nav-dropdown:focus-within .nav-dropdown-trigger {
+      color: var(--color-orange);
+    }
+    .nav-dropdown:hover .nav-dropdown-caret,
+    .nav-dropdown:focus-within .nav-dropdown-caret {
+      transform: rotate(180deg);
     }
   }
 </style>

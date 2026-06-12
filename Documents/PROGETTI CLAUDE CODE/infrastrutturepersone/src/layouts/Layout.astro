@@ -44,6 +44,7 @@ const {
     </style>
   </head>
   <body>
+    <div id="cursor-dot" aria-hidden="true"></div>
     <Header />
     <main>
       <slot />
@@ -76,6 +77,21 @@ const {
         boot();
       }
       document.addEventListener("astro:page-load", boot);
+
+      // Cursor custom: pallino arancio 16px che insegue il mouse (come l'originale)
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches && !(window as any).__cursorInit) {
+        (window as any).__cursorInit = true;
+        let mx = -100, my = -100, cx = -100, cy = -100;
+        document.addEventListener("mousemove", (e) => { mx = e.clientX; my = e.clientY; });
+        const tick = () => {
+          cx += (mx - cx) * 0.22;
+          cy += (my - cy) * 0.22;
+          const dot = document.getElementById("cursor-dot");
+          if (dot) dot.style.transform = `translate(${cx - 8}px, ${cy - 8}px)`;
+          requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
     </script>
   </body>
 </html>

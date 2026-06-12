@@ -69,6 +69,23 @@ html.lenis, html.lenis body { height: auto; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
 
+/* Cursor custom (solo dispositivi con mouse) */
+#cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 99px;
+  background: var(--color-orange);
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+@media (hover: none), (pointer: coarse) {
+  #cursor-dot { display: none; }
+}
+
 @layer base {
   *, *::before, *::after { box-sizing: border-box; }
 
@@ -137,6 +154,11 @@ html.lenis, html.lenis body { height: auto; }
     overflow: hidden;
     cursor: pointer;
     border: none;
+    white-space: nowrap;
+  }
+  .btn .btn-label,
+  .btn .btn-label--ghost {
+    white-space: nowrap;
   }
   /* Hover originale Framer: la label esce verso il BASSO sfumando,
      la nuova sale da sotto al centro, con overshoot a molla. Bg invariato. */

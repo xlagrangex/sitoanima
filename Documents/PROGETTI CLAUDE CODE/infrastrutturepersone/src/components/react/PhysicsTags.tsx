@@ -49,13 +49,16 @@ export default function PhysicsTags({ tags, height = 420 }: Props) {
         const margin = bounds.width * 0.12;
         const x = margin + Math.random() * (bounds.width - margin * 2);
         const y = -100 - i * 130;
-        return Matter.Bodies.rectangle(x, y, r.width, r.height, {
+        const body = Matter.Bodies.rectangle(x, y, r.width, r.height, {
           friction: 0.4,
           frictionAir: 0.03,
           density: 0.001,
           restitution: 0.05,
           chamfer: { radius: r.height / 2 },
         });
+        // Inerzia alta = la pill può inclinarsi ma non capovolgersi cadendo
+        Matter.Body.setInertia(body, body.inertia * 6);
+        return body;
       });
       Matter.World.add(engine.world, bodies);
 
@@ -102,8 +105,8 @@ export default function PhysicsTags({ tags, height = 420 }: Props) {
             background: t.bg,
             color: t.color,
             borderRadius: 999,
-            padding: "14px 28px",
-            fontSize: 16,
+            padding: "20px 40px",
+            fontSize: 18,
             fontWeight: 500,
             whiteSpace: "nowrap",
             userSelect: "none",
