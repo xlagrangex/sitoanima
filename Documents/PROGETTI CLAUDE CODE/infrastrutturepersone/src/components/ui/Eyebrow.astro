@@ -1,9 +1,0 @@
----
-interface Props {
-  variant?: "primary" | "light";
-  class?: string;
-}
-const { variant = "primary", class: className = "" } = Astro.props;
----
-
-<span class={`eyebrow ${variant === "light" ? "eyebrow--light" : ""} ${className}`}><slot /></span>
