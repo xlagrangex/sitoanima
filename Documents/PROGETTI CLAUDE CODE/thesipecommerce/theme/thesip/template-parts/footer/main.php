@@ -92,7 +92,7 @@ $pn_info_links = array(
 				<!-- Col 1 — Logo + Description + Carriers (4 cols) -->
 				<div class="lg:col-span-4">
 					<img
-						src="<?php echo esc_url( pn_asset( 'images/logo-thesip-white.svg' ) ); ?>"
+						src="<?php echo esc_url( pn_asset( 'images/logo-thesip-header.png' ) ); ?>"
 						alt="The SIP"
 						width="180"
 						height="36"

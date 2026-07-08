@@ -1,0 +1,498 @@
+- generic [active] [ref=f30e1]:
+  - banner [ref=f30e2]:
+    - generic [ref=f30e5]:
+      - generic [ref=f30e6]:
+        - generic [ref=f30e7]:
+          - img [ref=f30e8]
+          - text: Progetto nato a Napoli
+        - generic [ref=f30e11]:
+          - img [ref=f30e12]
+          - text: Spedizione 24/48h
+      - generic [ref=f30e14]:
+        - generic [ref=f30e15]:
+          - img [ref=f30e16]
+          - text: Gratis sopra €30,00
+        - generic [ref=f30e21]:
+          - img [ref=f30e22]
+          - text: Pagamenti Sicuri
+    - generic [ref=f30e25]:
+      - link "Home The SIP" [ref=f30e26] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/
+        - img "The SIP" [ref=f30e27]
+      - generic [ref=f30e30]:
+        - generic:
+          - img
+        - searchbox "Cerca carte, bundle, temi…" [ref=f30e31]
+      - generic [ref=f30e32]:
+        - button "Menu account" [ref=f30e34]:
+          - img [ref=f30e35]
+        - link "Wishlist" [ref=f30e38] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/account/wishlist/
+          - img [ref=f30e39]
+        - button "Apri carrello" [ref=f30e41]:
+          - img [ref=f30e42]
+          - generic [ref=f30e46]: "3"
+    - navigation [ref=f30e48]:
+      - generic [ref=f30e50]:
+        - link "Set di carte" [ref=f30e51] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/set-di-carte/
+          - img [ref=f30e52]
+          - text: Set di carte
+        - link "Bundle" [ref=f30e56] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/bundle/
+          - img [ref=f30e57]
+          - text: Bundle
+        - link "Edizioni speciali" [ref=f30e60] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/edizioni-speciali/
+          - img [ref=f30e61]
+          - text: Edizioni speciali
+  - main [ref=f30e63]:
+    - generic [ref=f30e68]:
+      - generic [ref=f30e69]:
+        - generic [ref=f30e70]:
+          - img [ref=f30e71]
+          - text: Finanziato su Kickstarter · 165 sostenitori
+        - heading "Il mare, in tasca" [level=1] [ref=f30e74]
+        - paragraph [ref=f30e75]: 31 flashcard illustrate di biologia marina da collezionare. 25 artisti diversi, curate da 2 biologi marini. Take a seat and take a SIP!
+        - generic [ref=f30e76]:
+          - link "Scopri il set" [ref=f30e77] [cursor=pointer]:
+            - /url: https://thesip.178-105-141-228.sslip.io/shop/
+            - generic [ref=f30e78]:
+              - generic [ref=f30e79]:
+                - generic [ref=f30e80]: Scopri il set
+                - img [ref=f30e81]
+              - generic [ref=f30e83]:
+                - generic [ref=f30e84]: Scopri il set
+                - img [ref=f30e85]
+          - link "Il progetto" [ref=f30e87] [cursor=pointer]:
+            - /url: https://thesip.178-105-141-228.sslip.io/chi-siamo
+            - generic [ref=f30e88]:
+              - generic [ref=f30e90]: Il progetto
+              - generic [ref=f30e92]: Il progetto
+        - generic [ref=f30e93]:
+          - generic [ref=f30e94]:
+            - img [ref=f30e95]
+            - generic [ref=f30e100]: Spedizione gratuita sopra €30,00
+          - generic [ref=f30e101]:
+            - img [ref=f30e102]
+            - generic [ref=f30e105]: Consegna in 24/48h
+          - generic [ref=f30e106]:
+            - img [ref=f30e107]
+            - generic [ref=f30e110]: Pagamenti 100% sicuri
+      - img "The SIP — il mazzo di flashcard illustrate di biologia marina" [ref=f30e112]
+    - generic [ref=f30e113]:
+      - heading "Categorie principali" [level=2] [ref=f30e114]
+      - generic [ref=f30e115]:
+        - link "Set di carte" [ref=f30e116] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/set-di-carte/
+          - img [ref=f30e119]
+          - generic [ref=f30e123]: Set di carte
+        - link "Bundle" [ref=f30e124] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/bundle/
+          - img [ref=f30e127]
+          - generic [ref=f30e130]: Bundle
+        - link "Edizioni speciali" [ref=f30e131] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/edizioni-speciali/
+          - img [ref=f30e134]
+          - generic [ref=f30e136]: Edizioni speciali
+    - generic [ref=f30e138]:
+      - generic [ref=f30e139]:
+        - generic [ref=f30e140]:
+          - img [ref=f30e142]
+          - generic [ref=f30e146]:
+            - heading "Il set e i bundle" [level=2] [ref=f30e147]
+            - paragraph [ref=f30e148]: "Colleziona il mare o regalalo: scegli il set che fa per te."
+        - link "Vedi tutti" [ref=f30e149] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/shop/
+          - generic [ref=f30e150]:
+            - generic [ref=f30e151]:
+              - generic [ref=f30e152]: Vedi tutti
+              - img [ref=f30e153]
+            - generic [ref=f30e155]:
+              - generic [ref=f30e156]: Vedi tutti
+              - img [ref=f30e157]
+      - generic [ref=f30e159]:
+        - article [ref=f30e160]:
+          - button "Aggiungi ai preferiti" [ref=f30e161]:
+            - img [ref=f30e162]
+          - generic [ref=f30e165]: Nuovo
+          - link "The SIP — Set Completo (31 carte)" [ref=f30e166] [cursor=pointer]:
+            - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-31-carte/
+            - img "The SIP — Set Completo (31 carte)" [ref=f30e167]
+          - generic [ref=f30e168]:
+            - link "The SIP — Set Completo (31 carte)" [ref=f30e170] [cursor=pointer]:
+              - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-31-carte/
+              - heading "The SIP — Set Completo (31 carte)" [level=3] [ref=f30e171]
+            - generic [ref=f30e174]: €25,00
+            - link "Aggiungi al carrello" [ref=f30e175] [cursor=pointer]:
+              - /url: "?add-to-cart=12"
+              - generic [ref=f30e176]:
+                - img [ref=f30e177]
+                - generic [ref=f30e181]: Aggiungi al carrello
+              - generic:
+                - img
+                - generic: Aggiunto!
+        - article [ref=f30e182]:
+          - button "Aggiungi ai preferiti" [ref=f30e183]:
+            - img [ref=f30e184]
+          - generic [ref=f30e187]: Nuovo
+          - link "The SIP — Set Completo + Stickers" [ref=f30e188] [cursor=pointer]:
+            - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-stickers/
+            - img "The SIP — Set Completo + Stickers" [ref=f30e189]
+          - generic [ref=f30e190]:
+            - link "The SIP — Set Completo + Stickers" [ref=f30e192] [cursor=pointer]:
+              - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-stickers/
+              - heading "The SIP — Set Completo + Stickers" [level=3] [ref=f30e193]
+            - generic [ref=f30e196]: €30,00
+            - link "Aggiungi al carrello" [ref=f30e197] [cursor=pointer]:
+              - /url: "?add-to-cart=14"
+              - generic [ref=f30e198]:
+                - img [ref=f30e199]
+                - generic [ref=f30e203]: Aggiungi al carrello
+              - generic:
+                - img
+                - generic: Aggiunto!
+        - article [ref=f30e204]:
+          - button "Aggiungi ai preferiti" [ref=f30e205]:
+            - img [ref=f30e206]
+          - generic [ref=f30e209]: Nuovo
+          - link "The SIP — Double Bundle (2 set)" [ref=f30e210] [cursor=pointer]:
+            - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-double-bundle-2-set/
+            - img "The SIP — Double Bundle (2 set)" [ref=f30e211]
+          - generic [ref=f30e212]:
+            - link "The SIP — Double Bundle (2 set)" [ref=f30e214] [cursor=pointer]:
+              - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-double-bundle-2-set/
+              - heading "The SIP — Double Bundle (2 set)" [level=3] [ref=f30e215]
+            - generic [ref=f30e218]: €40,00
+            - link "Aggiungi al carrello" [ref=f30e219] [cursor=pointer]:
+              - /url: "?add-to-cart=16"
+              - generic [ref=f30e220]:
+                - img [ref=f30e221]
+                - generic [ref=f30e225]: Aggiungi al carrello
+              - generic:
+                - img
+                - generic: Aggiunto!
+        - article [ref=f30e226]:
+          - button "Aggiungi ai preferiti" [ref=f30e227]:
+            - img [ref=f30e228]
+          - generic [ref=f30e231]: Nuovo
+          - link "The SIP — Bundle Deluxe + Carta Personalizzata" [ref=f30e232] [cursor=pointer]:
+            - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-bundle-deluxe-carta-personalizzata/
+            - img "The SIP — Bundle Deluxe + Carta Personalizzata" [ref=f30e233]
+          - generic [ref=f30e234]:
+            - link "The SIP — Bundle Deluxe + Carta Personalizzata" [ref=f30e236] [cursor=pointer]:
+              - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-bundle-deluxe-carta-personalizzata/
+              - heading "The SIP — Bundle Deluxe + Carta Personalizzata" [level=3] [ref=f30e237]
+            - generic [ref=f30e240]: €125,00
+            - link "Aggiungi al carrello" [ref=f30e241] [cursor=pointer]:
+              - /url: "?add-to-cart=18"
+              - generic [ref=f30e242]:
+                - img [ref=f30e243]
+                - generic [ref=f30e247]: Aggiungi al carrello
+              - generic:
+                - img
+                - generic: Aggiunto!
+    - generic [ref=f30e249]:
+      - generic [ref=f30e250]:
+        - heading "Un progetto di arte e scienza" [level=2] [ref=f30e251]
+        - paragraph [ref=f30e252]: The SIP nasce a Napoli dall'incontro tra illustratori e biologi marini. Sul retro di ogni carta c'è Andrea, una bambina curiosa che ti racconta le meraviglie del mare e ti indica la profondità.
+      - generic [ref=f30e253]:
+        - generic [ref=f30e254]:
+          - img [ref=f30e256]
+          - heading "25 illustratori" [level=3] [ref=f30e261]
+          - paragraph [ref=f30e262]: "Ogni carta è illustrata da un artista diverso: 25 stili, una sola passione per il mare."
+        - generic [ref=f30e263]:
+          - img [ref=f30e265]
+          - heading "2 biologi marini" [level=3] [ref=f30e267]
+          - paragraph [ref=f30e268]: "Manuel e Giuliano curano i testi: rigore scientifico raccontato in modo curioso e semplice."
+        - generic [ref=f30e269]:
+          - img [ref=f30e271]
+          - heading "3 temi da esplorare" [level=3] [ref=f30e274]
+          - paragraph [ref=f30e275]: "Interazioni, Ambienti e Adattamenti: dal rapporto uomo-mare alle strategie di sopravvivenza."
+        - generic [ref=f30e276]:
+          - img [ref=f30e278]
+          - heading "Una carta speciale" [level=3] [ref=f30e280]
+          - paragraph [ref=f30e281]: Una carta preistorica illustrata da Willy Guasti "Zoosparkle" completa il set da 31.
+    - generic [ref=f30e283]:
+      - link "Il rapporto uomo-mare Interazioni Come le nostre vite si intrecciano con quelle del mare. Scopri il tema" [ref=f30e284] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/shop/
+        - generic [ref=f30e286]:
+          - paragraph [ref=f30e287]: Il rapporto uomo-mare
+          - heading "Interazioni" [level=3] [ref=f30e288]
+          - paragraph [ref=f30e289]: Come le nostre vite si intrecciano con quelle del mare.
+        - generic [ref=f30e290]:
+          - text: Scopri il tema
+          - img [ref=f30e292]
+      - link "Gli ecosistemi marini Ambienti Un viaggio tra gli habitat che compongono il mare. Scopri il tema" [ref=f30e294] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/shop/
+        - generic [ref=f30e296]:
+          - paragraph [ref=f30e297]: Gli ecosistemi marini
+          - heading "Ambienti" [level=3] [ref=f30e298]
+          - paragraph [ref=f30e299]: Un viaggio tra gli habitat che compongono il mare.
+        - generic [ref=f30e300]:
+          - text: Scopri il tema
+          - img [ref=f30e302]
+      - link "Strategie di sopravvivenza Adattamenti Le sorprendenti soluzioni delle creature marine. Scopri il tema" [ref=f30e304] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/shop/
+        - generic [ref=f30e306]:
+          - paragraph [ref=f30e307]: Strategie di sopravvivenza
+          - heading "Adattamenti" [level=3] [ref=f30e308]
+          - paragraph [ref=f30e309]: Le sorprendenti soluzioni delle creature marine.
+        - generic [ref=f30e310]:
+          - text: Scopri il tema
+          - img [ref=f30e312]
+    - generic [ref=f30e315]:
+      - generic [ref=f30e316]:
+        - heading "Esplora per categoria" [level=2] [ref=f30e317]
+        - paragraph [ref=f30e318]: Scegli una categoria per vedere i prodotti più recenti.
+      - tablist [ref=f30e319]:
+        - tab "Set di carte" [selected] [ref=f30e320]:
+          - img [ref=f30e322]
+          - generic [ref=f30e326]: Set di carte
+        - tab "Bundle" [ref=f30e327]:
+          - img [ref=f30e329]
+          - generic [ref=f30e332]: Bundle
+        - tab "Edizioni speciali" [ref=f30e333]:
+          - img [ref=f30e335]
+          - generic [ref=f30e337]: Edizioni speciali
+      - tabpanel [ref=f30e338]:
+        - generic [ref=f30e339]:
+          - article [ref=f30e340]:
+            - button "Aggiungi ai preferiti" [ref=f30e341]:
+              - img [ref=f30e342]
+            - generic [ref=f30e345]: Nuovo
+            - link "The SIP — Set Completo + Stickers" [ref=f30e346] [cursor=pointer]:
+              - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-stickers/
+              - img "The SIP — Set Completo + Stickers" [ref=f30e347]
+            - generic [ref=f30e348]:
+              - link "The SIP — Set Completo + Stickers" [ref=f30e350] [cursor=pointer]:
+                - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-stickers/
+                - heading "The SIP — Set Completo + Stickers" [level=3] [ref=f30e351]
+              - generic [ref=f30e354]: €30,00
+              - link "Aggiungi al carrello" [ref=f30e355] [cursor=pointer]:
+                - /url: "?add-to-cart=14"
+                - generic [ref=f30e356]:
+                  - img [ref=f30e357]
+                  - generic [ref=f30e361]: Aggiungi al carrello
+                - generic:
+                  - img
+                  - generic: Aggiunto!
+          - article [ref=f30e362]:
+            - button "Aggiungi ai preferiti" [ref=f30e363]:
+              - img [ref=f30e364]
+            - generic [ref=f30e367]: Nuovo
+            - link "The SIP — Set Completo (31 carte)" [ref=f30e368] [cursor=pointer]:
+              - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-31-carte/
+              - img "The SIP — Set Completo (31 carte)" [ref=f30e369]
+            - generic [ref=f30e370]:
+              - link "The SIP — Set Completo (31 carte)" [ref=f30e372] [cursor=pointer]:
+                - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-31-carte/
+                - heading "The SIP — Set Completo (31 carte)" [level=3] [ref=f30e373]
+              - generic [ref=f30e376]: €25,00
+              - link "Aggiungi al carrello" [ref=f30e377] [cursor=pointer]:
+                - /url: "?add-to-cart=12"
+                - generic [ref=f30e378]:
+                  - img [ref=f30e379]
+                  - generic [ref=f30e383]: Aggiungi al carrello
+                - generic:
+                  - img
+                  - generic: Aggiunto!
+        - link "Vedi tutto in Set di carte" [ref=f30e385] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/set-di-carte/
+          - generic [ref=f30e386]:
+            - generic [ref=f30e387]:
+              - generic [ref=f30e388]: Vedi tutto in Set di carte
+              - img [ref=f30e389]
+            - generic [ref=f30e391]:
+              - generic [ref=f30e392]: Vedi tutto in Set di carte
+              - img [ref=f30e393]
+    - generic [ref=f30e399]:
+      - generic [ref=f30e400]:
+        - img [ref=f30e402]
+        - generic [ref=f30e404]:
+          - paragraph [ref=f30e405]: Dietro le quinte
+          - heading "Manuel e Giuliano, i biologi marini dietro The SIP" [level=2] [ref=f30e406]
+          - paragraph [ref=f30e407]: "Due biologi marini, 25 illustratori e un amore per il mare: scopri come è nato il progetto a Napoli e chi c'è dietro ogni carta."
+      - link "Scopri il progetto" [ref=f30e409] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/chi-siamo
+        - img [ref=f30e410]
+        - text: Scopri il progetto
+    - generic [ref=f30e416]:
+      - generic [ref=f30e417]:
+        - heading "Domande Frequenti" [level=2] [ref=f30e418]
+        - paragraph [ref=f30e419]: Le risposte più richieste. Se non trovi quello che cerchi, dai un'occhiata alla pagina FAQ completa.
+      - generic [ref=f30e420]:
+        - generic [ref=f30e421]:
+          - button "Quanto costa la spedizione?" [expanded] [ref=f30e422]:
+            - generic [ref=f30e423]: Quanto costa la spedizione?
+            - img [ref=f30e425]
+          - generic [ref=f30e427]: La spedizione è gratuita per ordini sopra €30. Sotto questa soglia si applica un piccolo contributo. Consegna in 24/48h.
+        - button "Le carte sono in italiano o in inglese?" [ref=f30e429]:
+          - generic [ref=f30e430]: Le carte sono in italiano o in inglese?
+          - img [ref=f30e432]
+        - button "Cosa contiene il set?" [ref=f30e435]:
+          - generic [ref=f30e436]: Cosa contiene il set?
+          - img [ref=f30e438]
+        - button "Posso ritirare le carte a mano a Napoli?" [ref=f30e441]:
+          - generic [ref=f30e442]: Posso ritirare le carte a mano a Napoli?
+          - img [ref=f30e444]
+        - button "Come funziona la carta personalizzata del Bundle Deluxe?" [ref=f30e447]:
+          - generic [ref=f30e448]: Come funziona la carta personalizzata del Bundle Deluxe?
+          - img [ref=f30e450]
+      - link "Vedi tutte le FAQ" [ref=f30e453] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/faq
+        - generic [ref=f30e454]:
+          - generic [ref=f30e455]:
+            - generic [ref=f30e456]: Vedi tutte le FAQ
+            - img [ref=f30e457]
+          - generic [ref=f30e459]:
+            - generic [ref=f30e460]: Vedi tutte le FAQ
+            - img [ref=f30e461]
+    - generic [ref=f30e467]:
+      - generic [ref=f30e468]:
+        - img [ref=f30e469]
+        - text: Newsletter The SIP
+      - heading "Resta a bordo" [level=2] [ref=f30e472]
+      - paragraph [ref=f30e473]: "Iscriviti per primo alle novità: nuove carte, nuovi artisti, ristampe e anteprime dal mondo di The SIP."
+      - generic [ref=f30e474]:
+        - textbox "Il tuo indirizzo email" [ref=f30e475]
+        - textbox [ref=f30e476]
+        - button "Iscriviti" [ref=f30e477]:
+          - generic [ref=f30e479]:
+            - generic [ref=f30e480]:
+              - generic [ref=f30e481]: Iscriviti
+              - img [ref=f30e482]
+            - generic [ref=f30e484]:
+              - generic [ref=f30e485]: Iscriviti
+              - img [ref=f30e486]
+      - paragraph [ref=f30e488]: Iscrivendoti accetti la nostra Privacy Policy. Puoi disiscriverti in qualsiasi momento.
+  - contentinfo [ref=f30e489]:
+    - generic [ref=f30e492]:
+      - generic [ref=f30e493]:
+        - img [ref=f30e495]
+        - generic [ref=f30e498]:
+          - paragraph [ref=f30e499]: Progetto nato a Napoli
+          - paragraph [ref=f30e500]: Biologia marina illustrata
+      - generic [ref=f30e501]:
+        - img [ref=f30e503]
+        - generic [ref=f30e505]:
+          - paragraph [ref=f30e506]: Spedizione 24/48h
+          - paragraph [ref=f30e507]: In tutta Italia
+      - generic [ref=f30e508]:
+        - img [ref=f30e510]
+        - generic [ref=f30e515]:
+          - paragraph [ref=f30e516]: Gratis sopra €30,00
+          - paragraph [ref=f30e517]: Nessun minimo ordine
+      - generic [ref=f30e518]:
+        - img [ref=f30e520]
+        - generic [ref=f30e522]:
+          - paragraph [ref=f30e523]: Pagamenti Sicuri
+          - paragraph [ref=f30e524]: Visa, Mastercard, PayPal
+    - generic [ref=f30e525]:
+      - generic [ref=f30e526]:
+        - generic [ref=f30e527]:
+          - generic [ref=f30e528]:
+            - img "The SIP" [ref=f30e529]
+            - paragraph [ref=f30e530]: Il mare in tasca. 31 flashcard illustrate di biologia marina, nate a Napoli da due biologi marini e 25 illustratori. Take a seat and take a SIP!
+            - generic [ref=f30e531]:
+              - paragraph [ref=f30e532]: Corrieri
+              - generic [ref=f30e533]:
+                - img "FedEx" [ref=f30e535]
+                - img "GLS" [ref=f30e537]
+          - generic [ref=f30e538]:
+            - heading "Il progetto" [level=4] [ref=f30e539]
+            - list [ref=f30e540]:
+              - listitem [ref=f30e541]:
+                - link "Chi siamo" [ref=f30e542] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/chi-siamo
+                  - generic [ref=f30e543]:
+                    - generic [ref=f30e545]: Chi siamo
+                    - generic [ref=f30e547]: Chi siamo
+              - listitem [ref=f30e548]:
+                - link "FAQ" [ref=f30e549] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/faq
+                  - generic [ref=f30e550]:
+                    - generic [ref=f30e552]: FAQ
+                    - generic [ref=f30e554]: FAQ
+              - listitem [ref=f30e555]:
+                - link "Contatti" [ref=f30e556] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/contatti
+                  - generic [ref=f30e557]:
+                    - generic [ref=f30e559]: Contatti
+                    - generic [ref=f30e561]: Contatti
+          - generic [ref=f30e562]:
+            - heading "Assistenza" [level=4] [ref=f30e563]
+            - list [ref=f30e564]:
+              - listitem [ref=f30e565]:
+                - link "Spedizioni e Resi" [ref=f30e566] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/faq
+                  - generic [ref=f30e567]:
+                    - generic [ref=f30e569]: Spedizioni e Resi
+                    - generic [ref=f30e571]: Spedizioni e Resi
+              - listitem [ref=f30e572]:
+                - link "Traccia Ordine" [ref=f30e573] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/traccia-ordine
+                  - generic [ref=f30e574]:
+                    - generic [ref=f30e576]: Traccia Ordine
+                    - generic [ref=f30e578]: Traccia Ordine
+              - listitem [ref=f30e579]:
+                - link "Privacy Policy" [ref=f30e580] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/legale/privacy
+                  - generic [ref=f30e581]:
+                    - generic [ref=f30e583]: Privacy Policy
+                    - generic [ref=f30e585]: Privacy Policy
+              - listitem [ref=f30e586]:
+                - link "Termini e Condizioni" [ref=f30e587] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/legale/termini
+                  - generic [ref=f30e588]:
+                    - generic [ref=f30e590]: Termini e Condizioni
+                    - generic [ref=f30e592]: Termini e Condizioni
+              - listitem [ref=f30e593]:
+                - link "Cookie Policy" [ref=f30e594] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/legale/cookie
+                  - generic [ref=f30e595]:
+                    - generic [ref=f30e597]: Cookie Policy
+                    - generic [ref=f30e599]: Cookie Policy
+              - listitem [ref=f30e600]:
+                - link "Gestisci cookie" [ref=f30e601] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=f30e602]:
+                    - generic [ref=f30e603]:
+                      - img [ref=f30e604]
+                      - generic [ref=f30e606]: Gestisci cookie
+                    - generic [ref=f30e607]:
+                      - img [ref=f30e608]
+                      - generic [ref=f30e610]: Gestisci cookie
+          - generic [ref=f30e611]:
+            - heading "Contatti" [level=4] [ref=f30e612]
+            - generic [ref=f30e613]:
+              - link "info@thesip.it Ordini, info e assistenza" [ref=f30e614] [cursor=pointer]:
+                - /url: mailto:info@thesip.it
+                - img [ref=f30e616]
+                - generic [ref=f30e619]:
+                  - paragraph [ref=f30e620]: info@thesip.it
+                  - paragraph [ref=f30e621]: Ordini, info e assistenza
+              - generic [ref=f30e622]:
+                - img [ref=f30e624]
+                - generic [ref=f30e627]:
+                  - paragraph [ref=f30e628]: Napoli
+                  - paragraph [ref=f30e629]: Consegna a mano gratuita in città
+              - link "Instagram" [ref=f30e631] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=f30e632]
+        - generic [ref=f30e635]:
+          - img [ref=f30e636]
+          - text: Connessione SSL crittografata
+      - generic [ref=f30e640]:
+        - generic [ref=f30e641]: "Metodi di pagamento accettati:"
+        - img "Visa" [ref=f30e642]
+        - img "Mastercard" [ref=f30e643]
+        - img "Maestro" [ref=f30e644]
+        - img "American Express" [ref=f30e645]
+        - img "PayPal" [ref=f30e646]
+        - img "Apple Pay" [ref=f30e647]
+        - img "Google Pay" [ref=f30e648]
+      - generic [ref=f30e650]:
+        - paragraph [ref=f30e651]: © 2026 The SIP — The Sea In your Pocket
+        - paragraph [ref=f30e652]: The SIP · Napoli · info@thesip.it
+  - status [ref=f30e653]

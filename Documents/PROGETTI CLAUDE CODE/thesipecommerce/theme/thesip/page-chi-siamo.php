@@ -292,7 +292,7 @@ $pn_stats = array(
 		<div class="max-w-[1280px] mx-auto px-4">
 			<div class="flex flex-wrap items-center justify-center gap-6 text-center sm:text-left">
 				<div class="flex items-center gap-3">
-					<img src="<?php echo esc_url( pn_asset( 'images/logo-thesip.svg' ) ); ?>" alt="The SIP" width="120" height="40" class="h-10 w-auto object-contain">
+					<img src="<?php echo esc_url( pn_asset( 'images/logo-thesip-header.png' ) ); ?>" alt="The SIP" width="120" height="40" class="h-10 w-auto object-contain">
 					<div class="text-left">
 						<p class="text-sm font-semibold text-gray-900"><?php esc_html_e( 'The Sea In your Pocket', 'pharmanow' ); ?></p>
 						<p class="text-xs text-gray-500"><?php esc_html_e( 'Divulgazione di biologia marina', 'pharmanow' ); ?></p>

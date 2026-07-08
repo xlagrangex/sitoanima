@@ -31,7 +31,7 @@ if ( function_exists( 'is_checkout' ) && is_checkout() && ! is_wc_endpoint_url( 
 	<header class="pn-co-header">
 		<div class="pn-co-header__inner">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="pn-co-header__logo" aria-label="<?php esc_attr_e( 'Home The SIP', 'pharmanow' ); ?>">
-				<img src="<?php echo esc_url( pn_asset( 'images/logo-thesip.svg' ) ); ?>" alt="The SIP">
+				<img src="<?php echo esc_url( pn_asset( 'images/logo-thesip-header.png' ) ); ?>" alt="The SIP">
 			</a>
 			<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="pn-co-header__back">
 				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>

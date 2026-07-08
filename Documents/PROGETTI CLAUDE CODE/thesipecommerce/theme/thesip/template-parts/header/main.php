@@ -78,13 +78,13 @@ $pn_threshold = (float) get_theme_mod( 'pn_free_shipping_threshold', 29.90 );
 			<!-- Logo -->
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="shrink-0" aria-label="<?php esc_attr_e( 'Home The SIP', 'pharmanow' ); ?>">
 				<img
-					src="<?php echo esc_url( pn_asset( 'images/logo-thesip.svg' ) ); ?>"
+					src="<?php echo esc_url( pn_asset( 'images/logo-thesip-header.png' ) ); ?>"
 					alt="The SIP"
 					width="160"
 					height="32"
 					fetchpriority="high"
 					decoding="async"
-					class="h-8 w-auto transition-transform duration-300 origin-left"
+					class="h-10 w-auto transition-transform duration-300 origin-left"
 					x-bind:style="scrolled ? 'transform:scale(0.8)' : 'transform:scale(1)'"
 				>
 			</a>

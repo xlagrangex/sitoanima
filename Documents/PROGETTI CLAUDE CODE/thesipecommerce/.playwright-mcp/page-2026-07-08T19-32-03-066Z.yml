@@ -1,0 +1,272 @@
+- generic [active] [ref=f35e1]:
+  - banner [ref=f35e2]:
+    - generic [ref=f35e3]:
+      - link "Home The SIP" [ref=f35e4] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/
+        - img "The SIP" [ref=f35e5]
+      - link "Torna al carrello" [ref=f35e6] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/carrello/
+        - img [ref=f35e7]
+        - generic [ref=f35e9]: Torna al carrello
+      - generic [ref=f35e10]:
+        - img [ref=f35e11]
+        - generic [ref=f35e14]: Pagamento sicuro
+  - main [ref=f35e16]:
+    - form "Modulo di pagamento" [ref=f35e18]:
+      - generic [ref=f35e20]:
+        - generic [ref=f35e22]:
+          - generic [ref=f35e23]:
+            - button "1 Contatto & Indirizzo" [expanded] [ref=f35e24] [cursor=pointer]:
+              - generic [ref=f35e26]: "1"
+              - generic [ref=f35e27]: Contatto & Indirizzo
+            - generic [ref=f35e28]:
+              - generic [ref=f35e29]:
+                - generic [ref=f35e30]: Email *
+                - textbox "Email *" [ref=f35e31]
+              - generic [ref=f35e32]:
+                - generic [ref=f35e33]:
+                  - generic [ref=f35e34]: Nome *
+                  - textbox "Nome *" [ref=f35e35]
+                - generic [ref=f35e36]:
+                  - generic [ref=f35e37]: Cognome *
+                  - textbox "Cognome *" [ref=f35e38]
+              - generic [ref=f35e39]:
+                - generic [ref=f35e40]: Telefono *
+                - textbox "Telefono *" [ref=f35e41]
+              - generic [ref=f35e42]:
+                - generic [ref=f35e43]:
+                  - generic [ref=f35e44]: Via e numero *
+                  - textbox "Via e numero *" [ref=f35e45]
+                - generic [ref=f35e46]:
+                  - generic [ref=f35e47]: Interno / Scala
+                  - textbox "Interno / Scala" [ref=f35e48]
+              - generic [ref=f35e49]:
+                - generic [ref=f35e50]:
+                  - generic [ref=f35e51]: Città *
+                  - textbox "Città *" [ref=f35e52]
+                - generic [ref=f35e53]:
+                  - generic [ref=f35e54]: Provincia *
+                  - combobox "Provincia *" [ref=f35e55]:
+                    - option "--"
+                    - option "AG — Agrigento"
+                    - option "AL — Alessandria"
+                    - option "AN — Ancona"
+                    - option "AO — Aosta"
+                    - option "AR — Arezzo"
+                    - option "AP — Ascoli Piceno"
+                    - option "AT — Asti"
+                    - option "AV — Avellino"
+                    - option "BA — Bari"
+                    - option "BT — Barletta-Andria-Trani"
+                    - option "BL — Belluno"
+                    - option "BN — Benevento"
+                    - option "BG — Bergamo"
+                    - option "BI — Biella"
+                    - option "BO — Bologna"
+                    - option "BZ — Bolzano"
+                    - option "BS — Brescia"
+                    - option "BR — Brindisi"
+                    - option "CA — Cagliari"
+                    - option "CL — Caltanissetta"
+                    - option "CB — Campobasso"
+                    - option "CI — Carbonia-Iglesias"
+                    - option "CE — Caserta"
+                    - option "CT — Catania"
+                    - option "CZ — Catanzaro"
+                    - option "CH — Chieti"
+                    - option "CO — Como"
+                    - option "CS — Cosenza"
+                    - option "CR — Cremona"
+                    - option "KR — Crotone"
+                    - option "CN — Cuneo"
+                    - option "EN — Enna"
+                    - option "FM — Fermo"
+                    - option "FE — Ferrara"
+                    - option "FI — Firenze"
+                    - option "FG — Foggia"
+                    - option "FC — Forlì-Cesena"
+                    - option "FR — Frosinone"
+                    - option "GE — Genova"
+                    - option "GO — Gorizia"
+                    - option "GR — Grosseto"
+                    - option "IM — Imperia"
+                    - option "IS — Isernia"
+                    - option "SP — La Spezia"
+                    - option "AQ — L'Aquila"
+                    - option "LT — Latina"
+                    - option "LE — Lecce"
+                    - option "LC — Lecco"
+                    - option "LI — Livorno"
+                    - option "LO — Lodi"
+                    - option "LU — Lucca"
+                    - option "MC — Macerata"
+                    - option "MN — Mantova"
+                    - option "MS — Massa-Carrara"
+                    - option "MT — Matera"
+                    - option "ME — Messina"
+                    - option "MI — Milano"
+                    - option "MO — Modena"
+                    - option "MB — Monza e Brianza"
+                    - option "NA — Napoli" [selected]
+                    - option "NO — Novara"
+                    - option "NU — Nuoro"
+                    - option "OR — Oristano"
+                    - option "PD — Padova"
+                    - option "PA — Palermo"
+                    - option "PR — Parma"
+                    - option "PV — Pavia"
+                    - option "PG — Perugia"
+                    - option "PU — Pesaro e Urbino"
+                    - option "PE — Pescara"
+                    - option "PC — Piacenza"
+                    - option "PI — Pisa"
+                    - option "PT — Pistoia"
+                    - option "PN — Pordenone"
+                    - option "PZ — Potenza"
+                    - option "PO — Prato"
+                    - option "RG — Ragusa"
+                    - option "RA — Ravenna"
+                    - option "RC — Reggio Calabria"
+                    - option "RE — Reggio Emilia"
+                    - option "RI — Rieti"
+                    - option "RN — Rimini"
+                    - option "RM — Roma"
+                    - option "RO — Rovigo"
+                    - option "SA — Salerno"
+                    - option "SS — Sassari"
+                    - option "SV — Savona"
+                    - option "SI — Siena"
+                    - option "SR — Siracusa"
+                    - option "SO — Sondrio"
+                    - option "SU — Sud Sardegna"
+                    - option "TA — Taranto"
+                    - option "TE — Teramo"
+                    - option "TR — Terni"
+                    - option "TO — Torino"
+                    - option "TP — Trapani"
+                    - option "TN — Trento"
+                    - option "TV — Treviso"
+                    - option "TS — Trieste"
+                    - option "UD — Udine"
+                    - option "VA — Varese"
+                    - option "VE — Venezia"
+                    - option "VB — Verbano-Cusio-Ossola"
+                    - option "VC — Vercelli"
+                    - option "VR — Verona"
+                    - option "VV — Vibo Valentia"
+                    - option "VI — Vicenza"
+                    - option "VT — Viterbo"
+                - generic [ref=f35e56]:
+                  - generic [ref=f35e57]: CAP *
+                  - textbox "CAP *" [ref=f35e58]
+              - generic [ref=f35e59] [cursor=pointer]:
+                - checkbox "Spedisci a un indirizzo diverso" [ref=f35e60]
+                - generic [ref=f35e61]: Spedisci a un indirizzo diverso
+              - generic [ref=f35e62]:
+                - generic [ref=f35e63]: Note per l'ordine (facoltativo)
+                - textbox "Note per l'ordine (facoltativo)" [ref=f35e64]:
+                  - /placeholder: Indica qui la lingua delle carte (IT o EN) e, se sei a Napoli, se preferisci la consegna a mano.
+                - paragraph [ref=f35e65]: "Le carte sono disponibili in italiano (IT) o inglese (EN): scrivi la tua scelta qui sopra."
+              - generic [ref=f35e66]:
+                - heading "Documento fiscale" [level=3] [ref=f35e67]
+                - generic [ref=f35e68]:
+                  - generic [ref=f35e69] [cursor=pointer]:
+                    - radio "Scontrino fiscale" [checked] [ref=f35e70]
+                    - generic [ref=f35e71]: Scontrino fiscale
+                  - generic [ref=f35e72] [cursor=pointer]:
+                    - radio "Scontrino con codice fiscale Per la detrazione fiscale" [ref=f35e73]
+                    - generic [ref=f35e74]:
+                      - text: Scontrino con codice fiscale
+                      - paragraph [ref=f35e75]: Per la detrazione fiscale
+                  - generic [ref=f35e76] [cursor=pointer]:
+                    - radio "Fattura" [ref=f35e77]
+                    - generic [ref=f35e78]: Fattura
+              - button "Continua alla spedizione" [ref=f35e79] [cursor=pointer]:
+                - generic [ref=f35e80]:
+                  - generic [ref=f35e81]: Continua alla spedizione
+                  - generic [ref=f35e82]: Continua alla spedizione
+          - generic:
+            - button "2 Spedizione e Termini" [disabled]:
+              - generic:
+                - generic: "2"
+              - generic: Spedizione e Termini
+          - generic:
+            - button "3 Pagamento" [disabled]:
+              - generic:
+                - generic: "3"
+              - generic: Pagamento
+          - generic [ref=f35e83]:
+            - generic [ref=f35e84]:
+              - img [ref=f35e85]
+              - generic [ref=f35e88]: Pagamento sicuro e crittografato
+            - generic [ref=f35e89]:
+              - img [ref=f35e90]
+              - generic [ref=f35e93]: Arte + scienza, da Napoli
+            - generic [ref=f35e94]:
+              - img [ref=f35e95]
+              - generic [ref=f35e98]: Spedizione gratis sopra €30
+        - complementary [ref=f35e99]:
+          - generic [ref=f35e102]:
+            - list [ref=f35e103]:
+              - listitem [ref=f35e104]:
+                - img "The SIP — Bundle Deluxe + Carta Personalizzata" [ref=f35e106]
+                - generic [ref=f35e107]:
+                  - paragraph [ref=f35e108]: The SIP — Bundle Deluxe + Carta Personalizzata
+                  - generic [ref=f35e109]:
+                    - button "Riduci" [ref=f35e110] [cursor=pointer]:
+                      - img [ref=f35e111]
+                    - generic [ref=f35e112]: "1"
+                    - button "Aumenta" [ref=f35e113] [cursor=pointer]:
+                      - img [ref=f35e114]
+                - generic [ref=f35e117]: €125,00
+              - listitem [ref=f35e118]:
+                - img "The SIP — Set Completo (31 carte)" [ref=f35e120]
+                - generic [ref=f35e121]:
+                  - paragraph [ref=f35e122]: The SIP — Set Completo (31 carte)
+                  - generic [ref=f35e123]:
+                    - button "Riduci" [ref=f35e124] [cursor=pointer]:
+                      - img [ref=f35e125]
+                    - generic [ref=f35e126]: "1"
+                    - button "Aumenta" [ref=f35e127] [cursor=pointer]:
+                      - img [ref=f35e128]
+                - generic [ref=f35e131]: €25,00
+              - listitem [ref=f35e132]:
+                - img "The SIP — Set Completo + Stickers" [ref=f35e134]
+                - generic [ref=f35e135]:
+                  - paragraph [ref=f35e136]: The SIP — Set Completo + Stickers
+                  - generic [ref=f35e137]:
+                    - button "Riduci" [ref=f35e138] [cursor=pointer]:
+                      - img [ref=f35e139]
+                    - generic [ref=f35e140]: "1"
+                    - button "Aumenta" [ref=f35e141] [cursor=pointer]:
+                      - img [ref=f35e142]
+                - generic [ref=f35e145]: €30,00
+            - generic [ref=f35e147]:
+              - paragraph [ref=f35e148]:
+                - img [ref=f35e149]
+                - text: Hai un codice sconto?
+              - generic [ref=f35e151]:
+                - textbox "Inserisci codice" [ref=f35e152]
+                - button "Applica" [ref=f35e153] [cursor=pointer]
+              - status
+            - generic [ref=f35e155]:
+              - generic [ref=f35e156]:
+                - generic [ref=f35e157]: Subtotale
+                - generic [ref=f35e160]: €180,00
+              - generic [ref=f35e161]:
+                - generic [ref=f35e162]: Spedizione
+                - generic [ref=f35e163]:
+                  - generic [ref=f35e166]: €4,90
+                  - text: Gratuita
+            - generic [ref=f35e168]:
+              - generic [ref=f35e169]: Totale
+              - generic [ref=f35e172]: €180,00
+  - contentinfo [ref=f35e173]:
+    - paragraph [ref=f35e175]:
+      - text: © 2026 The SIP — The Sea In your Pocket ·
+      - link "Privacy" [ref=f35e176] [cursor=pointer]:
+        - /url: ""
+      - text: ·
+      - link "Termini" [ref=f35e177] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/legale/termini
+  - status [ref=f35e178]
