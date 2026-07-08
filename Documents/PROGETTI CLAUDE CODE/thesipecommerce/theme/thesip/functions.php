@@ -17,6 +17,7 @@ require_once PN_THEME_DIR . '/inc/setup.php';
 require_once PN_THEME_DIR . '/inc/enqueue.php';
 require_once PN_THEME_DIR . '/inc/perf.php';
 require_once PN_THEME_DIR . '/inc/helpers.php';
+require_once PN_THEME_DIR . '/inc/seo/meta.php';
 require_once PN_THEME_DIR . '/inc/roles/customer-care.php';
 require_once PN_THEME_DIR . '/inc/cart-ajax.php';
 require_once PN_THEME_DIR . '/inc/checkout-fields.php';
