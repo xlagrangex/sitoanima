@@ -1,0 +1,714 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - link "Kickstarter" [ref=e5] [cursor=pointer]:
+        - /url: /?ref=nav
+        - img "Kickstarter" [ref=e6]
+      - generic [ref=e8]:
+        - img [ref=e9]
+        - textbox "Search projects, creators, and categories" [ref=e13]
+      - generic [ref=e15]:
+        - link "For creators" [ref=e16] [cursor=pointer]:
+          - /url: /creators?ref=nav
+        - link "Log in" [ref=e17] [cursor=pointer]:
+          - /url: /login?ref=nav
+        - navigation "Open navigation menu" [ref=e18]:
+          - button "Open navigation menu" [ref=e19] [cursor=pointer]:
+            - img [ref=e20]
+    - toolbar [ref=e22]:
+      - group [ref=e23]:
+        - navigation [ref=e24]:
+          - heading "Categories" [level=2] [ref=e25]
+          - link "Art" [ref=e28] [cursor=pointer]:
+            - /url: /discover/categories/art
+            - button "Art" [ref=e29]
+          - link "Comics" [ref=e32] [cursor=pointer]:
+            - /url: /discover/categories/comics
+            - button "Comics" [ref=e33]
+          - link "Design" [ref=e36] [cursor=pointer]:
+            - /url: /discover/categories/design
+            - button "Design" [ref=e37]
+          - link "Film" [ref=e40] [cursor=pointer]:
+            - /url: /discover/categories/film & video
+            - button "Film" [ref=e41]
+          - link "Games" [ref=e44] [cursor=pointer]:
+            - /url: /discover/categories/games
+            - button "Games" [ref=e45]
+          - link "Publishing" [ref=e48] [cursor=pointer]:
+            - /url: /discover/categories/publishing
+            - button "Publishing" [ref=e49]
+          - link "Technology" [ref=e52] [cursor=pointer]:
+            - /url: /discover/categories/technology
+            - button "Technology" [ref=e53]
+          - link "Discover" [ref=e57] [cursor=pointer]:
+            - /url: /discover
+            - button "Discover" [ref=e58]
+  - main [ref=e59]:
+    - generic [ref=e61]:
+      - generic [ref=e65]:
+        - heading "The SIP - The Sea In your Pocket" [level=1] [ref=e67]:
+          - link "The SIP - The Sea In your Pocket" [ref=e69] [cursor=pointer]:
+            - /url: /projects/the-sip-project/the-sip
+        - generic [ref=e71]:
+          - img [ref=e76]
+          - generic [ref=e77]:
+            - generic [ref=e81]: Marine biology illustrated flashcards
+            - generic [ref=e83]:
+              - generic [ref=e85]:
+                - generic [ref=e86]: Created by
+                - link "The SIP" [ref=e89] [cursor=pointer]:
+                  - /url: "#"
+              - generic:
+                - link:
+                  - /url: "#"
+            - generic [ref=e91]:
+              - text: 165 backers pledged €5,885 to help bring this project to life.
+              - generic [ref=e92]:
+                - img [ref=e93]
+                - generic [ref=e95]:
+                  - text: Last updated
+                  - link "March 1, 2025" [ref=e96] [cursor=pointer]:
+                    - /url: ""
+                    - time [ref=e97]: March 1, 2025
+      - generic [ref=e98]:
+        - generic [ref=e101]:
+          - generic [ref=e102]:
+            - link "Campaign" [ref=e103] [cursor=pointer]:
+              - /url: /projects/the-sip-project/the-sip/description
+            - link "Rewards" [ref=e104] [cursor=pointer]:
+              - /url: /projects/the-sip-project/the-sip/rewards
+            - link "Creator" [ref=e105] [cursor=pointer]:
+              - /url: /projects/the-sip-project/the-sip/creator
+            - link "FAQ" [ref=e106] [cursor=pointer]:
+              - /url: /projects/the-sip-project/the-sip/faqs
+            - link "Updates 1" [ref=e107] [cursor=pointer]:
+              - /url: /projects/the-sip-project/the-sip/posts
+            - link "Comments 4" [ref=e108] [cursor=pointer]:
+              - /url: /projects/the-sip-project/the-sip/comments
+              - text: Comments
+              - generic [ref=e109]: "4"
+            - link "Community" [ref=e110] [cursor=pointer]:
+              - /url: /projects/the-sip-project/the-sip/community
+          - button "Save" [ref=e114] [cursor=pointer]:
+            - img [ref=e115]
+            - text: Save
+        - generic [ref=e120]:
+          - generic [ref=e122]:
+            - generic [ref=e125] [cursor=pointer]:
+              - img "The SIP - The Sea In your Pocket project video thumbnail" [ref=e126]
+              - button "Play video" [ref=e128]:
+                - generic [ref=e129]: 
+                - text: Play
+              - text: 🔈 🔊 ⤢ ␡
+            - generic [ref=e130]:
+              - generic [ref=e133]:
+                - link "Naples, Italy" [ref=e134] [cursor=pointer]:
+                  - /url: /discover/places/naples-naples-campania?ref=city
+                  - generic [ref=e135]: 
+                  - text: Naples, Italy
+                - link "Illustration" [ref=e136] [cursor=pointer]:
+                  - /url: /discover/categories/art/illustration?ref=category
+                  - generic [ref=e137]: 
+                  - text: Illustration
+              - generic [ref=e138]:
+                - generic [ref=e139]:
+                  - heading "€5,885" [level=3] [ref=e140]
+                  - generic [ref=e141]: pledged of €5,000 goal
+                - generic [ref=e142]:
+                  - heading "165" [level=3] [ref=e143]
+                  - generic [ref=e144]: backers
+            - generic [ref=e147]:
+              - navigation [ref=e148]:
+                - listitem [ref=e149]:
+                  - link "THE SIP" [ref=e150] [cursor=pointer]:
+                    - /url: h:THE-SIP
+                    - strong [ref=e151]: THE SIP
+                - listitem [ref=e152]:
+                  - link "PREVIEW" [ref=e153] [cursor=pointer]:
+                    - /url: h:PREVIEW
+                    - strong [ref=e154]: PREVIEW
+                - listitem [ref=e155]:
+                  - link "REWARDS" [ref=e156] [cursor=pointer]:
+                    - /url: h:REWARDS
+                    - strong [ref=e157]: REWARDS
+                - listitem [ref=e158]:
+                  - link "Risks" [ref=e159] [cursor=pointer]:
+                    - /url: risks-and-challenges
+                    - strong [ref=e160]: Risks
+              - generic [ref=e162]:
+                - generic [ref=e165]:
+                  - heading "Story" [level=2] [ref=e167]
+                  - generic [ref=e170]:
+                    - figure [ref=e172]
+                    - heading "THE SIP" [level=3] [ref=e173]
+                    - heading "The Sea In your Pocket" [level=4] [ref=e174]
+                    - paragraph [ref=e175]: 30 carte, 25 artisti differenti
+                    - paragraph [ref=e176]: 30 cards, 25 different artists
+                    - paragraph [ref=e177]: "!!! CHOOSE BETWEEN THE ITALIAN OR ENGLISH DESCRIPTION !!!"
+                    - paragraph [ref=e178]: "Entra nell'affascinante mondo che si cela sotto le onde con The SIP - The Sea In Your Pocket, un set di carte collezionabili illustrate e descritte. Questo progetto unico dà vita alla biologia marina in piccoli e gustosi sorsi (sips): una fusione di arte e scienza realizzata grazie alla collaborazione di 25 talentuosi illustratori e due appassionati biologi marini. Ciascuna delle 30 carte, progettate con cura, svela una meraviglia marina nascosta, da vivaci fondali corallini a misteriosi abitanti delle profondità marine."
+                    - paragraph [ref=e179]: Guidati da biologi marini e comunicatori scientifici, queste carte offrono un'esperienza educativa e visivamente straordinaria, perfetta per gli amanti del mare e le menti curiose.
+                    - paragraph [ref=e180]: Siamo Manuel e Giuliano, unisciti a noi in questo viaggio attraverso la bellezza e il mistero dell'oceano a portata di mano. Tuffati con noi e diventa parte di questo entusiasmante progetto!
+                    - paragraph [ref=e181]: Take a seat and take a SIP!
+                    - paragraph [ref=e182]:
+                      - text: Step into the captivating world beneath the waves with The SIP - The Sea In Your Pocket, a collection of illustrated and narrated collectible flashcards. This unique project brings marine biology to life in small, bite-sized sips—a fusion of art and science created through the collaboration of 25 talented illustrators and two passionate marine biologists. Each of the 30 carefully designed cards unveils a hidden oceanic wonder, from vibrant coral reefs to mysterious deep-sea creatures.
+                      - text: Guided by marine biologists and scientific communicators, these cards offer an educational yet visually stunning experience, perfect for ocean lovers and curious minds alike.
+                      - text: We are Manuel and Giuliano, join us on this journey to bring the beauty and mystery of the ocean to your fingertips. Dive in with us and be part of this exciting project!
+                      - text: Take a seat and take a SIP!
+                    - generic:
+                      - figure
+                    - paragraph [ref=e183]: "30 cards divided for 3 different themes:"
+                    - paragraph [ref=e184]: Interactions - Environments - Adaptations
+                    - generic:
+                      - figure
+                    - paragraph [ref=e185]: Queste carte ci aiuteranno a capire il difficile rapporto che c’è tra l’uomo e gli ambienti marini, è davvero così difficile trattare bene il mare o c’è qualche speranza?
+                    - paragraph [ref=e186]: These cards will help us understand the difficult relationship between humans and marine environments. Is it really that hard to take good care of the sea, or is there some hope?
+                    - generic:
+                      - figure
+                    - paragraph [ref=e187]: Molto spesso il mare ci appare come una grande distesa di acqua, priva di carattere, ma anche gli ambienti marini nascondono ecosistemi caratteristici che ospitano una biodiversità molto marcata.
+                    - paragraph [ref=e188]: Often, the sea appears to us as a vast expanse of water, lacking character, but marine environments also hide characteristic ecosystems that host a remarkable biodiversity
+                    - generic:
+                      - figure
+                    - paragraph [ref=e189]: Cosa hanno inventato le creature marine per sopravvivere alle sfide nascoste sotto le onde? Tecniche di predazione incredibili, forme corporee uniche, colorazioni mozzafiato e tanto altro ancora da scoprire insieme!
+                    - paragraph [ref=e190]: What did sea creatures create to overcome the obstacles that lay beneath the waves?Together, let's uncover amazing predation techniques, unique body shapes, breathtaking colorways, and more!
+                    - heading "PREVIEW" [level=3] [ref=e191]
+                    - heading "ECCO A VOI LE 6 CARTE ANTEPRIMA CHE ABBIAMO PRODOTTO" [level=4] [ref=e192]
+                    - paragraph [ref=e193]: Here the 6 preview cards!
+                    - generic:
+                      - figure
+                    - generic:
+                      - figure
+                    - paragraph [ref=e194]: "Non possiamo parlare però del presente senza dare un'occhiata al passato del mare, il luogo dove ha avuto origine la vita sul nostro pianeta, per fare ciò abbiamo chiesto una mano ad un'illustratore d'eccezione: Willy Guasti, meglio conosciuto come Zoosparkle realizzerà la 31esima carta del set che avrà un'ambientazione preistorica."
+                    - paragraph [ref=e195]: "We cannot talk about the present without taking a look at the past of the sea, the place where life on our planet originated, to do this we asked for a hand to an exceptional illustrator: Willy Guasti, better known as Zoosparkle will make the 31st card of the set that will have a prehistoric setting."
+                    - generic:
+                      - figure
+                    - paragraph [ref=e196]: Saremo guidati dalla piccola Andrea, una bambina super curiosa e piena di energie, che ci aiuterà a capire, attraverso i suoi racconti sul retro delle carte, l’importanza degli ambienti marini.
+                    - paragraph [ref=e197]: We will be guided by the little Andrea, a super curious and full of energy girl, who will help us to understand, through her stories on the back of the cards, the importance of marine environments.
+                    - generic:
+                      - figure
+                    - paragraph [ref=e198]: La sua presenza sul retro delle carte vi aiuterà a capire a che profondità ci troviamo.
+                    - paragraph [ref=e199]: Her presence on the back of the cards will help you to understand how deep we are.
+                    - heading "REWARDS" [level=3] [ref=e200]
+                    - paragraph [ref=e201]: "!!! WHILE YOU'RE PLACING YOUR ORDER CHOOSE AMONG THE ITALIAN OR ENGLISH DESCRIPTION IN THE NOTES !!!"
+                    - generic:
+                      - figure
+                    - paragraph [ref=e202]: SET COMPLETO (COMPLETE SET)
+                    - generic:
+                      - figure
+                    - paragraph [ref=e203]: SET COMPLETO + STICKERS (COMPLETE SET + STICKERS)
+                    - generic:
+                      - figure
+                    - paragraph [ref=e204]: BUNDLE COMPLETO THE SIP + CARTA PERSONALIZZATA PRODOTTA DAI NOSTRI ARTISTI IN ESCLUSIVA PER VOI
+                    - paragraph [ref=e205]: COMPLETE BUNDLE THE SIP + CUSTOM CARD PRODUCED BY OUR ARTISTS EXCLUSIVELY FOR YOU
+                - generic [ref=e209]:
+                  - heading "Risks and challenges" [level=2] [ref=e210]
+                  - paragraph [ref=e211]: La sfida più grande sarà sicuramente gestire la logistica della produzione, tra la stampa dei mazzi completi e degli sticker che accompagneranno il progetto, e la logistica delle spedizioni, ma nel corso dei mesi abbiamo acquisito esperienza sotto questo punto di vista e pensiamo di riuscire a far fronte ai rischi che potrebbero presentarsi.
+                  - link "Learn about accountability on Kickstarter" [ref=e212] [cursor=pointer]:
+                    - /url: /help/hc/sections/115001107133
+                - generic [ref=e214]:
+                  - generic [ref=e215]: Questions about this project?
+                  - link "Check out the FAQ" [ref=e216] [cursor=pointer]:
+                    - /url: /projects/the-sip-project/the-sip//faqs
+                - link "Report this project to Kickstarter" [ref=e218] [cursor=pointer]:
+                  - /url: /login?then=%2Fprojects%2Fthe-sip-project%2Fthe-sip#report-this-project
+          - generic [ref=e220]:
+            - generic [ref=e225]:
+              - heading "All gone" [level=3] [ref=e226]
+              - listitem [ref=e227]:
+                - article [ref=e228]:
+                  - generic [ref=e231]:
+                    - generic [ref=e234]:
+                      - generic [ref=e235]:
+                        - heading "ANDREA" [level=3] [ref=e236]
+                        - paragraph [ref=e238]: €25
+                      - generic [ref=e239]:
+                        - generic [ref=e241]: Il set completo 'The SIP' tra le tue mani! ------------------------------------- The complete set 'The SIP'
+                        - generic [ref=e242]:
+                          - generic [ref=e243]:
+                            - heading "Backers" [level=3] [ref=e244]
+                            - generic "45 backers" [ref=e247]: "45"
+                          - generic [ref=e249]:
+                            - heading "Ships to" [level=3] [ref=e250]
+                            - generic [ref=e251]: Only certain countries
+                          - generic [ref=e252]:
+                            - heading "Estimated delivery" [level=3] [ref=e253]
+                            - time [ref=e255]: Apr 2025
+                        - generic [ref=e256]:
+                          - heading "1 item included" [level=3] [ref=e257]
+                          - 'img "Choose your language: Ita or Eng descriptions" [ref=e260]'
+                    - generic [ref=e262]:
+                      - link "Details" [ref=e263] [cursor=pointer]:
+                        - /url: https://www.kickstarter.com/projects/the-sip-project/the-sip/rewards#reward-UmV3YXJkLVVtVjNZWEprTFRFd01qZzNORGM1
+                      - button "Pledge €25" [disabled] [ref=e265]
+              - listitem [ref=e266]:
+                - article [ref=e267]:
+                  - generic [ref=e270]:
+                    - generic [ref=e273]:
+                      - generic [ref=e274]:
+                        - heading "GUARRACINO LV 1" [level=3] [ref=e275]
+                        - paragraph [ref=e277]: €25
+                      - generic [ref=e278]:
+                        - generic [ref=e280]: Il set completo 'The SIP' tra le tue mani con consegna a mano a NAPOLI!
+                        - generic [ref=e281]:
+                          - generic [ref=e282]:
+                            - heading "Backers" [level=3] [ref=e283]
+                            - generic "29 backers" [ref=e286]: "29"
+                          - generic [ref=e288]:
+                            - heading "Reward location" [level=3] [ref=e289]
+                            - generic [ref=e290]: Naples, Italy
+                          - generic [ref=e291]:
+                            - heading "Estimated delivery" [level=3] [ref=e292]
+                            - time [ref=e294]: Apr 2025
+                        - generic [ref=e295]:
+                          - heading "1 item included" [level=3] [ref=e296]
+                          - 'img "Choose your language: Ita or Eng descriptions" [ref=e299]'
+                    - generic [ref=e301]:
+                      - link "Details" [ref=e302] [cursor=pointer]:
+                        - /url: https://www.kickstarter.com/projects/the-sip-project/the-sip/rewards#reward-UmV3YXJkLVVtVjNZWEprTFRFd01qazVORGM1
+                      - button "Pledge €25" [disabled] [ref=e304]
+              - listitem [ref=e305]:
+                - article [ref=e306]:
+                  - generic [ref=e309]:
+                    - generic [ref=e312]:
+                      - generic [ref=e313]:
+                        - heading "PESCE LUNA" [level=3] [ref=e314]
+                        - paragraph [ref=e316]: €30
+                      - generic [ref=e317]:
+                        - generic [ref=e319]: Il set completo 'The SIP' tra le tue mani! + Gli Stickers ufficiali del progetto ------------------------------------------- The complete set 'The SIP' in your hands! + The official project Stickers
+                        - generic [ref=e320]:
+                          - generic [ref=e321]:
+                            - heading "Backers" [level=3] [ref=e322]
+                            - generic "14 backers" [ref=e325]: "14"
+                          - generic [ref=e327]:
+                            - heading "Ships to" [level=3] [ref=e328]
+                            - generic [ref=e329]: Only certain countries
+                          - generic [ref=e330]:
+                            - heading "Estimated delivery" [level=3] [ref=e331]
+                            - time [ref=e333]: Apr 2025
+                        - heading "1 item included" [level=3] [ref=e335]
+                    - generic [ref=e339]:
+                      - link "Details" [ref=e340] [cursor=pointer]:
+                        - /url: https://www.kickstarter.com/projects/the-sip-project/the-sip/rewards#reward-UmV3YXJkLVVtVjNZWEprTFRFd01qZzNORGd3
+                      - button "Pledge €30" [disabled] [ref=e342]
+              - listitem [ref=e343]:
+                - article [ref=e344]:
+                  - generic [ref=e347]:
+                    - generic [ref=e350]:
+                      - generic [ref=e351]:
+                        - heading "GUARRACINO LV 2" [level=3] [ref=e352]
+                        - paragraph [ref=e354]: €30
+                      - generic [ref=e355]:
+                        - generic [ref=e357]: Il set completo 'The SIP' tra le tue mani + Gli Stickers ufficiali del progetto con consegna a mano a NAPOLI!
+                        - generic [ref=e358]:
+                          - generic [ref=e359]:
+                            - heading "Backers" [level=3] [ref=e360]
+                            - generic "13 backers" [ref=e363]: "13"
+                          - generic [ref=e364]:
+                            - heading "Reward location" [level=3] [ref=e365]
+                            - generic [ref=e366]: Naples, Italy
+                          - generic [ref=e367]:
+                            - heading "Estimated delivery" [level=3] [ref=e368]
+                            - time [ref=e370]: Apr 2025
+                        - heading "1 item included" [level=3] [ref=e372]
+                    - generic [ref=e376]:
+                      - link "Details" [ref=e377] [cursor=pointer]:
+                        - /url: https://www.kickstarter.com/projects/the-sip-project/the-sip/rewards#reward-UmV3YXJkLVVtVjNZWEprTFRFd01qazVORGd4
+                      - button "Pledge €30" [disabled] [ref=e379]
+              - listitem [ref=e380]:
+                - article [ref=e381]:
+                  - generic [ref=e384]:
+                    - generic [ref=e387]:
+                      - generic [ref=e388]:
+                        - heading "DOUBLE ANDREA" [level=3] [ref=e389]
+                        - paragraph [ref=e391]: €40
+                      - generic [ref=e392]:
+                        - generic [ref=e394]: Doppio Bundle completo del set 'The SIP' !!! (SCONTO DEL 33%) !!! --------------------------------------------------- Double Bundle complete set 'The SIP' !!! (33% DISCOUNT) !!!
+                        - generic [ref=e395]:
+                          - generic [ref=e396]:
+                            - heading "Backers" [level=3] [ref=e397]
+                            - generic "19 backers" [ref=e400]: "19"
+                          - generic [ref=e402]:
+                            - heading "Ships to" [level=3] [ref=e403]
+                            - generic [ref=e404]: Only certain countries
+                          - generic [ref=e405]:
+                            - heading "Estimated delivery" [level=3] [ref=e406]
+                            - time [ref=e408]: Apr 2025
+                        - heading "1 item included" [level=3] [ref=e410]
+                    - generic [ref=e414]:
+                      - link "Details" [ref=e415] [cursor=pointer]:
+                        - /url: https://www.kickstarter.com/projects/the-sip-project/the-sip/rewards#reward-UmV3YXJkLVVtVjNZWEprTFRFd016QXlPRGd3
+                      - button "Pledge €40" [disabled] [ref=e417]
+              - listitem [ref=e418]:
+                - article [ref=e419]:
+                  - generic [ref=e422]:
+                    - generic [ref=e425]:
+                      - generic [ref=e426]:
+                        - heading "DOUBLE GUARRACINO" [level=3] [ref=e427]
+                        - paragraph [ref=e429]: €40
+                      - generic [ref=e430]:
+                        - generic [ref=e432]: Doppio Bundle completo 'The SIP' consegnato a mano a NAPOLI !!!(SCONTO DEL 33%)!!!
+                        - generic [ref=e433]:
+                          - generic [ref=e434]:
+                            - heading "Backers" [level=3] [ref=e435]
+                            - generic "17 backers" [ref=e438]: "17"
+                          - generic [ref=e440]:
+                            - heading "Reward location" [level=3] [ref=e441]
+                            - generic [ref=e442]: Naples, Italy
+                          - generic [ref=e443]:
+                            - heading "Estimated delivery" [level=3] [ref=e444]
+                            - time [ref=e446]: Apr 2025
+                        - heading "1 item included" [level=3] [ref=e448]
+                    - generic [ref=e452]:
+                      - link "Details" [ref=e453] [cursor=pointer]:
+                        - /url: https://www.kickstarter.com/projects/the-sip-project/the-sip/rewards#reward-UmV3YXJkLVVtVjNZWEprTFRFd016QXlPRGt6
+                      - button "Pledge €40" [disabled] [ref=e455]
+              - listitem [ref=e456]:
+                - article [ref=e457]:
+                  - generic [ref=e460]:
+                    - generic [ref=e463]:
+                      - generic [ref=e464]:
+                        - heading "RE D'ARINGHE" [level=3] [ref=e465]
+                        - paragraph [ref=e467]: €125
+                      - generic [ref=e468]:
+                        - generic [ref=e470]: Il Bundle completo 'The SIP' tra le tue mani + Carta personalizzata prodotta dai nostri artisti in esclusiva per te ---------------------------------------------- The complete 'The SIP' bundle in your hands + Custom card produced by our artists exclusively for you
+                        - generic [ref=e471]:
+                          - generic [ref=e472]:
+                            - heading "Backers" [level=3] [ref=e473]
+                            - generic "5 backers" [ref=e476]: "5"
+                          - generic [ref=e478]:
+                            - heading "Ships to" [level=3] [ref=e479]
+                            - generic [ref=e480]: Only certain countries
+                          - generic [ref=e481]:
+                            - heading "Estimated delivery" [level=3] [ref=e482]
+                            - time [ref=e484]: Apr 2025
+                        - heading "1 item included" [level=3] [ref=e486]
+                    - generic [ref=e490]:
+                      - link "Details" [ref=e491] [cursor=pointer]:
+                        - /url: https://www.kickstarter.com/projects/the-sip-project/the-sip/rewards#reward-UmV3YXJkLVVtVjNZWEprTFRFd01qazVORGt3
+                      - button "Pledge €125" [disabled] [ref=e493]
+              - listitem [ref=e494]:
+                - article [ref=e495]:
+                  - generic [ref=e498]:
+                    - generic [ref=e501]:
+                      - generic [ref=e502]:
+                        - heading "GUARRACINO LV 3" [level=3] [ref=e503]
+                        - paragraph [ref=e505]: €125
+                      - generic [ref=e506]:
+                        - generic [ref=e508]: Bundle completo 'The SIP' tra le tue mani + Carta personalizzata prodotta dai nostri artisti in esclusiva per te e consegnata direttamente a mano a NAPOLI!
+                        - generic [ref=e509]:
+                          - generic [ref=e510]:
+                            - heading "Backers" [level=3] [ref=e511]
+                            - generic "1 backers" [ref=e514]: "1"
+                          - generic [ref=e515]:
+                            - heading "Reward location" [level=3] [ref=e516]
+                            - generic [ref=e517]: Naples, Italy
+                          - generic [ref=e518]:
+                            - heading "Estimated delivery" [level=3] [ref=e519]
+                            - time [ref=e521]: Apr 2025
+                        - heading "1 item included" [level=3] [ref=e523]
+                    - generic [ref=e527]:
+                      - link "Details" [ref=e528] [cursor=pointer]:
+                        - /url: https://www.kickstarter.com/projects/the-sip-project/the-sip/rewards#reward-UmV3YXJkLVVtVjNZWEprTFRFd01qazVORGsw
+                      - button "Pledge €125" [disabled] [ref=e530]
+            - generic [ref=e531]:
+              - heading "Funding period" [level=3] [ref=e532]
+              - paragraph [ref=e533]:
+                - time [ref=e534]: Jan 15 2025
+                - text: "-"
+                - time [ref=e535]: Mar 1 2025
+                - text: (45 days)
+      - generic [ref=e537]:
+        - generic [ref=e538]:
+          - heading "Similar projects to check out" [level=2] [ref=e539]
+          - link "See more" [ref=e540] [cursor=pointer]:
+            - /url: /discover/advanced?recommended=1&ref=recommendation-ended-project-discover-more&sort=magic&state=live&sticky_ref=1
+        - list [ref=e541]:
+          - listitem [ref=e542]:
+            - generic "Save our oceans. Take Wildtype mainstream." [ref=e544] [cursor=pointer]:
+              - generic [ref=e545]:
+                - generic [ref=e546]:
+                  - link "Save our oceans. Take Wildtype mainstream." [ref=e547]:
+                    - /url: https://www.kickstarter.com/projects/jkolbeck/save-our-oceans-take-wildtype-mainstream?ref=recommendation-ended-project-1&category_id=Q2F0ZWdvcnktMzEz
+                  - link "Project We Love" [ref=e549]:
+                    - /url: /discover/pwl?ref=project_pwl_badge
+                    - img [ref=e550]
+                - generic [ref=e552]:
+                  - paragraph [ref=e553]:
+                    - link "Justin Kolbeck" [ref=e554]:
+                      - /url: https://www.kickstarter.com/profile/jkolbeck
+                  - generic [ref=e555]:
+                    - img [ref=e556]
+                    - paragraph [ref=e558]: 14 days left • 98% funded
+              - generic [ref=e560]:
+                - link [ref=e561]:
+                  - /url: https://www.kickstarter.com/projects/jkolbeck/save-our-oceans-take-wildtype-mainstream?ref=recommendation-ended-project-1&category_id=Q2F0ZWdvcnktMzEz
+                  - img [ref=e563]
+                - generic [ref=e565]: Almost funded
+              - generic [ref=e568]:
+                - tooltip "user avatar" [ref=e569]:
+                  - link "user avatar" [ref=e571]:
+                    - /url: https://www.kickstarter.com/profile/jkolbeck
+                    - img "user avatar" [ref=e572]
+                - button "Save this project" [ref=e576]:
+                  - img [ref=e577]
+          - listitem [ref=e579]:
+            - generic "Laughing Gull Chocolates Take Flight" [ref=e581] [cursor=pointer]:
+              - generic [ref=e582]:
+                - generic [ref=e583]:
+                  - link "Laughing Gull Chocolates Take Flight" [ref=e584]:
+                    - /url: https://www.kickstarter.com/projects/laughinggullgrows/laughing-gull-chocolates-take-flight?ref=recommendation-ended-project-2&category_id=Q2F0ZWdvcnktMzE0
+                  - link "Project We Love" [ref=e586]:
+                    - /url: /discover/pwl?ref=project_pwl_badge
+                    - img [ref=e587]
+                - generic [ref=e589]:
+                  - paragraph [ref=e590]:
+                    - link "Lindsay" [ref=e591]:
+                      - /url: https://www.kickstarter.com/profile/laughinggullgrows
+                  - generic [ref=e592]:
+                    - img [ref=e593]
+                    - paragraph [ref=e595]: 15 days left • 65% funded
+              - link [ref=e598]:
+                - /url: https://www.kickstarter.com/projects/laughinggullgrows/laughing-gull-chocolates-take-flight?ref=recommendation-ended-project-2&category_id=Q2F0ZWdvcnktMzE0
+                - img [ref=e600]
+              - generic [ref=e604]:
+                - tooltip "user avatar" [ref=e605]:
+                  - link "user avatar" [ref=e607]:
+                    - /url: https://www.kickstarter.com/profile/laughinggullgrows
+                    - img "user avatar" [ref=e608]
+                - button "Save this project" [ref=e612]:
+                  - img [ref=e613]
+          - listitem [ref=e615]:
+            - 'generic "Zen Tea Brew Infusions: Discover Delicious Rare Shizuoka Tea" [ref=e617] [cursor=pointer]':
+              - generic [ref=e618]:
+                - generic [ref=e619]:
+                  - 'link "Zen Tea Brew Infusions: Discover Delicious Rare Shizuoka Tea" [ref=e620]':
+                    - /url: https://www.kickstarter.com/projects/zen-tea-brew/craft-japanese-tea-cocktails-at-home-with-rare-shizuoka-tea?ref=recommendation-ended-project-3&category_id=Q2F0ZWdvcnktMzEz
+                  - link "Project We Love" [ref=e622]:
+                    - /url: /discover/pwl?ref=project_pwl_badge
+                    - img [ref=e623]
+                - generic [ref=e625]:
+                  - paragraph [ref=e626]:
+                    - link "Zen Tea Brew" [ref=e627]:
+                      - /url: https://www.kickstarter.com/profile/zen-tea-brew
+                  - generic [ref=e628]:
+                    - img [ref=e629]
+                    - paragraph [ref=e631]: 15 days left • 452% funded
+              - link [ref=e634]:
+                - /url: https://www.kickstarter.com/projects/zen-tea-brew/craft-japanese-tea-cocktails-at-home-with-rare-shizuoka-tea?ref=recommendation-ended-project-3&category_id=Q2F0ZWdvcnktMzEz
+                - img [ref=e636]
+              - generic [ref=e640]:
+                - tooltip "user avatar" [ref=e641]:
+                  - link "user avatar" [ref=e643]:
+                    - /url: https://www.kickstarter.com/profile/zen-tea-brew
+                    - img "user avatar" [ref=e644]
+                - button "Save this project" [ref=e648]:
+                  - img [ref=e649]
+          - listitem [ref=e651]:
+            - 'generic "Little Storms: Ethan Setiawan & Fine Ground''s debut album" [ref=e653] [cursor=pointer]':
+              - generic [ref=e654]:
+                - generic [ref=e655]:
+                  - 'link "Little Storms: Ethan Setiawan & Fine Ground''s debut album" [ref=e656]':
+                    - /url: https://www.kickstarter.com/projects/ethansetiawan/little-storms-ethan-setiawan-and-fine-grounds-debut-album?ref=recommendation-ended-project-4&category_id=Q2F0ZWdvcnktMzc=
+                  - link "Project We Love" [ref=e658]:
+                    - /url: /discover/pwl?ref=project_pwl_badge
+                    - img [ref=e659]
+                - generic [ref=e661]:
+                  - paragraph [ref=e662]:
+                    - link "Ethan Setiawan" [ref=e663]:
+                      - /url: https://www.kickstarter.com/profile/ethansetiawan
+                  - generic [ref=e664]:
+                    - img [ref=e665]
+                    - paragraph [ref=e667]: 2 days left • 102% funded
+              - link [ref=e670]:
+                - /url: https://www.kickstarter.com/projects/ethansetiawan/little-storms-ethan-setiawan-and-fine-grounds-debut-album?ref=recommendation-ended-project-4&category_id=Q2F0ZWdvcnktMzc=
+                - img [ref=e672]
+              - generic [ref=e676]:
+                - tooltip "user avatar" [ref=e677]:
+                  - link "user avatar" [ref=e679]:
+                    - /url: https://www.kickstarter.com/profile/ethansetiawan
+                    - img "user avatar" [ref=e680]
+                - button "Save this project" [ref=e684]:
+                  - img [ref=e685]
+  - contentinfo "Additional site navigation and resources" [ref=e688]:
+    - generic [ref=e689]:
+      - generic [ref=e690]:
+        - generic [ref=e691]:
+          - link [ref=e692] [cursor=pointer]:
+            - /url: /?ref=global-footer
+            - img [ref=e693]
+          - generic [ref=e695]:
+            - button "English Change the language you browse Kickstarter with" [ref=e698] [cursor=pointer]:
+              - generic [ref=e700]: English
+              - img [ref=e701]
+            - combobox [ref=e705]
+            - button "€ Euro (EUR) Change the currency display to your preferred currency" [ref=e708] [cursor=pointer]:
+              - generic [ref=e710]: € Euro (EUR)
+              - img [ref=e711]
+            - combobox [ref=e715]
+        - generic [ref=e717]:
+          - navigation "Discover" [ref=e718]:
+            - heading "Discover" [level=2] [ref=e719]
+            - list [ref=e720]:
+              - listitem [ref=e721]:
+                - link "Arts" [ref=e722] [cursor=pointer]:
+                  - /url: /arts?ref=global-footer
+              - listitem [ref=e723]:
+                - link "Comics & Illustration" [ref=e724] [cursor=pointer]:
+                  - /url: /comics-illustration?ref=global-footer
+              - listitem [ref=e725]:
+                - link "Design & Tech" [ref=e726] [cursor=pointer]:
+                  - /url: /design-tech?ref=global-footer
+              - listitem [ref=e727]:
+                - link "Film" [ref=e728] [cursor=pointer]:
+                  - /url: /film?ref=global-footer
+              - listitem [ref=e729]:
+                - link "Food & Craft" [ref=e730] [cursor=pointer]:
+                  - /url: /food-craft?ref=global-footer
+              - listitem [ref=e731]:
+                - link "Games" [ref=e732] [cursor=pointer]:
+                  - /url: /games?ref=global-footer
+              - listitem [ref=e733]:
+                - link "Music" [ref=e734] [cursor=pointer]:
+                  - /url: /music?ref=global-footer
+              - listitem [ref=e735]:
+                - link "Publishing" [ref=e736] [cursor=pointer]:
+                  - /url: /publishing?ref=global-footer
+          - navigation "About" [ref=e737]:
+            - heading "About" [level=2] [ref=e738]
+            - list [ref=e739]:
+              - listitem [ref=e740]:
+                - link "About us" [ref=e741] [cursor=pointer]:
+                  - /url: /about?ref=global-footer
+              - listitem [ref=e742]:
+                - link "Our charter" [ref=e743] [cursor=pointer]:
+                  - /url: /charter?ref=global-footer
+              - listitem [ref=e744]:
+                - link "Press" [ref=e745] [cursor=pointer]:
+                  - /url: /press?ref=global-footer
+              - listitem [ref=e746]:
+                - link "Jobs" [ref=e747] [cursor=pointer]:
+                  - /url: /jobs?ref=global-footer
+          - navigation "Support" [ref=e748]:
+            - heading "Support" [level=2] [ref=e749]
+            - list [ref=e750]:
+              - listitem [ref=e751]:
+                - link "Help Center" [ref=e752] [cursor=pointer]:
+                  - /url: /help?ref=global-footer
+              - listitem [ref=e753]:
+                - link "Our Rules" [ref=e754] [cursor=pointer]:
+                  - /url: /rules?ref=global-footer
+              - listitem [ref=e755]:
+                - link "Creator Resources" [ref=e756] [cursor=pointer]:
+                  - /url: /learn?ref=global-footer
+              - listitem [ref=e757]:
+                - link "Forward Funds" [ref=e758] [cursor=pointer]:
+                  - /url: /forward-funds?ref=global-footer
+              - listitem [ref=e759]:
+                - link "Brand assets" [ref=e760] [cursor=pointer]:
+                  - /url: /help/brand_assets?ref=global-footer
+          - navigation "More" [ref=e761]:
+            - heading "More" [level=2] [ref=e762]
+            - list [ref=e763]:
+              - listitem [ref=e764]:
+                - link "Newsletters" [ref=e765] [cursor=pointer]:
+                  - /url: /newsletters?ref=global-footer
+              - listitem [ref=e766]:
+                - link "Kickstarter Project Updates" [ref=e767] [cursor=pointer]:
+                  - /url: https://updates.kickstarter.com?ref=global-footer
+              - listitem [ref=e768]:
+                - link "The Creative Independent" [ref=e769] [cursor=pointer]:
+                  - /url: https://thecreativeindependent.com?ref=global-footer
+              - listitem [ref=e770]:
+                - link "Mobile apps" [ref=e771] [cursor=pointer]:
+                  - /url: /mobile?ref=global-footer
+              - listitem [ref=e772]:
+                - link "Research" [ref=e773] [cursor=pointer]:
+                  - /url: /research?ref=global-footer
+      - link "Kickstarter homepage" [ref=e774] [cursor=pointer]:
+        - /url: /?ref=global-footer
+        - img [ref=e775]
+      - generic [ref=e778]:
+        - navigation "Social media" [ref=e779]:
+          - list [ref=e780]:
+            - listitem [ref=e781]:
+              - link "Facebook" [ref=e782] [cursor=pointer]:
+                - /url: http://www.facebook.com/kickstarter
+                - img [ref=e783]
+            - listitem [ref=e785]:
+              - link "Instagram" [ref=e786] [cursor=pointer]:
+                - /url: http://www.instagram.com/kickstarter
+                - img [ref=e787]
+            - listitem [ref=e789]:
+              - link "Twitter" [ref=e790] [cursor=pointer]:
+                - /url: http://www.twitter.com/kickstarter
+                - img [ref=e791]
+            - listitem [ref=e793]:
+              - link "Bluesky" [ref=e794] [cursor=pointer]:
+                - /url: https://bsky.app/profile/kickstarter.com
+                - img [ref=e795]
+            - listitem [ref=e797]:
+              - link "YouTube" [ref=e798] [cursor=pointer]:
+                - /url: http://www.youtube.com/user/kickstarter
+                - img [ref=e799]
+        - navigation "Download our mobile app" [ref=e801]:
+          - link "Download on the App Store" [ref=e802] [cursor=pointer]:
+            - /url: https://itunes.apple.com/app/apple-store/id596961532?ls=1&mt=8&pt=1073458
+            - img [ref=e803]
+          - link "Get it on Google Play" [ref=e830] [cursor=pointer]:
+            - /url: https://play.google.com/store/apps/details?id=com.kickstarter.kickstarter
+            - img [ref=e831]
+    - separator [ref=e847]
+    - navigation "Kickstarter, PBC © 2026" [ref=e849]:
+      - generic [ref=e851]: Kickstarter, PBC © 2026
+      - list [ref=e852]:
+        - listitem [ref=e853]:
+          - link "Trust & Safety" [ref=e854] [cursor=pointer]:
+            - /url: /trust?ref=global-footer
+        - listitem [ref=e855]:
+          - link "Terms of Use" [ref=e856] [cursor=pointer]:
+            - /url: /terms-of-use?ref=global-footer
+        - listitem [ref=e857]:
+          - link "Privacy Policy" [ref=e858] [cursor=pointer]:
+            - /url: /privacy?ref=global-footer
+        - listitem [ref=e859]:
+          - link "Cookie Policy" [ref=e860] [cursor=pointer]:
+            - /url: /cookies?ref=global-footer
+        - listitem [ref=e861]:
+          - button "Cookie Preferences" [ref=e862] [cursor=pointer]
+        - listitem [ref=e863]:
+          - link "Accessibility Statement" [ref=e864] [cursor=pointer]:
+            - /url: /accessibility?ref=global-footer
+        - listitem [ref=e865]:
+          - link "CA Notice of Consent" [ref=e866] [cursor=pointer]:
+            - /url: /privacy?ref=global-footer#privacy-information-for-california-residents
+  - complementary
+  - generic [ref=e868]:
+    - button "Close" [ref=e869] [cursor=pointer]:
+      - img "Close" [ref=e870]
+    - heading "We use personal data to provide a good experience on Kickstarter, and to help connect you with projects you'll love." [level=3] [ref=e872]
+    - generic [ref=e873]:
+      - generic [ref=e874]:
+        - generic [ref=e875]:
+          - checkbox "Essential purposes" [checked] [disabled] [ref=e876]
+          - img [ref=e879] [cursor=pointer]
+        - generic [ref=e881]: Essential purposes
+      - generic [ref=e882]:
+        - checkbox "Functionality" [ref=e884]
+        - generic [ref=e887]: Functionality
+      - generic [ref=e888]:
+        - checkbox "Analytics" [ref=e890]
+        - generic [ref=e893]: Analytics
+      - generic [ref=e894]:
+        - checkbox "Advertising" [ref=e896]
+        - generic [ref=e899]: Advertising
+      - generic [ref=e900]:
+        - checkbox "Sale of personal information" [ref=e902]
+        - generic [ref=e905]: Sale of personal information
+    - generic [ref=e906]:
+      - button "Confirm" [ref=e907] [cursor=pointer]
+      - button "Accept all" [ref=e908] [cursor=pointer]
+    - separator [ref=e909]
+    - link "See Our Privacy Policy" [ref=e911] [cursor=pointer]:
+      - /url: /privacy
+  - region "0 notifications."
+  - iframe [ref=e912]:
+    

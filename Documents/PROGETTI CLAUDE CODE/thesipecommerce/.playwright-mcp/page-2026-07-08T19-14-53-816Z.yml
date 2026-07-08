@@ -1,0 +1,333 @@
+- generic [active] [ref=f4e1]:
+  - banner [ref=f4e2]:
+    - generic [ref=f4e5]:
+      - generic [ref=f4e6]:
+        - generic [ref=f4e7]:
+          - img [ref=f4e8]
+          - text: Progetto nato a Napoli
+        - generic [ref=f4e11]:
+          - img [ref=f4e12]
+          - text: Spedizione 24/48h
+      - generic [ref=f4e14]:
+        - generic [ref=f4e15]:
+          - img [ref=f4e16]
+          - text: Gratis sopra €30,00
+        - generic [ref=f4e21]:
+          - img [ref=f4e22]
+          - text: Pagamenti Sicuri
+    - generic [ref=f4e25]:
+      - link "Home The SIP" [ref=f4e26] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/
+        - img "The SIP" [ref=f4e27]
+      - generic [ref=f4e30]:
+        - generic:
+          - img
+        - searchbox "Cerca carte, bundle, temi…" [ref=f4e31]
+      - generic [ref=f4e32]:
+        - button "Menu account" [ref=f4e34]:
+          - img [ref=f4e35]
+        - link "Wishlist" [ref=f4e38] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/account/wishlist/
+          - img [ref=f4e39]
+        - button "Apri carrello" [ref=f4e41]:
+          - img [ref=f4e42]
+          - generic [ref=f4e46]: "0"
+    - navigation [ref=f4e48]:
+      - generic [ref=f4e50]:
+        - link "Set di carte" [ref=f4e51] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/product-category/set-di-carte/
+          - img [ref=f4e52]
+          - text: Set di carte
+        - link "Bundle" [ref=f4e56] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/product-category/bundle/
+          - img [ref=f4e57]
+          - text: Bundle
+        - link "Edizioni speciali" [ref=f4e60] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/product-category/edizioni-speciali/
+          - img [ref=f4e61]
+          - text: Edizioni speciali
+  - main [ref=f4e63]:
+    - generic [ref=f4e65]:
+      - navigation "Breadcrumb" [ref=f4e66]:
+        - link "Home" [ref=f4e67] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/
+        - text: / Catalogo
+      - generic [ref=f4e68]:
+        - heading "Tutti i prodotti" [level=1] [ref=f4e69]
+        - paragraph [ref=f4e70]: 4 prodotti in catalogo
+        - generic [ref=f4e73]:
+          - generic:
+            - img
+          - searchbox "Cerca carte, bundle, temi…" [ref=f4e74]
+      - generic [ref=f4e76]:
+        - link "B Bundle" [ref=f4e77] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/bundle/
+          - generic [ref=f4e78]: B
+          - generic [ref=f4e79]: Bundle
+        - link "E Edizioni speciali" [ref=f4e80] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/edizioni-speciali/
+          - generic [ref=f4e81]: E
+          - generic [ref=f4e82]: Edizioni speciali
+        - link "S Set di carte" [ref=f4e83] [cursor=pointer]:
+          - /url: https://thesip.178-105-141-228.sslip.io/categoria-prodotto/set-di-carte/
+          - generic [ref=f4e84]: S
+          - generic [ref=f4e85]: Set di carte
+      - button "Rilevanza" [ref=f4e90]:
+        - generic [ref=f4e91]: Rilevanza
+        - img [ref=f4e93]
+      - generic [ref=f4e95]:
+        - complementary [ref=f4e96]:
+          - complementary [ref=f4e97]:
+            - generic [ref=f4e98]:
+              - heading "Filtri" [level=2] [ref=f4e100]
+              - generic [ref=f4e102]:
+                - heading "Prezzo (€)" [level=3] [ref=f4e103]
+                - generic [ref=f4e104]:
+                  - generic [ref=f4e105]:
+                    - generic [ref=f4e106]: Min
+                    - spinbutton "Min Min" [ref=f4e107]
+                  - generic [ref=f4e108]:
+                    - generic [ref=f4e109]: Max
+                    - spinbutton "Max Max" [ref=f4e110]
+              - generic [ref=f4e112]:
+                - heading "Caratteristiche" [level=3] [ref=f4e113]
+                - generic [ref=f4e114]:
+                  - generic [ref=f4e115] [cursor=pointer]:
+                    - checkbox "Senza glutine" [ref=f4e116]
+                    - generic [ref=f4e117]: Senza glutine
+                  - generic [ref=f4e118] [cursor=pointer]:
+                    - checkbox "Senza lattosio" [ref=f4e119]
+                    - generic [ref=f4e120]: Senza lattosio
+                  - generic [ref=f4e121] [cursor=pointer]:
+                    - checkbox "Solo disponibili" [ref=f4e122]
+                    - generic [ref=f4e123]: Solo disponibili
+                  - generic [ref=f4e124] [cursor=pointer]:
+                    - checkbox "In promozione" [ref=f4e125]
+                    - generic [ref=f4e126]: In promozione
+              - generic [ref=f4e128]:
+                - heading "IVA" [level=3] [ref=f4e129]
+                - generic [ref=f4e130]:
+                  - generic [ref=f4e131] [cursor=pointer]:
+                    - checkbox "4%" [ref=f4e132]
+                    - generic [ref=f4e133]: 4%
+                  - generic [ref=f4e134] [cursor=pointer]:
+                    - checkbox "10%" [ref=f4e135]
+                    - generic [ref=f4e136]: 10%
+                  - generic [ref=f4e137] [cursor=pointer]:
+                    - checkbox "22%" [ref=f4e138]
+                    - generic [ref=f4e139]: 22%
+        - generic [ref=f4e140]:
+          - paragraph [ref=f4e141]:
+            - strong [ref=f4e142]: "4"
+            - text: prodotti
+          - generic [ref=f4e143]:
+            - article [ref=f4e144]:
+              - button "Aggiungi ai preferiti" [ref=f4e145]:
+                - img [ref=f4e146]
+              - generic [ref=f4e149]: Nuovo
+              - link "The SIP — Bundle Deluxe + Carta Personalizzata" [ref=f4e150] [cursor=pointer]:
+                - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-bundle-deluxe-carta-personalizzata/
+                - img "The SIP — Bundle Deluxe + Carta Personalizzata" [ref=f4e151]
+              - generic [ref=f4e152]:
+                - link "The SIP — Bundle Deluxe + Carta Personalizzata" [ref=f4e154] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-bundle-deluxe-carta-personalizzata/
+                  - heading "The SIP — Bundle Deluxe + Carta Personalizzata" [level=3] [ref=f4e155]
+                - generic [ref=f4e158]: €125,00
+                - link "Aggiungi al carrello" [ref=f4e159] [cursor=pointer]:
+                  - /url: "?add-to-cart=18"
+                  - generic [ref=f4e160]:
+                    - img [ref=f4e161]
+                    - generic [ref=f4e165]: Aggiungi al carrello
+                  - generic:
+                    - img
+                    - generic: Aggiunto!
+            - article [ref=f4e166]:
+              - button "Aggiungi ai preferiti" [ref=f4e167]:
+                - img [ref=f4e168]
+              - generic [ref=f4e171]: Nuovo
+              - link "The SIP — Double Bundle (2 set)" [ref=f4e172] [cursor=pointer]:
+                - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-double-bundle-2-set/
+                - img "The SIP — Double Bundle (2 set)" [ref=f4e173]
+              - generic [ref=f4e174]:
+                - link "The SIP — Double Bundle (2 set)" [ref=f4e176] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-double-bundle-2-set/
+                  - heading "The SIP — Double Bundle (2 set)" [level=3] [ref=f4e177]
+                - generic [ref=f4e180]: €40,00
+                - link "Aggiungi al carrello" [ref=f4e181] [cursor=pointer]:
+                  - /url: "?add-to-cart=16"
+                  - generic [ref=f4e182]:
+                    - img [ref=f4e183]
+                    - generic [ref=f4e187]: Aggiungi al carrello
+                  - generic:
+                    - img
+                    - generic: Aggiunto!
+            - article [ref=f4e188]:
+              - button "Aggiungi ai preferiti" [ref=f4e189]:
+                - img [ref=f4e190]
+              - generic [ref=f4e193]: Nuovo
+              - link "The SIP — Set Completo (31 carte)" [ref=f4e194] [cursor=pointer]:
+                - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-31-carte/
+                - img "The SIP — Set Completo (31 carte)" [ref=f4e195]
+              - generic [ref=f4e196]:
+                - link "The SIP — Set Completo (31 carte)" [ref=f4e198] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-31-carte/
+                  - heading "The SIP — Set Completo (31 carte)" [level=3] [ref=f4e199]
+                - generic [ref=f4e202]: €25,00
+                - link "Aggiungi al carrello" [ref=f4e203] [cursor=pointer]:
+                  - /url: "?add-to-cart=12"
+                  - generic [ref=f4e204]:
+                    - img [ref=f4e205]
+                    - generic [ref=f4e209]: Aggiungi al carrello
+                  - generic:
+                    - img
+                    - generic: Aggiunto!
+            - article [ref=f4e210]:
+              - button "Aggiungi ai preferiti" [ref=f4e211]:
+                - img [ref=f4e212]
+              - generic [ref=f4e215]: Nuovo
+              - link "The SIP — Set Completo + Stickers" [ref=f4e216] [cursor=pointer]:
+                - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-stickers/
+                - img "The SIP — Set Completo + Stickers" [ref=f4e217]
+              - generic [ref=f4e218]:
+                - link "The SIP — Set Completo + Stickers" [ref=f4e220] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/prodotto/the-sip-set-completo-stickers/
+                  - heading "The SIP — Set Completo + Stickers" [level=3] [ref=f4e221]
+                - generic [ref=f4e224]: €30,00
+                - link "Aggiungi al carrello" [ref=f4e225] [cursor=pointer]:
+                  - /url: "?add-to-cart=14"
+                  - generic [ref=f4e226]:
+                    - img [ref=f4e227]
+                    - generic [ref=f4e231]: Aggiungi al carrello
+                  - generic:
+                    - img
+                    - generic: Aggiunto!
+  - contentinfo [ref=f4e232]:
+    - generic [ref=f4e235]:
+      - generic [ref=f4e236]:
+        - img [ref=f4e238]
+        - generic [ref=f4e241]:
+          - paragraph [ref=f4e242]: Progetto nato a Napoli
+          - paragraph [ref=f4e243]: Biologia marina illustrata
+      - generic [ref=f4e244]:
+        - img [ref=f4e246]
+        - generic [ref=f4e248]:
+          - paragraph [ref=f4e249]: Spedizione 24/48h
+          - paragraph [ref=f4e250]: In tutta Italia
+      - generic [ref=f4e251]:
+        - img [ref=f4e253]
+        - generic [ref=f4e258]:
+          - paragraph [ref=f4e259]: Gratis sopra €30,00
+          - paragraph [ref=f4e260]: Nessun minimo ordine
+      - generic [ref=f4e261]:
+        - img [ref=f4e263]
+        - generic [ref=f4e265]:
+          - paragraph [ref=f4e266]: Pagamenti Sicuri
+          - paragraph [ref=f4e267]: Visa, Mastercard, PayPal
+    - generic [ref=f4e268]:
+      - generic [ref=f4e269]:
+        - generic [ref=f4e270]:
+          - generic [ref=f4e271]:
+            - img "The SIP" [ref=f4e272]
+            - paragraph [ref=f4e273]: Il mare in tasca. 31 flashcard illustrate di biologia marina, nate a Napoli da due biologi marini e 25 illustratori. Take a seat and take a SIP!
+            - generic [ref=f4e274]:
+              - paragraph [ref=f4e275]: Corrieri
+              - generic [ref=f4e276]:
+                - img "FedEx" [ref=f4e278]
+                - img "GLS" [ref=f4e280]
+          - generic [ref=f4e281]:
+            - heading "Il progetto" [level=4] [ref=f4e282]
+            - list [ref=f4e283]:
+              - listitem [ref=f4e284]:
+                - link "Chi siamo" [ref=f4e285] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/chi-siamo
+                  - generic [ref=f4e286]:
+                    - generic [ref=f4e288]: Chi siamo
+                    - generic [ref=f4e290]: Chi siamo
+              - listitem [ref=f4e291]:
+                - link "FAQ" [ref=f4e292] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/faq
+                  - generic [ref=f4e293]:
+                    - generic [ref=f4e295]: FAQ
+                    - generic [ref=f4e297]: FAQ
+              - listitem [ref=f4e298]:
+                - link "Contatti" [ref=f4e299] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/contatti
+                  - generic [ref=f4e300]:
+                    - generic [ref=f4e302]: Contatti
+                    - generic [ref=f4e304]: Contatti
+          - generic [ref=f4e305]:
+            - heading "Assistenza" [level=4] [ref=f4e306]
+            - list [ref=f4e307]:
+              - listitem [ref=f4e308]:
+                - link "Spedizioni e Resi" [ref=f4e309] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/faq
+                  - generic [ref=f4e310]:
+                    - generic [ref=f4e312]: Spedizioni e Resi
+                    - generic [ref=f4e314]: Spedizioni e Resi
+              - listitem [ref=f4e315]:
+                - link "Traccia Ordine" [ref=f4e316] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/traccia-ordine
+                  - generic [ref=f4e317]:
+                    - generic [ref=f4e319]: Traccia Ordine
+                    - generic [ref=f4e321]: Traccia Ordine
+              - listitem [ref=f4e322]:
+                - link "Privacy Policy" [ref=f4e323] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/legale/privacy
+                  - generic [ref=f4e324]:
+                    - generic [ref=f4e326]: Privacy Policy
+                    - generic [ref=f4e328]: Privacy Policy
+              - listitem [ref=f4e329]:
+                - link "Termini e Condizioni" [ref=f4e330] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/legale/termini
+                  - generic [ref=f4e331]:
+                    - generic [ref=f4e333]: Termini e Condizioni
+                    - generic [ref=f4e335]: Termini e Condizioni
+              - listitem [ref=f4e336]:
+                - link "Cookie Policy" [ref=f4e337] [cursor=pointer]:
+                  - /url: https://thesip.178-105-141-228.sslip.io/legale/cookie
+                  - generic [ref=f4e338]:
+                    - generic [ref=f4e340]: Cookie Policy
+                    - generic [ref=f4e342]: Cookie Policy
+              - listitem [ref=f4e343]:
+                - link "Gestisci cookie" [ref=f4e344] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=f4e345]:
+                    - generic [ref=f4e346]:
+                      - img [ref=f4e347]
+                      - generic [ref=f4e349]: Gestisci cookie
+                    - generic [ref=f4e350]:
+                      - img [ref=f4e351]
+                      - generic [ref=f4e353]: Gestisci cookie
+          - generic [ref=f4e354]:
+            - heading "Contatti" [level=4] [ref=f4e355]
+            - generic [ref=f4e356]:
+              - link "info@thesip.it Ordini, info e assistenza" [ref=f4e357] [cursor=pointer]:
+                - /url: mailto:info@thesip.it
+                - img [ref=f4e359]
+                - generic [ref=f4e362]:
+                  - paragraph [ref=f4e363]: info@thesip.it
+                  - paragraph [ref=f4e364]: Ordini, info e assistenza
+              - generic [ref=f4e365]:
+                - img [ref=f4e367]
+                - generic [ref=f4e370]:
+                  - paragraph [ref=f4e371]: Napoli
+                  - paragraph [ref=f4e372]: Consegna a mano gratuita in città
+              - link "Instagram" [ref=f4e374] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=f4e375]
+        - generic [ref=f4e378]:
+          - img [ref=f4e379]
+          - text: Connessione SSL crittografata
+      - generic [ref=f4e383]:
+        - generic [ref=f4e384]: "Metodi di pagamento accettati:"
+        - img "Visa" [ref=f4e385]
+        - img "Mastercard" [ref=f4e386]
+        - img "Maestro" [ref=f4e387]
+        - img "American Express" [ref=f4e388]
+        - img "PayPal" [ref=f4e389]
+        - img "Apple Pay" [ref=f4e390]
+        - img "Google Pay" [ref=f4e391]
+      - generic [ref=f4e393]:
+        - paragraph [ref=f4e394]: © 2026 The SIP — The Sea In your Pocket
+        - paragraph [ref=f4e395]: The SIP · Napoli · info@thesip.it
+  - status [ref=f4e396]

@@ -1,0 +1,24 @@
+/* ============================================================
+   Pharmanow theme — main CSS entry (Tailwind v4)
+   ------------------------------------------------------------
+   - @import "tailwindcss" carica core + utilities
+   - @source elenca i path da scansionare per le classi usate
+   - tokens.css importa CSS vars da Pharmanow design system
+   - utilities.css importa custom utility classes (gradient, slide,…)
+   ============================================================ */
+
+@import "tailwindcss";
+
+/* Sorgenti da scansionare per generare le classi Tailwind realmente usate. */
+@source "../../**/*.php";
+@source "../js/**/*.js";
+
+/* Token e utility custom. */
+@import "./css/tokens.css";
+@import "./css/utilities.css";
+
+/* WooCommerce custom branding — cart, checkout, mini-cart drawer (custom templates) */
+@import "./css/wc-custom.css";
+
+/* Cookie consent banner + modal */
+@import "./css/cookie-consent.css";

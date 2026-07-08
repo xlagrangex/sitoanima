@@ -1,0 +1,10 @@
+node_modules/
+assets/dist/
+tmp/
+.DS_Store
+*.log
+.env
+.env.local
+.wp-env.json
+.idea/
+.vscode/

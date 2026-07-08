@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 64" width="320" height="64" role="img" aria-label="The SIP — The Sea In your Pocket">
+  <defs>
+    <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a6e9e"/>
+      <stop offset="1" stop-color="#07496b"/>
+    </linearGradient>
+  </defs>
+  <!-- Card icon with wave -->
+  <g transform="rotate(-6 26 32)">
+    <rect x="6" y="6" width="40" height="52" rx="7" fill="url(#ocean)"/>
+    <path d="M10 34 Q16 28 22 34 T34 34 T46 34" fill="none" stroke="#67e8f9" stroke-width="3" stroke-linecap="round"/>
+    <path d="M10 43 Q16 38 22 43 T34 43 T46 43" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
+    <circle cx="18" cy="18" r="3.5" fill="#67e8f9"/>
+    <circle cx="27" cy="14" r="2" fill="#ffffff" opacity="0.8"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="62" y="40" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="30" font-weight="500" fill="#07496b" letter-spacing="-0.5">The</text>
+  <text x="122" y="40" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="32" font-weight="800" fill="#0a6e9e" letter-spacing="0.5">SIP</text>
+  <text x="62" y="55" font-family="ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="10" font-weight="600" fill="#0891b2" letter-spacing="1.4">THE SEA IN YOUR POCKET</text>
+</svg>

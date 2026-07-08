@@ -1,0 +1,472 @@
+- generic [active] [ref=f12e1]:
+  - banner [ref=f12e2]:
+    - generic [ref=f12e3]:
+      - link "Home The SIP" [ref=f12e4] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/
+        - img "The SIP" [ref=f12e5]
+      - link "Torna al carrello" [ref=f12e6] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/cart/
+        - img [ref=f12e7]
+        - generic [ref=f12e9]: Torna al carrello
+      - generic [ref=f12e10]:
+        - img [ref=f12e11]
+        - generic [ref=f12e14]: Pagamento sicuro
+  - main [ref=f12e16]:
+    - generic [ref=f12e18]:
+      - form "Pagamento" [ref=f12e20]:
+        - group "Informazioni di contatto" [ref=f12e21]:
+          - generic [ref=f12e22]: Informazioni di contatto
+          - heading "Informazioni di contatto" [level=2] [ref=f12e25]
+          - generic [ref=f12e27]:
+            - generic [ref=f12e28]:
+              - textbox "Indirizzo email" [ref=f12e29]
+              - generic [ref=f12e30]: Indirizzo email
+            - paragraph [ref=f12e31]: Al momento stai effettuando il check-out come ospite.
+        - group "Indirizzo di spedizione" [ref=f12e32]:
+          - generic [ref=f12e33]: Indirizzo di spedizione
+          - heading "Indirizzo di spedizione" [level=2] [ref=f12e36]
+          - generic [ref=f12e37]:
+            - generic [ref=f12e40]:
+              - generic [ref=f12e43]:
+                - generic [ref=f12e44]: Paese/Regione
+                - combobox "Paese/Regione" [ref=f12e45]:
+                  - option "Seleziona un paese/regione" [disabled]
+                  - option "Afghanistan"
+                  - option "Albania"
+                  - option "Algeria"
+                  - option "American Samoa"
+                  - option "Andorra"
+                  - option "Angola"
+                  - option "Anguilla"
+                  - option "Antartide"
+                  - option "Antigua e Barbuda"
+                  - option "Arabia Saudita"
+                  - option "Argentina"
+                  - option "Armenia"
+                  - option "Aruba"
+                  - option "Australia"
+                  - option "Austria"
+                  - option "Azerbaijan"
+                  - option "Bahamas"
+                  - option "Bahrain"
+                  - option "Bangladesh"
+                  - option "Barbados"
+                  - option "Belau"
+                  - option "Belgio"
+                  - option "Belize"
+                  - option "Benin"
+                  - option "Bermuda"
+                  - option "Bhutan"
+                  - option "Bielorussia"
+                  - option "Birmania"
+                  - option "Bolivia"
+                  - option "Bonaire, Saint Eustatius e Saba"
+                  - option "Bosnia-Erzegovina"
+                  - option "Botswana"
+                  - option "Brasile"
+                  - option "Brunei"
+                  - option "Bulgaria"
+                  - option "Burkina Faso"
+                  - option "Burundi"
+                  - option "Cambogia"
+                  - option "Camerun"
+                  - option "Canada"
+                  - option "Capo Verde"
+                  - option "Ciad"
+                  - option "Cile"
+                  - option "Cina"
+                  - option "Cipro"
+                  - option "Colombia"
+                  - option "Comore"
+                  - option "Congo (Brazzaville)"
+                  - option "Congo (Kinshasa)"
+                  - option "Corea del Nord"
+                  - option "Corea del Sud"
+                  - option "Costa d'Avorio"
+                  - option "Costa Rica"
+                  - option "Croazia"
+                  - option "Cuba"
+                  - option "Curaçao"
+                  - option "Danimarca"
+                  - option "Dominica"
+                  - option "Ecuador"
+                  - option "Egitto"
+                  - option "El Salvador"
+                  - option "Emirati Arabi Uniti"
+                  - option "Eritrea"
+                  - option "Estonia"
+                  - option "Eswatini"
+                  - option "Etiopia"
+                  - option "Figi"
+                  - option "Filippine"
+                  - option "Finlandia"
+                  - option "Francia"
+                  - option "Gabon"
+                  - option "Gambia"
+                  - option "Georgia"
+                  - option "Germania"
+                  - option "Ghana"
+                  - option "Giamaica"
+                  - option "Giappone"
+                  - option "Gibilterra"
+                  - option "Gibuti"
+                  - option "Giordania"
+                  - option "Grecia"
+                  - option "Grenada"
+                  - option "Groenlandia"
+                  - option "Guadalupa"
+                  - option "Guam"
+                  - option "Guatemala"
+                  - option "Guernsey"
+                  - option "Guinea"
+                  - option "Guinea Equatoriale"
+                  - option "Guinea-Bissau"
+                  - option "Guyana"
+                  - option "Guyana Francese"
+                  - option "Haiti"
+                  - option "Honduras"
+                  - option "Hong Kong"
+                  - option "India"
+                  - option "Indonesia"
+                  - option "Iran"
+                  - option "Iraq"
+                  - option "Irlanda"
+                  - option "Islanda"
+                  - option "Isola Bouvet"
+                  - option "Isola di Man"
+                  - option "Isola di Natale"
+                  - option "Isola Norfolk"
+                  - option "Isole Åland"
+                  - option "Isole Cayman"
+                  - option "Isole Cocos (Keeling)"
+                  - option "Isole Cook"
+                  - option "Isole Falkland"
+                  - option "Isole Faroe"
+                  - option "Isole Heard e McDonald"
+                  - option "Isole Marshall"
+                  - option "Isole Salomone"
+                  - option "Isole Vergini Americane"
+                  - option "Isole Vergini Britanniche"
+                  - option "Israele"
+                  - option "Italia" [selected]
+                  - option "Jersey"
+                  - option "Kazakistan"
+                  - option "Kenya"
+                  - option "Kirghizistan"
+                  - option "Kiribati"
+                  - option "Kosovo"
+                  - option "Kuwait"
+                  - option "Laos"
+                  - option "Lesotho"
+                  - option "Lettonia"
+                  - option "Libano"
+                  - option "Liberia"
+                  - option "Libia"
+                  - option "Liechtenstein"
+                  - option "Lituania"
+                  - option "Lussemburgo"
+                  - option "Macao"
+                  - option "Macedonia del Nord"
+                  - option "Madagascar"
+                  - option "Malawi"
+                  - option "Malaysia"
+                  - option "Maldive"
+                  - option "Mali"
+                  - option "Malta"
+                  - option "Marocco"
+                  - option "Martinica"
+                  - option "Mauritania"
+                  - option "Mauritius"
+                  - option "Mayotte"
+                  - option "Messico"
+                  - option "Micronesia"
+                  - option "Moldavia"
+                  - option "Monaco"
+                  - option "Mongolia"
+                  - option "Montenegro"
+                  - option "Montserrat"
+                  - option "Mozambico"
+                  - option "Namibia"
+                  - option "Nauru"
+                  - option "Nepal"
+                  - option "Nicaragua"
+                  - option "Niger"
+                  - option "Nigeria"
+                  - option "Niue"
+                  - option "Northern Mariana Islands"
+                  - option "Norvegia"
+                  - option "Nuova Caledonia"
+                  - option "Nuova Zelanda"
+                  - option "Oman"
+                  - option "Paesi Bassi"
+                  - option "Pakistan"
+                  - option "Panama"
+                  - option "Papua Nuova Guinea"
+                  - option "Paraguay"
+                  - option "Perù"
+                  - option "Pitcairn"
+                  - option "Polinesia Francese"
+                  - option "Polonia"
+                  - option "Portogallo"
+                  - option "Puerto Rico"
+                  - option "Qatar"
+                  - option "Regno Unito (UK)"
+                  - option "Repubblica Ceca"
+                  - option "Repubblica Centrafricana"
+                  - option "Repubblica Dominicana"
+                  - option "Reunion"
+                  - option "Romania"
+                  - option "Russia"
+                  - option "Rwanda"
+                  - option "Sahara Occidentale"
+                  - option "Saint Helena"
+                  - option "Saint Kitts e Nevis"
+                  - option "Saint Lucia"
+                  - option "Saint Martin (Francia)"
+                  - option "Saint Martin (Paesi Bassi)"
+                  - option "Saint Vincent e Grenadine"
+                  - option "Saint-Barthélemy"
+                  - option "Saint-Pierre e Miquelon"
+                  - option "Samoa"
+                  - option "San Marino"
+                  - option "São Tomé e Príncipe"
+                  - option "Senegal"
+                  - option "Serbia"
+                  - option "Seychelles"
+                  - option "Sierra Leone"
+                  - option "Singapore"
+                  - option "Siria"
+                  - option "Slovacchia"
+                  - option "Slovenia"
+                  - option "Somalia"
+                  - option "South Georgia/Sandwich Islands"
+                  - option "Spagna"
+                  - option "Sri Lanka"
+                  - option "Stati Uniti (US)"
+                  - option "Stati Uniti (US) Isole Minori"
+                  - option "Sud Africa"
+                  - option "Sudan"
+                  - option "Sudan del Sud"
+                  - option "Suriname"
+                  - option "Svalbard e Jan Mayen"
+                  - option "Svezia"
+                  - option "Svizzera"
+                  - option "Tagikistan"
+                  - option "Tailandia"
+                  - option "Taiwan"
+                  - option "Tanzania"
+                  - option "Terre Australi e Antartiche Francesi"
+                  - option "Territori palestinesi"
+                  - option "Territorio Britannico dell'Oceano Indiano"
+                  - option "Timor Est"
+                  - option "Togo"
+                  - option "Tokelau"
+                  - option "Tonga"
+                  - option "Trinidad e Tobago"
+                  - option "Tunisia"
+                  - option "Turchia"
+                  - option "Turkmenistan"
+                  - option "Turks e Caicos"
+                  - option "Tuvalu"
+                  - option "Ucraina"
+                  - option "Uganda"
+                  - option "Ungheria"
+                  - option "Uruguay"
+                  - option "Uzbekistan"
+                  - option "Vanuatu"
+                  - option "Vaticano"
+                  - option "Venezuela"
+                  - option "Vietnam"
+                  - option "Wallis e Futuna"
+                  - option "Yemen"
+                  - option "Zambia"
+                  - option "Zimbabwe"
+                - img
+              - generic [ref=f12e46]:
+                - textbox "Nome" [ref=f12e47]
+                - generic [ref=f12e48]: Nome
+              - generic [ref=f12e49]:
+                - textbox "Cognome" [ref=f12e50]
+                - generic [ref=f12e51]: Cognome
+              - generic [ref=f12e52]:
+                - textbox "Indirizzo" [ref=f12e53]
+                - generic [ref=f12e54]: Indirizzo
+              - button "+ Aggiungi appartamento, suite, ecc." [ref=f12e55] [cursor=pointer]
+              - textbox [ref=f12e56]
+              - generic [ref=f12e57]:
+                - textbox "CAP" [ref=f12e58]
+                - generic [ref=f12e59]: CAP
+              - generic [ref=f12e60]:
+                - textbox "Città" [ref=f12e61]
+                - generic [ref=f12e62]: Città
+              - generic [ref=f12e65]:
+                - generic [ref=f12e66]: Provincia
+                - combobox "Provincia" [ref=f12e67]:
+                  - option "Seleziona un provincia" [disabled]
+                  - option "Agrigento"
+                  - option "Alessandria"
+                  - option "Ancona"
+                  - option "Aosta"
+                  - option "Arezzo"
+                  - option "Ascoli Piceno"
+                  - option "Asti"
+                  - option "Avellino"
+                  - option "Bari"
+                  - option "Barletta-Andria-Trani"
+                  - option "Belluno"
+                  - option "Benevento"
+                  - option "Bergamo"
+                  - option "Biella"
+                  - option "Bologna"
+                  - option "Bolzano"
+                  - option "Brescia"
+                  - option "Brindisi"
+                  - option "Cagliari"
+                  - option "Caltanissetta"
+                  - option "Campobasso"
+                  - option "Caserta"
+                  - option "Catania"
+                  - option "Catanzaro"
+                  - option "Chieti"
+                  - option "Como"
+                  - option "Cosenza"
+                  - option "Cremona"
+                  - option "Crotone"
+                  - option "Cuneo"
+                  - option "Enna"
+                  - option "Fermo"
+                  - option "Ferrara"
+                  - option "Firenze"
+                  - option "Foggia"
+                  - option "Forlì-Cesena"
+                  - option "Frosinone"
+                  - option "Genova"
+                  - option "Gorizia"
+                  - option "Grosseto"
+                  - option "Imperia"
+                  - option "Isernia"
+                  - option "La Spezia"
+                  - option "L'Aquila"
+                  - option "Latina"
+                  - option "Lecce"
+                  - option "Lecco"
+                  - option "Livorno"
+                  - option "Lodi"
+                  - option "Lucca"
+                  - option "Macerata"
+                  - option "Mantova"
+                  - option "Massa-Carrara"
+                  - option "Matera"
+                  - option "Messina"
+                  - option "Milano"
+                  - option "Modena"
+                  - option "Monza e della Brianza"
+                  - option "Napoli" [selected]
+                  - option "Novara"
+                  - option "Nuoro"
+                  - option "Oristano"
+                  - option "Padova"
+                  - option "Palermo"
+                  - option "Parma"
+                  - option "Pavia"
+                  - option "Perugia"
+                  - option "Pesaro e Urbino"
+                  - option "Pescara"
+                  - option "Piacenza"
+                  - option "Pisa"
+                  - option "Pistoia"
+                  - option "Pordenone"
+                  - option "Potenza"
+                  - option "Prato"
+                  - option "Ragusa"
+                  - option "Ravenna"
+                  - option "Reggio Calabria"
+                  - option "Reggio Emilia"
+                  - option "Rieti"
+                  - option "Rimini"
+                  - option "Roma"
+                  - option "Rovigo"
+                  - option "Salerno"
+                  - option "Sassari"
+                  - option "Savona"
+                  - option "Siena"
+                  - option "Siracusa"
+                  - option "Sondrio"
+                  - option "Sud Sardegna"
+                  - option "Taranto"
+                  - option "Teramo"
+                  - option "Terni"
+                  - option "Torino"
+                  - option "Trapani"
+                  - option "Trento"
+                  - option "Treviso"
+                  - option "Trieste"
+                  - option "Udine"
+                  - option "Varese"
+                  - option "Venezia"
+                  - option "Verbano-Cusio-Ossola"
+                  - option "Vercelli"
+                  - option "Verona"
+                  - option "Vibo Valentia"
+                  - option "Vicenza"
+                  - option "Viterbo"
+                - img
+              - generic [ref=f12e68]:
+                - textbox "Telefono (facoltativo)" [ref=f12e69]
+                - generic [ref=f12e70]: Telefono (facoltativo)
+            - generic [ref=f12e72] [cursor=pointer]:
+              - checkbox "Usa lo stesso indirizzo per la fatturazione" [checked] [ref=f12e73]
+              - img
+              - generic [ref=f12e74]: Usa lo stesso indirizzo per la fatturazione
+        - group "Opzioni di spedizione" [ref=f12e75]:
+          - generic [ref=f12e76]: Opzioni di spedizione
+          - heading "Opzioni di spedizione" [level=2] [ref=f12e79]
+          - generic [ref=f12e85]:
+            - generic [ref=f12e86] [cursor=pointer]:
+              - radio "Spedizione gratuita — corriere 24/48h Gratuito" [checked] [ref=f12e87]
+              - generic [ref=f12e89]:
+                - generic [ref=f12e90]: Spedizione gratuita — corriere 24/48h
+                - generic [ref=f12e91]: Gratuito
+            - generic [ref=f12e92] [cursor=pointer]:
+              - radio "Consegna a mano a Napoli Gratuito" [ref=f12e93]
+              - generic [ref=f12e95]:
+                - generic [ref=f12e96]: Consegna a mano a Napoli
+                - generic [ref=f12e97]: Gratuito
+        - group "Opzioni di pagamento" [ref=f12e98]:
+          - generic [ref=f12e99]: Opzioni di pagamento
+          - heading "Opzioni di pagamento" [level=2] [ref=f12e102]
+          - generic "Caricamento delle opzioni di pagamento in corso…" [ref=f12e104]
+        - generic [ref=f12e113] [cursor=pointer]:
+          - checkbox "Aggiungi una nota all'ordine" [ref=f12e114]
+          - generic [ref=f12e115]: Aggiungi una nota all'ordine
+        - generic [ref=f12e116]: Per procedere con il tuo acquisto, accetta Termini e condizioni e Informativa sulla privacy
+        - button "Effettua ordine" [ref=f12e119]:
+          - generic [ref=f12e121]: Effettua ordine
+      - generic [ref=f12e123]:
+        - heading "Riepilogo dell'ordine" [level=2] [ref=f12e125]
+        - generic [ref=f12e126]:
+          - generic "Caricamento dei prodotti nel carrello in corso…" [ref=f12e128]
+          - heading "Aggiungi codici promozionali" [level=2] [ref=f12e147]:
+            - button "Aggiungi codici promozionali" [ref=f12e148] [cursor=pointer]:
+              - img [ref=f12e149]
+              - text: Aggiungi codici promozionali
+          - generic [ref=f12e151]:
+            - generic [ref=f12e153]:
+              - generic [ref=f12e154]: Subtotale
+              - generic "Caricamento del prezzo in corso…" [ref=f12e155]
+            - generic [ref=f12e158]:
+              - generic [ref=f12e159]: Consegna
+              - generic "Caricamento del prezzo in corso…" [ref=f12e160]
+              - generic [ref=f12e162]: Spedizione gratuita — corriere 24/48h
+          - generic [ref=f12e164]:
+            - generic [ref=f12e165]: Totale
+            - generic "Caricamento del prezzo in corso…" [ref=f12e166]
+  - contentinfo [ref=f12e167]:
+    - paragraph [ref=f12e169]:
+      - text: © 2026 The SIP — The Sea In your Pocket ·
+      - link "Privacy" [ref=f12e170] [cursor=pointer]:
+        - /url: ""
+      - text: ·
+      - link "Termini" [ref=f12e171] [cursor=pointer]:
+        - /url: https://thesip.178-105-141-228.sslip.io/legale/termini
+  - status [ref=f12e174]
