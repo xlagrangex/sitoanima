@@ -32,7 +32,7 @@ $pn_url          = isset( $args['url'] ) ? (string) $args['url'] : '';
 $pn_image        = isset( $args['image'] ) ? (string) $args['image'] : '';
 $pn_image_mobile = isset( $args['image_mobile'] ) ? (string) $args['image_mobile'] : '';
 $pn_hide_text    = ! empty( $args['hide_text'] );
-$pn_grad         = isset( $args['gradient'] ) ? (string) $args['gradient'] : 'linear-gradient(135deg, #0b8894 0%, #065a62 100%)';
+$pn_grad         = isset( $args['gradient'] ) ? (string) $args['gradient'] : 'linear-gradient(135deg, #0a6e9e 0%, #07496b 100%)';
 $pn_size         = isset( $args['size'] ) && in_array( $args['size'], array( 'md', 'lg' ), true ) ? $args['size'] : 'md';
 $pn_align        = isset( $args['align'] ) && in_array( $args['align'], array( 'left', 'center', 'right' ), true ) ? $args['align'] : 'left';
 

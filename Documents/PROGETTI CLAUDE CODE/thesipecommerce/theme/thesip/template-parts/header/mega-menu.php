@@ -13,7 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$pn_roots = pn_get_mega_menu_roots();
+// Catalogo piccolo (4 prodotti): nav semplice, niente mega menu a tendina.
+$pn_roots = array();
 
 if ( empty( $pn_roots ) ) :
 	$pn_shop = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/negozio' );

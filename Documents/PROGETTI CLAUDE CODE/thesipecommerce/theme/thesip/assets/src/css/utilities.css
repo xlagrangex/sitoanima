@@ -100,12 +100,9 @@
 	animation: pn-arrow-nudge 1.4s cubic-bezier(0.4, 0, 0.2, 1) 1s 3;
 }
 
-/* Pattern marino tenue per sezioni chiare (asset AI, tile ripetuto) */
+/* Fondo marino tenue per sezioni chiare: gradiente cielo→bianco, niente pattern */
 .thesip-pattern-bg {
-	background-color: #f2fafd;
-	background-image: url("../images/thesip/pattern-light.jpg");
-	background-size: 420px auto;
-	background-repeat: repeat;
+	background: linear-gradient(180deg, #eff8fd 0%, #ffffff 100%);
 }
 
 /* Hero & accent backgrounds */

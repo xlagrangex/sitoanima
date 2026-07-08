@@ -78,8 +78,6 @@ get_template_part(
 
 <?php do_action( 'pn_banner_zone', 'home_after_integratori' ); ?>
 
-<?php get_template_part( 'template-parts/home/explore-tabs' ); ?>
-
 <?php do_action( 'pn_banner_zone', 'home_after_explore' ); ?>
 
 <?php get_template_part( 'template-parts/home/pharmacist-cta' ); ?>

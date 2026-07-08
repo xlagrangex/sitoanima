@@ -17,7 +17,7 @@ $date_iso     = $pn['date_iso'] ?? '';
 $date_fmt     = $pn['date_fmt'] ?? '';
 $settings     = $pn['settings'] ?? array();
 ?>
-<section class="relative overflow-hidden bg-gradient-to-br from-[#008692] via-[#0B8894] to-[#43CCB1] text-white">
+<section class="relative overflow-hidden bg-gradient-to-br from-[#0891B2] via-[#0A6E9E] to-[#38BDF8] text-white">
 	<div class="absolute inset-0 opacity-20" aria-hidden="true">
 		<svg width="100%" height="100%"><defs><pattern id="pn-grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/></pattern></defs><rect width="100%" height="100%" fill="url(#pn-grid)"/></svg>
 	</div>
@@ -26,7 +26,7 @@ $settings     = $pn['settings'] ?? array();
 		<div class="relative inline-flex items-center justify-center pn-burst">
 			<div class="relative w-20 h-20 rounded-full bg-white/95 shadow-xl flex items-center justify-center pn-anim-pop">
 				<span class="pn-anim-check inline-flex">
-					<?php pn_icon( 'check', array( 'class' => 'w-10 h-10 text-[#0B8894]', 'stroke-width' => '3' ) ); ?>
+					<?php pn_icon( 'check', array( 'class' => 'w-10 h-10 text-[#0A6E9E]', 'stroke-width' => '3' ) ); ?>
 				</span>
 			</div>
 		</div>

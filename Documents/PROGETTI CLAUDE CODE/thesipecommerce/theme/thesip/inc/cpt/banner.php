@@ -160,7 +160,7 @@ function pn_banner_render_metabox( $post ): void {
 	$img_m_url = $img_m_id ? wp_get_attachment_image_url( $img_m_id, 'medium' ) : '';
 	?>
 	<style>
-		.pn-bb { --pn-bg:#f8fafc; --pn-card:#fff; --pn-border:#e5e7eb; --pn-text:#0f172a; --pn-muted:#64748b; --pn-primary:#0b8894; --pn-radius:10px; --pn-shadow:0 1px 2px rgba(0,0,0,.04), 0 0 0 1px rgba(0,0,0,.04); display:grid; grid-template-columns:1fr 320px; gap:18px; padding:4px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--pn-text); }
+		.pn-bb { --pn-bg:#f8fafc; --pn-card:#fff; --pn-border:#e5e7eb; --pn-text:#0f172a; --pn-muted:#64748b; --pn-primary:#0a6e9e; --pn-radius:10px; --pn-shadow:0 1px 2px rgba(0,0,0,.04), 0 0 0 1px rgba(0,0,0,.04); display:grid; grid-template-columns:1fr 320px; gap:18px; padding:4px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--pn-text); }
 		@media (max-width:1100px) { .pn-bb { grid-template-columns:1fr; } }
 		.pn-bb__col { display:flex; flex-direction:column; gap:14px; }
 		.pn-bb-card { background:var(--pn-card); border-radius:var(--pn-radius); box-shadow:var(--pn-shadow); padding:18px; }

@@ -30,7 +30,7 @@ $pn_status_color = array(
 );
 $pn_badge_class = $pn_status_color[ $status ] ?? 'bg-gray-100 text-gray-700';
 ?>
-<section class="bg-gradient-to-r from-[#008692] to-[#6AD6E3] text-white">
+<section class="bg-gradient-to-r from-[#0891B2] to-[#67E8F9] text-white">
 	<div class="max-w-[1280px] mx-auto px-4 py-10 sm:py-12">
 		<nav class="flex items-center gap-2 text-sm mb-3" aria-label="<?php esc_attr_e( 'Breadcrumb', 'pharmanow' ); ?>">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-white/70 hover:text-white transition-colors"><?php esc_html_e( 'Home', 'pharmanow' ); ?></a>

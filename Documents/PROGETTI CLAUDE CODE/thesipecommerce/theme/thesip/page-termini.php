@@ -53,7 +53,7 @@ $pn_toc = array(
 					<nav class="space-y-2">
 						<?php foreach ( $pn_toc as $pn_item ) : ?>
 							<?php
-							$pn_classes = 'block text-sm text-gray-600 hover:text-[#0B8894] transition-colors';
+							$pn_classes = 'block text-sm text-gray-600 hover:text-[#0A6E9E] transition-colors';
 							if ( ! empty( $pn_item['indent'] ) ) {
 								$pn_classes .= ' pl-3';
 							}
@@ -94,7 +94,7 @@ $pn_toc = array(
 										__( 'Il Sito "www.thesip.it" e l\'applicazione "The SIP" sono gestiti da The SIP, con sede a Napoli. Per eventuale assistenza o reclami, il recapito di The SIP è il seguente: e-mail %s.', 'pharmanow' ),
 										array( 'a' => array( 'href' => array(), 'class' => array() ) )
 									),
-									'<a href="mailto:info@thesip.it" class="text-[#0B8894] hover:underline">info@thesip.it</a>'
+									'<a href="mailto:info@thesip.it" class="text-[#0A6E9E] hover:underline">info@thesip.it</a>'
 								);
 								?>
 							</p>
@@ -145,7 +145,7 @@ $pn_toc = array(
 
 							<div class="overflow-x-auto mt-4">
 								<table class="w-full border border-gray-200 rounded-lg overflow-hidden">
-									<thead class="bg-[#0B8894] text-white">
+									<thead class="bg-[#0A6E9E] text-white">
 										<tr>
 											<th class="px-4 py-3 text-left text-sm font-semibold"><?php esc_html_e( 'Destinazione', 'pharmanow' ); ?></th>
 											<th class="px-4 py-3 text-center text-sm font-semibold"><?php esc_html_e( 'Fino a €29,90', 'pharmanow' ); ?></th>
@@ -191,7 +191,7 @@ $pn_toc = array(
 										__( "La comunicazione potrà essere anticipata dall'acquirente stesso al seguente indirizzo e-mail %s, purché confermata con raccomandata a/r entro 48 ore.", 'pharmanow' ),
 										array( 'a' => array( 'href' => array(), 'class' => array() ) )
 									),
-									'<a href="mailto:info@thesip.it" class="text-[#0B8894] hover:underline">info@thesip.it</a>'
+									'<a href="mailto:info@thesip.it" class="text-[#0A6E9E] hover:underline">info@thesip.it</a>'
 								);
 								?>
 							</p>
@@ -255,7 +255,7 @@ $pn_toc = array(
 						</div>
 					</section>
 
-					<div class="border-t-4 border-[#0B8894]/20 my-4"></div>
+					<div class="border-t-4 border-[#0A6E9E]/20 my-4"></div>
 
 					<section id="condizioni-uso" class="scroll-mt-24">
 						<h2 class="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-100"><?php esc_html_e( "Condizioni per l'Utilizzo del Sito e delle Applicazioni", 'pharmanow' ); ?></h2>
@@ -276,18 +276,18 @@ $pn_toc = array(
 										__( "The SIP ha adottato misure di sicurezza per proteggere i dati degli utenti, inclusa la tecnologia di criptaggio e protocolli HTTPS. Per maggiori informazioni, consulta la nostra %s.", 'pharmanow' ),
 										array( 'a' => array( 'href' => array(), 'class' => array() ) )
 									),
-									'<a href="' . esc_url( home_url( '/legale/privacy' ) ) . '" class="text-[#0B8894] hover:underline">' . esc_html__( 'Informativa Privacy', 'pharmanow' ) . '</a>'
+									'<a href="' . esc_url( home_url( '/legale/privacy' ) ) . '" class="text-[#0A6E9E] hover:underline">' . esc_html__( 'Informativa Privacy', 'pharmanow' ) . '</a>'
 								);
 								?>
 							</p>
 						</div>
 					</section>
 
-					<section class="bg-gradient-to-r from-[#0B8894]/10 to-[#43CCB1]/10 rounded-xl p-6">
+					<section class="bg-gradient-to-r from-[#0A6E9E]/10 to-[#38BDF8]/10 rounded-xl p-6">
 						<h3 class="text-lg font-bold text-gray-900 mb-3"><?php esc_html_e( 'Hai domande?', 'pharmanow' ); ?></h3>
 						<p class="text-gray-600 mb-4"><?php esc_html_e( 'Per qualsiasi dubbio o domanda relativamente ai contenuti e materiali del Servizio si prega di contattarci.', 'pharmanow' ); ?></p>
 						<div class="flex flex-wrap gap-4">
-							<a href="mailto:info@thesip.it" class="inline-flex items-center gap-2 bg-[#0B8894] text-white font-semibold py-2.5 px-5 rounded-xl hover:bg-[#0B8894]/90 transition-colors">
+							<a href="mailto:info@thesip.it" class="inline-flex items-center gap-2 bg-[#0A6E9E] text-white font-semibold py-2.5 px-5 rounded-xl hover:bg-[#0A6E9E]/90 transition-colors">
 								<?php pn_icon( 'mail', array( 'class' => 'w-5 h-5' ) ); ?>
 								<?php esc_html_e( 'Scrivici', 'pharmanow' ); ?>
 							</a>

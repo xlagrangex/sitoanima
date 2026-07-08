@@ -43,7 +43,7 @@ $pn_map_id = 'pn-map-' . wp_unique_id();
 	<div class="relative">
 		<div
 			id="<?php echo esc_attr( $pn_map_id ); ?>"
-			class="w-full aspect-[16/9] sm:aspect-[21/9] bg-gradient-to-br from-[#0B8894]/5 to-[#43CCB1]/10"
+			class="w-full aspect-[16/9] sm:aspect-[21/9] bg-gradient-to-br from-[#0A6E9E]/5 to-[#38BDF8]/10"
 			role="img"
 			aria-label="<?php esc_attr_e( 'Mappa indirizzo di consegna', 'pharmanow' ); ?>"
 		></div>
@@ -52,7 +52,7 @@ $pn_map_id = 'pn-map-' . wp_unique_id();
 		<div class="absolute left-4 sm:left-6 bottom-4 sm:bottom-6 right-4 sm:right-auto sm:max-w-sm pointer-events-none">
 			<div class="bg-white rounded-xl shadow-lg p-4 sm:p-5 border border-gray-100 pointer-events-auto">
 				<div class="flex items-start gap-3">
-					<div class="w-10 h-10 shrink-0 rounded-lg bg-gradient-to-br from-[#0B8894] to-[#43CCB1] text-white flex items-center justify-center">
+					<div class="w-10 h-10 shrink-0 rounded-lg bg-gradient-to-br from-[#0A6E9E] to-[#38BDF8] text-white flex items-center justify-center">
 						<?php pn_icon( 'map-pin', array( 'class' => 'w-5 h-5' ) ); ?>
 					</div>
 					<div class="min-w-0">
@@ -120,7 +120,7 @@ $pn_map_id = 'pn-map-' . wp_unique_id();
 		return '<div class="pn-marker-dest-wrap">' +
 			'<svg width="36" height="44" viewBox="0 0 36 44" xmlns="http://www.w3.org/2000/svg">' +
 				'<defs><linearGradient id="pmg-' + cfg.mapId + '" x1="0" y1="0" x2="0" y2="1">' +
-					'<stop offset="0%" stop-color="#43CCB1"/><stop offset="100%" stop-color="#0B8894"/>' +
+					'<stop offset="0%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#0A6E9E"/>' +
 				'</linearGradient></defs>' +
 				'<path d="M18 0C8.06 0 0 8.06 0 18c0 13 18 26 18 26s18-13 18-26C36 8.06 27.94 0 18 0z" fill="url(#pmg-' + cfg.mapId + ')"/>' +
 				'<circle cx="18" cy="18" r="7" fill="#fff"/>' +
@@ -129,8 +129,8 @@ $pn_map_id = 'pn-map-' . wp_unique_id();
 	function origPinSvg() {
 		return '<div class="pn-marker-orig-wrap">' +
 			'<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">' +
-				'<circle cx="14" cy="14" r="12" fill="#fff" stroke="#0B8894" stroke-width="3"/>' +
-				'<circle cx="14" cy="14" r="5" fill="#0B8894"/>' +
+				'<circle cx="14" cy="14" r="12" fill="#fff" stroke="#0A6E9E" stroke-width="3"/>' +
+				'<circle cx="14" cy="14" r="5" fill="#0A6E9E"/>' +
 			'</svg></div>';
 	}
 
@@ -185,7 +185,7 @@ $pn_map_id = 'pn-map-' . wp_unique_id();
 
 				L.polyline(
 					[[cfg.origin.lat, cfg.origin.lng], [cfg.dest.lat, cfg.dest.lng]],
-					{ color: '#0B8894', weight: 3, opacity: 0.55, dashArray: '6, 6', lineCap: 'round' }
+					{ color: '#0A6E9E', weight: 3, opacity: 0.55, dashArray: '6, 6', lineCap: 'round' }
 				).addTo(map);
 
 				var bounds = L.latLngBounds(

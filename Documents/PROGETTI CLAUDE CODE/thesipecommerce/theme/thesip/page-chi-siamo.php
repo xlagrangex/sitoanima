@@ -77,7 +77,7 @@ $pn_stats = array(
 	<?php
 	// Hero — porting bg-gradient with logo card right side.
 	?>
-	<div class="bg-gradient-to-r from-[#008692] to-[#6AD6E3] py-12 sm:py-16 lg:py-20">
+	<div class="bg-gradient-to-r from-[#0891B2] to-[#67E8F9] py-12 sm:py-16 lg:py-20">
 		<div class="max-w-[1280px] mx-auto px-4">
 			<nav class="flex items-center gap-2 text-sm mb-4" aria-label="<?php esc_attr_e( 'Breadcrumb', 'pharmanow' ); ?>">
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-white/70 hover:text-white transition-colors">
@@ -135,7 +135,7 @@ $pn_stats = array(
 			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
 				<?php foreach ( $pn_why_choose as $pn_card ) : ?>
 					<div class="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100">
-						<div class="w-14 h-14 bg-gradient-to-r from-[#0B8894] to-[#43CCB1] rounded-xl flex items-center justify-center text-white mb-4">
+						<div class="w-14 h-14 bg-gradient-to-r from-[#0A6E9E] to-[#38BDF8] rounded-xl flex items-center justify-center text-white mb-4">
 							<?php pn_icon( $pn_card['icon'], array( 'class' => 'w-8 h-8' ) ); ?>
 						</div>
 						<h3 class="text-lg font-bold text-gray-900 mb-2"><?php echo esc_html( $pn_card['title'] ); ?></h3>
@@ -167,20 +167,20 @@ $pn_stats = array(
 						foreach ( $pn_coverage as $pn_line ) :
 							?>
 							<li class="flex items-center gap-3">
-								<div class="w-8 h-8 bg-[#0B8894]/10 rounded-full flex items-center justify-center">
-									<?php pn_icon( 'check', array( 'class' => 'w-5 h-5 text-[#0B8894]' ) ); ?>
+								<div class="w-8 h-8 bg-[#0A6E9E]/10 rounded-full flex items-center justify-center">
+									<?php pn_icon( 'check', array( 'class' => 'w-5 h-5 text-[#0A6E9E]' ) ); ?>
 								</div>
 								<span class="text-gray-700"><?php echo esc_html( $pn_line ); ?></span>
 							</li>
 						<?php endforeach; ?>
 					</ul>
-					<a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/negozio' ) ); ?>" class="inline-flex items-center gap-2 text-[#0B8894] font-semibold hover:underline">
+					<a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/negozio' ) ); ?>" class="inline-flex items-center gap-2 text-[#0A6E9E] font-semibold hover:underline">
 						<?php esc_html_e( 'Scopri le carte', 'pharmanow' ); ?>
 						<?php pn_icon( 'arrow-right', array( 'class' => 'w-4 h-4' ) ); ?>
 					</a>
 				</div>
 				<div class="relative">
-					<div class="bg-gradient-to-br from-[#0B8894]/10 to-[#43CCB1]/10 rounded-3xl p-8 flex items-center justify-center min-h-[400px]">
+					<div class="bg-gradient-to-br from-[#0A6E9E]/10 to-[#38BDF8]/10 rounded-3xl p-8 flex items-center justify-center min-h-[400px]">
 						<div class="relative w-full max-w-[350px]">
 							<img src="<?php echo esc_url( pn_asset( 'images/thesip/preview-carte.jpg' ) ); ?>" alt="<?php esc_attr_e( 'Anteprima delle carte The SIP', 'pharmanow' ); ?>" width="907" height="1020" class="w-full h-auto rounded-2xl shadow-lg">
 						</div>
@@ -218,7 +218,7 @@ $pn_stats = array(
 			<div class="grid lg:grid-cols-2 gap-12 items-center">
 				<div>
 					<div class="inline-flex items-center gap-2 bg-white/10 rounded-full px-4 py-2 mb-6">
-						<?php pn_icon( 'sparkles', array( 'class' => 'w-5 h-5 text-[#43CCB1]' ) ); ?>
+						<?php pn_icon( 'sparkles', array( 'class' => 'w-5 h-5 text-[#38BDF8]' ) ); ?>
 						<span class="text-white font-medium text-sm"><?php esc_html_e( 'Il progetto', 'pharmanow' ); ?></span>
 					</div>
 					<h2 class="text-2xl sm:text-3xl font-bold text-white mb-4"><?php esc_html_e( 'Nata dalla community, su Kickstarter', 'pharmanow' ); ?></h2>
@@ -228,12 +228,12 @@ $pn_stats = array(
 					<ul class="space-y-3 mb-8">
 						<?php foreach ( $pn_welfare as $pn_item ) : ?>
 							<li class="flex items-center gap-3 text-white">
-								<?php pn_icon( 'check', array( 'class' => 'w-5 h-5 text-[#43CCB1] flex-shrink-0' ) ); ?>
+								<?php pn_icon( 'check', array( 'class' => 'w-5 h-5 text-[#38BDF8] flex-shrink-0' ) ); ?>
 								<?php echo esc_html( $pn_item ); ?>
 							</li>
 						<?php endforeach; ?>
 					</ul>
-					<a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/negozio' ) ); ?>" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#0B8894] to-[#43CCB1] text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity">
+					<a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/negozio' ) ); ?>" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#0A6E9E] to-[#38BDF8] text-white font-semibold py-3 px-6 rounded-xl hover:opacity-90 transition-opacity">
 						<?php esc_html_e( 'Scopri le carte', 'pharmanow' ); ?>
 						<?php pn_icon( 'arrow-right', array( 'class' => 'w-5 h-5' ) ); ?>
 					</a>
@@ -257,7 +257,7 @@ $pn_stats = array(
 			<div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
 				<?php foreach ( $pn_stats as $pn_stat ) : ?>
 					<div class="text-center p-6 bg-gray-50 rounded-2xl">
-						<p class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#0B8894] to-[#43CCB1] bg-clip-text text-transparent">
+						<p class="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-[#0A6E9E] to-[#38BDF8] bg-clip-text text-transparent">
 							<?php echo esc_html( $pn_stat['value'] ); ?>
 						</p>
 						<p class="text-gray-600 text-sm mt-2"><?php echo esc_html( $pn_stat['label'] ); ?></p>
@@ -270,13 +270,13 @@ $pn_stats = array(
 	<?php // CTA. ?>
 	<section class="py-12 sm:py-16">
 		<div class="max-w-[1280px] mx-auto px-4">
-			<div class="bg-gradient-to-r from-[#0B8894] to-[#43CCB1] rounded-3xl p-8 sm:p-12 text-center">
+			<div class="bg-gradient-to-r from-[#0A6E9E] to-[#38BDF8] rounded-3xl p-8 sm:p-12 text-center">
 				<h2 class="text-2xl sm:text-3xl font-bold text-white mb-4"><?php esc_html_e( 'Take a seat and take a SIP!', 'pharmanow' ); ?></h2>
 				<p class="text-white/90 mb-8 max-w-xl mx-auto">
 					<?php esc_html_e( 'Porta il mare in tasca: scegli il tuo set di flashcard illustrate e inizia a collezionare.', 'pharmanow' ); ?>
 				</p>
 				<div class="flex flex-wrap gap-4 justify-center">
-					<a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/negozio' ) ); ?>" class="bg-white text-[#0B8894] font-semibold py-3 px-8 rounded-xl hover:bg-gray-100 transition-colors">
+					<a href="<?php echo esc_url( function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/negozio' ) ); ?>" class="bg-white text-[#0A6E9E] font-semibold py-3 px-8 rounded-xl hover:bg-gray-100 transition-colors">
 						<?php esc_html_e( 'Esplora le carte', 'pharmanow' ); ?>
 					</a>
 					<a href="<?php echo esc_url( home_url( '/contatti' ) ); ?>" class="bg-white/20 text-white font-semibold py-3 px-8 rounded-xl hover:bg-white/30 transition-colors border border-white/30">

@@ -72,10 +72,10 @@ foreach ( $pn_faq as $cat ) {
 							<button
 								type="button"
 								@click="setActive('<?php echo esc_js( $pn_cat['id'] ); ?>')"
-								:class="active === '<?php echo esc_js( $pn_cat['id'] ); ?>' ? 'bg-[#0B8894] text-white' : 'text-gray-600 hover:bg-gray-50'"
+								:class="active === '<?php echo esc_js( $pn_cat['id'] ); ?>' ? 'bg-[#0A6E9E] text-white' : 'text-gray-600 hover:bg-gray-50'"
 								class="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-colors"
 							>
-								<span :class="active === '<?php echo esc_js( $pn_cat['id'] ); ?>' ? 'text-white' : 'text-[#0B8894]'" class="inline-flex">
+								<span :class="active === '<?php echo esc_js( $pn_cat['id'] ); ?>' ? 'text-white' : 'text-[#0A6E9E]'" class="inline-flex">
 									<?php pn_icon( $pn_cat['icon'], array( 'class' => 'w-5 h-5' ) ); ?>
 								</span>
 								<span class="text-sm font-medium"><?php echo esc_html( $pn_cat['title'] ); ?></span>
@@ -89,7 +89,7 @@ foreach ( $pn_faq as $cat ) {
 			<div class="lg:hidden">
 				<button type="button" @click="mobileMenu = !mobileMenu" class="w-full flex items-center justify-between bg-white rounded-xl shadow-sm p-4">
 					<span class="flex items-center gap-3">
-						<span class="text-[#0B8894] inline-flex" x-html="iconHtml(active)"></span>
+						<span class="text-[#0A6E9E] inline-flex" x-html="iconHtml(active)"></span>
 						<span class="font-medium text-gray-900" x-text="catTitle(active)"></span>
 					</span>
 					<?php pn_icon( 'menu', array( 'class' => 'w-5 h-5 text-gray-400' ) ); ?>
@@ -99,10 +99,10 @@ foreach ( $pn_faq as $cat ) {
 						<button
 							type="button"
 							@click="setActive('<?php echo esc_js( $pn_cat['id'] ); ?>'); mobileMenu = false"
-							:class="active === '<?php echo esc_js( $pn_cat['id'] ); ?>' ? 'bg-[#0B8894] text-white' : 'text-gray-600'"
+							:class="active === '<?php echo esc_js( $pn_cat['id'] ); ?>' ? 'bg-[#0A6E9E] text-white' : 'text-gray-600'"
 							class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left"
 						>
-							<span :class="active === '<?php echo esc_js( $pn_cat['id'] ); ?>' ? 'text-white' : 'text-[#0B8894]'" class="inline-flex">
+							<span :class="active === '<?php echo esc_js( $pn_cat['id'] ); ?>' ? 'text-white' : 'text-[#0A6E9E]'" class="inline-flex">
 								<?php pn_icon( $pn_cat['icon'], array( 'class' => 'w-5 h-5' ) ); ?>
 							</span>
 							<span class="text-sm font-medium"><?php echo esc_html( $pn_cat['title'] ); ?></span>
@@ -122,13 +122,13 @@ foreach ( $pn_faq as $cat ) {
 						type="search"
 						x-model="query"
 						:placeholder="searchPlaceholder()"
-						class="w-full bg-white rounded-xl shadow-sm pl-12 pr-4 py-3 text-sm border border-transparent focus:border-[#0B8894] focus:outline-none transition-colors"
+						class="w-full bg-white rounded-xl shadow-sm pl-12 pr-4 py-3 text-sm border border-transparent focus:border-[#0A6E9E] focus:outline-none transition-colors"
 					>
 				</div>
 
 				<?php foreach ( $pn_faq as $pn_cat ) : ?>
 					<div x-show="active === '<?php echo esc_js( $pn_cat['id'] ); ?>'" x-cloak class="bg-white rounded-2xl shadow-sm overflow-hidden">
-						<div class="bg-gradient-to-r from-[#0B8894] to-[#43CCB1] px-6 py-5 text-white">
+						<div class="bg-gradient-to-r from-[#0A6E9E] to-[#38BDF8] px-6 py-5 text-white">
 							<div class="flex items-center gap-3">
 								<?php pn_icon( $pn_cat['icon'], array( 'class' => 'w-6 h-6' ) ); ?>
 								<h2 class="text-lg sm:text-xl font-bold"><?php echo esc_html( $pn_cat['title'] ); ?></h2>
@@ -180,7 +180,7 @@ foreach ( $pn_faq as $cat ) {
 										__( 'Nessuna domanda trovata. Prova con altre parole chiave o %s.', 'pharmanow' ),
 										array( 'a' => array( 'href' => array(), 'class' => array() ) )
 									),
-									'<a href="' . esc_url( home_url( '/contatti' ) ) . '" class="text-[#0B8894] hover:underline">' . esc_html__( 'contattaci', 'pharmanow' ) . '</a>'
+									'<a href="' . esc_url( home_url( '/contatti' ) ) . '" class="text-[#0A6E9E] hover:underline">' . esc_html__( 'contattaci', 'pharmanow' ) . '</a>'
 								);
 								?>
 							</p>
@@ -189,13 +189,13 @@ foreach ( $pn_faq as $cat ) {
 				<?php endforeach; ?>
 
 				<?php // Help footer. ?>
-				<div class="mt-8 bg-gradient-to-r from-[#0B8894]/10 to-[#43CCB1]/10 rounded-2xl p-6 text-center">
+				<div class="mt-8 bg-gradient-to-r from-[#0A6E9E]/10 to-[#38BDF8]/10 rounded-2xl p-6 text-center">
 					<h3 class="font-bold text-gray-900 mb-2"><?php esc_html_e( 'Non hai trovato la risposta?', 'pharmanow' ); ?></h3>
 					<p class="text-gray-600 text-sm mb-4">
 						<?php esc_html_e( 'Scrivici: ti rispondiamo entro 24 ore lavorative.', 'pharmanow' ); ?>
 					</p>
 					<div class="flex flex-wrap justify-center gap-3">
-						<a href="<?php echo esc_url( home_url( '/contatti' ) ); ?>" class="inline-flex items-center gap-2 bg-[#0B8894] text-white font-semibold py-2.5 px-5 rounded-xl hover:bg-[#0B8894]/90 transition-colors">
+						<a href="<?php echo esc_url( home_url( '/contatti' ) ); ?>" class="inline-flex items-center gap-2 bg-[#0A6E9E] text-white font-semibold py-2.5 px-5 rounded-xl hover:bg-[#0A6E9E]/90 transition-colors">
 							<?php esc_html_e( 'Scrivici', 'pharmanow' ); ?>
 						</a>
 						<a href="mailto:info@thesip.it" class="inline-flex items-center gap-2 bg-white text-gray-700 font-semibold py-2.5 px-5 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors">

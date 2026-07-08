@@ -17,7 +17,7 @@ if ( ! $pn_order || (int) $pn_order->get_user_id() !== (int) get_current_user_id
 		<p class="mt-3 text-gray-600">
 			<?php esc_html_e( "Non è stato possibile trovare l'ordine richiesto, oppure non hai i permessi per visualizzarlo.", 'pharmanow' ); ?>
 		</p>
-		<a href="<?php echo esc_url( wc_get_endpoint_url( 'orders', '', wc_get_page_permalink( 'myaccount' ) ) ); ?>" class="inline-flex items-center gap-2 mt-6 bg-[#0B8894] text-white font-semibold py-2.5 px-5 rounded-xl hover:bg-[#0B8894]/90 transition-colors">
+		<a href="<?php echo esc_url( wc_get_endpoint_url( 'orders', '', wc_get_page_permalink( 'myaccount' ) ) ); ?>" class="inline-flex items-center gap-2 mt-6 bg-[#0A6E9E] text-white font-semibold py-2.5 px-5 rounded-xl hover:bg-[#0A6E9E]/90 transition-colors">
 			<?php esc_html_e( 'Torna ai miei ordini', 'pharmanow' ); ?>
 		</a>
 	</section>

@@ -104,7 +104,7 @@ $pn_browsers = array(
 				</p>
 			</section>
 
-			<div class="bg-gradient-to-r from-[#0B8894]/10 to-[#43CCB1]/10 rounded-xl p-5">
+			<div class="bg-gradient-to-r from-[#0A6E9E]/10 to-[#38BDF8]/10 rounded-xl p-5">
 				<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
 					<div>
 						<h3 class="font-semibold text-gray-900 mb-1"><?php esc_html_e( 'Gestisci le tue preferenze', 'pharmanow' ); ?></h3>
@@ -112,7 +112,7 @@ $pn_browsers = array(
 					</div>
 					<button
 						type="button"
-						class="bg-gradient-to-r from-[#0B8894] to-[#43CCB1] text-white font-semibold py-2.5 px-5 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap"
+						class="bg-gradient-to-r from-[#0A6E9E] to-[#38BDF8] text-white font-semibold py-2.5 px-5 rounded-xl hover:opacity-90 transition-opacity whitespace-nowrap"
 						onclick="window.dispatchEvent(new CustomEvent('pn:cookie-settings:open'));"
 					>
 						<?php esc_html_e( 'Apri impostazioni cookie', 'pharmanow' ); ?>
@@ -167,10 +167,10 @@ $pn_browsers = array(
 				<ul class="space-y-2 text-gray-600">
 					<?php foreach ( $pn_third_parties as $pn_tp ) : ?>
 						<li class="flex items-start gap-2">
-							<?php pn_icon( 'chevron-right', array( 'class' => 'w-5 h-5 text-[#0B8894] flex-shrink-0 mt-0.5' ) ); ?>
+							<?php pn_icon( 'chevron-right', array( 'class' => 'w-5 h-5 text-[#0A6E9E] flex-shrink-0 mt-0.5' ) ); ?>
 							<span>
 								<strong><?php echo esc_html( $pn_tp['name'] ); ?>:</strong>
-								<a href="<?php echo esc_url( $pn_tp['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="text-[#0B8894] hover:underline">
+								<a href="<?php echo esc_url( $pn_tp['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="text-[#0A6E9E] hover:underline">
 									<?php esc_html_e( 'Privacy Policy', 'pharmanow' ); ?>
 								</a>
 							</span>
@@ -186,7 +186,7 @@ $pn_browsers = array(
 				</p>
 				<div class="grid sm:grid-cols-2 gap-3">
 					<?php foreach ( $pn_browsers as $pn_b ) : ?>
-						<a href="<?php echo esc_url( $pn_b['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:border-[#0B8894] hover:bg-[#0B8894]/5 transition-colors">
+						<a href="<?php echo esc_url( $pn_b['url'] ); ?>" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 p-3 border border-gray-200 rounded-lg hover:border-[#0A6E9E] hover:bg-[#0A6E9E]/5 transition-colors">
 							<?php pn_icon( 'external-link', array( 'class' => 'w-5 h-5 text-gray-400' ) ); ?>
 							<span class="text-gray-700 font-medium"><?php echo esc_html( $pn_b['name'] ); ?></span>
 						</a>
@@ -202,7 +202,7 @@ $pn_browsers = array(
 				<ul class="mt-3 space-y-1 text-sm text-gray-600">
 					<li>
 						<strong><?php esc_html_e( 'Email:', 'pharmanow' ); ?></strong>
-						<a href="mailto:info@thesip.it" class="text-[#0B8894] hover:underline">info@thesip.it</a>
+						<a href="mailto:info@thesip.it" class="text-[#0A6E9E] hover:underline">info@thesip.it</a>
 					</li>
 				</ul>
 			</section>

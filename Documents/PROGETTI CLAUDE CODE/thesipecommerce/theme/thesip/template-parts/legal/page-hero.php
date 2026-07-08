@@ -33,7 +33,7 @@ $pn_h1 = ( 'lg' === $pn_size )
 	: 'text-2xl sm:text-3xl font-bold text-white';
 ?>
 
-<div class="bg-gradient-to-r from-[#008692] to-[#6AD6E3] <?php echo esc_attr( $pn_pad_class ); ?>">
+<div class="bg-gradient-to-r from-[#0891B2] to-[#67E8F9] <?php echo esc_attr( $pn_pad_class ); ?>">
 	<div class="max-w-[1280px] mx-auto px-4">
 		<nav class="flex items-center gap-2 text-sm mb-3" aria-label="<?php esc_attr_e( 'Breadcrumb', 'pharmanow' ); ?>">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-white/70 hover:text-white transition-colors">

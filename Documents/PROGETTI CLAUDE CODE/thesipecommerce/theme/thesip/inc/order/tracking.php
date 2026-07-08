@@ -345,7 +345,7 @@ function pn_send_tracking_email( WC_Order $order ): bool {
 
 	ob_start();
 	?>
-	<h1 style="margin:0 0 16px 0;font-size:22px;font-weight:700;color:#0b8894;">
+	<h1 style="margin:0 0 16px 0;font-size:22px;font-weight:700;color:#0a6e9e;">
 		<?php esc_html_e( 'Il tuo ordine è in viaggio', 'pharmanow' ); ?>
 	</h1>
 	<p style="margin:0 0 12px 0;"><?php echo esc_html( $greeting ); ?></p>
@@ -388,7 +388,7 @@ function pn_send_tracking_email( WC_Order $order ): bool {
 		<?php esc_html_e( 'Puoi controllare lo stato in qualsiasi momento sulla nostra pagina di tracciamento:', 'pharmanow' ); ?>
 	</p>
 	<p style="margin:0 0 24px 0;font-size:13px;">
-		<a href="<?php echo esc_url( $track_page_url ); ?>" style="color:#0b8894;text-decoration:none;font-weight:600;">
+		<a href="<?php echo esc_url( $track_page_url ); ?>" style="color:#0a6e9e;text-decoration:none;font-weight:600;">
 			<?php echo esc_html( $track_page_url ); ?>
 		</a>
 	</p>

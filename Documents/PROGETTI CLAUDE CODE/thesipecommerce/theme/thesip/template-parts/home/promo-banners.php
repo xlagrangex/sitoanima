@@ -65,7 +65,7 @@ if ( empty( $pn_banners ) ) {
 	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 		<?php foreach ( $pn_banners as $pn_b ) :
 			$pn_image    = isset( $pn_b['image'] ) ? (string) $pn_b['image'] : '';
-			$pn_grad     = isset( $pn_b['gradient'] ) ? (string) $pn_b['gradient'] : 'linear-gradient(135deg, #0b8894 0%, #065a62 100%)';
+			$pn_grad     = isset( $pn_b['gradient'] ) ? (string) $pn_b['gradient'] : 'linear-gradient(135deg, #0a6e9e 0%, #07496b 100%)';
 			$pn_text     = isset( $pn_b['text_color'] ) ? (string) $pn_b['text_color'] : 'text-white';
 			$pn_style    = $pn_image
 				? 'background-image: linear-gradient(135deg, rgba(0,0,0,0.55), rgba(0,0,0,0.2)), url(' . esc_url( $pn_image ) . '); background-size: cover; background-position: center;'

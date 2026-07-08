@@ -60,8 +60,8 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 		}
 		foreach ( $pn_actions as $pn_a ) :
 			$pn_btn_class = 'primary' === $pn_a['variant']
-				? 'bg-gradient-to-r from-[#0B8894] to-[#43CCB1] text-white shadow-md hover:shadow-lg hover:opacity-95'
-				: 'bg-white text-gray-800 border border-gray-200 hover:border-[#0B8894] hover:text-[#0B8894]';
+				? 'bg-gradient-to-r from-[#0A6E9E] to-[#38BDF8] text-white shadow-md hover:shadow-lg hover:opacity-95'
+				: 'bg-white text-gray-800 border border-gray-200 hover:border-[#0A6E9E] hover:text-[#0A6E9E]';
 			?>
 			<a href="<?php echo esc_url( $pn_a['href'] ); ?>" class="<?php echo esc_attr( $pn_btn_class ); ?> inline-flex items-center justify-center gap-2 font-semibold py-3 px-5 rounded-xl transition-all">
 				<?php pn_icon( $pn_a['icon'], array( 'class' => 'w-5 h-5' ) ); ?>
@@ -95,7 +95,7 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 		<div class="relative pt-2">
 			<div class="absolute left-0 right-0 top-[26px] h-1 bg-gray-100 rounded-full hidden sm:block" aria-hidden="true"></div>
 			<div
-				class="absolute left-0 top-[26px] h-1 bg-gradient-to-r from-[#0B8894] to-[#43CCB1] rounded-full hidden sm:block transition-all"
+				class="absolute left-0 top-[26px] h-1 bg-gradient-to-r from-[#0A6E9E] to-[#38BDF8] rounded-full hidden sm:block transition-all"
 				style="width: <?php echo esc_attr( max( 0, min( 100, ( $step_idx / 3 ) * 100 ) ) ); ?>%;"
 				aria-hidden="true"
 			></div>
@@ -105,7 +105,7 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 					$pn_done    = $i < $step_idx;
 					$pn_current = $i === $step_idx;
 					$pn_circle_cls = $pn_done || $pn_current
-						? 'bg-gradient-to-br from-[#0B8894] to-[#43CCB1] text-white shadow-md'
+						? 'bg-gradient-to-br from-[#0A6E9E] to-[#38BDF8] text-white shadow-md'
 						: 'bg-gray-100 text-gray-400';
 					$pn_label_cls = $pn_done || $pn_current ? 'text-gray-900 font-semibold' : 'text-gray-500';
 					?>
@@ -115,7 +115,7 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 								<?php pn_icon( $pn_step['icon'], array( 'class' => 'w-6 h-6' ) ); ?>
 							</div>
 							<?php if ( $pn_current && $step_idx < 3 ) : ?>
-								<span class="absolute -inset-1 rounded-full ring-2 ring-[#43CCB1] animate-pulse"></span>
+								<span class="absolute -inset-1 rounded-full ring-2 ring-[#38BDF8] animate-pulse"></span>
 							<?php endif; ?>
 						</div>
 						<p class="mt-3 text-sm <?php echo esc_attr( $pn_label_cls ); ?>"><?php echo esc_html( $pn_step['label'] ); ?></p>
@@ -189,13 +189,13 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 									echo $pn_thumb; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								}
 								?>
-								<span class="absolute -top-2 -right-2 min-w-[22px] h-[22px] px-1.5 rounded-full bg-[#0B8894] text-white text-[11px] font-bold flex items-center justify-center"><?php echo (int) $pn_qty; ?></span>
+								<span class="absolute -top-2 -right-2 min-w-[22px] h-[22px] px-1.5 rounded-full bg-[#0A6E9E] text-white text-[11px] font-bold flex items-center justify-center"><?php echo (int) $pn_qty; ?></span>
 							</div>
 							<div class="min-w-0 flex-1">
 								<p class="font-medium text-gray-900 line-clamp-2 text-sm sm:text-base">
 									<?php
 									if ( $pn_link ) {
-										echo '<a href="' . esc_url( $pn_link ) . '" class="hover:text-[#0B8894]">' . esc_html( $pn_item->get_name() ) . '</a>';
+										echo '<a href="' . esc_url( $pn_link ) . '" class="hover:text-[#0A6E9E]">' . esc_html( $pn_item->get_name() ) . '</a>';
 									} else {
 										echo esc_html( $pn_item->get_name() );
 									}
@@ -296,7 +296,7 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 						foreach ( $pn_next_steps as $pn_n ) :
 							?>
 							<li class="flex gap-4">
-								<div class="w-10 h-10 shrink-0 rounded-xl bg-[#0B8894]/10 text-[#0B8894] flex items-center justify-center">
+								<div class="w-10 h-10 shrink-0 rounded-xl bg-[#0A6E9E]/10 text-[#0A6E9E] flex items-center justify-center">
 									<?php pn_icon( $pn_n['icon'], array( 'class' => 'w-5 h-5' ) ); ?>
 								</div>
 								<div class="min-w-0">
@@ -316,7 +316,7 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 			<div class="bg-white rounded-2xl shadow-sm p-6">
 				<div class="flex items-center justify-between mb-3">
 					<h3 class="font-bold text-gray-900 inline-flex items-center gap-2">
-						<?php pn_icon( 'map-pin', array( 'class' => 'w-5 h-5 text-[#0B8894]' ) ); ?>
+						<?php pn_icon( 'map-pin', array( 'class' => 'w-5 h-5 text-[#0A6E9E]' ) ); ?>
 						<?php esc_html_e( 'Spedizione', 'pharmanow' ); ?>
 					</h3>
 				</div>
@@ -325,7 +325,7 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 				</address>
 				<?php if ( $phone ) : ?>
 					<p class="text-sm text-gray-600 mt-3 inline-flex items-center gap-2">
-						<?php pn_icon( 'phone', array( 'class' => 'w-4 h-4 text-[#0B8894]' ) ); ?>
+						<?php pn_icon( 'phone', array( 'class' => 'w-4 h-4 text-[#0A6E9E]' ) ); ?>
 						<a href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', $phone ) ); ?>" class="hover:underline"><?php echo esc_html( $phone ); ?></a>
 					</p>
 				<?php endif; ?>
@@ -333,7 +333,7 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 
 			<div class="bg-white rounded-2xl shadow-sm p-6">
 				<h3 class="font-bold text-gray-900 mb-3 inline-flex items-center gap-2">
-					<?php pn_icon( 'credit-card', array( 'class' => 'w-5 h-5 text-[#0B8894]' ) ); ?>
+					<?php pn_icon( 'credit-card', array( 'class' => 'w-5 h-5 text-[#0A6E9E]' ) ); ?>
 					<?php esc_html_e( 'Pagamento', 'pharmanow' ); ?>
 				</h3>
 				<p class="text-sm text-gray-700"><?php echo esc_html( $payment_lbl ); ?></p>
@@ -369,7 +369,7 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 			<?php if ( $show_billing ) : ?>
 				<div class="bg-white rounded-2xl shadow-sm p-6">
 					<h3 class="font-bold text-gray-900 mb-3 inline-flex items-center gap-2">
-						<?php pn_icon( 'file-text', array( 'class' => 'w-5 h-5 text-[#0B8894]' ) ); ?>
+						<?php pn_icon( 'file-text', array( 'class' => 'w-5 h-5 text-[#0A6E9E]' ) ); ?>
 						<?php esc_html_e( 'Fatturazione', 'pharmanow' ); ?>
 					</h3>
 					<address class="not-italic text-sm text-gray-700 leading-relaxed">
@@ -388,23 +388,23 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 				</div>
 			<?php endif; ?>
 
-			<div class="bg-gradient-to-br from-[#0B8894]/10 to-[#43CCB1]/10 rounded-2xl p-6">
+			<div class="bg-gradient-to-br from-[#0A6E9E]/10 to-[#38BDF8]/10 rounded-2xl p-6">
 				<h3 class="font-bold text-gray-900 mb-2"><?php esc_html_e( 'Hai bisogno di aiuto?', 'pharmanow' ); ?></h3>
 				<p class="text-sm text-gray-700 mb-4"><?php esc_html_e( 'Il nostro customer care risponde entro 24 ore lavorative.', 'pharmanow' ); ?></p>
 				<div class="space-y-2">
 					<?php $pn_subj = rawurlencode( sprintf( /* translators: %s = order number */ __( 'Richiesta info ordine #%s', 'pharmanow' ), $order->get_order_number() ) ); ?>
-					<a href="mailto:<?php echo esc_attr( $settings['email'] ?? '' ); ?>?subject=<?php echo $pn_subj; ?>" class="flex items-center gap-3 text-sm text-gray-800 hover:text-[#0B8894] transition-colors">
-						<?php pn_icon( 'mail', array( 'class' => 'w-4 h-4 text-[#0B8894]' ) ); ?>
+					<a href="mailto:<?php echo esc_attr( $settings['email'] ?? '' ); ?>?subject=<?php echo $pn_subj; ?>" class="flex items-center gap-3 text-sm text-gray-800 hover:text-[#0A6E9E] transition-colors">
+						<?php pn_icon( 'mail', array( 'class' => 'w-4 h-4 text-[#0A6E9E]' ) ); ?>
 						<span><?php echo esc_html( $settings['email'] ?? '' ); ?></span>
 					</a>
 					<?php if ( ! empty( $settings['phone'] ) ) : ?>
-						<a href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', $settings['phone'] ) ); ?>" class="flex items-center gap-3 text-sm text-gray-800 hover:text-[#0B8894] transition-colors">
-							<?php pn_icon( 'phone', array( 'class' => 'w-4 h-4 text-[#0B8894]' ) ); ?>
+						<a href="tel:<?php echo esc_attr( preg_replace( '/\s+/', '', $settings['phone'] ) ); ?>" class="flex items-center gap-3 text-sm text-gray-800 hover:text-[#0A6E9E] transition-colors">
+							<?php pn_icon( 'phone', array( 'class' => 'w-4 h-4 text-[#0A6E9E]' ) ); ?>
 							<span><?php echo esc_html( $settings['phone'] ); ?></span>
 						</a>
 					<?php endif; ?>
-					<a href="<?php echo esc_url( home_url( '/faq' ) ); ?>" class="flex items-center gap-3 text-sm text-gray-800 hover:text-[#0B8894] transition-colors">
-						<?php pn_icon( 'help-circle', array( 'class' => 'w-4 h-4 text-[#0B8894]' ) ); ?>
+					<a href="<?php echo esc_url( home_url( '/faq' ) ); ?>" class="flex items-center gap-3 text-sm text-gray-800 hover:text-[#0A6E9E] transition-colors">
+						<?php pn_icon( 'help-circle', array( 'class' => 'w-4 h-4 text-[#0A6E9E]' ) ); ?>
 						<span><?php esc_html_e( 'Domande frequenti', 'pharmanow' ); ?></span>
 					</a>
 				</div>
@@ -424,7 +424,7 @@ $tax_amt      = (float) ( $totals['tax'] ?? 0 );
 		foreach ( $pn_trust as $pn_t ) :
 			?>
 			<div class="bg-white rounded-2xl p-4 shadow-sm">
-				<div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-[#0B8894]/10 text-[#0B8894] flex items-center justify-center">
+				<div class="w-10 h-10 mx-auto mb-2 rounded-xl bg-[#0A6E9E]/10 text-[#0A6E9E] flex items-center justify-center">
 					<?php pn_icon( $pn_t['icon'], array( 'class' => 'w-5 h-5' ) ); ?>
 				</div>
 				<p class="text-xs sm:text-sm font-semibold text-gray-900"><?php echo esc_html( $pn_t['title'] ); ?></p>

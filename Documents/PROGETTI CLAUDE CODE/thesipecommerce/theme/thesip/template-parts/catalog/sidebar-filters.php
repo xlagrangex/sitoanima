@@ -108,28 +108,6 @@ $pn_base_url = strtok( esc_url_raw( ( is_ssl() ? 'https' : 'http' ) . '://' . $_
 			</div>
 		</div>
 
-		<div class="h-px bg-gray-200"></div>
-
-		<?php /* ─── IVA ─── */ ?>
-		<div class="space-y-3">
-			<h3 class="text-sm font-medium text-gray-900"><?php esc_html_e( 'IVA', 'pharmanow' ); ?></h3>
-			<div class="space-y-2">
-				<?php foreach ( array( '4', '10', '22' ) as $pn_iva ) : ?>
-					<label class="flex cursor-pointer items-center gap-2 text-sm text-gray-700 select-none">
-						<input
-							type="checkbox"
-							name="iva[]"
-							value="<?php echo esc_attr( $pn_iva ); ?>"
-							<?php checked( in_array( $pn_iva, $pn_iva_sel, true ) ); ?>
-							onchange="this.form.requestSubmit()"
-							class="h-4 w-4 rounded border-gray-300 text-pharma-teal focus:ring-pharma-teal/30"
-						>
-						<span><?php echo esc_html( $pn_iva ); ?>%</span>
-					</label>
-				<?php endforeach; ?>
-			</div>
-		</div>
-
 		<!-- Fallback no-JS: bottone Applica -->
 		<noscript>
 			<button type="submit" class="w-full h-10 rounded-md bg-pharma-teal text-white text-sm font-semibold hover:bg-pharma-teal-dark transition-colors">

@@ -13,6 +13,27 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $pn_roots = pn_get_mega_menu_roots();
 if ( empty( $pn_roots ) ) {
+	$pn_shop_url = function_exists( 'wc_get_page_permalink' ) ? wc_get_page_permalink( 'shop' ) : home_url( '/negozio' );
+	$pn_simple_nav = array(
+		array( 'label' => __( 'Shop', 'pharmanow' ),              'href' => $pn_shop_url, 'icon' => 'shopping-bag' ),
+		array( 'label' => __( 'Set di carte', 'pharmanow' ),      'href' => add_query_arg( 'product_cat', 'set-di-carte', $pn_shop_url ), 'icon' => 'package' ),
+		array( 'label' => __( 'Bundle', 'pharmanow' ),            'href' => add_query_arg( 'product_cat', 'bundle', $pn_shop_url ), 'icon' => 'package-open' ),
+		array( 'label' => __( 'Edizioni speciali', 'pharmanow' ), 'href' => add_query_arg( 'product_cat', 'edizioni-speciali', $pn_shop_url ), 'icon' => 'star' ),
+	);
+	?>
+	<nav class="flex flex-col py-2">
+		<?php foreach ( $pn_simple_nav as $pn_item ) : ?>
+			<a
+				href="<?php echo esc_url( $pn_item['href'] ); ?>"
+				class="px-4 text-sm font-semibold text-gray-900 py-2.5 hover:bg-gray-50 flex items-center gap-2"
+				x-on:click="mobileOpen = false"
+			>
+				<?php pn_icon( $pn_item['icon'], array( 'class' => 'h-4 w-4 text-gray-400' ) ); ?>
+				<span><?php echo esc_html( $pn_item['label'] ); ?></span>
+			</a>
+		<?php endforeach; ?>
+	</nav>
+	<?php
 	return;
 }
 

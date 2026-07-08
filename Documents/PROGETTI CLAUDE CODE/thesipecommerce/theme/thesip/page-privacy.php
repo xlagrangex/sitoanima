@@ -57,7 +57,7 @@ $pn_rights = array(
 					<h2 class="font-bold text-gray-900 mb-4"><?php esc_html_e( 'Indice', 'pharmanow' ); ?></h2>
 					<nav class="space-y-2">
 						<?php foreach ( $pn_toc as $pn_item ) : ?>
-							<a href="#<?php echo esc_attr( $pn_item['id'] ); ?>" class="block text-sm text-gray-600 hover:text-[#0B8894] transition-colors">
+							<a href="#<?php echo esc_attr( $pn_item['id'] ); ?>" class="block text-sm text-gray-600 hover:text-[#0A6E9E] transition-colors">
 								<?php echo esc_html( $pn_item['label'] ); ?>
 							</a>
 						<?php endforeach; ?>
@@ -74,7 +74,7 @@ $pn_rights = array(
 			<div class="lg:col-span-3">
 				<div class="bg-white rounded-2xl shadow-sm p-6 sm:p-8 space-y-10">
 
-					<div class="bg-[#0B8894]/5 border border-[#0B8894]/20 rounded-xl p-5">
+					<div class="bg-[#0A6E9E]/5 border border-[#0A6E9E]/20 rounded-xl p-5">
 						<h2 class="text-lg font-bold text-gray-900 mb-2">
 							<?php esc_html_e( 'Informativa per il trattamento dei dati personali', 'pharmanow' ); ?>
 						</h2>
@@ -148,7 +148,7 @@ $pn_rights = array(
 								foreach ( $pn_purposes as $pn_i => $pn_p ) :
 									?>
 									<li class="flex items-start gap-2 text-gray-600">
-										<span class="text-[#0B8894] font-bold"><?php echo esc_html( chr( 97 + $pn_i ) ); ?>)</span>
+										<span class="text-[#0A6E9E] font-bold"><?php echo esc_html( chr( 97 + $pn_i ) ); ?>)</span>
 										<span><?php echo esc_html( $pn_p ); ?></span>
 									</li>
 								<?php endforeach; ?>
@@ -216,8 +216,8 @@ $pn_rights = array(
 								foreach ( $pn_recipients as $pn_r ) :
 									?>
 									<li class="flex items-start gap-3 text-gray-600">
-										<div class="w-6 h-6 bg-[#0B8894]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-											<?php pn_icon( 'check', array( 'class' => 'w-3 h-3 text-[#0B8894]' ) ); ?>
+										<div class="w-6 h-6 bg-[#0A6E9E]/10 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+											<?php pn_icon( 'check', array( 'class' => 'w-3 h-3 text-[#0A6E9E]' ) ); ?>
 										</div>
 										<span><?php echo esc_html( $pn_r ); ?></span>
 									</li>
@@ -232,7 +232,7 @@ $pn_rights = array(
 							<p><?php esc_html_e( "I dati personali saranno trattati in forma prevalentemente automatizzata. Non è previsto il trasferimento dei dati al di fuori dell'Unione Europea.", 'pharmanow' ); ?></p>
 							<div class="overflow-x-auto mt-4">
 								<table class="w-full border border-gray-200 rounded-lg overflow-hidden">
-									<thead class="bg-[#0B8894] text-white">
+									<thead class="bg-[#0A6E9E] text-white">
 										<tr>
 											<th class="px-4 py-3 text-left text-sm font-semibold"><?php esc_html_e( 'Tipologia Dati', 'pharmanow' ); ?></th>
 											<th class="px-4 py-3 text-left text-sm font-semibold"><?php esc_html_e( 'Periodo di Conservazione', 'pharmanow' ); ?></th>
@@ -265,7 +265,7 @@ $pn_rights = array(
 								<?php foreach ( $pn_rights as $pn_right ) : ?>
 									<div class="border border-gray-200 rounded-xl p-4">
 										<h4 class="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-											<?php pn_icon( $pn_right['icon'], array( 'class' => 'w-5 h-5 text-[#0B8894]' ) ); ?>
+											<?php pn_icon( $pn_right['icon'], array( 'class' => 'w-5 h-5 text-[#0A6E9E]' ) ); ?>
 											<?php echo esc_html( $pn_right['title'] ); ?>
 										</h4>
 										<p class="text-sm text-gray-600"><?php echo esc_html( $pn_right['desc'] ); ?></p>
@@ -290,22 +290,22 @@ $pn_rights = array(
 						</div>
 					</section>
 
-					<section id="contatti" class="bg-gradient-to-r from-[#0B8894]/10 to-[#43CCB1]/10 rounded-xl p-6 scroll-mt-24">
+					<section id="contatti" class="bg-gradient-to-r from-[#0A6E9E]/10 to-[#38BDF8]/10 rounded-xl p-6 scroll-mt-24">
 						<h2 class="text-xl font-bold text-gray-900 mb-4"><?php esc_html_e( 'Contatti per Richieste Privacy', 'pharmanow' ); ?></h2>
 						<p class="text-gray-600 mb-4"><?php esc_html_e( 'Per esercitare i tuoi diritti, segnalare problemi o chiedere chiarimenti sul trattamento dei dati personali:', 'pharmanow' ); ?></p>
 						<div class="space-y-3 mb-6">
 							<div class="flex items-center gap-3">
 								<div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
-									<?php pn_icon( 'mail', array( 'class' => 'w-5 h-5 text-[#0B8894]' ) ); ?>
+									<?php pn_icon( 'mail', array( 'class' => 'w-5 h-5 text-[#0A6E9E]' ) ); ?>
 								</div>
 								<div>
 									<p class="text-sm text-gray-500"><?php esc_html_e( 'Email Privacy', 'pharmanow' ); ?></p>
-									<a href="mailto:info@thesip.it" class="text-[#0B8894] font-semibold hover:underline">info@thesip.it</a>
+									<a href="mailto:info@thesip.it" class="text-[#0A6E9E] font-semibold hover:underline">info@thesip.it</a>
 								</div>
 							</div>
 							<div class="flex items-center gap-3">
 								<div class="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
-									<?php pn_icon( 'map-pin', array( 'class' => 'w-5 h-5 text-[#0B8894]' ) ); ?>
+									<?php pn_icon( 'map-pin', array( 'class' => 'w-5 h-5 text-[#0A6E9E]' ) ); ?>
 								</div>
 								<div>
 									<p class="text-sm text-gray-500"><?php esc_html_e( 'Indirizzo', 'pharmanow' ); ?></p>
@@ -314,7 +314,7 @@ $pn_rights = array(
 							</div>
 						</div>
 						<div class="flex flex-wrap gap-4">
-							<a href="mailto:info@thesip.it" class="inline-flex items-center gap-2 bg-[#0B8894] text-white font-semibold py-2.5 px-5 rounded-xl hover:bg-[#0B8894]/90 transition-colors">
+							<a href="mailto:info@thesip.it" class="inline-flex items-center gap-2 bg-[#0A6E9E] text-white font-semibold py-2.5 px-5 rounded-xl hover:bg-[#0A6E9E]/90 transition-colors">
 								<?php pn_icon( 'mail', array( 'class' => 'w-5 h-5' ) ); ?>
 								<?php esc_html_e( 'Contatta Privacy', 'pharmanow' ); ?>
 							</a>
