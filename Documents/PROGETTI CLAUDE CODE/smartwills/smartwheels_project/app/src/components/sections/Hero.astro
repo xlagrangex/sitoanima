@@ -44,7 +44,7 @@ const bookUrl = ctaUrl('navbar');
     <div class="tab-register absolute top-0 right-0 z-40 hidden lg:block">
       <span class="fill fill-tab fill-tab-left"></span>
       <span class="fill fill-tab fill-tab-below"></span>
-      <a href={bookUrl} class="group flex items-center gap-4 py-5 pr-7 pl-9 text-[0.95rem] font-medium text-white">
+      <a href={ctaUrl('register-now')} class="group flex items-center gap-4 py-5 pr-7 pl-9 text-[0.95rem] font-medium text-white">
         <span>Register Now</span>
         <span class="grid size-11 place-items-center rounded-full border border-white/80 transition-transform duration-300 group-hover:rotate-45">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
@@ -146,6 +146,9 @@ const bookUrl = ctaUrl('navbar');
   /* Slides: purple duotone (grayscale + luminosity blend picks up the panel
      hue) so any photo melts into the background like the reference portrait */
   .hero-fade {
+    /* the mask isolates blending, so the slider carries its own purple
+       backdrop for the luminosity duotone to tint against */
+    background: radial-gradient(55rem 42rem at 48% 42%, var(--purple-glow) 0%, var(--purple) 55%, #4d49d0 100%);
     -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%);
     mask-image: linear-gradient(to right, transparent 0%, #000 26%);
   }
