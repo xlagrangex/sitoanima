@@ -35,8 +35,8 @@ const bookUrl = ctaUrl('navbar');
       </div>
     </div>
 
-    <!-- ── Purple panel: copy + dots ── -->
-    <div class="hero-panel relative flex-1 overflow-hidden rounded-[1.5rem]">
+    <!-- ── Ink panel: copy + dots ── -->
+    <div class="hero-panel relative flex-1 overflow-hidden">
       <div class="relative z-20 flex h-full max-w-3xl flex-col items-start justify-center gap-8 px-6 pt-14 pb-40 sm:px-12 lg:px-16 lg:pt-10 lg:pb-32">
         <div data-reveal>
           <span class="inline-flex items-center gap-2.5 rounded-full border border-cream/30 px-5 py-2.5 text-[0.85rem] font-medium text-cream/90">
@@ -120,7 +120,7 @@ const bookUrl = ctaUrl('navbar');
       <span class="fill fill-shell fill-cta-right"></span>
       <a
         href={bookUrl}
-        class="group flex w-full items-center justify-between gap-4 rounded-[1.4rem] bg-gold py-4 pl-7 pr-4 text-[1.15rem] font-semibold text-ink transition-colors duration-300 hover:bg-gold-dark sm:py-5 sm:pl-9 sm:text-[1.4rem]"
+        class="cta-bar group flex w-full items-center justify-between gap-4 bg-gold py-4 pl-7 pr-4 text-[1.15rem] font-semibold text-ink transition-colors duration-300 hover:bg-gold-dark sm:py-5 sm:pl-9 sm:text-[1.4rem]"
       >
         <span>Get started</span>
         <span class="grid size-12 shrink-0 place-items-center rounded-full border-[1.5px] border-ink transition-transform duration-300 group-hover:rotate-45 sm:size-14">
@@ -138,6 +138,10 @@ const bookUrl = ctaUrl('navbar');
     --pad: 0.625rem;
     --navh: 76px;
     --tabw: 250px;
+    /* Bauhaus radii — same two sizes as the petal system: an arc spans one
+       "box" (--rs) or two (--rl); every other corner is dead straight. */
+    --rl: clamp(4.5rem, 9vw, 9rem);
+    --rs: clamp(2rem, 4vw, 3rem);
   }
   @media (min-width: 640px) {
     .hero-page { --pad: 0.75rem; }
@@ -146,6 +150,8 @@ const bookUrl = ctaUrl('navbar');
     background:
       radial-gradient(1200px 500px at 85% -10%, rgba(201, 166, 104, 0.16), transparent 60%),
       var(--color-ink);
+    /* one grand two-box arc top-left, everything else square */
+    border-radius: var(--rl) 0 0 0;
   }
 
   /* ── The continuous image surface ── */
@@ -154,15 +160,14 @@ const bookUrl = ctaUrl('navbar');
     right: var(--pad);
     top: calc(var(--pad) + var(--navh));
     bottom: var(--pad);
-    border-radius: 1.5rem;
+    border-radius: var(--rl) 0 0 0;
   }
   @media (min-width: 1024px) {
     .hero-media {
       left: auto;
       width: 62%;
       top: var(--pad);
-      border-radius: 1.5rem;
-      border-top-right-radius: 1.6rem;
+      border-radius: 0 var(--rs) 0 0;
       /* fade the left edge into the purple panel */
       -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%);
       mask-image: linear-gradient(to right, transparent 0%, #000 26%);
@@ -190,10 +195,10 @@ const bookUrl = ctaUrl('navbar');
     right: calc(var(--pad) + var(--tabw));
     height: calc(var(--pad) + var(--navh));
     background: var(--shell);
-    border-bottom-right-radius: 1.75rem;
+    border-bottom-right-radius: var(--rs);
   }
   .cove {
-    --r: 24px;
+    --r: var(--rs);
     position: absolute;
     width: var(--r);
     height: var(--r);
@@ -220,7 +225,7 @@ const bookUrl = ctaUrl('navbar');
 
   /* ── Moulded pockets — concave fillets in the page colour ── */
   .fill {
-    --r: 24px;
+    --r: var(--rs);
     position: absolute;
     width: var(--r);
     height: var(--r);
@@ -232,8 +237,12 @@ const bookUrl = ctaUrl('navbar');
   .fill-cta-above { top: calc(-1 * var(--r)); left: 0; }
   .fill-cta-right { bottom: 0.75rem; right: calc(-1 * var(--r)); }
 
-  .pocket-cta { background: var(--shell); border-top-right-radius: 1.6rem; padding: 0.8rem 2rem 0.65rem 0.65rem; }
-  .pocket-dots { background: var(--shell); border-top-left-radius: 1.3rem; padding: 1rem 1.1rem 0.9rem 1.3rem; }
+  .pocket-cta { background: var(--shell); border-top-right-radius: var(--rs); padding: 0.8rem 2rem 0.65rem 0.65rem; }
+  /* tall enough that --rs never exceeds the pocket height (arcs must match the fillets) */
+  .pocket-dots { background: var(--shell); border-top-left-radius: var(--rs); padding: 1.6rem 1.2rem 1.4rem 1.6rem; }
+
+  /* CTA bar — opposite one-box sweeps, like the palm tile in the collage */
+  .cta-bar { border-radius: 0 var(--rs) 0 var(--rs); }
 
   @media (prefers-reduced-motion: reduce) {
     .dslide { transition: none; }
