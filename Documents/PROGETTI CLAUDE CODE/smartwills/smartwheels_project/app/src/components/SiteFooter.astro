@@ -14,7 +14,6 @@ const TRUST_GREEN = '#00b67a';
 const STARS = [100, 100, 100, 100, 60];
 ---
 
-<div class="sheet-backdrop" aria-hidden="true"></div>
 <div id="footer-slot" class="footer-slot">
   <footer id="site-footer" class="site-footer bg-ink text-cream">
     <div class="footer-inner ink-panel relative overflow-hidden">
@@ -147,15 +146,15 @@ const STARS = [100, 100, 100, 100, 60];
      the last stretch of scroll slides open. No sticky side effects: nothing
      ever sits behind the translucent header, and the page ends exactly at
      the footer's bottom edge. Without JS it is a normal static footer. */
-  /* Ink strip tucked behind the sheet's rounded bottom corners: the corner
-     cutouts must show the footer's ink, not the cream body behind the page.
-     Zero net layout height (height cancels the negative margin), sits below
-     main (z-10) in paint order. It escapes the slot's clip-path on purpose —
-     as a sibling, not a descendant. */
-  .sheet-backdrop {
-    height: clamp(5rem, 10vw, 8rem);
-    margin-top: calc(-1 * clamp(5rem, 10vw, 8rem));
-    background: var(--color-ink);
+  /* The footer overlaps the sheet by the corner radius: the slot slides up
+     behind main's bottom edge, and the inner panel pads down by the same
+     amount so no content ever hides under the sheet. The corner cutouts
+     therefore look at the REAL footer — gradient, parallax and all. */
+  .footer-slot {
+    margin-top: calc(-1 * var(--sheet-r));
+  }
+  .footer-inner {
+    padding-top: var(--sheet-r);
   }
 
   .footer-slot.is-curtain {
@@ -247,6 +246,7 @@ const STARS = [100, 100, 100, 100, 60];
        taller than the screen would keep its top edge forever hidden behind
        the sheet. Measure with the footer in static flow, then pin it and
        give the slot the same height so the layout doesn't move. */
+    const overlap = () => Math.abs(parseFloat(getComputedStyle(slot).marginTop)) || 0;
     const setMode = () => {
       footer.classList.remove('is-fixed');
       slot.classList.remove('is-curtain');
@@ -268,7 +268,9 @@ const STARS = [100, 100, 100, 100, 60];
       });
     });
 
-    const span = () => Math.min(footer.offsetHeight, window.innerHeight * 0.9);
+    /* The reveal travel is the slot's net layout height: footer height minus
+       the overlap tucked behind the sheet's corners. */
+    const span = () => Math.min(footer.offsetHeight - overlap(), window.innerHeight * 0.9);
 
     /* Depth: the footer content lags behind the lifting sheet during the
        final stretch of scroll; the wordmark lags a little more, giving the

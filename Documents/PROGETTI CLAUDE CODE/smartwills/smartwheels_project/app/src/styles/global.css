@@ -134,11 +134,15 @@ h1, h2, h3, .font-heading {
    lifts off the footer pinned behind it. Rounded bottom corners + shadow
    make the lift read as a physical sheet — same moulded-shell language as
    the hero frame. ── */
+:root {
+  /* Radius of the sheet's bottom corners — the footer overlaps the sheet by
+     exactly this much so the corner cutouts always see the real footer. */
+  --sheet-r: clamp(5rem, 10vw, 8rem);
+}
+
 .page-sheet {
   overflow: clip;
-  /* Two generous rounded bottom corners — same moulded-shell radius family
-     as the hero frame. */
-  border-radius: 0 0 clamp(5rem, 10vw, 8rem) clamp(5rem, 10vw, 8rem);
+  border-radius: 0 0 var(--sheet-r) var(--sheet-r);
   box-shadow: 0 26px 60px -18px rgba(26, 22, 18, 0.5);
 }
 

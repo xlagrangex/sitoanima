@@ -72,7 +72,6 @@ const bookUrl = ctaUrl('navbar');
       <!-- slider dots — light pocket, bottom-right -->
       <div class="pocket-dots absolute right-0 bottom-0 z-20">
         <span class="fill fill-shell fill-dots-above"></span>
-        <span class="fill fill-shell fill-dots-left"></span>
         <div id="hero-dots" class="flex items-center gap-2.5">
           {
             slides.map((_, i) => (
@@ -99,9 +98,7 @@ const bookUrl = ctaUrl('navbar');
 
     <!-- ── Cream cover: hides the image strip left of the Register corner and
          moulds the notch, so the image reads as continuous under the button ── -->
-    <div class="hero-cover absolute top-0 left-0 z-20 hidden lg:block">
-      <span class="cove cove-tabtop"></span>
-    </div>
+    <div class="hero-cover absolute top-0 left-0 z-20 hidden lg:block"></div>
 
     <!-- ── Register Now — resting ON the image, same background, no separation ── -->
     <a
@@ -167,7 +164,8 @@ const bookUrl = ctaUrl('navbar');
       left: auto;
       width: 62%;
       top: var(--pad);
-      border-radius: 0 var(--rs) 0 0;
+      /* dead-square top-right corner — the Bauhaus "stacco" */
+      border-radius: 0;
       /* fade the left edge into the purple panel */
       -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%);
       mask-image: linear-gradient(to right, transparent 0%, #000 26%);
@@ -191,24 +189,13 @@ const bookUrl = ctaUrl('navbar');
   }
 
   /* ── Cream cover shaping the notch left of Register Now ── */
+  /* One clean quarter-arc where the bar meets the image — a single continuous
+     curve, no stacked fillets. The image's own corner above stays dead square. */
   .hero-cover {
     right: calc(var(--pad) + var(--tabw));
     height: calc(var(--pad) + var(--navh));
     background: var(--shell);
     border-bottom-right-radius: var(--rs);
-  }
-  .cove {
-    --r: var(--rs);
-    position: absolute;
-    width: var(--r);
-    height: var(--r);
-    pointer-events: none;
-  }
-  /* rounds the image's top-left corner where it rises beside the nav bar */
-  .cove-tabtop {
-    top: var(--pad);
-    right: calc(-1 * var(--r));
-    background: radial-gradient(circle var(--r) at 100% 100%, transparent calc(var(--r) - 0.5px), var(--shell) var(--r));
   }
 
   .ddot {
@@ -233,13 +220,12 @@ const bookUrl = ctaUrl('navbar');
   }
   .fill-shell { background: radial-gradient(circle var(--r) at 100% 0, transparent calc(var(--r) - 0.5px), var(--shell) var(--r)); }
   .fill-dots-above { top: calc(-1 * var(--r)); right: 0; transform: scaleX(-1); }
-  .fill-dots-left { bottom: 0; left: calc(-1 * var(--r)); transform: scaleX(-1); }
   .fill-cta-above { top: calc(-1 * var(--r)); left: 0; }
   .fill-cta-right { bottom: 0.75rem; right: calc(-1 * var(--r)); }
 
   .pocket-cta { background: var(--shell); border-top-right-radius: var(--rs); padding: 0.8rem 2rem 0.65rem 0.65rem; }
-  /* tall enough that --rs never exceeds the pocket height (arcs must match the fillets) */
-  .pocket-dots { background: var(--shell); border-top-left-radius: var(--rs); padding: 1.6rem 1.2rem 1.4rem 1.6rem; }
+  /* left side dead square (the second "stacco"); only the right joint is moulded */
+  .pocket-dots { background: var(--shell); padding: 1.4rem 1.2rem 1.2rem 1.5rem; }
 
   /* CTA bar — opposite one-box sweeps, like the palm tile in the collage */
   .cta-bar { border-radius: 0 var(--rs) 0 var(--rs); }
