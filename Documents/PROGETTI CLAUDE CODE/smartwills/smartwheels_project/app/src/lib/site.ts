@@ -2,7 +2,7 @@ export const SITE_NAME = 'SmartWills';
 export const SITE_DOMAIN = 'smartwills.ae';
 export const EMAIL = 'info@smartwills.ae';
 export const TRUSTPILOT_URL = 'https://www.trustpilot.com/review/smartwills.ae';
-export const BOOK_URL = 'https://smartwills.ae/book-a-call-3073';
+export const BOOK_URL = '/book-a-call';
 
 /** Primary CTA link with per-placement UTM (per brand brief). */
 export const ctaUrl = (placement: string) =>

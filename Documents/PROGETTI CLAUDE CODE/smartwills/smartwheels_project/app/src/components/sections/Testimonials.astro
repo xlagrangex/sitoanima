@@ -1,15 +1,16 @@
 ---
 import SectionTag from '../ui/SectionTag.astro';
 import BauhausDecor from '../ui/BauhausDecor.astro';
+import BauhausCluster from '../ui/BauhausCluster.astro';
 import TestimonialSlider from '../react/TestimonialSlider';
 import { TESTIMONIALS } from '../../lib/content';
 import { TRUSTPILOT_URL } from '../../lib/site';
 ---
 
 <section class="ink-panel relative overflow-hidden py-20 md:py-28">
-  <BauhausDecor type="orb" color="gold" size="size-[30rem]" opacity={0.12} class="-top-52 -left-52" />
-  <BauhausDecor type="disc" color="gold" size="size-52" opacity={0.11} class="-bottom-20 -right-20" />
-  <BauhausDecor type="disc" color="gold-dark" size="size-36" opacity={0.08} class="top-1/3 left-[5%]" />
+  <BauhausDecor type="orb" color="gold" size="size-[30rem]" opacity={0.11} class="-top-52 -left-52" />
+  <BauhausCluster variant="arch" opacity={0.26} class="-top-8 -right-6 hidden lg:block" />
+  <BauhausCluster variant="mosaic" opacity={0.18} class="-bottom-12 -left-10 hidden lg:block" />
   <div class="relative z-10 wrap">
     <div class="flex flex-wrap items-end justify-between gap-8">
       <div class="max-w-2xl">

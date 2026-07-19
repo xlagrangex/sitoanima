@@ -1,6 +1,6 @@
 ---
 import Logo from './ui/Logo.astro';
-import { NAV_LINKS } from '../lib/site';
+import { NAV_LINKS, ctaUrl } from '../lib/site';
 import MobileMenu from './react/MobileMenu';
 
 const pathname = Astro.url.pathname;
@@ -29,9 +29,7 @@ const isActive = (href: string) =>
 
     <div class="hidden lg:block">
       <a
-        href="https://smartwills.ae/book-a-call-3073?utm_source=website&utm_medium=organic&utm_content=navbar"
-        target="_blank"
-        rel="noopener"
+        href={ctaUrl('navbar')}
         class="group inline-flex items-center gap-3 rounded-full bg-gold py-1.5 pl-5 pr-1.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-gold-dark"
       >
         <span>Book a free call</span>

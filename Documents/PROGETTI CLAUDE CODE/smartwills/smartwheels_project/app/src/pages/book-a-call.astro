@@ -2,51 +2,69 @@
 import Base from '../layouts/Base.astro';
 import SectionTag from '../components/ui/SectionTag.astro';
 import Button from '../components/ui/Button.astro';
+import FaqAccordion from '../components/react/FaqAccordion';
 import { TRUSTPILOT_URL } from '../lib/site';
 
-const covers = [
+const expect = [
   {
-    title: 'Which registry fits you',
-    body: 'DIFC, ADJD or Dubai Courts — mapped against where your assets actually are.',
+    title: 'Personal Risk Assessment',
+    body: 'We review your assets, family structure and residency to identify which registry — DIFC or ADJD — could work best for your situation.',
   },
   {
-    title: 'Single or mirror will',
-    body: 'For couples: whether two coordinated mirror wills make sense for your situation.',
+    title: 'Transparent Cost Breakdown',
+    body: 'Full pricing overview — service fees and government registration costs — so you can make an informed decision with no surprises.',
   },
   {
-    title: 'Your document checklist',
-    body: 'Exactly which documents to prepare — nothing more, nothing missing.',
-  },
-  {
-    title: 'The transparent numbers',
-    body: 'The government fees for your case (public, paid to the registry) and our service fee — explained before you decide anything.',
+    title: 'Clear Next Steps',
+    body: 'You leave the call knowing exactly what to do next — whether you choose to move forward with us or not.',
   },
 ];
 
-const notList = [
-  'Not a sales ambush — education first, always.',
-  'Not a commitment — most people book just to understand their options.',
-  'Not legal advice from us — drafting and review are done by our partner law firm.',
+const faqs = [
+  {
+    q: 'Do I really need a UAE will if I have one back home?',
+    a: "Yes. UAE courts don't automatically recognize foreign wills. Without local registration, your family could face months of validation — while assets may remain inaccessible.",
+  },
+  {
+    q: 'How long does the process take?',
+    a: 'Generally 14 working days total. Less than 3 hours of your personal time.',
+  },
+  {
+    q: 'Do I need to visit any government offices?',
+    a: 'No. 100% remote. Zero courthouse visits.',
+  },
+  {
+    q: "What if I'm Muslim?",
+    a: 'We serve both Muslims and non-Muslims. Your will could comply with Islamic principles while giving you control over guardians, executors and specific assets.',
+  },
+  {
+    q: 'Can I update my will later?',
+    a: 'Yes. We include annual review reminders — so you can update as your life changes.',
+  },
+  {
+    q: 'What are the costs involved?',
+    a: 'We provide complete pricing transparency during your free audit — no surprises, no hidden fees. Court fees (ADJD: AED 950, DIFC: AED 10,000) are paid directly to the government.',
+  },
 ];
 ---
 
 <Base
-  title="Book Your Free Risk Profile Audit — 30 Minutes, No Obligation"
-  description="A free 30-minute call: which registry fits, single or mirror will, your document checklist and transparent fees. No obligation, no pressure."
+  title="Book Your Audit"
+  description="Pick a time for your free 30-minute Risk Profile Audit: DIFC vs ADJD compared for your situation, exact costs and your timeline. Zero pressure — just clarity."
 >
-  <section class="relative overflow-hidden py-20 md:py-28">
+  <section class="relative overflow-hidden pt-20 pb-14 md:pt-28 md:pb-16">
     <div class="pointer-events-none absolute -top-40 left-1/3 size-[30rem] rounded-full bg-gold/15 blur-3xl"></div>
     <div class="wrap max-w-3xl text-center">
       <div data-reveal class="flex justify-center"><SectionTag label="Free · 30 minutes · No obligation" /></div>
       <h1 data-split class="mt-6 font-heading text-[2.7rem] leading-[1.06] font-medium text-ink sm:text-6xl">
-        Book your free <em class="not-italic font-semibold text-gold">Risk Profile Audit</em>
+        Your proof — pick a time for <em class="not-italic font-semibold text-gold">your audit</em>
       </h1>
       <p data-reveal class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
-        Thirty minutes with a specialist. You hang up knowing exactly what your
-        situation needs — whether or not you ever work with us.
+        In 30 minutes we'll compare DIFC vs ADJD for your situation, show exact
+        costs, and map your timeline. Zero pressure — just clarity.
       </p>
       <div data-reveal data-delay="0.15" class="mt-9 flex justify-center">
-        <Button placement="book-hero" />
+        <Button placement="book-hero" href="#calendar" label="Choose your slot below" />
       </div>
       <p data-reveal data-delay="0.2" class="mt-5 text-sm text-ink-soft">
         Booking takes about 2 minutes — pick a time that suits your timezone.
@@ -54,55 +72,69 @@ const notList = [
     </div>
   </section>
 
+  <section id="calendar" class="scroll-mt-24 pb-20 md:pb-24">
+    <div class="wrap max-w-4xl">
+      <div data-reveal class="rounded-[1.75rem] border border-line bg-white/70 p-3 sm:p-6">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/booking/DRPtsKP7ytPt2XfTRE77"
+          style="width: 100%; min-height: 640px; border: none; overflow: hidden;"
+          scrolling="no"
+          id="booking-widget-DRPtsKP7ytPt2XfTRE77"
+          title="Book your free Risk Profile Audit"></iframe>
+      </div>
+      <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript" is:inline></script>
+    </div>
+  </section>
+
   <section class="bg-cream-deep/60 py-20 md:py-24">
     <div class="wrap">
       <div class="max-w-2xl">
-        <div data-reveal><SectionTag label="What the call covers" /></div>
+        <div data-reveal><SectionTag label="What to expect" /></div>
         <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
-          Four things, <em class="not-italic font-semibold text-gold">in 30 minutes</em>
+          What to expect <em class="not-italic font-semibold text-gold">during your audit</em>
         </h2>
       </div>
-      <div class="mt-12 grid gap-5 sm:grid-cols-2">
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
         {
-          covers.map((c, i) => (
-            <div data-reveal="scale" data-delay={String(i * 0.07)} class={`card flex gap-5 p-7 ${['petal-tl-sm', 'petal-tr-sm', 'petal-bl-sm', 'petal-br-sm'][i % 4]}`}>
+          expect.map((c, i) => (
+            <div data-reveal="scale" data-delay={String(i * 0.07)} class={`card p-7 ${['petal-tl-sm', 'petal-tr-sm', 'petal-br-sm'][i]}`}>
               <span class="font-heading text-[2.2rem] leading-none font-semibold text-gold">0{i + 1}</span>
-              <div>
-                <h3 class="font-heading text-[1.3rem] font-semibold text-ink">{c.title}</h3>
-                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">{c.body}</p>
-              </div>
+              <h3 class="mt-4 font-heading text-[1.3rem] font-semibold text-ink">{c.title}</h3>
+              <p class="mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">{c.body}</p>
             </div>
           ))
         }
       </div>
 
-      <div class="mt-12 grid gap-5 lg:grid-cols-[1fr_1.2fr]">
-        <div data-reveal class="rounded-[1.75rem] border border-line bg-white/50 p-8">
-          <h3 class="font-heading text-2xl font-semibold text-ink">What it is not</h3>
-          <ul class="mt-5 space-y-3.5">
-            {notList.map((t) => (
-              <li class="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
-                <span class="mt-1.5 size-2 shrink-0 rounded-full bg-gold"></span>
-                {t}
-              </li>
+      <div data-reveal class="card mt-12 flex flex-col items-start justify-between gap-6 p-8 md:flex-row md:items-center">
+        <div>
+          <div class="flex gap-1 text-trust">
+            {Array.from({ length: 5 }).map(() => (
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7z"/></svg>
             ))}
-          </ul>
-        </div>
-        <div data-reveal data-delay="0.1" class="card flex flex-col items-start justify-between gap-6 p-8 md:flex-row md:items-center">
-          <div>
-            <div class="flex gap-1 text-trust">
-              {Array.from({ length: 5 }).map(() => (
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7z"/></svg>
-              ))}
-            </div>
-            <p class="mt-3 max-w-sm text-[0.95rem] leading-relaxed text-ink-soft">
-              SmartWills UAE is rated <strong class="font-semibold text-ink">4.6 out of 5</strong> on
-              <a href={TRUSTPILOT_URL} target="_blank" rel="noopener" class="font-medium text-gold-dark underline underline-offset-2">Trustpilot</a>
-              — by expats who started exactly where you are now.
-            </p>
           </div>
-          <Button placement="book-mid" label="Pick your time" />
+          <p class="mt-3 max-w-sm text-[0.95rem] leading-relaxed text-ink-soft">
+            SmartWills UAE is rated <strong class="font-semibold text-ink">4.6 out of 5</strong> on
+            <a href={TRUSTPILOT_URL} target="_blank" rel="noopener" class="font-medium text-gold-dark underline underline-offset-2">Trustpilot</a>
+            — by expats who started exactly where you are now.
+          </p>
         </div>
+        <Button placement="book-mid" href="#calendar" label="Pick your time" />
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 md:py-24">
+    <div class="wrap max-w-3xl">
+      <div data-reveal><SectionTag label="Common questions" /></div>
+      <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+        Common questions, <em class="not-italic font-semibold text-gold">answered</em>
+      </h2>
+      <div data-reveal class="mt-10">
+        <FaqAccordion client:visible items={faqs} />
+      </div>
+      <div data-reveal class="mt-12 flex justify-center">
+        <Button placement="book-faq" href="#calendar" label="Choose your slot" />
       </div>
     </div>
   </section>

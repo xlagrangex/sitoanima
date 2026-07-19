@@ -2,6 +2,7 @@
 import SectionTag from '../ui/SectionTag.astro';
 import Button from '../ui/Button.astro';
 import BauhausDecor from '../ui/BauhausDecor.astro';
+import BauhausCluster from '../ui/BauhausCluster.astro';
 
 const steps = [
   {
@@ -32,10 +33,9 @@ const steps = [
 ---
 
 <section class="relative overflow-hidden py-20 md:py-28">
-  <BauhausDecor type="pattern" opacity={0.07} />
-  <BauhausDecor type="orb" color="gold" size="size-[30rem]" opacity={0.1} class="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-  <BauhausDecor type="disc" color="gold-dark" size="size-20" opacity={0.16} class="top-[18%] left-[12%]" />
-  <BauhausDecor type="petal-bl-sm" color="gold" size="w-24 h-24" opacity={0.14} class="bottom-[15%] right-[10%]" />
+  <BauhausDecor type="pattern" opacity={0.06} />
+  <BauhausCluster variant="tower" class="top-6 -right-6 hidden lg:block" />
+  <BauhausCluster variant="arch" class="-top-20 -left-24 hidden origin-top-left scale-[0.85] lg:block" />
   <div class="relative z-10 wrap">
     <div class="max-w-2xl">
       <div data-reveal><SectionTag label="How it works" /></div>

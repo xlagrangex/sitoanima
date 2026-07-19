@@ -16,7 +16,8 @@ const cream = 'var(--color-cream-deep)';
 const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
 ---
 
-<footer id="site-footer" class="site-footer text-cream">
+<div id="footer-slot" class="footer-slot">
+  <footer id="site-footer" class="site-footer bg-ink text-cream">
   <div class="footer-inner ink-panel relative overflow-hidden">
     <div class="relative">
       <!-- ── Hanging arch fringe ── -->
@@ -32,7 +33,7 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
       </div>
 
       <!-- ── Giant CTA ── -->
-      <div class="wrap grid gap-7 pt-10 pb-10 md:grid-cols-[1.6fr_auto] md:items-center md:pt-12 md:pb-12">
+      <div class="wrap grid gap-7 pt-9 pb-9 md:grid-cols-[1.6fr_auto] md:items-center md:pt-10 md:pb-10">
         <h2 data-fstagger class="font-heading text-[2.4rem] font-medium leading-[0.98] text-cream sm:text-5xl lg:text-[3.7rem]">
           Peace of mind,<br class="lg:hidden" />
           <em class="not-italic font-semibold text-gold-grad">put in writing.</em>
@@ -44,7 +45,7 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
 
       <!-- ── Link columns ── -->
       <div class="border-t border-cream/10">
-        <div class="wrap grid gap-10 py-10 md:grid-cols-[1.3fr_1fr_1fr] md:py-11">
+        <div class="wrap grid gap-10 py-9 md:grid-cols-[1.3fr_1fr_1fr] md:py-10">
           <div data-fstagger>
             <Logo dark />
             <p class="mt-4 max-w-sm text-[0.95rem] leading-relaxed text-cream/70">
@@ -92,7 +93,7 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
 
       <!-- ── Legal + back to top ── -->
       <div class="border-t border-cream/10">
-        <div class="wrap flex items-start justify-between gap-8 py-6" data-fstagger>
+        <div class="wrap flex items-start justify-between gap-8 py-5" data-fstagger>
           <div>
             <p class="text-xs leading-relaxed text-cream/50">
               <strong class="font-medium text-cream/70">{LEGAL_ENTITY}</strong> · {EMAIL}
@@ -112,38 +113,36 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
         </div>
       </div>
 
-      <!-- ── Ghost wordmark, cropped by the footer's bottom edge ── -->
-      <div class="pointer-events-none -mt-1 select-none" aria-hidden="true">
+      <!-- ── Ghost wordmark: whole logotype, dissolving toward the bottom ── -->
+      <div class="pointer-events-none select-none overflow-hidden pt-2" aria-hidden="true">
         <p
-          class="whitespace-nowrap text-center font-heading font-semibold leading-none tracking-tight text-cream/[0.16]"
-          style="font-size: clamp(3.5rem, 10.5vw, 9.5rem); transform: translateY(0.44em);"
+          class="fw-word whitespace-nowrap text-center font-heading font-semibold leading-[0.82] tracking-tight text-cream/[0.24]"
+          style="font-size: clamp(4.5rem, 13vw, 11.5rem);"
         >
-          SmartWills<span class="text-gold/30">.ae</span>
+          SmartWills<span class="text-gold/40">.ae</span>
         </p>
       </div>
     </div>
   </div>
 </footer>
+</div>
 
 <style>
-  /* Curtain reveal: when the whole footer fits in the viewport (JS adds
-     .is-curtain), it stays pinned behind the page sheet (main, opaque and
-     above) and the last stretch of scroll lifts the sheet off it. Otherwise
-     it behaves as a normal footer. */
-  .site-footer.is-curtain {
-    position: sticky;
-    bottom: 0;
-    z-index: 0;
+  /* Curtain reveal, clip-path flavour: when the whole footer fits in the
+     viewport (JS enables it), the footer is fixed to the viewport bottom but
+     only paints through its own layout slot — the slot acts as a window that
+     the last stretch of scroll slides open. No sticky side effects: nothing
+     ever sits behind the translucent header, and the page ends exactly at
+     the footer's bottom edge. Without JS it is a normal static footer. */
+  .footer-slot.is-curtain {
+    position: relative;
+    clip-path: inset(0 0 0 0);
   }
-
-  /* The sticky shift leaves the footer's layout slot exposed below it —
-     fill that gap with ink so nothing pale peeks under the footer. */
-  .site-footer.is-curtain::after {
-    content: '';
-    position: absolute;
-    inset: 100% 0 auto 0;
-    height: 100vh;
-    background: var(--color-ink);
+  .site-footer.is-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   /* Arch halves — a rectangle with exactly one 100% corner radius, the same
@@ -151,6 +150,13 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
      side read as one arch hanging from the top edge. */
   .fz-bl { border-radius: 0 0 0 100%; }
   .fz-br { border-radius: 0 0 100% 0; }
+
+  /* The wordmark fades out toward the footer's bottom edge instead of being
+     cut by it. */
+  .fw-word {
+    -webkit-mask-image: linear-gradient(to bottom, black 22%, transparent 96%);
+    mask-image: linear-gradient(to bottom, black 22%, transparent 96%);
+  }
 </style>
 
 <script>
@@ -172,12 +178,24 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
     }
   });
 
-  if (footer && inner && main && !reduced) {
-    /* Curtain mode only when the footer fits the viewport — a sticky footer
+  const slot = document.getElementById('footer-slot');
+
+  if (footer && inner && main && slot && !reduced) {
+    /* Curtain mode only when the footer fits the viewport — a pinned footer
        taller than the screen would keep its top edge (the fringe) forever
-       hidden behind the sheet. */
-    const fits = () => footer.offsetHeight <= window.innerHeight;
-    const setMode = () => footer.classList.toggle('is-curtain', fits());
+       hidden behind the sheet. Measure with the footer in static flow, then
+       pin it and give the slot the same height so the layout doesn't move. */
+    const setMode = () => {
+      footer.classList.remove('is-fixed');
+      slot.classList.remove('is-curtain');
+      slot.style.height = '';
+      const h = footer.offsetHeight;
+      if (h <= window.innerHeight) {
+        slot.style.height = `${h}px`;
+        slot.classList.add('is-curtain');
+        footer.classList.add('is-fixed');
+      }
+    };
     setMode();
     let raf = 0;
     window.addEventListener('resize', () => {

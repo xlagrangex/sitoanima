@@ -1,5 +1,5 @@
 ---
-import BauhausDecor from '../ui/BauhausDecor.astro';
+import BauhausCluster from '../ui/BauhausCluster.astro';
 
 const items = [
   '500+ expats guided',
@@ -12,8 +12,7 @@ const items = [
 ---
 
 <div class="relative overflow-hidden border-y border-line/80 bg-cream-deep/50 py-4" aria-hidden="true">
-  <BauhausDecor type="disc" color="gold" size="size-72" opacity={0.12} class="-top-32 -left-24" />
-  <BauhausDecor type="petal-br-sm" color="cream" size="w-32 h-32" opacity={0.55} class="bottom-0 right-[15%]" />
+  <BauhausCluster variant="duo" class="-bottom-40 -left-10 hidden origin-bottom-left scale-50 md:block" />
   <div class="relative z-10 marquee-track items-center gap-10">
     {[...items, ...items].map((item) => (
       <span class="flex shrink-0 items-center gap-10">

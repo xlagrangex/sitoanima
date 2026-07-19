@@ -65,8 +65,7 @@ export default function MobileMenu({ pathname }: { pathname: string }) {
         <div className="wrap mt-auto pb-10">
           <a
             href={ctaUrl('mobile-menu')}
-            target="_blank"
-            rel="noopener"
+            onClick={() => setOpen(false)}
             className="group flex items-center justify-between rounded-full bg-gold py-3 pl-6 pr-3 text-base font-medium text-ink"
           >
             Book your free Risk Profile Audit

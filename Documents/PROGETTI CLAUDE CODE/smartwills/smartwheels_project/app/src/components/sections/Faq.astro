@@ -2,15 +2,15 @@
 import SectionTag from '../ui/SectionTag.astro';
 import Button from '../ui/Button.astro';
 import BauhausDecor from '../ui/BauhausDecor.astro';
+import BauhausCluster from '../ui/BauhausCluster.astro';
 import FaqAccordion from '../react/FaqAccordion';
 import { FAQS } from '../../lib/content';
 ---
 
 <section class="relative overflow-hidden py-20 md:py-28">
   <BauhausDecor type="pattern" opacity={0.06} />
-  <BauhausDecor type="orb" color="gold" size="size-[28rem]" opacity={0.09} class="-top-36 -right-60" />
-  <BauhausDecor type="disc" color="gold-dark" size="size-44" opacity={0.13} class="-bottom-20 -left-16" />
-  <BauhausDecor type="petal-tl-sm" color="gold" size="w-28 h-28" opacity={0.14} class="top-[20%] right-[5%]" />
+  <BauhausCluster variant="arch" class="-top-8 -right-24 hidden origin-top-right scale-[0.8] lg:block" />
+  <BauhausCluster variant="tee" class="-bottom-8 -left-16 hidden lg:block" />
   <div class="relative z-10 wrap grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
     <div>
       <div class="lg:sticky lg:top-32">
