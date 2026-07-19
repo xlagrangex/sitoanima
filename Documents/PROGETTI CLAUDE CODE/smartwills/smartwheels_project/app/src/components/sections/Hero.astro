@@ -39,22 +39,22 @@ const bookUrl = ctaUrl('navbar');
     <div class="hero-panel relative flex-1 overflow-hidden rounded-[1.5rem]">
       <div class="relative z-20 flex h-full max-w-3xl flex-col items-start justify-center gap-8 px-6 pt-14 pb-40 sm:px-12 lg:px-16 lg:pt-10 lg:pb-32">
         <div data-reveal>
-          <span class="inline-flex items-center rounded-full border border-white/70 px-6 py-2.5 text-[0.9rem] font-medium text-white">
+          <span class="inline-flex items-center rounded-full border border-cream/30 px-6 py-2.5 text-[0.9rem] font-medium text-cream/90">
             Secure Your Legacy
           </span>
         </div>
 
-        <h1 data-split class="hero-h1 text-[clamp(3.4rem,9.5vw,7.5rem)] font-bold leading-[1.02] text-white">
-          Your<br />Legacy<br />Matters
+        <h1 data-split class="font-heading text-[clamp(3.2rem,8.5vw,6.75rem)] font-medium leading-[0.98] text-cream">
+          Your<br />Legacy<br /><em class="not-italic text-gold">Matters</em>
         </h1>
 
         <div data-reveal data-delay="0.15" class="flex flex-col gap-7">
-          <p class="max-w-xl text-[1.15rem] leading-relaxed font-medium text-white">
+          <p class="max-w-xl text-[1.15rem] leading-relaxed text-cream/80">
             SmartWills helps UAE expats protect what matters most — will drafting,
             certified translation and government registration, coordinated for you
             from start to finish.
           </p>
-          <span class="h-px w-72 max-w-full bg-white/80"></span>
+          <span class="h-px w-72 max-w-full bg-cream/50"></span>
         </div>
       </div>
 
@@ -109,7 +109,7 @@ const bookUrl = ctaUrl('navbar');
       <span class="fill fill-shell fill-cta-right"></span>
       <a
         href={bookUrl}
-        class="group flex w-full items-center justify-between gap-4 rounded-[1.4rem] bg-lime py-4 pl-7 pr-4 text-[1.15rem] font-semibold text-ink transition-colors duration-300 hover:bg-[#e6ff70] sm:py-5 sm:pl-9 sm:text-[1.4rem]"
+        class="group flex w-full items-center justify-between gap-4 rounded-[1.4rem] bg-gold py-4 pl-7 pr-4 text-[1.15rem] font-semibold text-ink transition-colors duration-300 hover:bg-gold-dark sm:py-5 sm:pl-9 sm:text-[1.4rem]"
       >
         <span>Book a Free Call</span>
         <span class="grid size-12 shrink-0 place-items-center rounded-full border-[1.5px] border-ink transition-transform duration-300 group-hover:rotate-45 sm:size-14">
@@ -124,9 +124,6 @@ const bookUrl = ctaUrl('navbar');
   .hero-page {
     /* the frame shares the site's background, so the purple panel floats on it */
     --shell: var(--color-cream);
-    --purple: #5551dd;
-    --purple-glow: #8f83f0;
-    --lime: #d6f651;
     --pad: 0.625rem;
     --navh: 76px;
     --tabw: 250px;
@@ -134,15 +131,10 @@ const bookUrl = ctaUrl('navbar');
   @media (min-width: 640px) {
     .hero-page { --pad: 0.75rem; }
   }
-  .hero-h1 {
-    font-family: var(--font-body);
-    letter-spacing: -0.02em;
-  }
-  .bg-lime { background: var(--lime); }
-
   .hero-panel {
     background:
-      radial-gradient(55rem 42rem at 68% 42%, var(--purple-glow) 0%, var(--purple) 55%, #4d49d0 100%);
+      radial-gradient(1200px 500px at 85% -10%, rgba(201, 166, 104, 0.16), transparent 60%),
+      var(--color-ink);
   }
 
   /* ── The continuous image surface ── */
@@ -207,12 +199,12 @@ const bookUrl = ctaUrl('navbar');
     height: 9px;
     width: 9px;
     border-radius: 9999px;
-    background: rgba(85, 81, 221, 0.35);
+    background: rgba(26, 22, 18, 0.25);
     transition: width 0.35s ease, background 0.35s ease;
   }
   .ddot.is-active {
     width: 30px;
-    background: var(--purple);
+    background: var(--color-gold-dark);
   }
 
   /* ── Moulded pockets — concave fillets in the page colour ── */
