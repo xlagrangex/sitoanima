@@ -59,7 +59,7 @@ h1, h2, h3, .font-heading {
 .wrap {
   margin-inline: auto;
   width: 100%;
-  max-width: 76rem;
+  max-width: 87.5rem;
   padding-inline: 1.5rem;
 }
 @media (min-width: 768px) {
