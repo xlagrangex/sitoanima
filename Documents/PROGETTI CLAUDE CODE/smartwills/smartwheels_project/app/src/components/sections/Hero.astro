@@ -1,4 +1,5 @@
 ---
+import Logo from '../ui/Logo.astro';
 import MobileMenu from '../react/MobileMenu';
 import { NAV_LINKS, ctaUrl } from '../../lib/site';
 
@@ -20,10 +21,7 @@ const bookUrl = ctaUrl('navbar');
   <div class="relative mx-auto flex w-full max-w-[112rem] flex-col overflow-hidden rounded-[1.9rem] bg-shell p-2.5 sm:p-3" style="min-height: clamp(600px, 94vh, 920px);">
     <!-- ── Top bar: logo left, links centre-right ── -->
     <div class="relative z-30 flex items-center gap-8 px-3 py-3.5 sm:px-5 lg:pr-56">
-      <a href="/" class="flex items-baseline gap-1.5 select-none" aria-label="SmartWills.ae — home">
-        <span class="rounded-[0.55rem] bg-white px-2.5 py-1 font-body text-[1.15rem] leading-none font-bold text-shell">Smart</span>
-        <span class="font-body text-[1.15rem] leading-none font-bold text-white">Wills.ae</span>
-      </a>
+      <Logo dark />
 
       <nav class="ml-auto hidden items-center gap-9 lg:flex" aria-label="Main">
         {
@@ -125,9 +123,7 @@ const bookUrl = ctaUrl('navbar');
     --purple: #5551dd;
     --purple-glow: #8f83f0;
     --lime: #d6f651;
-    --tab: #9296ef;
-    background:
-      radial-gradient(120% 100% at 50% 0%, #f6effc 0%, #ead9f7 55%, #e2ccf3 100%);
+    --tab: #8b80ef;
   }
   .hero-h1 {
     font-family: var(--font-body);
@@ -196,14 +192,16 @@ const bookUrl = ctaUrl('navbar');
   .fill-dots-above { top: calc(-1 * var(--r)); right: 0; transform: scaleX(-1); }
   .fill-dots-left { bottom: 0; left: calc(-1 * var(--r)); transform: scaleX(-1); }
   .fill-cta-above { top: calc(-1 * var(--r)); left: 0; }
-  .fill-cta-right { bottom: 0; right: calc(-1 * var(--r) + 2rem); }
+  .fill-cta-right { bottom: 0.75rem; right: calc(-1 * var(--r)); }
 
   .pocket-cta { background: var(--shell); border-top-right-radius: 1.6rem; padding: 0.8rem 2rem 0.65rem 0.65rem; }
   .pocket-dots { background: var(--shell); border-top-left-radius: 1.3rem; padding: 1rem 1.1rem 0.9rem 1.3rem; }
 
   /* Register tab: light periwinkle corner with concave joins into the dark bar */
+  /* Same backdrop as the image panel: the glow continues into the corner, so
+     the tab reads as the panel bulging up around the button — not a separate chip */
   .tab-register {
-    background: var(--tab);
+    background: linear-gradient(205deg, #978cf3 0%, var(--tab) 60%, #8177ec 100%);
     border-top-right-radius: 1.9rem;
     border-bottom-left-radius: 1.6rem;
   }
