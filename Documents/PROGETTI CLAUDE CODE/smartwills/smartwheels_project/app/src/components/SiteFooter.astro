@@ -6,125 +6,137 @@ import { ARTICLES } from '../lib/content';
 
 const year = new Date().getFullYear();
 
-/* ── Scalloped fringe: a continuous run of hanging Bauhaus arches, flush to
-   the footer's top edge. One repeating triad of brand tones — deliberate
-   rhythm, no scattered shapes. ── */
-const gold = 'var(--color-gold)';
-const goldDark = 'var(--color-gold-dark)';
-const cream = 'var(--color-cream-deep)';
+const exploreLinks = [...NAV_LINKS, { label: 'Book a call', href: '/book-a-call' }];
+const resourceLinks = ARTICLES.map((a) => ({ label: a.title.split(':')[0], href: `/resources/${a.slug}` }));
 
-const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
+/* Trustpilot: 4.6/5 → 4 full green boxes + one filled 60%. */
+const TRUST_GREEN = '#00b67a';
+const STARS = [100, 100, 100, 100, 60];
 ---
 
 <div id="footer-slot" class="footer-slot">
   <footer id="site-footer" class="site-footer bg-ink text-cream">
-  <div class="footer-inner ink-panel relative overflow-hidden">
-    <div class="relative">
-      <!-- ── Hanging arch fringe ── -->
-      <div class="grid grid-cols-3 overflow-hidden md:grid-cols-8" aria-hidden="true">
-        {
-          ARCHES.map((c, i) => (
-            <div class:list={['fz relative aspect-[3.2/1]', i >= 3 && 'hidden md:block']}>
-              <span class="absolute inset-y-0 left-0 w-1/2 fz-bl" style={`background:${c}`} />
-              <span class="absolute inset-y-0 right-0 w-1/2 fz-br" style={`background:${c}`} />
+    <div class="footer-inner ink-panel relative overflow-hidden">
+      <div class="relative">
+        <!-- ── CTA band ── -->
+        <div class="wrap grid gap-7 pt-14 pb-11 md:grid-cols-[1.6fr_auto] md:items-center md:pt-16 md:pb-12">
+          <h2 data-fstagger class="font-heading text-[2.4rem] font-medium leading-[0.98] text-cream sm:text-5xl lg:text-[3.7rem]">
+            Leave <em class="not-italic font-semibold text-gold-grad">clarity</em>,<br class="lg:hidden" />
+            not questions.
+          </h2>
+          <div data-fstagger class="md:justify-self-end">
+            <Button placement="footer" />
+          </div>
+        </div>
+
+        <!-- ── Link columns ── -->
+        <div class="border-t border-cream/10">
+          <div class="wrap grid gap-10 py-10 md:grid-cols-[1.3fr_1fr_1.1fr] md:py-11">
+            <div data-fstagger>
+              <Logo dark />
+              <p class="mt-4 max-w-sm text-[0.95rem] leading-relaxed text-cream/70">
+                We help expats register their UAE will from start to finish, remotely —
+                with 2 to 3 hours of their own time. Every step coordinated: drafting,
+                certified translation, government submission and follow-up.
+              </p>
+
+              <!-- Trustpilot -->
+              <a href={TRUSTPILOT_URL} target="_blank" rel="noopener" class="group mt-6 inline-block">
+                <span class="flex items-center gap-1.5">
+                  <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill={TRUST_GREEN} d="M12 .9l3 8.1 8.6.2-6.8 5.3 2.4 8.3L12 17.9l-7.2 4.9 2.4-8.3L.4 9.2 9 9z"/>
+                  </svg>
+                  <span class="text-[1.1rem] font-semibold tracking-tight text-cream">Trustpilot</span>
+                </span>
+                <span class="mt-2.5 flex items-center gap-2.5">
+                  <span class="flex gap-[3px]">
+                    {STARS.map((fill) => (
+                      <span
+                        class="tp-box grid size-[26px] place-items-center"
+                        style={`background: linear-gradient(90deg, ${TRUST_GREEN} ${fill}%, rgba(255,255,255,0.16) ${fill}%)`}
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                          <path fill="#fff" d="M12 2.6l2.5 6.7 7.1.2-5.6 4.4 2 6.9-6-4.1-6 4.1 2-6.9L2.4 9.5l7.1-.2z"/>
+                        </svg>
+                      </span>
+                    ))}
+                  </span>
+                  <span class="text-sm text-cream/70 transition-colors group-hover:text-cream">
+                    Rated <strong class="font-semibold text-cream">4.6</strong> out of 5
+                  </span>
+                </span>
+              </a>
             </div>
-          ))
-        }
-      </div>
 
-      <!-- ── Giant CTA ── -->
-      <div class="wrap grid gap-7 pt-9 pb-9 md:grid-cols-[1.6fr_auto] md:items-center md:pt-10 md:pb-10">
-        <h2 data-fstagger class="font-heading text-[2.4rem] font-medium leading-[0.98] text-cream sm:text-5xl lg:text-[3.7rem]">
-          Peace of mind,<br class="lg:hidden" />
-          <em class="not-italic font-semibold text-gold-grad">put in writing.</em>
-        </h2>
-        <div data-fstagger class="md:justify-self-end">
-          <Button placement="footer" />
-        </div>
-      </div>
-
-      <!-- ── Link columns ── -->
-      <div class="border-t border-cream/10">
-        <div class="wrap grid gap-10 py-9 md:grid-cols-[1.3fr_1fr_1fr] md:py-10">
-          <div data-fstagger>
-            <Logo dark />
-            <p class="mt-4 max-w-sm text-[0.95rem] leading-relaxed text-cream/70">
-              We help expats register their UAE will from start to finish, remotely —
-              with 2 to 3 hours of their own time. Every step coordinated: drafting,
-              certified translation, government submission and follow-up.
-            </p>
-            <a
-              href={TRUSTPILOT_URL}
-              target="_blank"
-              rel="noopener"
-              class="mt-5 inline-flex items-center gap-2.5 rounded-full border border-cream/15 px-4 py-2 text-sm transition-colors hover:border-gold/50"
-            >
-              <span class="flex gap-0.5 text-trust">
-                {Array.from({ length: 5 }).map(() => (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7z"/></svg>
+            <div data-fstagger>
+              <h3 class="fh">Explore</h3>
+              <ul class="mt-5 space-y-2 text-[0.95rem]">
+                {exploreLinks.map((l) => (
+                  <li>
+                    <a class="fl group/l inline-flex items-center py-0.5 text-cream/70 transition-colors duration-300 hover:text-cream" href={l.href}>
+                      <svg class="fl-arrow text-gold" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      <span class="fl-label">{l.label}</span>
+                    </a>
+                  </li>
                 ))}
-              </span>
-              <span class="text-cream/80">Rated <strong class="text-cream">4.6/5</strong> on Trustpilot</span>
-            </a>
-          </div>
+              </ul>
+            </div>
 
-          <div data-fstagger>
-            <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-gold">Explore</h3>
-            <ul class="mt-4 space-y-2.5 text-[0.95rem]">
-              {NAV_LINKS.map((l) => (
-                <li><a class="link-grow text-cream/75 transition-colors hover:text-gold" href={l.href}>{l.label}</a></li>
-              ))}
-              <li><a class="link-grow text-cream/75 transition-colors hover:text-gold" href="/book-a-call">Book a call</a></li>
-            </ul>
-          </div>
-
-          <div data-fstagger>
-            <h3 class="text-sm font-semibold uppercase tracking-[0.14em] text-gold">Resources</h3>
-            <ul class="mt-4 space-y-2.5 text-[0.95rem]">
-              {ARTICLES.map((a) => (
-                <li><a class="link-grow text-cream/75 transition-colors hover:text-gold" href={`/resources/${a.slug}`}>{a.title.split(':')[0]}</a></li>
-              ))}
-            </ul>
-            <h3 class="mt-6 text-sm font-semibold uppercase tracking-[0.14em] text-gold">Contact</h3>
-            <a class="link-grow mt-3 inline-block text-[0.95rem] text-cream/75 transition-colors hover:text-gold" href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            <div data-fstagger>
+              <h3 class="fh">Resources</h3>
+              <ul class="mt-5 space-y-2 text-[0.95rem]">
+                {resourceLinks.map((l) => (
+                  <li>
+                    <a class="fl group/l inline-flex items-center py-0.5 text-cream/70 transition-colors duration-300 hover:text-cream" href={l.href}>
+                      <svg class="fl-arrow text-gold" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      <span class="fl-label">{l.label}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <h3 class="fh mt-8">Contact</h3>
+              <a class="fl group/l mt-4 inline-flex items-center text-[0.95rem] text-cream/70 transition-colors duration-300 hover:text-cream" href={`mailto:${EMAIL}`}>
+                <svg class="fl-arrow text-gold" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                <span class="fl-label">{EMAIL}</span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- ── Legal + back to top ── -->
-      <div class="border-t border-cream/10">
-        <div class="wrap flex items-start justify-between gap-8 py-5" data-fstagger>
-          <div>
-            <p class="text-xs leading-relaxed text-cream/50">
-              <strong class="font-medium text-cream/70">{LEGAL_ENTITY}</strong> · {EMAIL}
-              <span class="mx-2 text-cream/25">·</span>© {year} SmartWills.ae — All rights reserved.
-            </p>
-            <p class="mt-3 max-w-4xl text-xs leading-relaxed text-cream/45">
-              {DISCLAIMER}
-            </p>
+        <!-- ── Legal + back to top ── -->
+        <div class="border-t border-cream/10">
+          <div class="wrap flex items-start justify-between gap-8 py-5" data-fstagger>
+            <div>
+              <p class="text-xs leading-relaxed text-cream/50">
+                <strong class="font-medium text-cream/70">{LEGAL_ENTITY}</strong> · {EMAIL}
+                <span class="mx-2 text-cream/25">·</span>© {year} SmartWills.ae — All rights reserved.
+              </p>
+              <p class="mt-3 max-w-4xl text-xs leading-relaxed text-cream/45">
+                {DISCLAIMER}
+              </p>
+            </div>
+            <button
+              id="footer-to-top"
+              class="group grid size-12 shrink-0 place-items-center rounded-full border border-cream/20 text-cream/70 transition-colors duration-300 hover:border-gold hover:bg-gold hover:text-ink"
+              aria-label="Back to top"
+            >
+              <svg class="transition-transform duration-300 group-hover:-translate-y-0.5" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+            </button>
           </div>
-          <button
-            id="footer-to-top"
-            class="group grid size-12 shrink-0 place-items-center rounded-full border border-cream/20 text-cream/70 transition-colors duration-300 hover:border-gold hover:bg-gold hover:text-ink"
-            aria-label="Back to top"
+        </div>
+
+        <!-- ── Ghost wordmark: whole logotype, dissolving toward the bottom ── -->
+        <div class="pointer-events-none select-none overflow-hidden pt-2" aria-hidden="true">
+          <p
+            class="fw-word whitespace-nowrap text-center font-heading font-semibold leading-[0.82] tracking-tight text-cream/[0.24]"
+            style="font-size: clamp(4.5rem, 13vw, 11.5rem);"
           >
-            <svg class="transition-transform duration-300 group-hover:-translate-y-0.5" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
-          </button>
+            SmartWills<span class="text-gold/40">.ae</span>
+          </p>
         </div>
-      </div>
-
-      <!-- ── Ghost wordmark: whole logotype, dissolving toward the bottom ── -->
-      <div class="pointer-events-none select-none overflow-hidden pt-2" aria-hidden="true">
-        <p
-          class="fw-word whitespace-nowrap text-center font-heading font-semibold leading-[0.82] tracking-tight text-cream/[0.24]"
-          style="font-size: clamp(4.5rem, 13vw, 11.5rem);"
-        >
-          SmartWills<span class="text-gold/40">.ae</span>
-        </p>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 </div>
 
 <style>
@@ -145,11 +157,49 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
     right: 0;
   }
 
-  /* Arch halves — a rectangle with exactly one 100% corner radius, the same
-     construction as the petals in bauhaus-pattern.svg. [bl + br] side by
-     side read as one arch hanging from the top edge. */
-  .fz-bl { border-radius: 0 0 0 100%; }
-  .fz-br { border-radius: 0 0 100% 0; }
+  /* Column headings: sans, with a short gold dash. */
+  .fh {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .fh::before {
+    content: '';
+    width: 1.1rem;
+    height: 2px;
+    background: var(--color-gold);
+    opacity: 0.7;
+  }
+
+  /* Link hover: a gold arrow slides in from the left while the label makes
+     room for it. */
+  .fl-arrow {
+    width: 0;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .fl-label {
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .fl:hover .fl-arrow {
+    width: 14px;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .fl:hover .fl-label {
+    transform: translateX(8px);
+  }
+
+  .tp-box svg {
+    filter: drop-shadow(0 0 0.5px rgba(0, 0, 0, 0.2));
+  }
 
   /* The wordmark fades out toward the footer's bottom edge instead of being
      cut by it. */
@@ -182,9 +232,9 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
 
   if (footer && inner && main && slot && !reduced) {
     /* Curtain mode only when the footer fits the viewport — a pinned footer
-       taller than the screen would keep its top edge (the fringe) forever
-       hidden behind the sheet. Measure with the footer in static flow, then
-       pin it and give the slot the same height so the layout doesn't move. */
+       taller than the screen would keep its top edge forever hidden behind
+       the sheet. Measure with the footer in static flow, then pin it and
+       give the slot the same height so the layout doesn't move. */
     const setMode = () => {
       footer.classList.remove('is-fixed');
       slot.classList.remove('is-curtain');
@@ -208,8 +258,9 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
 
     const span = () => Math.min(footer.offsetHeight, window.innerHeight * 0.9);
 
-    /* Depth: in curtain mode the footer content lags behind the lifting
-       sheet during the final stretch of scroll. */
+    /* Depth: the footer content lags behind the lifting sheet during the
+       final stretch of scroll; the wordmark lags a little more, giving the
+       reveal a second plane. */
     gsap.fromTo(
       inner,
       { yPercent: -16 },
@@ -225,30 +276,40 @@ const ARCHES = [gold, cream, goldDark, gold, cream, goldDark, gold, cream];
         },
       },
     );
-
-    /* Entrance choreography, once, as the reveal begins: the arch fringe
-       drops in from the top edge, then the content rows rise. */
-    const arches = footer.querySelectorAll<HTMLElement>('.fz');
-    const rows = footer.querySelectorAll<HTMLElement>('[data-fstagger]');
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: main,
-        start: () => `bottom bottom-=${span() * 0.25}`,
-        once: true,
-        invalidateOnRefresh: true,
+    gsap.fromTo(
+      footer.querySelector('.fw-word'),
+      { yPercent: 55 },
+      {
+        yPercent: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: main,
+          start: 'bottom bottom',
+          end: () => `bottom bottom-=${span()}`,
+          scrub: 0.4,
+          invalidateOnRefresh: true,
+        },
       },
-    });
-    tl.fromTo(
-      arches,
-      { yPercent: -101 },
-      { yPercent: 0, duration: 0.8, ease: 'power4.out', stagger: { each: 0.06, from: 'center' } },
-      0,
     );
-    tl.fromTo(
+
+    /* Entrance choreography, once, as the reveal begins. */
+    const rows = footer.querySelectorAll<HTMLElement>('[data-fstagger]');
+    gsap.fromTo(
       rows,
       { y: 34, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out', stagger: 0.09 },
-      0.2,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.9,
+        ease: 'power3.out',
+        stagger: 0.09,
+        scrollTrigger: {
+          trigger: main,
+          start: () => `bottom bottom-=${span() * 0.25}`,
+          once: true,
+          invalidateOnRefresh: true,
+        },
+      },
     );
   }
 </script>
