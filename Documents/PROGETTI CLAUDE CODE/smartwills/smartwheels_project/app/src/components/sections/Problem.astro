@@ -1,7 +1,6 @@
 ---
 import SectionTag from '../ui/SectionTag.astro';
 import Button from '../ui/Button.astro';
-import BauhausCluster from '../ui/BauhausCluster.astro';
 import { ADJD_QUOTE } from '../../lib/content';
 
 const rows = [
@@ -28,10 +27,8 @@ const rows = [
 ];
 ---
 
-<section class="relative overflow-hidden py-20 md:py-28">
-  <BauhausCluster variant="arch" class="-top-8 -right-20 hidden lg:block" />
-  <BauhausCluster variant="mosaic" class="-bottom-10 -left-12 hidden lg:block" />
-  <div class="relative z-10 wrap">
+<section class="py-20 md:py-28">
+  <div class="wrap">
     <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
       <!-- sticky intro -->
       <div class="lg:sticky lg:top-32 lg:self-start">
@@ -71,7 +68,6 @@ const rows = [
 
     <!-- government quote — full-width band -->
     <figure data-reveal class="relative mt-16 overflow-hidden rounded-[2rem] bg-cream-deep py-12 pr-8 pl-10 md:py-16 md:pr-16 md:pl-20">
-      <BauhausCluster variant="duo" class="-top-14 -right-20 hidden origin-top-right scale-[0.55] md:block" />
       <span class="absolute top-4 left-6 font-heading text-[7rem] leading-none text-gold/50 select-none md:text-[9rem]" aria-hidden="true">“</span>
       <span class="absolute top-0 bottom-0 left-0 w-2 bg-gold"></span>
       <blockquote class="relative mx-auto max-w-3xl font-heading text-[1.6rem] leading-snug font-medium text-ink md:text-[2rem]">

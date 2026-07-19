@@ -14,6 +14,7 @@ const TRUST_GREEN = '#00b67a';
 const STARS = [100, 100, 100, 100, 60];
 ---
 
+<div class="sheet-backdrop" aria-hidden="true"></div>
 <div id="footer-slot" class="footer-slot">
   <footer id="site-footer" class="site-footer bg-ink text-cream">
     <div class="footer-inner ink-panel relative overflow-hidden">
@@ -146,6 +147,17 @@ const STARS = [100, 100, 100, 100, 60];
      the last stretch of scroll slides open. No sticky side effects: nothing
      ever sits behind the translucent header, and the page ends exactly at
      the footer's bottom edge. Without JS it is a normal static footer. */
+  /* Ink strip tucked behind the sheet's rounded bottom corners: the corner
+     cutouts must show the footer's ink, not the cream body behind the page.
+     Zero net layout height (height cancels the negative margin), sits below
+     main (z-10) in paint order. It escapes the slot's clip-path on purpose —
+     as a sibling, not a descendant. */
+  .sheet-backdrop {
+    height: clamp(5rem, 10vw, 8rem);
+    margin-top: calc(-1 * clamp(5rem, 10vw, 8rem));
+    background: var(--color-ink);
+  }
+
   .footer-slot.is-curtain {
     position: relative;
     clip-path: inset(0 0 0 0);

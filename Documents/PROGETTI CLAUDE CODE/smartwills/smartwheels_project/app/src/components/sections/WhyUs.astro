@@ -1,6 +1,6 @@
 ---
 import SectionTag from '../ui/SectionTag.astro';
-import BauhausCluster from '../ui/BauhausCluster.astro';
+
 
 const points = [
   {
@@ -22,10 +22,8 @@ const points = [
 ];
 ---
 
-<section class="relative overflow-hidden py-20 md:py-28">
-  <BauhausCluster variant="mosaic" class="-top-4 -right-4 hidden lg:block" />
-  <BauhausCluster variant="duo" class="-bottom-12 -left-12 hidden lg:block" />
-  <div class="relative z-10 wrap grid items-center gap-14 lg:grid-cols-2">
+<section class="py-20 md:py-28">
+  <div class="wrap grid items-center gap-14 lg:grid-cols-2">
     <div class="relative order-2 lg:order-1" data-parallax-scope>
       <div data-mask="tl" class="petal-tl overflow-hidden">
         <img

@@ -1,17 +1,13 @@
 ---
 import SectionTag from '../ui/SectionTag.astro';
 import Button from '../ui/Button.astro';
-import BauhausDecor from '../ui/BauhausDecor.astro';
-import BauhausCluster from '../ui/BauhausCluster.astro';
+
 import FaqAccordion from '../react/FaqAccordion';
 import { FAQS } from '../../lib/content';
 ---
 
-<section class="relative overflow-hidden py-20 md:py-28">
-  <BauhausDecor type="pattern" opacity={0.06} />
-  <BauhausCluster variant="arch" class="-top-8 -right-24 hidden origin-top-right scale-[0.8] lg:block" />
-  <BauhausCluster variant="tee" class="-bottom-8 -left-16 hidden lg:block" />
-  <div class="relative z-10 wrap grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+<section class="py-20 md:py-28">
+  <div class="wrap grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
     <div>
       <div class="lg:sticky lg:top-32">
         <div data-reveal><SectionTag label="Common questions" /></div>

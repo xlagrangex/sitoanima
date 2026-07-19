@@ -1,6 +1,4 @@
 ---
-import BauhausCluster from '../ui/BauhausCluster.astro';
-
 const items = [
   '500+ expats guided',
   'Rated 4.6/5 on Trustpilot',
@@ -11,9 +9,8 @@ const items = [
 ];
 ---
 
-<div class="relative overflow-hidden border-y border-line/80 bg-cream-deep/50 py-4" aria-hidden="true">
-  <BauhausCluster variant="duo" class="-bottom-40 -left-10 hidden origin-bottom-left scale-50 md:block" />
-  <div class="relative z-10 marquee-track items-center gap-10">
+<div class="overflow-hidden border-y border-line/80 bg-cream-deep/50 py-4" aria-hidden="true">
+  <div class="marquee-track items-center gap-10">
     {[...items, ...items].map((item) => (
       <span class="flex shrink-0 items-center gap-10">
         <span class="font-heading text-lg font-medium italic text-brown">{item}</span>
