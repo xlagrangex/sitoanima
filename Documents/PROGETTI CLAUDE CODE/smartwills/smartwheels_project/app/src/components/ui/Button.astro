@@ -1,0 +1,63 @@
+---
+import { ctaUrl } from '../../lib/site';
+
+interface Props {
+  label?: string;
+  placement: string;
+  variant?: 'primary' | 'ghost' | 'ink';
+  href?: string;
+  class?: string;
+}
+
+const {
+  label = 'Book your free Risk Profile Audit',
+  placement,
+  variant = 'primary',
+  href,
+  class: className = '',
+} = Astro.props;
+
+const url = href ?? ctaUrl(placement);
+const external = url.startsWith('http');
+---
+
+{
+  variant === 'primary' && (
+    <a
+      href={url}
+      {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+      class={`group inline-flex items-center gap-3 rounded-full bg-gold py-2 pl-6 pr-2 text-[0.95rem] font-medium text-ink transition-colors duration-300 hover:bg-gold-dark ${className}`}
+    >
+      <span>{label}</span>
+      <span class="grid size-9 shrink-0 place-items-center rounded-full bg-ink text-cream transition-transform duration-300 group-hover:translate-x-1">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+  )
+}
+{
+  variant === 'ink' && (
+    <a
+      href={url}
+      {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+      class={`group inline-flex items-center gap-3 rounded-full bg-ink py-2 pl-6 pr-2 text-[0.95rem] font-medium text-cream transition-colors duration-300 hover:bg-brown ${className}`}
+    >
+      <span>{label}</span>
+      <span class="grid size-9 shrink-0 place-items-center rounded-full bg-gold text-ink transition-transform duration-300 group-hover:translate-x-1">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </span>
+    </a>
+  )
+}
+{
+  variant === 'ghost' && (
+    <a
+      href={url}
+      {...(external ? { target: '_blank', rel: 'noopener' } : {})}
+      class={`group inline-flex items-center gap-2 text-[0.95rem] font-medium text-ink link-grow ${className}`}
+    >
+      <span>{label}</span>
+      <svg class="transition-transform duration-300 group-hover:translate-x-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </a>
+  )
+}

@@ -1,0 +1,73 @@
+---
+import SectionTag from '../ui/SectionTag.astro';
+import BauhausDecor from '../ui/BauhausDecor.astro';
+
+const points = [
+  {
+    title: 'One thing only',
+    body: 'Other providers offer hundreds of services. We do one: helping expats register their UAE will. Specialisation is why the process feels simple.',
+  },
+  {
+    title: 'Drafted by a partner law firm',
+    body: 'Every will is drafted and reviewed by our partner law firm. The professional leading the drafting has 10+ years of legal experience in the UAE and is a DIFC registered draftsman — an official register of about 160 professionals in the whole country.',
+  },
+  {
+    title: 'Ministry-registered translation',
+    body: 'The certified Arabic translation comes from our partner translation office, registered with the UAE Ministry of Justice — then double-checked against the details courts reject most often.',
+  },
+  {
+    title: 'Transparent structure',
+    body: 'Government fees are public and paid directly to the registry. Our service fee is fixed, explained on the first call, before you commit to anything.',
+  },
+];
+---
+
+<section class="relative overflow-hidden py-20 md:py-28">
+  <BauhausDecor type="orb" color="gold" size="size-[30rem]" opacity={0.1} class="-top-44 -right-80" />
+  <BauhausDecor type="petal-tr-sm" color="gold" size="w-36 h-36" opacity={0.16} class="bottom-10 left-[8%]" />
+  <BauhausDecor type="disc" color="cream" size="size-28" opacity={0.5} class="top-1/3 -left-10" />
+  <div class="relative z-10 wrap grid items-center gap-14 lg:grid-cols-2">
+    <div class="relative order-2 lg:order-1" data-parallax-scope>
+      <div data-mask="tl" class="petal-tl overflow-hidden">
+        <img
+          src="/images/about-desk.jpg"
+          alt="Documents prepared on a warm desk"
+          class="aspect-[4/4.3] w-full scale-105 object-cover"
+          data-parallax="5"
+          loading="lazy"
+        />
+      </div>
+      <!-- stat disc -->
+      <div data-reveal="scale" data-delay="0.25" class="disc absolute -bottom-10 -right-4 grid size-40 place-items-center bg-gold text-center shadow-[0_24px_60px_-24px_rgba(166,133,72,0.7)] sm:-right-10 sm:size-48">
+        <div>
+          <p class="font-heading text-[2.6rem] leading-none font-semibold text-ink sm:text-[3rem]">
+            <span data-count="500">0</span>+
+          </p>
+          <p class="mx-auto mt-1.5 max-w-[7.5rem] text-[0.72rem] leading-tight font-medium text-ink/80">expats guided through the full process</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-1 lg:order-2">
+      <div data-reveal><SectionTag label="Why SmartWills" /></div>
+      <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+        One team that does <em class="not-italic font-semibold text-gold">one thing</em> — properly
+      </h2>
+      <div class="mt-10 space-y-0">
+        {
+          points.map((p, i) => (
+            <div data-reveal data-delay={String(i * 0.06)} class="group flex gap-5 border-t border-line py-6 transition-colors last:border-b hover:bg-white/40">
+              <span class="mt-1 grid size-9 shrink-0 place-items-center rounded-full bg-gold/20 text-gold-dark transition-colors duration-300 group-hover:bg-gold group-hover:text-ink">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <div>
+                <h3 class="font-heading text-[1.3rem] font-semibold text-ink">{p.title}</h3>
+                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">{p.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

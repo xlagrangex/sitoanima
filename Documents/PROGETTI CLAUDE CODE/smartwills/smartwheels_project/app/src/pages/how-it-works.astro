@@ -1,0 +1,211 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionTag from '../components/ui/SectionTag.astro';
+import Button from '../components/ui/Button.astro';
+import FinalCta from '../components/sections/FinalCta.astro';
+
+const steps = [
+  {
+    n: '01',
+    title: 'Risk Profile Audit',
+    time: 'Free · 30 minutes',
+    body: 'A free 30-minute call with a specialist. Which registry fits your situation, whether you need a single or mirror will, and exactly which documents to prepare. You leave the call with a clear map — no obligation to continue.',
+    points: ['Registry fit: DIFC, ADJD or Dubai Courts', 'Single or mirror will for couples', 'Your personal document checklist'],
+  },
+  {
+    n: '02',
+    title: 'Protection Assessment',
+    time: 'One guided session',
+    body: 'One guided session where a specialist walks you through every decision: beneficiaries, executor, guardians, specific gifts. The follow-up questions a form alone cannot ask — so your intentions are captured properly the first time.',
+    points: ['Beneficiaries and percentages', 'Executor and guardians, with backups', 'Specific gifts and "what if" scenarios'],
+  },
+  {
+    n: '03',
+    title: 'We coordinate everything else',
+    time: 'On our side',
+    body: 'Drafting with our partner law firm, certified Arabic translation from our Ministry of Justice-registered partner office, double checks, government submission — and every follow-up with the registry until the will is registered.',
+    points: ['Drafting and review by our partner law firm', 'Certified translation, double-verified', 'Submission and daily follow-up with the registry'],
+  },
+  {
+    n: '04',
+    title: 'The video call, then the annual review',
+    time: '10–15 minutes, in English',
+    body: 'The final step is a short government video call in English — we prepare you for exactly what to expect. Then, once a year, we check in: does your will still say what you want?',
+    points: ['Preparation for the notary video call', 'Registered will, safely stored', 'A personal check-in every year'],
+  },
+];
+
+const included = [
+  ['Protection Assessment with your Legacy Guide', 'A dedicated specialist, reachable on WhatsApp.'],
+  ['Professional drafting', 'Prepared and reviewed by our partner law firm.'],
+  ['Certified translation', 'Ministry of Justice-registered office, double-verified.'],
+  ['Government submission', 'We file, coordinate and follow up until registered.'],
+  ['Executor Emergency Handbook', 'A practical guide for the person who will execute your will.'],
+  ['Asset Protection Checklist', 'So nothing you own gets left out of the picture.'],
+  ['Video call preparation', 'Exactly what the notary will ask, in plain English.'],
+  ['Annual Legacy Review', 'A yearly check that your will still matches your life.'],
+];
+
+const forYou = [
+  'You value your time more than your money — you would rather invest 2–3 hours with a specialist team than weeks navigating registries and translators alone.',
+  'You want to do it once, do it right, and never think about it again — percentage-based wills cover assets you acquire in the future.',
+  'You want someone else to do the heavy lifting: drafting, translation, coordination, follow-up.',
+  'For you, protecting your family is not a phrase — it is a decision you have postponed long enough.',
+];
+
+const notForYou = [
+  'Your only goal is the lowest possible price — DIY routes and templates exist, and they are legitimate options if budget is the only criterion.',
+  'You have a single bank account and no property in the UAE — the investment would simply not make sense for you.',
+  'You want a document ready in a few days regardless of accuracy — government timelines depend on the registry, and we do not promise what we cannot control.',
+];
+---
+
+<Base
+  title="How It Works — Your UAE Will in 2–3 Hours of Your Time"
+  description="One guided session, one draft review, a short video call. We coordinate drafting, certified translation, government submission and follow-up — 100% remote."
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden py-20 md:py-28">
+    <div class="pointer-events-none absolute -top-40 right-0 size-[30rem] rounded-full bg-gold/15 blur-3xl"></div>
+    <div class="wrap grid items-center gap-12 lg:grid-cols-2">
+      <div>
+        <div data-reveal><SectionTag label="How it works" /></div>
+        <h1 data-split class="mt-6 font-heading text-[2.7rem] leading-[1.06] font-medium text-ink sm:text-6xl">
+          Your part: <em class="not-italic font-semibold text-gold">2–3 hours.</em> Ours: everything else.
+        </h1>
+        <p data-reveal class="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
+          The process is built around your calendar, not ours. Everything is
+          remote — the only live step with a government is a short video call in
+          English, and we prepare you for it.
+        </p>
+        <div data-reveal data-delay="0.15" class="mt-9">
+          <Button placement="hiw-hero" />
+        </div>
+      </div>
+      <div data-reveal="right" data-delay="0.1" class="relative" data-parallax-scope>
+        <div data-mask="tr" class="petal-tr overflow-hidden">
+          <img src="/images/how-call.jpg" alt="A relaxed video call from home" class="aspect-[4/3.2] w-full scale-105 object-cover" data-parallax="5" loading="eager" />
+        </div>
+        <div class="petal-bl-sm absolute -bottom-6 -left-4 border border-line bg-white px-6 py-4 shadow-[0_20px_50px_-20px_rgba(26,22,18,0.35)] sm:-left-8">
+          <p class="font-heading text-2xl font-semibold text-gold-dark">100% remote</p>
+          <p class="text-sm text-ink-soft">zero courthouse visits</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="bg-cream-deep/60 py-20 md:py-28">
+    <div class="wrap">
+      <div class="max-w-2xl">
+        <div data-reveal><SectionTag label="The journey" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          Four steps, <em class="not-italic font-semibold text-gold">one outcome</em>
+        </h2>
+      </div>
+
+      <div class="mt-14 space-y-5">
+        {
+          steps.map((s, i) => (
+            <article data-reveal={i % 2 ? 'right' : 'left'} class={`card grid gap-6 p-8 md:grid-cols-[auto_1fr_1.1fr] md:items-start md:gap-10 md:p-10 ${['petal-tl-sm', 'petal-tr-sm', 'petal-bl-sm', 'petal-br-sm'][i % 4]}`}>
+              <div class="flex items-center gap-5 md:flex-col md:items-start md:gap-3">
+                <span class="font-heading text-[3rem] leading-none font-semibold text-gold">{s.n}</span>
+                <span class="rounded-full bg-cream-deep px-3.5 py-1.5 text-xs font-medium text-brown md:mt-1">{s.time}</span>
+              </div>
+              <div>
+                <h3 class="font-heading text-[1.65rem] font-semibold text-ink">{s.title}</h3>
+                <p class="mt-3 leading-relaxed text-ink-soft">{s.body}</p>
+              </div>
+              <ul class="space-y-2.5 self-center">
+                {s.points.map((p) => (
+                  <li class="flex items-start gap-2.5 text-[0.95rem] text-ink">
+                    <svg class="mt-1 shrink-0 text-gold-dark" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- What's included -->
+  <section class="py-20 md:py-28">
+    <div class="wrap">
+      <div class="max-w-2xl">
+        <div data-reveal><SectionTag label="What's included" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          Everything handled, <em class="not-italic font-semibold text-gold">in one service</em>
+        </h2>
+      </div>
+      <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          included.map(([title, body], i) => (
+            <div data-reveal="scale" data-delay={String((i % 4) * 0.07)} class={`border border-line bg-white/70 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 ${['petal-tl-sm', 'petal-tr-sm', 'petal-bl-sm', 'petal-br-sm'][i % 4]}`}>
+              <span class="grid size-10 place-items-center rounded-xl bg-gold/20 font-heading text-lg font-semibold text-gold-dark">{i + 1}</span>
+              <h3 class="mt-4 font-heading text-[1.15rem] leading-snug font-semibold text-ink">{title}</h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-ink-soft">{body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div data-reveal class="mt-10 grid gap-4 rounded-[1.75rem] border border-line bg-cream-deep/70 p-8 sm:grid-cols-3 md:p-10">
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 shrink-0 text-gold-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <p class="text-sm leading-relaxed"><strong class="font-semibold">Anyone, anywhere:</strong> beneficiaries, executors and guardians can live anywhere in the world.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 shrink-0 text-gold-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <p class="text-sm leading-relaxed"><strong class="font-semibold">Future-proof:</strong> percentage-based wills cover assets you buy later — a new account or property does not require a new will.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <svg class="mt-0.5 shrink-0 text-gold-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <p class="text-sm leading-relaxed"><strong class="font-semibold">Honest on timing:</strong> government timelines depend on the registry — we tell you exactly what to expect for yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For / not for -->
+  <section class="bg-cream-deep/60 py-20 md:py-28">
+    <div class="wrap">
+      <div class="max-w-2xl">
+        <div data-reveal><SectionTag label="Honest fit" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          We are not <em class="not-italic font-semibold text-gold">for everyone</em> — and we say so
+        </h2>
+      </div>
+      <div class="mt-12 grid gap-5 lg:grid-cols-2">
+        <div data-reveal class="card p-8 md:p-10">
+          <h3 class="font-heading text-2xl font-semibold text-ink">SmartWills is for you if…</h3>
+          <ul class="mt-6 space-y-4">
+            {forYou.map((t) => (
+              <li class="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
+                <span class="mt-0.5 grid size-6 shrink-0 place-items-center rounded-full bg-gold/25 text-gold-dark">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div data-reveal data-delay="0.1" class="rounded-[1.75rem] border border-line bg-white/50 p-8 md:p-10">
+          <h3 class="font-heading text-2xl font-semibold text-ink">Probably not for you if…</h3>
+          <ul class="mt-6 space-y-4">
+            {notForYou.map((t) => (
+              <li class="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
+                <span class="mt-1.5 size-2 shrink-0 rounded-full bg-line"></span>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <FinalCta title="Ready when you are" />
+</Base>

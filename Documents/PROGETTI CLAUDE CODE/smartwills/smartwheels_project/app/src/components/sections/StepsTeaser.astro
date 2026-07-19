@@ -1,0 +1,68 @@
+---
+import SectionTag from '../ui/SectionTag.astro';
+import Button from '../ui/Button.astro';
+import BauhausDecor from '../ui/BauhausDecor.astro';
+
+const steps = [
+  {
+    n: '01',
+    petal: 'petal-tl',
+    title: 'Risk Profile Audit',
+    body: 'A free 30-minute call: which registry fits, mirror or single will, what documents you need. No obligation.',
+  },
+  {
+    n: '02',
+    petal: 'petal-tr',
+    title: 'Protection Assessment',
+    body: 'One guided session through every decision — beneficiaries, executor, guardians, gifts.',
+  },
+  {
+    n: '03',
+    petal: 'petal-bl',
+    title: 'We coordinate everything',
+    body: 'Drafting, certified translation, double checks, government submission and every follow-up.',
+  },
+  {
+    n: '04',
+    petal: 'petal-br',
+    title: 'Annual review',
+    body: 'Once a year we check in: does your will still say what you want?',
+  },
+];
+---
+
+<section class="relative overflow-hidden py-20 md:py-28">
+  <BauhausDecor type="pattern" opacity={0.07} />
+  <BauhausDecor type="orb" color="gold" size="size-[30rem]" opacity={0.1} class="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+  <BauhausDecor type="disc" color="gold-dark" size="size-20" opacity={0.16} class="top-[18%] left-[12%]" />
+  <BauhausDecor type="petal-bl-sm" color="gold" size="w-24 h-24" opacity={0.14} class="bottom-[15%] right-[10%]" />
+  <div class="relative z-10 wrap">
+    <div class="max-w-2xl">
+      <div data-reveal><SectionTag label="How it works" /></div>
+      <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+        Your part: <em class="not-italic font-semibold text-gold">2 to 3 hours.</em> Ours: everything else.
+      </h2>
+    </div>
+
+    <div class="relative mt-14">
+      <!-- dashed connector -->
+      <svg class="absolute top-1/2 left-0 hidden h-px w-full -translate-y-1/2 text-gold-dark/30 lg:block" aria-hidden="true"><line x1="0" y1="0" x2="100%" y2="0" stroke="currentColor" stroke-width="2" stroke-dasharray="6 10" /></svg>
+
+      <div class="relative grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          steps.map((s, i) => (
+            <div data-reveal="scale" data-delay={String(i * 0.1)} class={`${s.petal} group border border-line bg-white/85 p-7 transition-all duration-300 hover:-translate-y-2 hover:border-gold/70 hover:shadow-[0_24px_50px_-24px_rgba(139,99,71,0.45)]`}>
+              <span class="font-heading text-[3rem] leading-none font-semibold text-gold">{s.n}</span>
+              <h3 class="mt-4 font-heading text-[1.35rem] leading-snug font-semibold text-ink">{s.title}</h3>
+              <p class="mt-2.5 text-[0.92rem] leading-relaxed text-ink-soft">{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div data-reveal class="mt-12 flex justify-center">
+      <Button variant="ghost" label="See the full process" href="/how-it-works" placement="home-steps" />
+    </div>
+  </div>
+</section>

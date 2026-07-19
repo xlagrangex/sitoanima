@@ -1,0 +1,43 @@
+---
+import SectionTag from '../ui/SectionTag.astro';
+import BauhausDecor from '../ui/BauhausDecor.astro';
+import TestimonialSlider from '../react/TestimonialSlider';
+import { TESTIMONIALS } from '../../lib/content';
+import { TRUSTPILOT_URL } from '../../lib/site';
+---
+
+<section class="ink-panel relative overflow-hidden py-20 md:py-28">
+  <BauhausDecor type="orb" color="gold" size="size-[30rem]" opacity={0.12} class="-top-52 -left-52" />
+  <BauhausDecor type="disc" color="gold" size="size-52" opacity={0.11} class="-bottom-20 -right-20" />
+  <BauhausDecor type="disc" color="gold-dark" size="size-36" opacity={0.08} class="top-1/3 left-[5%]" />
+  <div class="relative z-10 wrap">
+    <div class="flex flex-wrap items-end justify-between gap-8">
+      <div class="max-w-2xl">
+        <div data-reveal><SectionTag label="What clients say" dark /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-cream sm:text-5xl">
+          Expats who finally <em class="not-italic font-semibold text-gold">got it done</em>
+        </h2>
+      </div>
+      <a
+        data-reveal
+        href={TRUSTPILOT_URL}
+        target="_blank"
+        rel="noopener"
+        class="inline-flex items-center gap-3 rounded-full border border-cream/15 px-5 py-3 transition-colors hover:border-gold/60"
+      >
+        <span class="flex gap-1 text-trust">
+          {Array.from({ length: 5 }).map(() => (
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7z"/></svg>
+          ))}
+        </span>
+        <span class="text-sm leading-snug text-cream/70">
+          Rated <strong class="font-semibold text-cream">4.6 out of 5</strong> on Trustpilot
+        </span>
+      </a>
+    </div>
+
+    <div data-reveal class="mt-14">
+      <TestimonialSlider client:visible items={TESTIMONIALS} dark />
+    </div>
+  </div>
+</section>

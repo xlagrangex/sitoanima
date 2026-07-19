@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionTag from '../components/ui/SectionTag.astro';
+import Button from '../components/ui/Button.astro';
+import { TRUSTPILOT_URL } from '../lib/site';
+
+const covers = [
+  {
+    title: 'Which registry fits you',
+    body: 'DIFC, ADJD or Dubai Courts — mapped against where your assets actually are.',
+  },
+  {
+    title: 'Single or mirror will',
+    body: 'For couples: whether two coordinated mirror wills make sense for your situation.',
+  },
+  {
+    title: 'Your document checklist',
+    body: 'Exactly which documents to prepare — nothing more, nothing missing.',
+  },
+  {
+    title: 'The transparent numbers',
+    body: 'The government fees for your case (public, paid to the registry) and our service fee — explained before you decide anything.',
+  },
+];
+
+const notList = [
+  'Not a sales ambush — education first, always.',
+  'Not a commitment — most people book just to understand their options.',
+  'Not legal advice from us — drafting and review are done by our partner law firm.',
+];
+---
+
+<Base
+  title="Book Your Free Risk Profile Audit — 30 Minutes, No Obligation"
+  description="A free 30-minute call: which registry fits, single or mirror will, your document checklist and transparent fees. No obligation, no pressure."
+>
+  <section class="relative overflow-hidden py-20 md:py-28">
+    <div class="pointer-events-none absolute -top-40 left-1/3 size-[30rem] rounded-full bg-gold/15 blur-3xl"></div>
+    <div class="wrap max-w-3xl text-center">
+      <div data-reveal class="flex justify-center"><SectionTag label="Free · 30 minutes · No obligation" /></div>
+      <h1 data-split class="mt-6 font-heading text-[2.7rem] leading-[1.06] font-medium text-ink sm:text-6xl">
+        Book your free <em class="not-italic font-semibold text-gold">Risk Profile Audit</em>
+      </h1>
+      <p data-reveal class="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
+        Thirty minutes with a specialist. You hang up knowing exactly what your
+        situation needs — whether or not you ever work with us.
+      </p>
+      <div data-reveal data-delay="0.15" class="mt-9 flex justify-center">
+        <Button placement="book-hero" />
+      </div>
+      <p data-reveal data-delay="0.2" class="mt-5 text-sm text-ink-soft">
+        Booking takes about 2 minutes — pick a time that suits your timezone.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-cream-deep/60 py-20 md:py-24">
+    <div class="wrap">
+      <div class="max-w-2xl">
+        <div data-reveal><SectionTag label="What the call covers" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          Four things, <em class="not-italic font-semibold text-gold">in 30 minutes</em>
+        </h2>
+      </div>
+      <div class="mt-12 grid gap-5 sm:grid-cols-2">
+        {
+          covers.map((c, i) => (
+            <div data-reveal="scale" data-delay={String(i * 0.07)} class={`card flex gap-5 p-7 ${['petal-tl-sm', 'petal-tr-sm', 'petal-bl-sm', 'petal-br-sm'][i % 4]}`}>
+              <span class="font-heading text-[2.2rem] leading-none font-semibold text-gold">0{i + 1}</span>
+              <div>
+                <h3 class="font-heading text-[1.3rem] font-semibold text-ink">{c.title}</h3>
+                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">{c.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="mt-12 grid gap-5 lg:grid-cols-[1fr_1.2fr]">
+        <div data-reveal class="rounded-[1.75rem] border border-line bg-white/50 p-8">
+          <h3 class="font-heading text-2xl font-semibold text-ink">What it is not</h3>
+          <ul class="mt-5 space-y-3.5">
+            {notList.map((t) => (
+              <li class="flex items-start gap-3 text-[0.95rem] leading-relaxed text-ink-soft">
+                <span class="mt-1.5 size-2 shrink-0 rounded-full bg-gold"></span>
+                {t}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div data-reveal data-delay="0.1" class="card flex flex-col items-start justify-between gap-6 p-8 md:flex-row md:items-center">
+          <div>
+            <div class="flex gap-1 text-trust">
+              {Array.from({ length: 5 }).map(() => (
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.7-5.4 4.8 1.6 7-6.2-3.7-6.2 3.7 1.6-7L2 9.3l7.1-.7z"/></svg>
+              ))}
+            </div>
+            <p class="mt-3 max-w-sm text-[0.95rem] leading-relaxed text-ink-soft">
+              SmartWills UAE is rated <strong class="font-semibold text-ink">4.6 out of 5</strong> on
+              <a href={TRUSTPILOT_URL} target="_blank" rel="noopener" class="font-medium text-gold-dark underline underline-offset-2">Trustpilot</a>
+              — by expats who started exactly where you are now.
+            </p>
+          </div>
+          <Button placement="book-mid" label="Pick your time" />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

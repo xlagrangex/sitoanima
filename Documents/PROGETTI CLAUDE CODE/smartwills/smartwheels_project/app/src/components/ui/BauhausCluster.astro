@@ -1,0 +1,86 @@
+---
+/**
+ * BauhausCluster — composed geometric groups that echo the hero mosaic.
+ * Each variant combines full circles, quarter-circle petals and straight
+ * edges with generous corner radii, in solid brand colours.
+ * Place inside a `relative overflow-hidden` container.
+ */
+interface Props {
+  variant: 'arch' | 'duo' | 'tower' | 'tee' | 'mosaic';
+  class?: string;
+  opacity?: number;
+}
+
+const { variant, class: className = '', opacity = 1 } = Astro.props;
+---
+
+{
+  variant === 'arch' && (
+    <div class={`pointer-events-none absolute w-52 h-64 ${className}`} style={{ opacity }} aria-hidden="true">
+      <!-- arched doorway -->
+      <div class="absolute bottom-0 left-0 w-32 h-48 bg-gold" style="border-radius: 8rem 8rem 0 0;"></div>
+      <!-- sun -->
+      <div class="absolute top-1 right-5 size-16 rounded-full bg-gold-dark"></div>
+      <!-- straight pillar -->
+      <div class="absolute bottom-0 left-32 w-16 h-28 bg-brown"></div>
+    </div>
+  )
+}
+
+{
+  variant === 'duo' && (
+    <div class={`pointer-events-none absolute w-72 h-56 ${className}`} style={{ opacity }} aria-hidden="true">
+      <!-- big circle -->
+      <div class="absolute left-24 top-0 size-56 rounded-full bg-gold-dark"></div>
+      <!-- overlapping smaller circle -->
+      <div class="absolute left-0 top-8 size-40 rounded-full bg-gold"></div>
+      <!-- quarter-circle petal -->
+      <div class="absolute right-0 bottom-0 w-24 h-24 bg-brown" style="border-radius: 0 0 6rem 0;"></div>
+    </div>
+  )
+}
+
+{
+  variant === 'tower' && (
+    <div class={`pointer-events-none absolute w-44 h-80 ${className}`} style={{ opacity }} aria-hidden="true">
+      <!-- dome -->
+      <div class="absolute top-0 left-0 w-44 h-44 bg-gold-dark" style="border-radius: 11rem 11rem 0 0;"></div>
+      <!-- body -->
+      <div class="absolute top-44 left-0 w-44 h-20 bg-gold"></div>
+      <!-- base bar -->
+      <div class="absolute top-64 left-0 w-44 h-6 bg-brown"></div>
+      <!-- floating dot -->
+      <div class="absolute top-10 -right-7 size-11 rounded-full bg-gold"></div>
+    </div>
+  )
+}
+
+{
+  variant === 'tee' && (
+    <div class={`pointer-events-none absolute w-80 h-44 ${className}`} style={{ opacity }} aria-hidden="true">
+      <!-- horizontal bar, big sweep top-right -->
+      <div class="absolute top-0 left-0 w-80 h-16 bg-gold" style="border-radius: 0 4rem 0 0;"></div>
+      <!-- vertical leg, big sweep bottom-left -->
+      <div class="absolute top-16 left-1/2 -translate-x-1/2 w-16 h-28 bg-gold-dark" style="border-radius: 0 0 0 4rem;"></div>
+      <!-- counterweight dot -->
+      <div class="absolute top-14 right-14 size-8 rounded-full bg-brown"></div>
+    </div>
+  )
+}
+
+{
+  variant === 'mosaic' && (
+    <div class={`pointer-events-none absolute grid w-60 h-60 ${className}`} style={{ opacity, gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr' }} aria-hidden="true">
+      <!-- TL petal, curve towards centre -->
+      <div class="bg-gold" style="border-radius: 0 0 7.5rem 0;"></div>
+      <!-- TR circle -->
+      <div class="flex items-center justify-center">
+        <div class="size-24 rounded-full bg-gold-dark"></div>
+      </div>
+      <!-- BL solid straight square -->
+      <div class="bg-brown"></div>
+      <!-- BR petal, curve towards centre -->
+      <div class="bg-gold" style="border-radius: 7.5rem 0 0 0;"></div>
+    </div>
+  )
+}

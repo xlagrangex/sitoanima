@@ -1,0 +1,25 @@
+---
+import BauhausDecor from '../ui/BauhausDecor.astro';
+
+const items = [
+  '500+ expats guided',
+  'Rated 4.6/5 on Trustpilot',
+  '100% remote process',
+  'DIFC · ADJD · Dubai Courts',
+  '2–3 hours of your time',
+  'Annual review included',
+];
+---
+
+<div class="relative overflow-hidden border-y border-line/80 bg-cream-deep/50 py-4" aria-hidden="true">
+  <BauhausDecor type="disc" color="gold" size="size-72" opacity={0.12} class="-top-32 -left-24" />
+  <BauhausDecor type="petal-br-sm" color="cream" size="w-32 h-32" opacity={0.55} class="bottom-0 right-[15%]" />
+  <div class="relative z-10 marquee-track items-center gap-10">
+    {[...items, ...items].map((item) => (
+      <span class="flex shrink-0 items-center gap-10">
+        <span class="font-heading text-lg font-medium italic text-brown">{item}</span>
+        <span class="size-1.5 rounded-full bg-gold"></span>
+      </span>
+    ))}
+  </div>
+</div>

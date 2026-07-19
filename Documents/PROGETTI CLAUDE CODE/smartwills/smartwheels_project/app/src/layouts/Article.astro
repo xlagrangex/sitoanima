@@ -1,0 +1,54 @@
+---
+import Base from './Base.astro';
+import Button from '../components/ui/Button.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  minutes: number;
+}
+
+const { title, description, image, minutes } = Astro.props;
+---
+
+<Base title={title} description={description}>
+  <article class="py-16 md:py-24">
+    <div class="wrap max-w-3xl">
+      <a href="/resources" class="inline-flex items-center gap-2 text-sm font-medium text-brown transition-colors hover:text-gold-dark">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+        All resources
+      </a>
+      <h1 data-split class="mt-6 font-heading text-[2.3rem] leading-[1.12] font-medium text-ink sm:text-5xl">
+        {title}
+      </h1>
+      <p class="mt-5 flex items-center gap-3 text-sm text-ink-soft">
+        <span class="rounded-full bg-cream-deep px-3 py-1 font-medium text-brown">{minutes} min read</span>
+        <span>Educational content — not legal advice</span>
+      </p>
+    </div>
+
+    <div class="wrap mt-10 max-w-4xl">
+      <div data-mask="tr" class="petal-tr overflow-hidden">
+        <img src={image} alt="" class="aspect-[16/8] w-full object-cover" loading="eager" />
+      </div>
+    </div>
+
+    <div class="wrap mt-12 max-w-3xl">
+      <div class="prose-sw">
+        <slot />
+      </div>
+
+      <div class="ink-panel petal-tr mt-14 p-8 text-center md:p-10">
+        <h2 class="font-heading text-3xl font-semibold text-cream">Want this mapped to your situation?</h2>
+        <p class="mx-auto mt-3 max-w-md text-cream/70">
+          A free 30-minute Risk Profile Audit: which registry fits, single or
+          mirror will, and exactly which documents you need. No obligation.
+        </p>
+        <div class="mt-7 flex justify-center">
+          <Button placement="article-cta" />
+        </div>
+      </div>
+    </div>
+  </article>
+</Base>

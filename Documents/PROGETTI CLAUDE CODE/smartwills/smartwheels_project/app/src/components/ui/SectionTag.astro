@@ -1,0 +1,12 @@
+---
+interface Props {
+  label: string;
+  dark?: boolean;
+}
+const { label, dark = false } = Astro.props;
+---
+
+<div class={`inline-flex items-center gap-2.5 rounded-full border px-4 py-1.5 text-[0.72rem] font-medium uppercase tracking-[0.14em] ${dark ? 'border-gold/40 text-gold' : 'border-line bg-white/60 text-brown'}`}>
+  <span class="size-1.5 rounded-full bg-gold"></span>
+  {label}
+</div>

@@ -1,0 +1,63 @@
+---
+import SectionTag from '../ui/SectionTag.astro';
+import Button from '../ui/Button.astro';
+import BauhausDecor from '../ui/BauhausDecor.astro';
+import { REGISTRIES } from '../../lib/content';
+
+const petals = ['petal-tl-sm', 'petal-tr-sm', 'petal-br-sm'];
+---
+
+<section class="relative overflow-hidden bg-cream-deep/60 py-20 md:py-28">
+  <BauhausDecor type="pattern" opacity={0.08} />
+  <BauhausDecor type="orb" color="gold" size="size-[28rem]" opacity={0.11} class="-top-44 -right-60" />
+  <BauhausDecor type="disc" color="gold-dark" size="size-52" opacity={0.12} class="-bottom-28 -left-20" />
+  <BauhausDecor type="petal-tr-sm" color="gold" size="w-32 h-32" opacity={0.14} class="top-1/2 right-[8%]" />
+  <div class="relative z-10 wrap">
+    <div class="flex flex-wrap items-end justify-between gap-8">
+      <div class="max-w-2xl">
+        <div data-reveal><SectionTag label="The three registries" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          Three registries. <em class="not-italic font-semibold text-gold">One clear choice</em> for you.
+        </h2>
+        <p data-reveal class="mt-5 text-lg leading-relaxed text-ink-soft">
+          A UAE will is registered with one of three government registries. The
+          right one depends on where your assets are, how fast you need it and
+          your budget — exactly what the free call clarifies.
+        </p>
+      </div>
+      <div data-reveal>
+        <Button variant="ghost" label="Compare them in detail" href="/registries" placement="home-registries" />
+      </div>
+    </div>
+
+    <div class="mt-12">
+      {
+        REGISTRIES.map((r, i) => (
+          <a
+            href="/registries"
+            data-reveal={i === 1 ? 'right' : 'left'}
+            class="group grid items-center gap-6 border-t border-line py-7 transition-colors last:border-b hover:bg-white/50 md:grid-cols-[auto_auto_1fr_auto_auto] md:gap-10 md:py-8"
+          >
+            <span class={`hidden h-20 w-28 overflow-hidden sm:block ${petals[i]}`}>
+              <img src={r.image} alt="" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+            </span>
+            <span class="font-heading text-[1.9rem] font-semibold text-ink transition-colors group-hover:text-gold-dark">{r.name}</span>
+            <span class="max-w-md text-[0.93rem] leading-snug text-ink-soft">{r.tagline}</span>
+            <span class="text-sm">
+              <span class="block text-ink-soft">Gov. fees</span>
+              <span class="font-semibold text-gold-dark">{r.feesSingle} / {r.feesMirror}</span>
+            </span>
+            <span class="hidden size-11 place-items-center rounded-full border border-line transition-all duration-300 group-hover:border-gold group-hover:bg-gold md:grid">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-300 group-hover:translate-x-0.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+
+    <p data-reveal class="mt-6 text-sm text-ink-soft">
+      Government fees are public and paid directly to the registry. Our service
+      fee is transparent and discussed on your free call.
+    </p>
+  </div>
+</section>

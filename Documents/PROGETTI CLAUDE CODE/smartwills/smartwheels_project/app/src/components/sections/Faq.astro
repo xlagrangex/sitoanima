@@ -1,0 +1,40 @@
+---
+import SectionTag from '../ui/SectionTag.astro';
+import Button from '../ui/Button.astro';
+import BauhausDecor from '../ui/BauhausDecor.astro';
+import FaqAccordion from '../react/FaqAccordion';
+import { FAQS } from '../../lib/content';
+---
+
+<section class="relative overflow-hidden py-20 md:py-28">
+  <BauhausDecor type="pattern" opacity={0.06} />
+  <BauhausDecor type="orb" color="gold" size="size-[28rem]" opacity={0.09} class="-top-36 -right-60" />
+  <BauhausDecor type="disc" color="gold-dark" size="size-44" opacity={0.13} class="-bottom-20 -left-16" />
+  <BauhausDecor type="petal-tl-sm" color="gold" size="w-28 h-28" opacity={0.14} class="top-[20%] right-[5%]" />
+  <div class="relative z-10 wrap grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+    <div>
+      <div class="lg:sticky lg:top-32">
+        <div data-reveal><SectionTag label="Common questions" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          Plain answers, <em class="not-italic font-semibold text-gold">no legal jargon</em>
+        </h2>
+        <p data-reveal class="mt-5 text-lg leading-relaxed text-ink-soft">
+          If a sentence needs a law degree, we rewrite it. That is our rule for
+          the whole site — and for every conversation with us.
+        </p>
+        <div data-mask="bl" class="petal-bl mt-9 hidden overflow-hidden lg:block">
+          <img src="/images/resources-marina.jpg" alt="Dubai marina at golden hour" class="aspect-[4/3] w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+    </div>
+    <div>
+      <div data-reveal>
+        <FaqAccordion client:visible items={FAQS} />
+      </div>
+      <div data-reveal class="petal-tr-sm mt-8 flex flex-wrap items-center justify-between gap-5 border border-line bg-white/70 p-6">
+        <p class="font-heading text-xl font-semibold text-ink">Still unsure about your situation?</p>
+        <Button variant="ink" label="Ask us directly" placement="faq-cta" />
+      </div>
+    </div>
+  </div>
+</section>

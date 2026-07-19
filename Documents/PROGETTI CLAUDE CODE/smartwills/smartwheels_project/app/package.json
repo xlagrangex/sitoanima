@@ -1,0 +1,35 @@
+{
+  "name": "smartwills-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.1",
+    "@fontsource-variable/crimson-pro": "^5.2.8",
+    "@fontsource-variable/dm-sans": "^5.2.8",
+    "@nanostores/react": "^1.1.0",
+    "astro": "^6.4.8",
+    "clsx": "^2.1.1",
+    "gsap": "^3.15.0",
+    "lenis": "^1.3.25",
+    "lucide-react": "^1.25.0",
+    "nanostores": "^1.4.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "split-type": "^0.3.4",
+    "tailwind-merge": "^3.6.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.6.0",
+    "vite": "^7.3.6"
+  }
+}

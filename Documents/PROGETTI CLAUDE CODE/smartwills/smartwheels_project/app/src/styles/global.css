@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+@theme {
+  /* SmartWills palette — from brand brief */
+  --color-ink: #1a1612;
+  --color-ink-soft: #57503f;
+  --color-brown: #8b6347;
+  --color-gold: #c9a668;
+  --color-gold-dark: #a68548;
+  --color-cream: #faf6ef;
+  --color-cream-deep: #f3ecdc;
+  --color-line: #e7dcc8;
+  --color-trust: #00b67a; /* Trustpilot green, used only for stars */
+
+  --font-heading: "Crimson Pro Variable", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans Variable", system-ui, -apple-system, sans-serif;
+
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+h1, h2, h3, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.01em;
+}
+
+/* Layout helpers */
+.wrap {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 76rem;
+  padding-inline: 1.5rem;
+}
+@media (min-width: 768px) {
+  .wrap { padding-inline: 2.5rem; }
+}
+
+/* Gold gradient text */
+.text-gold-grad {
+  background: linear-gradient(100deg, var(--color-gold-dark), var(--color-gold) 45%, #e2c893 60%, var(--color-gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Hero mosaic — quarter-circle petal radii, scaled to the collage width.
+   1cqw = 1% of the collage container width, so radii stay visually constant
+   across tiles of different sizes. ── */
+.petal-grid {
+  /* 8×6 grid → 1 cell = 12.5% of the width. Radii are exactly 1 or 2 cells. */
+  --r1: 12.5cqw;  /* 1-cell quarter-circle */
+  --r2: 25cqw;    /* 2-cell quarter-circle */
+  /* every other corner is 0 (perfectly square). No intermediate rounding, no gaps. */
+}
+
+.disc { border-radius: 50%; }
+
+/* Marquee ribbon */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* Image mask reveal base — no forced rounding; the petal border-radius on the
+   element (with overflow-hidden) supplies the shape, and animate.ts wipes it in. */
+[data-mask] {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Paper card */
+.card {
+  background: #fffdf8;
+  border: 1px solid var(--color-line);
+  border-radius: 1.75rem;
+}
+
+/* ── Petal shapes — binary rounding, same language as the hero mosaic:
+   exactly ONE corner is a proper quarter-circle, the other three are dead
+   straight (0). No intermediate softening. Declared after .card so that a
+   `card petal-*` element takes the petal shape, not the card's uniform radius.
+   --petal-r / --petal-rs are the two allowed corner radii. ── */
+.petal-tl, .petal-tr, .petal-bl, .petal-br { --petal-r: clamp(4.5rem, 9vw, 9rem); }
+.petal-tl { border-radius: var(--petal-r) 0 0 0; }
+.petal-tr { border-radius: 0 var(--petal-r) 0 0; }
+.petal-bl { border-radius: 0 0 0 var(--petal-r); }
+.petal-br { border-radius: 0 0 var(--petal-r) 0; }
+
+.petal-tl-sm, .petal-tr-sm, .petal-bl-sm, .petal-br-sm { --petal-rs: clamp(2rem, 4vw, 3rem); }
+.petal-tl-sm { border-radius: var(--petal-rs) 0 0 0; }
+.petal-tr-sm { border-radius: 0 var(--petal-rs) 0 0; }
+.petal-bl-sm { border-radius: 0 0 0 var(--petal-rs); }
+.petal-br-sm { border-radius: 0 0 var(--petal-rs) 0; }
+
+/* SplitType words */
+[data-split] .word,
+[data-highlight] .word {
+  will-change: transform, opacity;
+}
+
+/* ── Footer curtain reveal: the page is a cream sheet (opaque, above) that
+   lifts off the footer pinned behind it. Rounded bottom corners + shadow
+   make the lift read as a physical sheet — same moulded-shell language as
+   the hero frame. ── */
+.page-sheet {
+  overflow: clip;
+  border-radius: 0 0 2.4rem 2.4rem;
+  box-shadow: 0 26px 60px -18px rgba(26, 22, 18, 0.5);
+}
+
+/* Dark panel */
+.ink-panel {
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(201, 166, 104, 0.14), transparent 60%),
+    var(--color-ink);
+}
+
+/* Link underline grow */
+.link-grow {
+  position: relative;
+}
+.link-grow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 1.5px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.link-grow:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Article prose */
+.prose-sw {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-ink-soft);
+}
+.prose-sw > * + * {
+  margin-top: 1.4em;
+}
+.prose-sw h2 {
+  font-family: var(--font-heading);
+  font-size: 1.9rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-ink);
+  margin-top: 2.2em;
+}
+.prose-sw h3 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-ink);
+  margin-top: 1.8em;
+}
+.prose-sw strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+.prose-sw ul {
+  list-style: none;
+  padding-left: 0;
+}
+.prose-sw ul li {
+  position: relative;
+  padding-left: 1.6rem;
+}
+.prose-sw ul li + li {
+  margin-top: 0.6em;
+}
+.prose-sw ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--color-gold);
+}
+.prose-sw blockquote {
+  border-left: 4px solid var(--color-gold);
+  background: var(--color-cream-deep);
+  border-radius: 0 1rem 1rem 0;
+  padding: 1.4rem 1.8rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--color-ink);
+}
+.prose-sw blockquote cite {
+  display: block;
+  margin-top: 0.8rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-style: normal;
+  color: var(--color-brown);
+}
+.prose-sw a {
+  color: var(--color-gold-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

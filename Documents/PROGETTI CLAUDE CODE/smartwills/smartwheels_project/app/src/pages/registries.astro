@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionTag from '../components/ui/SectionTag.astro';
+import Button from '../components/ui/Button.astro';
+import FinalCta from '../components/sections/FinalCta.astro';
+import RegistryTabs from '../components/react/RegistryTabs';
+import { REGISTRIES } from '../lib/content';
+
+const factors = [
+  {
+    title: 'Where your assets are',
+    body: 'Property, bank accounts, business interests — the map of what you own shapes which registry makes the most sense.',
+  },
+  {
+    title: 'How fast you need it',
+    body: 'Each registry moves at its own pace, and timelines can change. We tell you what to realistically expect for yours — never a promise we cannot control.',
+  },
+  {
+    title: 'Your budget',
+    body: 'Government fees range from 950 AED to about 15,000 AED depending on the registry and on single vs mirror wills. The difference matters, especially for couples.',
+  },
+];
+---
+
+<Base
+  title="DIFC vs ADJD vs Dubai Courts — The Three UAE Will Registries"
+  description="Compare the three UAE will registries: language, who can use them, witnesses, process and government fees — and how to choose the right one for your situation."
+>
+  <section class="relative overflow-hidden py-20 md:py-28">
+    <div class="pointer-events-none absolute -top-40 -left-20 size-[30rem] rounded-full bg-gold/15 blur-3xl"></div>
+    <div class="wrap">
+      <div class="max-w-3xl">
+        <div data-reveal><SectionTag label="The registries" /></div>
+        <h1 data-split class="mt-6 font-heading text-[2.7rem] leading-[1.06] font-medium text-ink sm:text-6xl">
+          Three registries. <em class="not-italic font-semibold text-gold">One right answer</em> for you.
+        </h1>
+        <p data-reveal class="mt-6 max-w-2xl text-lg leading-relaxed text-ink-soft">
+          Every UAE will is registered with one of three government registries:
+          DIFC, ADJD (Abu Dhabi) or Dubai Courts. Here is what actually differs —
+          in plain English, with the public government fees.
+        </p>
+      </div>
+
+      <div data-reveal class="mt-14">
+        <RegistryTabs client:visible items={REGISTRIES} />
+      </div>
+    </div>
+  </section>
+
+  <!-- How to choose -->
+  <section class="bg-cream-deep/60 py-20 md:py-28">
+    <div class="wrap">
+      <div class="max-w-2xl">
+        <div data-reveal><SectionTag label="How to choose" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          The choice depends on <em class="not-italic font-semibold text-gold">three things</em>
+        </h2>
+      </div>
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        {
+          factors.map((f, i) => (
+            <div data-reveal="scale" data-delay={String(i * 0.08)} class={`card p-8 ${['petal-tl-sm', 'petal-tr-sm', 'petal-br-sm'][i % 3]}`}>
+              <span class="font-heading text-[2.4rem] leading-none font-semibold text-gold">0{i + 1}</span>
+              <h3 class="mt-4 font-heading text-[1.4rem] font-semibold text-ink">{f.title}</h3>
+              <p class="mt-2.5 text-[0.95rem] leading-relaxed text-ink-soft">{f.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div data-reveal class="ink-panel petal-tr mt-10 flex flex-col items-start justify-between gap-8 p-10 md:flex-row md:items-center md:p-12">
+        <div class="max-w-xl">
+          <h3 class="font-heading text-3xl font-semibold text-cream">That is exactly what the free call clarifies.</h3>
+          <p class="mt-3 leading-relaxed text-cream/70">
+            In 30 minutes we map your assets, your family situation and your
+            budget against the three registries — and tell you which one we
+            would choose in your shoes, and why.
+          </p>
+        </div>
+        <Button placement="registries-band" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ-ish notes -->
+  <section class="py-20 md:py-28">
+    <div class="wrap grid gap-12 lg:grid-cols-2 lg:gap-20">
+      <div data-reveal>
+        <h2 class="font-heading text-3xl font-semibold text-ink sm:text-4xl">Do government fees change?</h2>
+        <p class="mt-4 leading-relaxed text-ink-soft">
+          They can. Fees are set by the registries and are public information —
+          the figures on this page are the current published ones, and we always
+          confirm the exact amount for your case before anything is filed.
+          Government fees are paid directly to the registry, never through us.
+        </p>
+      </div>
+      <div data-reveal data-delay="0.1">
+        <h2 class="font-heading text-3xl font-semibold text-ink sm:text-4xl">And government timelines?</h2>
+        <p class="mt-4 leading-relaxed text-ink-soft">
+          They depend on the registry and can change over time. We do not
+          publish waiting times as promises — instead, we tell you exactly what
+          to expect for your registry at the moment you register, and we follow
+          up with the registry every step of the way.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <FinalCta title="Not sure which registry fits? Ask us." />
+</Base>

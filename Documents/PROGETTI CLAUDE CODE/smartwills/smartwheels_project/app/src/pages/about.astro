@@ -1,0 +1,142 @@
+---
+import Base from '../layouts/Base.astro';
+import SectionTag from '../components/ui/SectionTag.astro';
+import Button from '../components/ui/Button.astro';
+import FinalCta from '../components/sections/FinalCta.astro';
+import { LEGAL_ENTITY } from '../lib/site';
+
+const model = [
+  {
+    who: 'SmartWills',
+    role: 'The coordinator',
+    body: 'We guide your decisions, prepare your documents, coordinate every party and follow up with the registry until your will is registered. Your single point of contact, from first call to annual review.',
+  },
+  {
+    who: 'Partner law firm',
+    role: 'The drafting',
+    body: 'Every will is drafted and reviewed by our partner law firm. The professional leading the drafting has more than 10 years of legal experience in the UAE.',
+  },
+  {
+    who: 'Partner translation office',
+    role: 'The certified translation',
+    body: 'The certified Arabic translation comes from our partner office, registered with the UAE Ministry of Justice — then double-checked against the details registries reject most often.',
+  },
+];
+
+const principles = [
+  {
+    title: 'Plain language, always',
+    body: 'If a sentence needs a law degree, we rewrite it. You should understand every document you sign — that is the whole point.',
+  },
+  {
+    title: 'Transparent structure',
+    body: 'Government fees are public and paid directly to the registry. Our service fee is fixed and explained on the first call, before you commit to anything.',
+  },
+  {
+    title: 'Respect for institutions',
+    body: 'Registries and courts do their job well. Our work is to prepare everything properly so the process flows the way it is designed to.',
+  },
+  {
+    title: 'Education first',
+    body: 'We would rather you understand the topic and choose freely — even if that means a DIY route — than sign up confused.',
+  },
+];
+---
+
+<Base
+  title="About SmartWills — UAE Will Specialists for Expats"
+  description="SmartWills is a UAE-based corporate service provider that helps expats register their UAE will, coordinating partner law firms and Ministry-registered translators."
+>
+  <section class="relative overflow-hidden py-20 md:py-28">
+    <div class="pointer-events-none absolute -top-40 right-0 size-[30rem] rounded-full bg-gold/15 blur-3xl"></div>
+    <div class="wrap grid items-center gap-14 lg:grid-cols-2">
+      <div>
+        <div data-reveal><SectionTag label="About SmartWills" /></div>
+        <h1 data-split class="mt-6 font-heading text-[2.7rem] leading-[1.06] font-medium text-ink sm:text-6xl">
+          A specialist team for <em class="not-italic font-semibold text-gold">one document</em> that matters
+        </h1>
+        <p data-reveal class="mt-6 max-w-lg text-lg leading-relaxed text-ink-soft">
+          SmartWills is a UAE-based corporate service provider. We are not a law
+          firm — we are the team that makes the whole process happen: we guide
+          your decisions and coordinate the specialists who draft, translate and
+          register your will.
+        </p>
+        <div data-reveal data-delay="0.15" class="mt-9">
+          <Button placement="about-hero" />
+        </div>
+      </div>
+      <div data-reveal="right" data-delay="0.1" data-parallax-scope>
+        <div data-mask="bl" class="petal-bl overflow-hidden">
+          <img src="/images/resources-marina.jpg" alt="Dubai marina at golden hour" class="aspect-[4/3.2] w-full scale-105 object-cover" data-parallax="5" loading="eager" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The model -->
+  <section class="bg-cream-deep/60 py-20 md:py-28">
+    <div class="wrap">
+      <div class="max-w-2xl">
+        <div data-reveal><SectionTag label="How the work gets done" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          Three parties, <em class="not-italic font-semibold text-gold">one point of contact</em>
+        </h2>
+      </div>
+      <div class="mt-12 grid gap-5 md:grid-cols-3">
+        {
+          model.map((m, i) => (
+            <div data-reveal="scale" data-delay={String(i * 0.08)} class={`card p-8 ${['petal-tl-sm', 'petal-tr-sm', 'petal-br-sm'][i % 3]}`}>
+              <p class="text-xs font-medium uppercase tracking-[0.14em] text-gold-dark">{m.role}</p>
+              <h3 class="mt-2 font-heading text-[1.5rem] font-semibold text-ink">{m.who}</h3>
+              <p class="mt-3 text-[0.95rem] leading-relaxed text-ink-soft">{m.body}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <div data-reveal class="mt-10 grid gap-6 rounded-[2rem] border border-gold/40 bg-white/80 p-8 md:grid-cols-[auto_1fr] md:items-center md:gap-10 md:p-10">
+        <p class="font-heading text-[4.5rem] leading-none font-semibold text-gold-dark">160</p>
+        <p class="max-w-2xl leading-relaxed text-ink-soft">
+          The professional leading the drafting is a <strong class="font-semibold text-ink">DIFC registered draftsman</strong> —
+          an official register that currently counts about 160 professionals in
+          the whole country. Combined with 10+ years of legal experience in the
+          UAE and 500+ expats guided through the process, your will is in
+          specialist hands.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="py-20 md:py-28">
+    <div class="wrap">
+      <div class="max-w-2xl">
+        <div data-reveal><SectionTag label="How we work" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          Four rules we <em class="not-italic font-semibold text-gold">never break</em>
+        </h2>
+      </div>
+      <div class="mt-12 grid gap-5 sm:grid-cols-2">
+        {
+          principles.map((p, i) => (
+            <div data-reveal data-delay={String(i * 0.06)} class="flex gap-5 rounded-[1.5rem] border border-line bg-white/70 p-7">
+              <span class="grid size-10 shrink-0 place-items-center rounded-full bg-gold/20 font-heading text-lg font-semibold text-gold-dark">{i + 1}</span>
+              <div>
+                <h3 class="font-heading text-[1.3rem] font-semibold text-ink">{p.title}</h3>
+                <p class="mt-1.5 text-[0.95rem] leading-relaxed text-ink-soft">{p.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div data-reveal class="mt-12 rounded-[1.75rem] bg-cream-deep/80 p-8 text-center md:p-10">
+        <p class="text-sm leading-relaxed text-ink-soft">
+          <strong class="font-semibold text-ink">{LEGAL_ENTITY}</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <FinalCta title="Talk to the team" />
+</Base>

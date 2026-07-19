@@ -1,0 +1,225 @@
+---
+import Logo from '../ui/Logo.astro';
+import MobileMenu from '../react/MobileMenu';
+import { NAV_LINKS } from '../../lib/site';
+
+const pathname = Astro.url.pathname;
+
+/* Slideshow — first a family (people), then Dubai, then more. Each slide slowly
+   zooms (Ken Burns) and auto-advances every 5s. */
+const slides = [
+  { src: '/images/hero-family.jpg', alt: 'A family walking together at home' },
+  { src: '/images/hero-skyline.jpg', alt: 'Dubai skyline and Burj Khalifa at golden hour' },
+  { src: '/images/resources-marina.jpg', alt: 'Dubai Marina waterfront at sunset' },
+];
+
+const bookUrl =
+  'https://smartwills.ae/book-a-call-3073?utm_source=website&utm_medium=organic&utm_content=navbar';
+---
+
+<section class="px-3 pt-4 pb-2 sm:px-5 md:pt-6 lg:px-8">
+  <!-- One dark shell holds the nav, the copy and the image. Buttons and dots that
+       sit over the image are moulded into the shell with concave fillets. -->
+  <div class="frame relative mx-auto w-full max-w-[112rem] rounded-[2.4rem] bg-ink">
+    <!-- ── Nav (integrated in the shell) ── -->
+    <div class="relative z-30 flex items-center justify-between gap-6 px-6 py-4 md:px-9 md:py-5">
+      <Logo dark />
+
+      <nav class="hidden items-center gap-8 lg:flex" aria-label="Main">
+        {
+          NAV_LINKS.map((link) => (
+            <a href={link.href} class="text-[0.92rem] font-medium text-cream/80 transition-colors hover:text-cream">
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <a
+        href={bookUrl}
+        target="_blank"
+        rel="noopener"
+        class="group hidden items-center gap-3 rounded-full border border-white/25 py-1.5 pl-5 pr-1.5 text-sm font-medium text-cream transition-colors duration-300 hover:border-white/50 lg:inline-flex"
+      >
+        <span>Register now</span>
+        <span class="grid size-8 place-items-center rounded-full bg-gold text-ink transition-transform duration-300 group-hover:translate-x-0.5">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+        </span>
+      </a>
+
+      <div class="lg:hidden">
+        <MobileMenu client:load pathname={pathname} />
+      </div>
+    </div>
+
+    <!-- ── Body: copy (left, on the shell) + image (right) ── -->
+    <div class="grid items-stretch lg:grid-cols-[1fr_1.15fr]">
+      <div class="relative z-20 flex flex-col justify-center gap-7 px-7 pt-4 pb-16 sm:px-10 md:px-14 md:pb-20">
+        <div data-reveal>
+          <span class="inline-flex items-center gap-2.5 rounded-full border border-white/25 px-4 py-2 text-[0.8rem] font-medium text-cream/90">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gold"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            Trusted. Local. Legally coordinated.
+          </span>
+        </div>
+
+        <h1 data-split class="font-heading text-[2.9rem] font-medium leading-[0.95] text-cream sm:text-6xl lg:text-[4.4rem]">
+          Secure your legacy. Protect what matters <em class="not-italic font-semibold text-gold">most.</em>
+        </h1>
+
+        <p data-reveal data-delay="0.15" class="max-w-md text-[1.05rem] leading-relaxed text-cream/70">
+          We help UAE expats register their will from start to finish — drafting,
+          certified translation and government submission coordinated for you,
+          <strong class="font-semibold text-cream">in 2 to 3 hours of your time</strong>.
+        </p>
+
+        <div data-reveal data-delay="0.3" class="mt-3 flex items-center gap-4">
+          <div class="flex -space-x-3">
+            <span class="grid size-10 place-items-center rounded-full border-2 border-ink bg-brown font-heading text-sm font-semibold text-cream">D</span>
+            <span class="grid size-10 place-items-center rounded-full border-2 border-ink bg-gold-dark font-heading text-sm font-semibold text-cream">G</span>
+            <span class="grid size-10 place-items-center rounded-full border-2 border-ink bg-cream font-heading text-sm font-semibold text-ink">S</span>
+          </div>
+          <p class="text-[0.9rem] leading-snug text-cream/70">
+            <strong class="font-semibold text-cream">500+ expat families</strong> trust SmartWills.ae
+          </p>
+        </div>
+      </div>
+
+      <!-- image column -->
+      <div class="relative min-h-[360px] sm:min-h-[440px] lg:min-h-[620px]">
+        <div id="hero-slider" class="petal-bl absolute inset-0 overflow-hidden">
+          {
+            slides.map((s, i) => (
+              <div class:list={['dslide', { 'is-active': i === 0 }]} style={`background-image:url(${s.src})`} role="img" aria-label={s.alt} />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Moulded CTA — bottom-left pocket in the shell, concave joint on its
+         right where it meets the image. ── -->
+    <div class="pocket pocket-cta absolute bottom-0 left-0 z-30">
+      <span class="fx fx-br fx-cta-right"></span>
+      <a
+        href={bookUrl}
+        target="_blank"
+        rel="noopener"
+        class="group inline-flex items-center gap-3 rounded-full bg-gold py-2.5 pl-6 pr-2 text-[0.95rem] font-medium text-ink transition-colors duration-300 hover:bg-gold-dark"
+      >
+        <span>Get started</span>
+        <span class="grid size-9 place-items-center rounded-full bg-ink text-cream transition-transform duration-300 group-hover:translate-x-1">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </span>
+      </a>
+    </div>
+
+    <!-- ── Moulded dots — bottom-right pocket in the shell, concave joint on its
+         top-left where it meets the image. ── -->
+    <div class="pocket pocket-dots absolute right-0 bottom-0 z-30">
+      <span class="fx fx-tl fx-dots-left"></span>
+      <div id="hero-dots" class="flex items-center gap-2.5">
+        {
+          slides.map((_, i) => (
+            <button class:list={['ddot', { 'is-active': i === 0 }]} data-i={i} aria-label={`Show view ${i + 1}`} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Image column bleeds into the shell's rounded corners, and its top-right is
+     carved with a big concave sweep so the dark nav bar (and the Register
+     button) mould into the image instead of just sitting on top of it. */
+  #hero-slider {
+    border-radius: 0 2.4rem 2.4rem 0;
+    --notch: clamp(120px, 15vw, 230px);
+    -webkit-mask: radial-gradient(circle var(--notch) at 100% 0, #0000 calc(var(--notch) - 0.5px), #000 var(--notch));
+    mask: radial-gradient(circle var(--notch) at 100% 0, #0000 calc(var(--notch) - 0.5px), #000 var(--notch));
+  }
+
+  .dslide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1.03);
+    transition: opacity 1.2s ease;
+    will-change: opacity, transform;
+  }
+  .dslide.is-active {
+    opacity: 1;
+    animation: kenburns 6s ease-out forwards;
+  }
+  @keyframes kenburns {
+    from { transform: scale(1.03); }
+    to { transform: scale(1.15); }
+  }
+
+  .ddot {
+    height: 8px;
+    width: 8px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.6);
+    transition: width 0.35s ease, background 0.35s ease;
+  }
+  .ddot.is-active {
+    width: 26px;
+    background: var(--color-gold);
+  }
+
+  /* Moulded pockets: ink tabs that carry a button/dots, joined to the image
+     with a concave fillet so the shell looks moulded around them. */
+  .pocket { background: var(--color-ink); }
+  .pocket-cta { border-top-right-radius: 1.5rem; padding: 0.9rem 1.4rem 0 0; }
+  .pocket-dots { border-top-left-radius: 1.5rem; padding: 0.9rem 1.4rem 0.9rem 1.4rem; }
+
+  /* Concave fillet tiles — ink everywhere except a transparent quarter-disc at
+     the named corner, which shows the image behind. */
+  .fx {
+    --r: 22px;
+    position: absolute;
+    width: var(--r);
+    height: var(--r);
+    pointer-events: none;
+  }
+  .fx-tl { background: radial-gradient(circle var(--r) at top left, transparent calc(var(--r) - 0.5px), var(--color-ink) var(--r)); }
+  .fx-br { background: radial-gradient(circle var(--r) at bottom right, transparent calc(var(--r) - 0.5px), var(--color-ink) var(--r)); }
+  /* CTA pocket: fillet sits just above the pocket's right edge */
+  .fx-cta-right { top: calc(-1 * var(--r)); right: 0; }
+  /* Dots pocket: fillet sits just left of the pocket's top edge */
+  .fx-dots-left { top: 0; left: calc(-1 * var(--r)); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .dslide.is-active { animation: none; }
+  }
+</style>
+
+<script>
+  const root = document.getElementById('hero-slider');
+  const dotsWrap = document.getElementById('hero-dots');
+  if (root && dotsWrap) {
+    const slides = Array.from(root.querySelectorAll<HTMLElement>('.dslide'));
+    const dots = Array.from(dotsWrap.querySelectorAll<HTMLElement>('.ddot'));
+    let index = 0;
+    let timer = 0;
+
+    const show = (n: number) => {
+      index = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle('is-active', k === index));
+      dots.forEach((d, k) => d.classList.toggle('is-active', k === index));
+    };
+    const start = () => { timer = window.setInterval(() => show(index + 1), 5000); };
+    const reset = () => { window.clearInterval(timer); start(); };
+
+    dots.forEach((d) =>
+      d.addEventListener('click', () => {
+        show(Number(d.dataset.i));
+        reset();
+      }),
+    );
+    start();
+  }
+</script>

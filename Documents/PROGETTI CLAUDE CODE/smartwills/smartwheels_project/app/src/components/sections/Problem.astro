@@ -1,0 +1,122 @@
+---
+import SectionTag from '../ui/SectionTag.astro';
+import Button from '../ui/Button.astro';
+import BauhausCluster from '../ui/BauhausCluster.astro';
+import { ADJD_QUOTE } from '../../lib/content';
+
+const rows = [
+  {
+    n: '01',
+    title: 'Your accounts could be frozen',
+    body: 'When a bank is notified of a death, it could freeze the accounts — joint accounts included. Access for rent, school fees and daily expenses could be blocked for weeks or months.',
+  },
+  {
+    n: '02',
+    title: 'A fixed formula decides',
+    body: 'UAE inheritance law applies a default distribution. It might match exactly what you want for your family. It might not. Without a will, the formula decides — not you.',
+  },
+  {
+    n: '03',
+    title: 'Property stays locked',
+    body: 'Property cannot be sold and typically cannot be rented out until the court completes the transfer. Your family keeps the asset on paper — without being able to use it.',
+  },
+  {
+    n: '04',
+    title: 'A court chooses the guardian',
+    body: 'Without a will naming a guardian, UAE courts decide who takes care of your children until they reach the age of majority. Your preference stays unknown.',
+  },
+];
+---
+
+<section class="relative overflow-hidden py-20 md:py-28">
+  <BauhausCluster variant="arch" class="-top-4 -right-14 hidden lg:block" />
+  <BauhausCluster variant="mosaic" class="-bottom-10 -left-12 hidden lg:block" />
+  <div class="relative z-10 wrap">
+    <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+      <!-- sticky intro -->
+      <div class="lg:sticky lg:top-32 lg:self-start">
+        <div data-reveal><SectionTag label="The default outcome" /></div>
+        <h2 data-split class="mt-6 font-heading text-4xl leading-[1.08] font-medium text-ink sm:text-5xl">
+          Without a registered will, the system decides <em class="not-italic font-semibold text-gold">for you</em>
+        </h2>
+        <p data-reveal class="mt-5 text-lg leading-relaxed text-ink-soft">
+          No scare tactics — the UAE system works, and its institutions do their
+          job well. But without your instructions, it works on default
+          assumptions.
+        </p>
+        <div data-reveal data-delay="0.1" class="mt-8">
+          <Button variant="ghost" label="Read the full guide" href="/resources/uae-inheritance-law-without-a-will" placement="home-problem" />
+        </div>
+
+        <div data-mask="tl" class="petal-tl mt-10 hidden overflow-hidden lg:block">
+          <img src="/images/hands-family.jpg" alt="A family arm in arm, watching the sunset together" class="aspect-[4/3] w-full object-cover" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- editorial hairline rows -->
+      <div>
+        {
+          rows.map((row, i) => (
+            <div data-reveal={i % 2 ? 'right' : 'up'} class="group flex gap-7 border-t border-line py-8 transition-colors last:border-b hover:bg-white/40 md:gap-10 md:py-9">
+              <span class="font-heading text-[2.4rem] leading-none font-semibold text-gold/60 transition-colors duration-300 group-hover:text-gold md:text-[2.9rem]">{row.n}</span>
+              <div>
+                <h3 class="font-heading text-[1.55rem] leading-snug font-semibold text-ink md:text-[1.7rem]">{row.title}</h3>
+                <p class="mt-2.5 max-w-lg leading-relaxed text-ink-soft">{row.body}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- government quote — full-width band -->
+    <figure data-reveal class="relative mt-16 overflow-hidden rounded-[2rem] bg-cream-deep py-12 pr-8 pl-10 md:py-16 md:pr-16 md:pl-20">
+      <BauhausCluster variant="duo" class="-top-14 -right-20 hidden origin-top-right scale-[0.55] md:block" />
+      <span class="absolute top-4 left-6 font-heading text-[7rem] leading-none text-gold/50 select-none md:text-[9rem]" aria-hidden="true">“</span>
+      <span class="absolute top-0 bottom-0 left-0 w-2 bg-gold"></span>
+      <blockquote class="relative mx-auto max-w-3xl font-heading text-[1.6rem] leading-snug font-medium text-ink md:text-[2rem]">
+        {ADJD_QUOTE.text}
+      </blockquote>
+      <figcaption class="relative mx-auto mt-5 max-w-3xl text-sm font-medium text-brown">— {ADJD_QUOTE.source}</figcaption>
+      <p class="relative mx-auto mt-4 max-w-3xl text-[0.95rem] leading-relaxed text-ink-soft">
+        This is the published default for non-Muslims. A registered will is how
+        you replace a fixed formula with your own decisions.
+      </p>
+    </figure>
+
+    <!-- two more defaults, asymmetric -->
+    <div class="mt-14 grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+      <div class="space-y-8">
+        <div data-reveal="left" class="flex gap-6">
+          <span class="mt-1 grid size-12 shrink-0 place-items-center rounded-full bg-cream-deep text-brown">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </span>
+          <div>
+            <h3 class="font-heading text-2xl font-semibold text-ink">Your home-country will may not work here</h3>
+            <p class="mt-2 max-w-lg leading-relaxed text-ink-soft">
+              Validation can involve notarisation, attestation, certified Arabic
+              translation and court approval — and could take 6–12 months. One
+              will per jurisdiction is the clean solution.
+            </p>
+          </div>
+        </div>
+        <div data-reveal="left" data-delay="0.1" class="flex gap-6">
+          <span class="mt-1 grid size-12 shrink-0 place-items-center rounded-full bg-cream-deep text-brown">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+          </span>
+          <div>
+            <h3 class="font-heading text-2xl font-semibold text-ink">Not legally married?</h3>
+            <p class="mt-2 max-w-lg leading-relaxed text-ink-soft">
+              Under UAE law, your partner has no automatic legal right to your
+              estate. If you want them protected, it has to be written — a will
+              is the instrument that does it.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div data-mask="br" class="petal-br overflow-hidden">
+        <img src="/images/seal-document.jpg" alt="Signing an official document with a pen" class="aspect-[4/3.4] w-full object-cover" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
