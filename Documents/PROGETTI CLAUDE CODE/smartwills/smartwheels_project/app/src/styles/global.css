@@ -136,9 +136,9 @@ h1, h2, h3, .font-heading {
    the hero frame. ── */
 .page-sheet {
   overflow: clip;
-  /* Full-width elliptical arc: the sheet's bottom edge is one continuous
-     curve, not two rounded corners — same petal language as the hero. */
-  border-radius: 0 0 50% 50% / 0 0 clamp(2.5rem, 7vw, 6rem) clamp(2.5rem, 7vw, 6rem);
+  /* Two generous rounded bottom corners — same moulded-shell radius family
+     as the hero frame. */
+  border-radius: 0 0 clamp(2.5rem, 5vw, 4rem) clamp(2.5rem, 5vw, 4rem);
   box-shadow: 0 26px 60px -18px rgba(26, 22, 18, 0.5);
 }
 
