@@ -5,8 +5,6 @@ import { NAV_LINKS, ctaUrl } from '../../lib/site';
 
 const pathname = Astro.url.pathname;
 
-/* Slideshow behind the portrait area — purple duotone so every photo melts
-   into the panel exactly like the reference portrait. */
 const slides = [
   { src: '/images/hero-family.jpg', alt: 'A family walking together at home' },
   { src: '/images/hero-skyline.jpg', alt: 'Dubai skyline and Burj Khalifa at golden hour' },
@@ -17,16 +15,15 @@ const bookUrl = ctaUrl('navbar');
 ---
 
 <section class="hero-page relative px-2.5 pt-2.5 pb-2.5 sm:px-4 sm:pt-4 sm:pb-4">
-  <!-- ── One dark shell: nav bar on top, purple panel inside, moulded pockets ── -->
-  <div class="relative mx-auto flex w-full max-w-[112rem] flex-col overflow-hidden rounded-[1.9rem] bg-shell p-2.5 sm:p-3" style="min-height: clamp(600px, 94vh, 920px);">
+  <div class="relative mx-auto flex w-full max-w-[112rem] flex-col rounded-[1.9rem] p-2.5 sm:p-3" style="min-height: clamp(600px, 94vh, 920px); background: var(--shell);">
     <!-- ── Top bar: logo left, links centre-right ── -->
-    <div class="relative z-30 flex items-center gap-8 px-3 py-3.5 sm:px-5 lg:pr-56">
-      <Logo dark />
+    <div class="relative z-30 flex h-[76px] items-center gap-8 px-3 sm:px-5 lg:pr-[280px]">
+      <Logo />
 
       <nav class="ml-auto hidden items-center gap-9 lg:flex" aria-label="Main">
         {
           NAV_LINKS.map((link) => (
-            <a href={link.href} class="text-[0.92rem] font-medium text-white/85 transition-colors hover:text-white">
+            <a href={link.href} class="text-[0.92rem] font-medium text-ink/70 transition-colors hover:text-ink">
               {link.label}
             </a>
           ))
@@ -38,32 +35,8 @@ const bookUrl = ctaUrl('navbar');
       </div>
     </div>
 
-    <!-- ── Register Now — light tab moulded into the shell's top-right corner ── -->
-    <div class="tab-register absolute top-0 right-0 z-40 hidden lg:block">
-      <span class="fill fill-tab fill-tab-left"></span>
-      <span class="fill fill-tab fill-tab-below"></span>
-      <a href={ctaUrl('register-now')} class="group flex items-center gap-4 py-5 pr-7 pl-9 text-[0.95rem] font-medium text-white">
-        <span>Register Now</span>
-        <span class="grid size-11 place-items-center rounded-full border border-white/80 transition-transform duration-300 group-hover:rotate-45">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
-        </span>
-      </a>
-    </div>
-
-    <!-- ── Purple panel ── -->
+    <!-- ── Purple panel: copy + dots ── -->
     <div class="hero-panel relative flex-1 overflow-hidden rounded-[1.5rem]">
-      <!-- portrait slideshow, right side, melted into the purple -->
-      <div id="hero-slider" class="absolute inset-0 lg:left-auto lg:right-0 lg:w-[62%] hero-fade">
-        {
-          slides.map((s, i) => (
-            <div class:list={['dslide', { 'is-active': i === 0 }]} style={`background-image:url(${s.src})`} role="img" aria-label={s.alt} />
-          ))
-        }
-      </div>
-      <!-- legibility veil on small screens where the image sits behind the copy -->
-      <span class="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#5551dd]/85 via-[#5551dd]/45 to-transparent lg:hidden"></span>
-
-      <!-- ── Copy ── -->
       <div class="relative z-20 flex h-full max-w-3xl flex-col items-start justify-center gap-8 px-6 pt-14 pb-40 sm:px-12 lg:px-16 lg:pt-10 lg:pb-32">
         <div data-reveal>
           <span class="inline-flex items-center rounded-full border border-white/70 px-6 py-2.5 text-[0.9rem] font-medium text-white">
@@ -85,10 +58,10 @@ const bookUrl = ctaUrl('navbar');
         </div>
       </div>
 
-      <!-- ── Slider dots — dark pocket, bottom-right ── -->
+      <!-- slider dots — light pocket, bottom-right -->
       <div class="pocket-dots absolute right-0 bottom-0 z-20">
-        <span class="fill fill-dark fill-dots-above"></span>
-        <span class="fill fill-dark fill-dots-left"></span>
+        <span class="fill fill-shell fill-dots-above"></span>
+        <span class="fill fill-shell fill-dots-left"></span>
         <div id="hero-dots" class="flex items-center gap-2.5">
           {
             slides.map((_, i) => (
@@ -99,16 +72,47 @@ const bookUrl = ctaUrl('navbar');
       </div>
     </div>
 
-    <!-- ── Lime CTA — moulded into the shell's bottom-left corner ── -->
+    <!-- ── The image: ONE continuous surface. On desktop it rises past the nav
+         bar into the top-right corner, where Register Now sits directly on it. ── -->
+    <div id="hero-slider" class="hero-media absolute z-10 overflow-hidden">
+      {
+        slides.map((s, i) => (
+          <div class:list={['dslide', { 'is-active': i === 0 }]} style={`background-image:url(${s.src})`} role="img" aria-label={s.alt} />
+        ))
+      }
+      <!-- legibility veil where copy sits over the image on small screens -->
+      <span class="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/40 to-ink/10 lg:hidden"></span>
+      <!-- soft scrim in the Register corner so the label stays readable -->
+      <span class="tab-scrim pointer-events-none absolute top-0 right-0 hidden lg:block"></span>
+    </div>
+
+    <!-- ── Cream cover: hides the image strip left of the Register corner and
+         moulds the notch, so the image reads as continuous under the button ── -->
+    <div class="hero-cover absolute top-0 left-0 z-20 hidden lg:block">
+      <span class="cove cove-tabtop"></span>
+    </div>
+
+    <!-- ── Register Now — resting ON the image, same background, no separation ── -->
+    <a
+      href={ctaUrl('register-now')}
+      class="group absolute top-0 right-0 z-40 hidden h-[88px] w-[250px] items-center justify-center gap-4 text-[0.95rem] font-medium text-white lg:flex"
+    >
+      <span>Register Now</span>
+      <span class="grid size-11 place-items-center rounded-full border border-white/80 transition-transform duration-300 group-hover:rotate-45">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+      </span>
+    </a>
+
+    <!-- ── Lime CTA — moulded into the bottom-left corner ── -->
     <div class="pocket-cta absolute bottom-0 left-0 z-30 w-full max-w-[46rem] pr-8 sm:w-[62%] lg:w-[44%]">
-      <span class="fill fill-dark fill-cta-above"></span>
-      <span class="fill fill-dark fill-cta-right"></span>
+      <span class="fill fill-shell fill-cta-above"></span>
+      <span class="fill fill-shell fill-cta-right"></span>
       <a
         href={bookUrl}
-        class="group flex w-full items-center justify-between gap-4 rounded-[1.4rem] bg-lime py-4 pl-7 pr-4 text-[1.15rem] font-semibold text-shell transition-colors duration-300 hover:bg-[#e6ff70] sm:py-5 sm:pl-9 sm:text-[1.4rem]"
+        class="group flex w-full items-center justify-between gap-4 rounded-[1.4rem] bg-lime py-4 pl-7 pr-4 text-[1.15rem] font-semibold text-ink transition-colors duration-300 hover:bg-[#e6ff70] sm:py-5 sm:pl-9 sm:text-[1.4rem]"
       >
         <span>Book a Free Call</span>
-        <span class="grid size-12 shrink-0 place-items-center rounded-full border-[1.5px] border-shell transition-transform duration-300 group-hover:rotate-45 sm:size-14">
+        <span class="grid size-12 shrink-0 place-items-center rounded-full border-[1.5px] border-ink transition-transform duration-300 group-hover:rotate-45 sm:size-14">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
         </span>
       </a>
@@ -117,41 +121,48 @@ const bookUrl = ctaUrl('navbar');
 </section>
 
 <style>
-  /* Reference palette — scoped to the hero */
   .hero-page {
-    --shell: #141318;
+    /* the frame shares the site's background, so the purple panel floats on it */
+    --shell: var(--color-cream);
     --purple: #5551dd;
     --purple-glow: #8f83f0;
     --lime: #d6f651;
-    --tab: #8b80ef;
+    --pad: 0.625rem;
+    --navh: 76px;
+    --tabw: 250px;
+  }
+  @media (min-width: 640px) {
+    .hero-page { --pad: 0.75rem; }
   }
   .hero-h1 {
     font-family: var(--font-body);
     letter-spacing: -0.02em;
   }
-  .bg-shell { background: var(--shell); }
-  .text-shell { color: var(--shell); }
   .bg-lime { background: var(--lime); }
 
-  /* Purple panel: flat indigo with a soft lighter halo behind the portrait */
   .hero-panel {
     background:
       radial-gradient(55rem 42rem at 68% 42%, var(--purple-glow) 0%, var(--purple) 55%, #4d49d0 100%);
   }
 
-  /* Slides: purple duotone (grayscale + luminosity blend picks up the panel
-     hue) so any photo melts into the background like the reference portrait */
-  .hero-fade {
-    /* the mask isolates blending, so the slider carries its own purple
-       backdrop for the luminosity duotone to tint against */
-    background: radial-gradient(55rem 42rem at 48% 42%, var(--purple-glow) 0%, var(--purple) 55%, #4d49d0 100%);
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%);
-    mask-image: linear-gradient(to right, transparent 0%, #000 26%);
+  /* ── The continuous image surface ── */
+  .hero-media {
+    left: var(--pad);
+    right: var(--pad);
+    top: calc(var(--pad) + var(--navh));
+    bottom: var(--pad);
+    border-radius: 1.5rem;
   }
-  @media (max-width: 1023px) {
-    .hero-fade {
-      -webkit-mask-image: none;
-      mask-image: none;
+  @media (min-width: 1024px) {
+    .hero-media {
+      left: auto;
+      width: 62%;
+      top: var(--pad);
+      border-radius: 1.5rem;
+      border-top-right-radius: 1.6rem;
+      /* fade the left edge into the purple panel */
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 26%);
+      mask-image: linear-gradient(to right, transparent 0%, #000 26%);
     }
   }
   .dslide {
@@ -159,27 +170,52 @@ const bookUrl = ctaUrl('navbar');
     inset: 0;
     background-size: cover;
     background-position: center;
-    filter: grayscale(1) contrast(1.18) brightness(0.72);
-    mix-blend-mode: luminosity;
     opacity: 0;
     transition: opacity 1.2s ease;
     will-change: opacity;
   }
   .dslide.is-active { opacity: 1; }
 
+  .tab-scrim {
+    width: calc(var(--tabw) + 2rem);
+    height: calc(var(--navh) + 2rem);
+    background: radial-gradient(120% 120% at 85% 0%, rgba(20, 19, 24, 0.45) 0%, rgba(20, 19, 24, 0.18) 55%, transparent 100%);
+  }
+
+  /* ── Cream cover shaping the notch left of Register Now ── */
+  .hero-cover {
+    right: calc(var(--pad) + var(--tabw));
+    height: calc(var(--pad) + var(--navh));
+    background: var(--shell);
+    border-bottom-right-radius: 1.75rem;
+  }
+  .cove {
+    --r: 24px;
+    position: absolute;
+    width: var(--r);
+    height: var(--r);
+    pointer-events: none;
+  }
+  /* rounds the image's top-left corner where it rises beside the nav bar */
+  .cove-tabtop {
+    top: var(--pad);
+    right: calc(-1 * var(--r));
+    background: radial-gradient(circle var(--r) at 100% 100%, transparent calc(var(--r) - 0.5px), var(--shell) var(--r));
+  }
+
   .ddot {
     height: 9px;
     width: 9px;
     border-radius: 9999px;
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(85, 81, 221, 0.35);
     transition: width 0.35s ease, background 0.35s ease;
   }
   .ddot.is-active {
     width: 30px;
-    background: #fff;
+    background: var(--purple);
   }
 
-  /* ── Moulded pockets & tab — concave fillets, same language as the reference ── */
+  /* ── Moulded pockets — concave fillets in the page colour ── */
   .fill {
     --r: 24px;
     position: absolute;
@@ -187,8 +223,7 @@ const bookUrl = ctaUrl('navbar');
     height: var(--r);
     pointer-events: none;
   }
-  /* dark fillets: concave arc facing the purple panel */
-  .fill-dark { background: radial-gradient(circle var(--r) at 100% 0, transparent calc(var(--r) - 0.5px), var(--shell) var(--r)); }
+  .fill-shell { background: radial-gradient(circle var(--r) at 100% 0, transparent calc(var(--r) - 0.5px), var(--shell) var(--r)); }
   .fill-dots-above { top: calc(-1 * var(--r)); right: 0; transform: scaleX(-1); }
   .fill-dots-left { bottom: 0; left: calc(-1 * var(--r)); transform: scaleX(-1); }
   .fill-cta-above { top: calc(-1 * var(--r)); left: 0; }
@@ -196,18 +231,6 @@ const bookUrl = ctaUrl('navbar');
 
   .pocket-cta { background: var(--shell); border-top-right-radius: 1.6rem; padding: 0.8rem 2rem 0.65rem 0.65rem; }
   .pocket-dots { background: var(--shell); border-top-left-radius: 1.3rem; padding: 1rem 1.1rem 0.9rem 1.3rem; }
-
-  /* Register tab: light periwinkle corner with concave joins into the dark bar */
-  /* Same backdrop as the image panel: the glow continues into the corner, so
-     the tab reads as the panel bulging up around the button — not a separate chip */
-  .tab-register {
-    background: linear-gradient(205deg, #978cf3 0%, var(--tab) 60%, #8177ec 100%);
-    border-top-right-radius: 1.9rem;
-    border-bottom-left-radius: 1.6rem;
-  }
-  .fill-tab { background: radial-gradient(circle var(--r) at 0 100%, transparent calc(var(--r) - 0.5px), var(--tab) var(--r)); }
-  .fill-tab-left { top: 0; left: calc(-1 * var(--r)); }
-  .fill-tab-below { top: 100%; right: 0; }
 
   @media (prefers-reduced-motion: reduce) {
     .dslide { transition: none; }
