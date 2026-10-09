@@ -37,7 +37,7 @@ export function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyModalProps)
         },
         {
           title: "Contact Us",
-          content: "If you have any questions about this Privacy Policy, please contact us at info.animaent@gmail.com or +39 338 904 0714."
+          content: "If you have any questions about this Privacy Policy, please contact us at info.animaent@gmail.com or +39 328 645 1177."
         }
       ]
     },
@@ -63,7 +63,7 @@ export function PrivacyPolicyModal({ isOpen, onClose }: PrivacyPolicyModalProps)
         },
         {
           title: "Contattaci",
-          content: "Se hai domande su questa Informativa sulla Privacy, contattaci a info.animaent@gmail.com o +39 338 904 0714."
+          content: "Se hai domande su questa Informativa sulla Privacy, contattaci a info.animaent@gmail.com o +39 328 645 1177."
         }
       ]
     }

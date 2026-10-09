@@ -107,8 +107,8 @@ export function SiteFooter() {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone size={16} className="text-primary" />
-                <a href="https://wa.me/393389040714" className="text-white/60 hover:text-white transition-colors">
-                  +39 338 904 0714
+                <a href="https://wa.me/393286451177" className="text-white/60 hover:text-white transition-colors">
+                  +39 328 645 1177
                 </a>
               </div>
               <div className="flex items-center space-x-3">

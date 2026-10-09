@@ -42,7 +42,7 @@ const STATIC_SETTINGS: Record<string, string> = {
   telegram_url: "https://t.me/UNTILTHESUNRISES",
   spotify_playlist_url: "https://open.spotify.com/playlist/5WpQ7y1j9EhRMQlMKPJqSx?si=aa8b855a6bdc432e",
   spotify_embed_url: "https://open.spotify.com/embed/playlist/5WpQ7y1j9EhRMQlMKPJqSx?utm_source=generator",
-  whatsapp_url: "https://wa.me/393389040714",
+  whatsapp_url: "https://wa.me/393286451177",
   email: "info.animaent@gmail.com",
   instagram_url: "https://www.instagram.com/anima.ent",
   google_maps_url: "https://www.google.com/maps/place/HBTOO/@40.8011031,14.1726738,17z/data=!3m1!4b1!4m6!3m5!1s0x133b0c1e75bca2d7:0xe08e8f4f3a917d24",
